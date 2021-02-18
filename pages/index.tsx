@@ -3,50 +3,45 @@ import Link from 'next/link';
 import {socialMedias, SocialMediaImage} from '../components/SocialMediaIcons';
 import * as R from 'ramda';
 
-const links: (
-	{
-		label: string,
-		url: string,
-	} &
-	(
-		{
-			image: typeof socialMedias[number]
-			name?: 'email',
-		} |
-		{
-			image?: typeof socialMedias[number],
-			name: 'email',
-		}
-	)
-)[] = [
+const links: {
+	label: string,
+	url: string,
+	className: string,
+	image?: typeof socialMedias[number]
+}[] = [
 	{
 		label: 'Facebook',
 		url: 'https://www.facebook.com/mamboyoutube/',
+		className: 'from-facebook-dark to-facebook-light',
 		image: 'facebook',
 	},
 	{
 		label: 'Twitter',
 		url: 'https://twitter.com/maxxxxxdlp1/',
+		className: 'from-twitter-dark to-twitter-light',
 		image: 'twitter',
 	},
 	{
 		label: 'Instagram',
 		url: 'https://www.instagram.com/mambo_youtube/',
+		className: 'from-instagram-dark to-instagram-light',
 		image: 'instagram',
 	},
 	{
 		label: 'maksym.patiiuk@ku.edu',
 		url: 'mailto:maksym.patiiuk@ku.edu',
-		name: 'email',
+		className: 'from-email-dark to-email-light',
 	},
 	{
 		label: 'LinkedIn',
 		url: 'https://www.linkedin.com/in/maksym-patiiuk/',
+		className: 'from-linked_in-dark to-linked_in-light',
 		image: 'linked_in',
 	},
 	{
 		label: 'Steam',
 		url: 'https://steamcommunity.com/id/maxxxxxdlp/',
+		className: 'from-steam-dark to-steam-light',
 		image: 'steam',
 	}
 ];
@@ -60,17 +55,17 @@ export default function index() {
 			R.map(({
 				label,
 				url,
+				className,
 				image,
-				name,
 			})=>
 				<Link href={url} key={label}>
 					<a
 						target="_blank"
 						className={`relative flex justify-center items-center
-							p-20 bg-gradient-to-tr from-${image||name}-dark
-							to-${image||name}-light hover:bg-gradient-to-bl
-							text-white hover:p-24 motion-safe:transition-all
-							focus:text-gray-200 duration-200 group`}
+							p-20 bg-gradient-to-tr ${className}
+							hover:bg-gradient-to-bl text-white hover:p-24
+							motion-safe:transition-all focus:text-gray-200
+							duration-200 group`}
 					>
 						{
 							image &&
