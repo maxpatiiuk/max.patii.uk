@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+.next
+.idea
+package-lock.json
+.env*.local
