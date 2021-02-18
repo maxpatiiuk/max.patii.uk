@@ -14,7 +14,7 @@ const siteInfo: LanguageStringsStructure<{
 		description: strip(`MAMBO.IN.UA - Maksym Patiiuk's personal
 			blog`),
 		keywords: strip(`Maksym Patiiuk, Maksym Patiiuk blog,
-			Maksym Patiiuk CV, Max Patiiuk, Maksym Patiiuk portfolio
+			Maksym Patiiuk CV, Max Patiiuk, Maksym Patiiuk portfolio,
 			mambo shop, mambo, В гостях у MAMBO, мамбо,
 			mambo experimental, Максим Патіюк`),
 		author: 'Maksym Patiiuk',
