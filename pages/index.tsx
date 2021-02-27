@@ -48,7 +48,7 @@ const links: {
 
 export default function index() {
 	return <Layout>{
-		() => <div
+		() => <header
 			className={`grid grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-rows-3
 				lg:grid-cols-3 lg:grid-rows-2 lg:h-screen`}
 		>{
@@ -61,6 +61,7 @@ export default function index() {
 				<Link href={url} key={label}>
 					<a
 						target="_blank"
+						rel="noopener"
 						className={`relative flex justify-center items-center
 							p-20 bg-gradient-to-tr ${className}
 							hover:bg-gradient-to-bl text-white hover:p-24
@@ -81,6 +82,6 @@ export default function index() {
 					</a>
 				</Link>
 			,links)
-		}</div>
+		}</header>
 	}</Layout>;
 }
