@@ -1,9 +1,9 @@
 import { LanguageStringsStructure } from '../lib/languages';
 
 export const commonStrings: LanguageStringsStructure<{
-	returnToHomePage: string,
+  returnToHomePage: string,
 }> = {
-	'en-US': {
-		returnToHomePage: '← Return to homepage',
-	},
+  'en-US': {
+    returnToHomePage: '← Return to homepage',
+  },
 };

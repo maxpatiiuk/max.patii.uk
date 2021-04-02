@@ -3,16 +3,16 @@ import React               from 'react';
 import { NextPageContext } from 'next';
 
 const error = ({statusCode}: {statusCode: number}) =>
-	<ErrorPage errorCode={statusCode} />;
+  <ErrorPage errorCode={statusCode} />;
 
 error.getInitialProps = ({res, err}: NextPageContext) => (
-	{
-		statusCode: res ?
-			res.statusCode :
-			err ?
-				err.statusCode :
-				404,
-	}
+  {
+    statusCode: res ?
+      res.statusCode :
+      err ?
+        err.statusCode :
+        404,
+  }
 );
 
 export default error;
