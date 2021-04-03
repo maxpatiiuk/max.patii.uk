@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import {
   gameOverState,
   MainState, ShapeLocation,
@@ -88,13 +87,14 @@ const removeCompletedRows = (
     {
       ...state,
       // Yes! Score growth exponentially!
+      // Though, speed increases as the score grows...
       score: state.score + SCORE_MULTIPLIER*2^(rowsToRemove.length-1),
       board: [
         ...Array(rowsToRemove.length).fill(
           Array(BOARD_X).fill('_'),
         ),
-        state.board.filter((_,index)=>
-          index
+        ...state.board.filter((_,index)=>
+          rowsToRemove.indexOf(index) === -1
         )
       ]
     }

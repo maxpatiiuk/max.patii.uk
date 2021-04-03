@@ -11,7 +11,10 @@ import {
   getInitialState,
   stateReducer,
 } from '../../components/projects/tetris/stateReducer';
-import { SPEED } from '../../const/projects/tetris/config';
+import {
+  INITIAL_SPEED,
+  SCORE_MULTIPLIER,
+} from '../../const/projects/tetris/config';
 import { LanguageStringsStructure } from '../../lib/languages';
 import { DIRECTION } from '../../lib/projects/tetris/definitions';
 
@@ -90,11 +93,15 @@ export default function Tetris() {
       });
     };
     callback();
-    const interval = setInterval(callback, SPEED);
+    const interval = setInterval(
+      callback,
+      // speed grows logarithmically
+      INITIAL_SPEED/Math.log(3+state.score/SCORE_MULTIPLIER)
+    );
     return ()=>
       clearInterval(interval);
 
-  },[state.type]);
+  },[state.type, state.score]);
 
   return <Layout
     title={languageStrings}
