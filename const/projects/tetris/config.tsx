@@ -15,8 +15,12 @@ export const SPEED = 1000;
 
 // shapes to use in the game, their colors and definitions
 export const SHAPES: Readonly<Record<string, {
+  // what color to use for the shape
   color: string,
-  definition: ReadonlyArray<ReadonlyArray<'0' | '1'>>
+  // how does this shape look
+  definition: ReadonlyArray<ReadonlyArray<'0' | '1'>>,
+  // whether this shape can be randomly selected
+  spawn: boolean,
 }>> = {
   I: {
     color: '#0ff',  // Cyan
@@ -26,6 +30,7 @@ export const SHAPES: Readonly<Record<string, {
       ['1'],
       ['1'],
     ],
+    spawn: true,
   },
   O: {
     color: '#ff0',  // Yellow
@@ -33,6 +38,7 @@ export const SHAPES: Readonly<Record<string, {
       ['1', '1'],
       ['1', '1'],
     ],
+    spawn: true,
   },
   T: {
     color: '#f0f',  // Purple
@@ -41,6 +47,7 @@ export const SHAPES: Readonly<Record<string, {
       ['1', '1'],
       ['1', '0'],
     ],
+    spawn: true,
   },
   S: {
     color: '#0f0',  // Green
@@ -48,6 +55,7 @@ export const SHAPES: Readonly<Record<string, {
       ['0', '1', '1'],
       ['1', '1', '0'],
     ],
+    spawn: true,
   },
   J: {
     color: '#00f',  // Blue
@@ -55,6 +63,7 @@ export const SHAPES: Readonly<Record<string, {
       ['1', '0', '0'],
       ['1', '1', '1'],
     ],
+    spawn: true,
   },
   Z: {
     color: '#f00',  // Red
@@ -62,6 +71,7 @@ export const SHAPES: Readonly<Record<string, {
       ['1', '1', '0'],
       ['0', '1', '1'],
     ],
+    spawn: true,
   },
   L: {
     color: '#ffa500',  // Orange
@@ -70,9 +80,11 @@ export const SHAPES: Readonly<Record<string, {
       ['1', '0'],
       ['1', '1'],
     ],
+    spawn: true,
   },
   _: {  // Empty Cell
     color: '#000', // Black
     definition: [],
+    spawn: false,
   },
 } as const;

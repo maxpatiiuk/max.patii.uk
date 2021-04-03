@@ -1,12 +1,11 @@
 /*
 *
 * Main Tetris Game's component
-* Entrypoint for the view
 *
 * */
 
 import React from 'react';
-import LanguageContext from '../../components/LanguageContext';
+import Layout from '../../components/Layout';
 import { reducer } from '../../components/projects/tetris/reducer';
 import {
   getInitialState,
@@ -17,6 +16,7 @@ import { LanguageStringsStructure } from '../../lib/languages';
 import { DIRECTION } from '../../lib/projects/tetris/definitions';
 
 export const languageStrings: LanguageStringsStructure<{
+  title: string,
   paused: string,
   press_key_to_resume: (key: JSX.Element) => JSX.Element,
   instructions: string,
@@ -27,10 +27,11 @@ export const languageStrings: LanguageStringsStructure<{
   playAgain: string,
 }> = {
   'en-US': {
+    title: 'Tetris ',
     paused: 'Game is paused',
     press_key_to_resume: (key) => <>Press {key} to resume</>,
     instructions: 'Control the game using WSAD or arrow keys. Pause using ' +
-      'the ESC key. Rotate using the R key',
+      'the ESC key',
     score: 'Score: ',
     gameOver: 'Game Over!',
     yourScore: 'Your score was: ',
@@ -58,7 +59,6 @@ export default function Tetris() {
       'S': DIRECTION.DOWN,
       'A': DIRECTION.LEFT,
       'D': DIRECTION.RIGHT,
-      'R': DIRECTION.ROTATE,
     };
 
     const keyName = event.key[0].toUpperCase() + event.key.substr(1);
@@ -105,10 +105,12 @@ export default function Tetris() {
 
   }, [state.type]);
 
-  return <LanguageContext.Consumer>{
+  return <Layout
+    title={languageStrings}
+  >{
     (language) => <div
       className='bg-black w-screen h-screen flex justify-center items-center
-        text-white'
+          text-white'
       tabIndex={0}
       onKeyDown={state.type === 'MainState' ?
         captureKeyDown :
@@ -126,6 +128,6 @@ export default function Tetris() {
         },
       )
     }</div>
-  }</LanguageContext.Consumer>;
+  }</Layout>;
 
 }

@@ -3,14 +3,44 @@ import React                  from 'react';
 import LanguageContext        from './LanguageContext';
 import siteInfo               from '../const/siteInfo';
 import { robots, themeColor } from '../const/siteConfig';
-import { AvailableLanguages } from '../lib/languages';
+import { AvailableLanguages, LanguageStringsStructure } from '../lib/languages';
+
+function extractTitle(
+  language: AvailableLanguages['type'],
+  title:
+    string
+    | LanguageStringsStructure<{
+      title: string,
+    }>
+    | ((string:AvailableLanguages['type'])=>string),
+): string {
+
+  if (title === '')
+    return siteInfo[language].title;
+
+  const titleString = typeof title === 'object' ?
+    title[language].title :
+    typeof title === 'function' ?
+      title(language) :
+      title;
+
+  return titleString.substr(-1) === ' ' ?
+    `${titleString}- ${siteInfo[language].title}` :
+    titleString;
+}
+
 
 const Layout = ({
-  title,
+  title = '',
   children,
   private_page = false,
 }: {
-  title?: string,
+  title?:
+    string
+    | LanguageStringsStructure<{
+      title: string,
+    }>
+    | ((string:AvailableLanguages['type'])=>string),
   children: (language: AvailableLanguages['type']) => React.ReactNode,
   private_page?: boolean
 }) =>
@@ -18,13 +48,7 @@ const Layout = ({
     {(language) =>
       <>
         <Head>
-          <title>{
-            typeof title === 'undefined' ?
-              siteInfo[language].title :
-              title.substr(-1) === ' ' ?
-                `${title}- ${siteInfo[language].title}` :
-                title
-          }</title>
+          <title>{extractTitle(language, title)}</title>
           <link rel='icon' href='/favicon.ico' />
           <meta name='robots' content={
             private_page ? 'noindex,nofollow' : robots
