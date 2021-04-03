@@ -57,7 +57,30 @@ export default function Tetris() {
     getInitialState,
   );
 
-  function captureKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+  React.useEffect(()=>{
+
+    if(state.type !== 'MainState')
+      return;
+
+    const callback = ()=>{
+      dispatch({
+        type: 'GravityAction',
+        // Need to give a seed here, since the reducer is pure
+        seed: Math.floor(Math.random() * 100),
+      });
+    };
+    callback();
+    const interval = setInterval(
+      callback,
+      // speed grows logarithmically
+      INITIAL_SPEED/Math.log(3+state.score/SCORE_MULTIPLIER)
+    );
+    return ()=>
+      clearInterval(interval);
+
+  },[state.type, state.score]);
+
+  function captureKeyDown(event: KeyboardEvent) {
 
     const keys: Record<string, DIRECTION> = {
       'ArrowUp': DIRECTION.UP,
@@ -85,27 +108,13 @@ export default function Tetris() {
   }
 
   React.useEffect(()=>{
-
     if(state.type !== 'MainState')
       return;
 
-    const callback = ()=>{
-      dispatch({
-        type: 'GravityAction',
-        // Need to give a seed here, since the reducer is pure
-        seed: Math.floor(Math.random() * 100),
-      });
-    };
-    callback();
-    const interval = setInterval(
-      callback,
-      // speed grows logarithmically
-      INITIAL_SPEED/Math.log(3+state.score/SCORE_MULTIPLIER)
-    );
+    document.addEventListener('keydown', captureKeyDown);
     return ()=>
-      clearInterval(interval);
-
-  },[state.type, state.score]);
+      document.removeEventListener('keydown',captureKeyDown)
+  },[state.type]);
 
   return <Layout
     title={languageStrings}
@@ -113,11 +122,6 @@ export default function Tetris() {
     (language) => <div
       className='bg-black w-screen h-screen flex justify-center items-center
           text-white'
-      tabIndex={0}
-      onKeyDown={state.type === 'MainState' ?
-        captureKeyDown :
-        undefined
-      }
     >{
       stateReducer(
         <></>,
