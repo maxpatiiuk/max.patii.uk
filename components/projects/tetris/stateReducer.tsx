@@ -110,7 +110,13 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
         <span className='text-4xl'>
           {languageStrings[parameters.language].score} {state.score}
         </span>
-        {/* TODO: show next shape here*/}
+        <br />
+        {
+          state.nextShape !== '_' &&
+          <span className={'text 4xl pt-2'}>
+            {languageStrings[parameters.language].nextShape} {state.nextShape}
+          </span>
+        }
       </div>
     </div>;
   },
