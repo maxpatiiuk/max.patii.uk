@@ -29,6 +29,8 @@ export const languageStrings: LanguageStringsStructure<{
   yourBestScore: string,
   playAgain: string,
   nextShape: string,
+  saveGame: string,
+  loadGame: string,
 }> = {
   'en-US': {
     title: 'Tetris ',
@@ -41,7 +43,9 @@ export const languageStrings: LanguageStringsStructure<{
     yourScore: 'Your score was: ',
     yourBestScore: 'Your best score is: ',
     playAgain: 'Play again?',
-    nextShape: 'Next Shape: '
+    nextShape: 'Next Shape: ',
+    saveGame: 'Save game',
+    loadGame: 'Load game',
   },
 };
 
