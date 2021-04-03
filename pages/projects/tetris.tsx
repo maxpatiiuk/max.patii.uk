@@ -48,6 +48,14 @@ export default function Tetris() {
 
   },[state.type, state.score]);
 
+  React.useEffect(()=>{
+    if(localStorage.getItem('highScore') !== null)
+      dispatch({
+        type: 'LoadHighScoreAction',
+        highScore: localStorage.getItem('highScore'),
+      });
+  },[]);
+
   function captureKeyDown(event: KeyboardEvent) {
 
     const keys: Record<string, DIRECTION> = {

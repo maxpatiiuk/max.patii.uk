@@ -30,13 +30,16 @@ type SaveGameAction = Action<'SaveGameAction'>;
 
 type LoadGameAction = Action<'LoadGameAction'>;
 
+type LoadHighScoreAction = Action<'LoadHighScoreAction'>;
+
 export type Actions =
   MoveAction
   | RestartGameAction
   | TogglePauseGame
   | GravityAction
   | SaveGameAction
-  | LoadGameAction;
+  | LoadGameAction
+  | LoadHighScoreAction;
 
 
 export const reducer = generateReducer<States, Actions>({
@@ -108,4 +111,8 @@ export const reducer = generateReducer<States, Actions>({
   'LoadGameAction': ({state}) => localStorage.getItem('state') ?
     JSON.parse(localStorage.getItem('state')!) :
     state,
+  'LoadHighScoreAction': ({state, action: {highScore})=>({
+    ...state,
+    bestScore: highScore
+  }),
 });
