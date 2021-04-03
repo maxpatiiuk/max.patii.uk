@@ -18,18 +18,19 @@ import { DIRECTION } from '../../lib/projects/tetris/definitions';
 export const languageStrings: LanguageStringsStructure<{
   title: string,
   paused: string,
-  press_key_to_resume: (key: JSX.Element) => JSX.Element,
+  pressKeyToResume: (key: JSX.Element) => JSX.Element,
   instructions: string,
   score: string,
   gameOver: string,
   yourScore: string,
   yourBestScore: string,
   playAgain: string,
+  nextShape: string,
 }> = {
   'en-US': {
     title: 'Tetris ',
     paused: 'Game is paused',
-    press_key_to_resume: (key) => <>Press {key} to resume</>,
+    pressKeyToResume: (key) => <>Press {key} to resume</>,
     instructions: 'Control the game using WSAD or arrow keys. Pause using ' +
       'the ESC key',
     score: 'Score: ',
@@ -37,6 +38,7 @@ export const languageStrings: LanguageStringsStructure<{
     yourScore: 'Your score was: ',
     yourBestScore: 'Your best score is: ',
     playAgain: 'Play again?',
+    nextShape: 'Next Shape: '
   },
 };
 

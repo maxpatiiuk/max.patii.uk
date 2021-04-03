@@ -34,6 +34,7 @@ export function spawnNewShape(
 
   let currentShapeLocation: MainState['currentShapeLocation'] = {};
 
+  // probably the most impure function in this entire game
   function updateCurrentShape(rowIndex: number, cellIndex: number) {
 
     if (!currentShapeLocation)
@@ -65,30 +66,30 @@ export function spawnNewShape(
   };
 }
 
-export function moveShapeOnTheBoard(
+export function updateBoard(
   state: MainState,
-  direction: DIRECTION,
-  multiplier: number = 1,
+  newShapeLocation: MainState['currentShapeLocation'],
 ): MainState {
-  let currentShapeLocation: MainState['currentShapeLocation'] =
-    state.currentShapeLocation;
-  const newShapeLocation = moveShape(
-    state.currentShapeLocation,
-    direction,
-    multiplier,
-  );
+  if(
+    flattenShape(newShapeLocation).some(([,x])=>
+      x<0 || x>=BOARD_X
+    )
+  )
+    return state;
 
   //TODO: figure out rotation
   //TODO: forbid going beyond the page
 
   return (
-    Object.keys(newShapeLocation).some(rowIndex =>
-      parseInt(rowIndex) >= BOARD_Y,
+    // shape is at the bottom
+    flattenShape(newShapeLocation).some(([y])=>
+      y>=BOARD_Y,
     ) ||
+    // shape overlaps with another shape
     state.board.some((row, rowIndex) =>
       row.some((cell, cellIndex) =>
         newShapeLocation[rowIndex]?.[cellIndex] &&
-        !currentShapeLocation[rowIndex]?.[cellIndex] &&
+        !state.currentShapeLocation[rowIndex]?.[cellIndex] &&
         cell !== '_',
       ),
     )
@@ -101,11 +102,12 @@ export function moveShapeOnTheBoard(
     // move shape down
     {
       ...state,
+      currentShapeLocation: newShapeLocation,
       board: state.board.map((row, rowIndex) =>
         row.map((cell, cellIndex) =>
           newShapeLocation[rowIndex]?.[cellIndex] ?
             state.currentShape :
-            currentShapeLocation[rowIndex]?.[cellIndex] ?
+            state.currentShapeLocation[rowIndex]?.[cellIndex] ?
               '_' :
               cell,
         )
