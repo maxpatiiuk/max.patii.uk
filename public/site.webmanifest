@@ -35,6 +35,6 @@
     ],
     "theme_color": "#001122",
     "background_color": "#001122",
-    "start_url": "http://localhost:3000/",
+    "start_url": "https://mambo.in.ua",
     "display": "standalone"
 }
