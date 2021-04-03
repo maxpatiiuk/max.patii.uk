@@ -9,10 +9,12 @@ import {
   BOARD_Y,
   SHAPES,
 } from '../../../const/projects/tetris/config';
-import { AvailableLanguages } from '../../../lib/languages';
+import {
+  AvailableLanguages,
+  LanguageStringsStructure,
+} from '../../../lib/languages';
 import { generateReducer, State } from '../../../lib/stateManagement';
-import { languageStrings } from '../../../pages/projects/tetris';
-import { Cell } from './components';
+import { Cell, fancyButtonStyles } from './components';
 import { Actions } from './reducer';
 
 type GameOverState = State<'GameOverState'> & {
@@ -74,8 +76,36 @@ type StatesWithParameters = States & {
   }
 };
 
-const fancyButtonStyles = 'bg-white hover:bg-gray-600 mt-6 p-5 text-black' +
-  ' disabled:bg-gray-400 disabled:cursor-not-allowed';
+export const languageStrings: LanguageStringsStructure<{
+  title: string,
+  paused: string,
+  pressKeyToResume: (key: JSX.Element) => JSX.Element,
+  instructions: string,
+  score: string,
+  gameOver: string,
+  yourScore: string,
+  yourBestScore: string,
+  playAgain: string,
+  nextShape: string,
+  saveGame: string,
+  loadGame: string,
+}> = {
+  'en-US': {
+    title: 'Tetris ',
+    paused: 'Game is paused',
+    pressKeyToResume: (key) => <>Press {key} to resume</>,
+    instructions: 'Control the game using WSAD or arrow keys. Pause using ' +
+      'the ESC key',
+    score: 'Score: ',
+    gameOver: 'Game Over!',
+    yourScore: 'Your score was: ',
+    yourBestScore: 'Your best score is: ',
+    playAgain: 'Play again?',
+    nextShape: 'Next Shape: ',
+    saveGame: 'Save game',
+    loadGame: 'Load game',
+  },
+};
 
 export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
   'MainState': ({action: {parameters, ...state}}) => {
