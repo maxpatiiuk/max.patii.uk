@@ -53,6 +53,9 @@ export const reducer = generateReducer<States, Actions>({
   'GravityAction': ({state: initialState, action: {seed}}) => {
     const state = mainState(initialState);
 
+    if(state.paused)
+      return state;
+
     const shapeNames = Object.entries(SHAPES).filter(([, {spawn}]) =>
       spawn,
     ).map(([shapeName]) =>
