@@ -68,33 +68,34 @@ export function spawnNewShape(
 
 const findCompletedRows = (
   board: MainState['board']
-):number=>R.reverse(board).reduce<[number, boolean]>(
-  ([rowsToRemove, hasHoles], row)=>
-    (
-      !hasHoles &&
-      row.every(cell=>
-        cell!=='_'
-      )
-    ) ?
-    [rowsToRemove+1, false] :
-    [rowsToRemove, true],
-  [0, false]
-)[0];
+):number[]=>board.map((row, index)=>({
+  isCompleted:row.every(cell=>
+      cell!=='_'
+    ),
+    index
+})).filter(({isCompleted})=>
+  isCompleted
+).map(({index})=>
+  index
+);
 
 const removeCompletedRows = (
   state:MainState,
-  rowsToRemove: number,
+  rowsToRemove: number[],
 ):MainState=>(
-  rowsToRemove === 0 ?
+  rowsToRemove.length === 0 ?
     state :
     {
       ...state,
-      score: state.score + SCORE_MULTIPLIER*2^(rowsToRemove-1),
+      // Yes! Score growth exponentially!
+      score: state.score + SCORE_MULTIPLIER*2^(rowsToRemove.length-1),
       board: [
-        ...Array(rowsToRemove).fill(
+        ...Array(rowsToRemove.length).fill(
           Array(BOARD_X).fill('_'),
         ),
-        ...(state.board.slice(0, -rowsToRemove))
+        state.board.filter((_,index)=>
+          index
+        )
       ]
     }
 );
