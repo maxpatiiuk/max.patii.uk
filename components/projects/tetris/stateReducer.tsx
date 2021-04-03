@@ -44,7 +44,9 @@ export const gameOverState = (state: MainState): GameOverState => (
   {
     type: 'GameOverState',
     score: state.score,
-    bestScore: state.bestScore,
+    bestScore: state.score > state.bestScore ?
+      state.score :
+      state.bestScore,
   }
 );
 
