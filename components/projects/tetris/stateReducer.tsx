@@ -87,7 +87,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           <span>
             {languageStrings[parameters.language].paused}
             <br />
-            {languageStrings[parameters.language].press_key_to_resume(
+            {languageStrings[parameters.language].pressKeyToResume(
               <span className='bg-white p-px rounded-xl text-black'>ESC</span>,
             )}
           </span>

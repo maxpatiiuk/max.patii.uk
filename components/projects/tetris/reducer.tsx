@@ -4,8 +4,9 @@
 
 import { SHAPES } from '../../../const/projects/tetris/config';
 import { DIRECTION } from '../../../lib/projects/tetris/definitions';
+import { moveShape } from '../../../lib/projects/tetris/transofrmShapes';
 import {
-  moveShapeOnTheBoard,
+  updateBoard,
   spawnNewShape,
 } from '../../../lib/projects/tetris/utilities';
 import { Action, generateReducer } from '../../../lib/stateManagement';
@@ -34,9 +35,12 @@ export type Actions =
 
 export const reducer = generateReducer<States, Actions>({
   'MoveAction': ({state, action: {direction}}) =>
-    moveShapeOnTheBoard(
+    updateBoard(
       mainState(state),
-      direction,
+      moveShape(
+        mainState(state).currentShapeLocation,
+        direction,
+      ),
     ),
   'RestartGameAction': ({state}) =>
     getInitialState(state.bestScore),
@@ -64,13 +68,16 @@ export const reducer = generateReducer<States, Actions>({
       nextShape,
     };
 
-    return Object.keys(state.currentShapeLocation).length === 0 ?
+    return Object.keys(newState.currentShapeLocation).length === 0 ?
       // spawn new shape
       spawnNewShape(newState) :
       // move current shape down
-      moveShapeOnTheBoard(
+      updateBoard(
         newState,
-        DIRECTION.DOWN,
+        moveShape(
+          newState.currentShapeLocation,
+          DIRECTION.DOWN,
+        ),
       );
   },
 });
