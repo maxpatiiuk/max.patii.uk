@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import {
   gameOverState,
   MainState,
@@ -5,11 +6,10 @@ import {
 } from '../../../components/projects/tetris/stateReducer';
 import {
   BOARD_X,
-  BOARD_Y,
+  BOARD_Y, SCORE_MULTIPLIER,
   SHAPES,
 } from '../../../const/projects/tetris/config';
-import { DIRECTION } from './definitions';
-import { flattenShape, moveShape } from './transofrmShapes';
+import { flattenShape } from './transofrmShapes';
 
 
 export function spawnNewShape(
@@ -66,6 +66,39 @@ export function spawnNewShape(
   };
 }
 
+const findCompletedRows = (
+  board: MainState['board']
+):number=>R.tap(console.log,R.reverse(board).reduce<[number, boolean]>(
+  ([rowsToRemove, hasHoles], row)=>
+    (
+      !hasHoles &&
+      row.every(cell=>
+        cell!=='_'
+      )
+    ) ?
+    [rowsToRemove+1, false] :
+    [rowsToRemove, true],
+  [0, false]
+)[0]);
+
+const removeCompletedRows = (
+  state:MainState,
+  rowsToRemove: number,
+):MainState=>(
+  rowsToRemove === 0 ?
+    state :
+    {
+    ...state,
+    score: state.score + SCORE_MULTIPLIER*2^(rowsToRemove-1),
+    board: [
+      ...Array(rowsToRemove).fill(
+        Array(BOARD_X).fill('_'),
+      ),
+      ...(state.board.slice(0, -rowsToRemove))
+    ]
+  }
+  );
+
 export function updateBoard(
   state: MainState,
   newShapeLocation: MainState['currentShapeLocation'],
@@ -78,7 +111,6 @@ export function updateBoard(
     return state;
 
   //TODO: figure out rotation
-  //TODO: forbid going beyond the page
 
   return (
     // shape is at the bottom
@@ -95,10 +127,13 @@ export function updateBoard(
     )
   ) ?
     // place shape
-    {
-      ...state,
-      currentShapeLocation: {},
-    } :
+    removeCompletedRows(
+      {
+        ...state,
+        currentShapeLocation: {},
+      },
+      findCompletedRows(state.board),
+    ) :
     // move shape down
     {
       ...state,

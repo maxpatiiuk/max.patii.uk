@@ -13,6 +13,9 @@ export const BOARD_Y = 20;
 // the speed at which the game ticks / the gravity acts / the block fall
 export const SPEED = 1000;
 
+// how many points to give for each competed row
+export const SCORE_MULTIPLIER = 100;
+
 // shapes to use in the game, their colors and definitions
 export const SHAPES: Readonly<Record<string, {
   // what color to use for the shape

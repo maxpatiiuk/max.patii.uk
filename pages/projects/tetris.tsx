@@ -77,35 +77,24 @@ export default function Tetris() {
       });
   }
 
-  React.useEffect(() => {
-    if (state.type !== 'MainState')
+  React.useEffect(()=>{
+
+    if(state.type !== 'MainState')
       return;
 
-    let timeOut: any;
+    const callback = ()=>{
+      dispatch({
+        type: 'GravityAction',
+        // Need to give a seed here, since the reducer is pure
+        seed: Math.floor(Math.random() * 100),
+      });
+    };
+    callback();
+    const interval = setInterval(callback, SPEED);
+    return ()=>
+      clearInterval(interval);
 
-    function setTimeOut() {
-      timeOut = setTimeout(
-        () => {
-          if (state.type !== 'MainState')
-            return;
-          if (!state.paused)
-            dispatch({
-              type: 'GravityAction',
-              seed: Math.floor(Math.random() * 100),
-            });
-          setTimeOut();
-        },
-        SPEED,
-      );
-    }
-
-    setTimeOut();
-
-    return () =>
-      clearTimeout(timeOut);
-
-
-  }, [state.type]);
+  },[state.type]);
 
   return <Layout
     title={languageStrings}
