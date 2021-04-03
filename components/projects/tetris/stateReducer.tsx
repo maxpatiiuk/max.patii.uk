@@ -74,6 +74,9 @@ type StatesWithParameters = States & {
   }
 };
 
+const fancyButtonStyles = 'bg-white hover:bg-gray-600 mt-6 p-5 text-black' +
+  ' disabled:bg-gray-400 disabled:cursor-not-allowed';
+
 export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
   'MainState': ({action: {parameters, ...state}}) => {
     return <div
@@ -94,6 +97,26 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
             {languageStrings[parameters.language].pressKeyToResume(
               <span className='bg-white p-px rounded-xl text-black'>ESC</span>,
             )}
+            <br />
+            <div className='flex gap-4'>
+              <button
+                className={fancyButtonStyles}
+                onClick={()=>parameters.dispatch({
+                  type: 'SaveGameAction'
+                })}
+              >
+                {languageStrings[parameters.language].saveGame}
+              </button>
+              <button
+                className={fancyButtonStyles}
+                disabled={localStorage.getItem('state')===null}
+                onClick={()=>parameters.dispatch({
+                  type: 'LoadGameAction'
+                })}
+              >
+                {languageStrings[parameters.language].loadGame}
+              </button>
+            </div>
           </span>
         </div>
       }
@@ -117,7 +140,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
         <br />
         {
           state.nextShape !== '_' &&
-          <span className={'text 4xl pt-2'}>
+          <span className={'text-4xl pt-2'}>
             {languageStrings[parameters.language].nextShape} {state.nextShape}
           </span>
         }
@@ -136,7 +159,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
         {languageStrings[parameters.language].yourBestScore} {state.bestScore}
       </h2>
       <button
-        className='bg-white hover:bg-gray-600 mt-6 p-5 text-black'
+        className={fancyButtonStyles}
         onClick={() => parameters.dispatch({
           type: 'RestartGameAction',
         })}
