@@ -65,14 +65,14 @@ export default class ErrorBoundary
           buttons={<>
             <ButtonDanger
               props={{
-                onClick: window.location.reload,
+                onClick(){window.location.reload()},
               }}
             >
               {languageStrings[language].reload}
             </ButtonDanger>
             <ButtonDanger
               props={{
-                onClick: window.history.back,
+                onClick(){window.history.back()},
               }}
             >
               {languageStrings[language].previousPage}
