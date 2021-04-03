@@ -26,11 +26,17 @@ type GravityAction = Action<'GravityAction'> & {
   seed: number,
 };
 
+type SaveGameAction = Action<'SaveGameAction'>;
+
+type LoadGameAction = Action<'LoadGameAction'>;
+
 export type Actions =
   MoveAction
   | RestartGameAction
   | TogglePauseGame
-  | GravityAction;
+  | GravityAction
+  | SaveGameAction
+  | LoadGameAction;
 
 
 export const reducer = generateReducer<States, Actions>({
@@ -53,7 +59,7 @@ export const reducer = generateReducer<States, Actions>({
   'GravityAction': ({state: initialState, action: {seed}}) => {
     const state = mainState(initialState);
 
-    if(state.paused)
+    if (state.paused)
       return state;
 
     const shapeNames = Object.entries(SHAPES).filter(([, {spawn}]) =>
@@ -83,4 +89,11 @@ export const reducer = generateReducer<States, Actions>({
         ),
       );
   },
+  'SaveGameAction': ({state}) => {
+    localStorage.setItem('state', JSON.stringify(state));
+    return state;
+  },
+  'LoadGameAction': ({state}) => localStorage.getItem('state') ?
+    JSON.parse(localStorage.getItem('state')!) :
+    state,
 });

@@ -52,6 +52,8 @@ module.exports = {
       padding: ['hover'],
       backgroundImage: ['hover'],
       fontSize: ['group-hover'],
+      backgroundColor: ['disabled'],
+      cursor: ['disabled']
     },
   },
   plugins: [],
