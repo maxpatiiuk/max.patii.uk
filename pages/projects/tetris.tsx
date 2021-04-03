@@ -91,6 +91,11 @@ export default function Tetris() {
       'S': DIRECTION.DOWN,
       'A': DIRECTION.LEFT,
       'D': DIRECTION.RIGHT,
+      // for Vim users :)
+      'K': DIRECTION.UP,
+      'J': DIRECTION.DOWN,
+      'H': DIRECTION.LEFT,
+      'L': DIRECTION.RIGHT,
     };
 
     const keyName = event.key[0].toUpperCase() + event.key.substr(1);
@@ -100,10 +105,13 @@ export default function Tetris() {
         type: 'TogglePauseGame',
       });
 
-    if (event.key in keys && state.type === 'MainState' && !state.paused)
+    if (
+      keyName in keys &&
+      state.type === 'MainState'
+    )
       dispatch({
         type: 'MoveAction',
-        direction: keys[event.key],
+        direction: keys[keyName],
       });
   }
 
