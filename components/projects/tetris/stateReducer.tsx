@@ -20,12 +20,14 @@ type GameOverState = State<'GameOverState'> & {
   bestScore: number,
 }
 
+export type ShapeLocation = Record<number, Record<number, boolean>>;
+
 export type MainState = State<'MainState'> & {
   board: (keyof typeof SHAPES)[][],
   score: number,
   bestScore: number,
   currentShape: keyof typeof SHAPES,
-  currentShapeLocation: Record<number, Record<number, true>>,
+  currentShapeLocation: ShapeLocation,
   nextShape: keyof typeof SHAPES,
   paused: boolean,
 }
