@@ -10,8 +10,8 @@ export const BOARD_X = 10;
 // board size vertical
 export const BOARD_Y = 20;
 
-// the speed at which the game ticks / the gravity acts / the block fall
-export const SPEED = 1000;
+// the speed at which the game ticks / the gravity acts / the blocks fall
+export const INITIAL_SPEED = 1000;
 
 // how many points to give for each competed row
 export const SCORE_MULTIPLIER = 100;
