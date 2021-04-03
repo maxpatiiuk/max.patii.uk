@@ -8,46 +8,14 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { reducer } from '../../components/projects/tetris/reducer';
 import {
-  getInitialState,
+  getInitialState, languageStrings,
   stateReducer,
 } from '../../components/projects/tetris/stateReducer';
 import {
   INITIAL_SPEED,
   SCORE_MULTIPLIER,
 } from '../../const/projects/tetris/config';
-import { LanguageStringsStructure } from '../../lib/languages';
 import { DIRECTION } from '../../lib/projects/tetris/definitions';
-
-export const languageStrings: LanguageStringsStructure<{
-  title: string,
-  paused: string,
-  pressKeyToResume: (key: JSX.Element) => JSX.Element,
-  instructions: string,
-  score: string,
-  gameOver: string,
-  yourScore: string,
-  yourBestScore: string,
-  playAgain: string,
-  nextShape: string,
-  saveGame: string,
-  loadGame: string,
-}> = {
-  'en-US': {
-    title: 'Tetris ',
-    paused: 'Game is paused',
-    pressKeyToResume: (key) => <>Press {key} to resume</>,
-    instructions: 'Control the game using WSAD or arrow keys. Pause using ' +
-      'the ESC key',
-    score: 'Score: ',
-    gameOver: 'Game Over!',
-    yourScore: 'Your score was: ',
-    yourBestScore: 'Your best score is: ',
-    playAgain: 'Play again?',
-    nextShape: 'Next Shape: ',
-    saveGame: 'Save game',
-    loadGame: 'Load game',
-  },
-};
 
 export default function Tetris() {
 
