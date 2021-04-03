@@ -44,15 +44,17 @@ export function mainState(state: States): MainState {
   return state;
 }
 
-export const gameOverState = (state: MainState): GameOverState => (
-  {
+export function gameOverState(state: MainState): GameOverState {
+  const state:GameOverState = {
     type: 'GameOverState',
     score: state.score,
     bestScore: state.score > state.bestScore ?
       state.score :
       state.bestScore,
-  }
-);
+  };
+
+  localStorage.setItem('highScore', state.bestScore);
+}
 
 export const getInitialState = (bestScore = 0): MainState => (
   {
