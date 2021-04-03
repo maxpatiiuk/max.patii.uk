@@ -36,7 +36,7 @@ export const SHAPES: Readonly<Record<string, {
     spawn: true,
   },
   O: {
-    color: '#ff0',  // Yellow
+    color: '#0af',  // Blue
     definition: [
       ['1', '1'],
       ['1', '1'],
