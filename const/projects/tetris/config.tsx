@@ -1,13 +1,22 @@
+/*
+* Configurations for the game
+* */
+
+// board size horizontal
+// NOTE: if you change this, you also need to change the className for the
+// main grid component from `grid-cols-10` to the new value
 export const BOARD_X = 10;
+
+// board size vertical
 export const BOARD_Y = 20;
+
+// the speed at which the game ticks / the gravity acts / the block fall
 export const SPEED = 1000;
 
-
-// enum would have probably been better suited for this, but `const enum` is
-// not supported by Babel.
+// shapes to use in the game, their colors and definitions
 export const SHAPES: Readonly<Record<string, {
   color: string,
-  definition: ReadonlyArray<ReadonlyArray<'0'|'1'>>
+  definition: ReadonlyArray<ReadonlyArray<'0' | '1'>>
 }>> = {
   I: {
     color: '#0ff',  // Cyan
