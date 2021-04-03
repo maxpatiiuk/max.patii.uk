@@ -7,5 +7,4 @@ export enum DIRECTION {
   DOWN,
   LEFT,
   RIGHT,
-  ROTATE
 }
