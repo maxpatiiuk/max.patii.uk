@@ -49,32 +49,22 @@ const matrixToShape = (
   ),
 );
 
-// Adapted from https://stackoverflow.com/a/15171086/8584605
-function rotateMatrix<T>(
+const rotateMatrix = <T>(
   matrix: T[][],
-) {
-  const cells = matrix.flat();
-  const rotatedCells: T[] = [];
-
-  cells.forEach((cell, i) => {
-    rotatedCells[
-    (
-      i % matrix.length
-    ) * matrix.length
-    + matrix.length
-    - Math.floor(i / matrix.length) - 1
-      ] = cell;
-  });
-
-  return R.splitEvery(matrix.length, rotatedCells);
-}
+) => R.map(
+  (row: T[]) =>
+    // need to write this down explicitly because of poor
+    // TypeScript support by Ramda.JS
+    R.reverse(row),
+  R.transpose(matrix),
+);
 
 const rotateMatrixNTimes = R.curryN(
   2,
   <T>(
     times: number,
     matrix: T[][],
-  ) => [...Array(times % 4)].reduce(
+  ) => [...Array(times % 4)].reduce<T[][]>(
     (matrix) =>
       rotateMatrix(matrix),
     matrix,
