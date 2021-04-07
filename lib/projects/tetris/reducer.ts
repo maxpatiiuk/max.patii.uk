@@ -2,15 +2,17 @@
 * Action's reducer
 * */
 
-import { SHAPES } from '../../../const/projects/tetris/config';
-import { DIRECTION } from '../../../lib/projects/tetris/definitions';
-import { moveShape } from '../../../lib/projects/tetris/transofrmShapes';
 import {
-  spawnNewShape,
-  updateBoard,
-} from '../../../lib/projects/tetris/utilities';
-import { Action, generateReducer } from '../../../lib/stateManagement';
-import { getInitialState, MainState, mainState, States } from './stateReducer';
+  getInitialState,
+  MainState,
+  mainState,
+  States,
+} from '../../../components/projects/tetris/stateReducer';
+import { SHAPES } from '../../../const/projects/tetris/config';
+import { Action, generateReducer } from '../../stateManagement';
+import { DIRECTION } from './definitions';
+import { moveShape } from './transofrmShapes';
+import { spawnNewShape, updateBoard } from './utilities';
 
 
 type MoveAction = Action<'MoveAction'> & {
@@ -30,7 +32,9 @@ type SaveGameAction = Action<'SaveGameAction'>;
 
 type LoadGameAction = Action<'LoadGameAction'>;
 
-type LoadHighScoreAction = Action<'LoadHighScoreAction'>;
+type LoadHighScoreAction = Action<'LoadHighScoreAction'> & {
+  highScore: number,
+};
 
 export type Actions =
   MoveAction
@@ -52,7 +56,7 @@ export const reducer = generateReducer<States, Actions>({
         direction !== DIRECTION.DOWN
       )
     ) ?
-      state:
+      state :
       updateBoard(
         mainState(state),
         moveShape(
@@ -60,7 +64,7 @@ export const reducer = generateReducer<States, Actions>({
           direction,
           mainState(state).paused ?
             -1 :
-            1
+            1,
         ),
       ),
   'RestartGameAction': ({state}) =>
@@ -111,8 +115,10 @@ export const reducer = generateReducer<States, Actions>({
   'LoadGameAction': ({state}) => localStorage.getItem('state') ?
     JSON.parse(localStorage.getItem('state')!) :
     state,
-  'LoadHighScoreAction': ({state, action: {highScore})=>({
-    ...state,
-    bestScore: highScore
-  }),
+  'LoadHighScoreAction': ({state, action: {highScore}}) => (
+    {
+      ...state,
+      bestScore: highScore,
+    }
+  ),
 });

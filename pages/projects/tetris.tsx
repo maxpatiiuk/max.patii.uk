@@ -6,7 +6,7 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import { reducer } from '../../components/projects/tetris/reducer';
+import { reducer } from '../../lib/projects/tetris/reducer';
 import {
   getInitialState, languageStrings,
   stateReducer,
@@ -52,7 +52,9 @@ export default function Tetris() {
     if(localStorage.getItem('highScore') !== null)
       dispatch({
         type: 'LoadHighScoreAction',
-        highScore: localStorage.getItem('highScore'),
+        highScore: localStorage.getItem('highScore') ?
+          parseInt(localStorage.getItem('highScore')!) || 0 :
+          0,
       });
   },[]);
 

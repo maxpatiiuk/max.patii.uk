@@ -15,7 +15,7 @@ import {
 } from '../../../lib/languages';
 import { generateReducer, State } from '../../../lib/stateManagement';
 import { Cell, fancyButtonStyles } from './components';
-import { Actions } from './reducer';
+import { Actions } from '../../../lib/projects/tetris/reducer';
 
 type GameOverState = State<'GameOverState'> & {
   score: number,
@@ -45,7 +45,7 @@ export function mainState(state: States): MainState {
 }
 
 export function gameOverState(state: MainState): GameOverState {
-  const state:GameOverState = {
+  const newState:GameOverState = {
     type: 'GameOverState',
     score: state.score,
     bestScore: state.score > state.bestScore ?
@@ -53,7 +53,9 @@ export function gameOverState(state: MainState): GameOverState {
       state.bestScore,
   };
 
-  localStorage.setItem('highScore', state.bestScore);
+  localStorage.setItem('highScore', newState.bestScore.toString());
+
+  return newState;
 }
 
 export const getInitialState = (bestScore = 0): MainState => (
