@@ -165,7 +165,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           }</React.Fragment>)
         }</div>
       </div>
-      <div className='p-2'>
+      <div className='p-2 overflow-hidden'>
         {languageStrings[parameters.language].instructions}
         <br />
         <span className='text-4xl'>
@@ -174,7 +174,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
         <br />
         {
           state.nextShape !== '_' &&
-          <span className={'text-4xl pt-2'}>
+          <span className='text-4xl pt-2'>
             {languageStrings[parameters.language].nextShape} {state.nextShape}
           </span>
         }
