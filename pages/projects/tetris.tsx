@@ -78,7 +78,7 @@ export default function Tetris() {
 
     const keyName = event.key[0].toUpperCase() + event.key.substr(1);
 
-    if (keyName === 'Escape')
+    if (keyName === 'Escape' || keyName === 'P')
       dispatch({
         type: 'TogglePauseGame',
       });
