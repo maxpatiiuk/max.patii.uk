@@ -10,29 +10,6 @@ const links: {
   image?: typeof socialMedias[number];
 }[] = [
   {
-    label: "Facebook",
-    url: "https://www.facebook.com/mamboyoutube/",
-    className: "from-facebook-dark to-facebook-light",
-    image: "facebook",
-  },
-  {
-    label: "Twitter",
-    url: "https://twitter.com/maxxxxxdlp1/",
-    className: "from-twitter-dark to-twitter-light",
-    image: "twitter",
-  },
-  {
-    label: "Instagram",
-    url: "https://www.instagram.com/mambo_youtube/",
-    className: "from-instagram-dark to-instagram-light",
-    image: "instagram",
-  },
-  {
-    label: "maksym.patiiuk@ku.edu",
-    url: "mailto:maksym.patiiuk@ku.edu",
-    className: "from-email-dark to-email-light",
-  },
-  {
     label: "LinkedIn",
     url: "https://www.linkedin.com/in/maksym-patiiuk/",
     className: "from-linked_in-dark to-linked_in-light",
@@ -43,6 +20,29 @@ const links: {
     url: "https://github.com/maxxxxxdlp",
     className: "from-github-dark to-github-light",
     image: "github",
+  },
+  {
+    label: "maksym.patiiuk@ku.edu",
+    url: "mailto:maksym.patiiuk@ku.edu",
+    className: "from-email-dark to-email-light",
+  },
+  {
+    label: "Instagram",
+    url: "https://www.instagram.com/mambo_youtube/",
+    className: "from-instagram-dark to-instagram-light",
+    image: "instagram",
+  },
+  {
+    label: "Facebook",
+    url: "https://www.facebook.com/mamboyoutube/",
+    className: "from-facebook-dark to-facebook-light",
+    image: "facebook",
+  },
+  {
+    label: "Twitter",
+    url: "https://twitter.com/maxxxxxdlp1/",
+    className: "from-twitter-dark to-twitter-light",
+    image: "twitter",
   },
 ];
 
