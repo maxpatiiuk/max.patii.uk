@@ -1,13 +1,13 @@
-import { LanguageStringsStructure } from '../lib/languages';
-import { strip }                    from '../lib/localizationHelper';
+import type { LanguageStringsStructure } from '../lib/languages';
+import { strip } from '../lib/localizationHelper';
 
 const siteInfo: LanguageStringsStructure<{
-  title: string,
-  description: string,
-  keywords: string,
-  author: string,
-  yes: string,
-  no: string,
+  title: string;
+  description: string;
+  keywords: string;
+  author: string;
+  yes: string;
+  no: string;
 }> = {
   'en-US': {
     title: 'MAMBO.IN.UA',
@@ -19,7 +19,7 @@ const siteInfo: LanguageStringsStructure<{
       mambo experimental, Максим Патіюк`),
     author: 'Maksym Patiiuk',
     yes: 'Yes',
-    no: 'No'
+    no: 'No',
   },
 };
 

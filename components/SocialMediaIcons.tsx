@@ -1,11 +1,11 @@
-import * as R from "ramda";
+import * as R from 'ramda';
 
 export const socialMedias = [
-  "facebook",
-  "twitter",
-  "instagram",
-  "linked_in",
-  "github",
+  'facebook',
+  'twitter',
+  'instagram',
+  'linked_in',
+  'github',
 ] as const;
 
 const images: Record<
@@ -113,7 +113,7 @@ export function SocialMediaImage({
       xmlns="http://www.w3.org/2000/svg"
       className={`fill-current ${className}`}
       viewBox={R.chain((n: number) => [n, n], [0, images[imageName].size]).join(
-        " "
+        ' '
       )}
     >
       {images[imageName].content}

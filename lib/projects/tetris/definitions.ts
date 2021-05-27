@@ -1,6 +1,7 @@
 /*
-* Typescript enums and interfaces
-* */
+ * Typescript enums and interfaces
+ *
+ */
 
 export enum DIRECTION {
   UP,

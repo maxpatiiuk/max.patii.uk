@@ -1,7 +1,9 @@
-import Layout from "../components/Layout";
-import Link from "next/link";
-import { SocialMediaImage, socialMedias } from "../components/SocialMediaIcons";
-import * as R from "ramda";
+import Link from 'next/link';
+import * as R from 'ramda';
+
+import Layout from '../components/Layout';
+import type { socialMedias } from '../components/SocialMediaIcons';
+import { SocialMediaImage } from '../components/SocialMediaIcons';
 
 const links: {
   label: string;
@@ -10,39 +12,39 @@ const links: {
   image?: typeof socialMedias[number];
 }[] = [
   {
-    label: "LinkedIn",
-    url: "https://www.linkedin.com/in/maksym-patiiuk/",
-    className: "from-linked_in-dark to-linked_in-light",
-    image: "linked_in",
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/maksym-patiiuk/',
+    className: 'from-linked_in-dark to-linked_in-light',
+    image: 'linked_in',
   },
   {
-    label: "GitHub",
-    url: "https://github.com/maxxxxxdlp",
-    className: "from-github-dark to-github-light",
-    image: "github",
+    label: 'GitHub',
+    url: 'https://github.com/maxxxxxdlp',
+    className: 'from-github-dark to-github-light',
+    image: 'github',
   },
   {
-    label: "maksym.patiiuk@ku.edu",
-    url: "mailto:maksym.patiiuk@ku.edu",
-    className: "from-email-dark to-email-light",
+    label: 'maksym.patiiuk@ku.edu',
+    url: 'mailto:maksym.patiiuk@ku.edu',
+    className: 'from-email-dark to-email-light',
   },
   {
-    label: "Instagram",
-    url: "https://www.instagram.com/mambo_youtube/",
-    className: "from-instagram-dark to-instagram-light",
-    image: "instagram",
+    label: 'Instagram',
+    url: 'https://www.instagram.com/mambo_youtube/',
+    className: 'from-instagram-dark to-instagram-light',
+    image: 'instagram',
   },
   {
-    label: "Facebook",
-    url: "https://www.facebook.com/mamboyoutube/",
-    className: "from-facebook-dark to-facebook-light",
-    image: "facebook",
+    label: 'Facebook',
+    url: 'https://www.facebook.com/mamboyoutube/',
+    className: 'from-facebook-dark to-facebook-light',
+    image: 'facebook',
   },
   {
-    label: "Twitter",
-    url: "https://twitter.com/maxxxxxdlp1/",
-    className: "from-twitter-dark to-twitter-light",
-    image: "twitter",
+    label: 'Twitter',
+    url: 'https://twitter.com/maxxxxxdlp1/',
+    className: 'from-twitter-dark to-twitter-light',
+    image: 'twitter',
   },
 ];
 
@@ -68,13 +70,13 @@ export default function index() {
                 >
                   {image && (
                     <SocialMediaImage
-                      className={"w-full h-full"}
+                      className={'w-full h-full'}
                       imageName={image}
                     />
                   )}
                   <span
                     className={`text-xl md:text-3xl group-hover:text-sm
-                md:group-hover:text-2xl ${image && "sr-only"}`}
+                md:group-hover:text-2xl ${image && 'sr-only'}`}
                   >
                     {label}
                   </span>
