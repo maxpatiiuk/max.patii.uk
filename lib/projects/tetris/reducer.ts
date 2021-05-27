@@ -3,6 +3,9 @@
  *
  */
 
+import type { Action } from 'typesafe-reducer';
+import { generateReducer } from 'typesafe-reducer';
+
 import type {
   MainState,
   States,
@@ -12,31 +15,38 @@ import {
   mainState,
 } from '../../../components/projects/tetris/stateReducer';
 import { SHAPES } from '../../../const/projects/tetris/config';
-import type { Action } from '../../stateManagement';
-import { generateReducer } from '../../stateManagement';
 import { DIRECTION } from './definitions';
 import { moveShape } from './transofrmShapes';
 import { spawnNewShape, updateBoard } from './utilities';
 
-type MoveAction = Action<'MoveAction'> & {
-  direction: DIRECTION;
-};
+type MoveAction = Action<
+  'MoveAction',
+  {
+    direction: DIRECTION;
+  }
+>;
 
 type RestartGameAction = Action<'RestartGameAction'>;
 
 type TogglePauseGame = Action<'TogglePauseGame'>;
 
-type GravityAction = Action<'GravityAction'> & {
-  seed: number;
-};
+type GravityAction = Action<
+  'GravityAction',
+  {
+    seed: number;
+  }
+>;
 
 type SaveGameAction = Action<'SaveGameAction'>;
 
 type LoadGameAction = Action<'LoadGameAction'>;
 
-type LoadHighScoreAction = Action<'LoadHighScoreAction'> & {
-  highScore: number;
-};
+type LoadHighScoreAction = Action<
+  'LoadHighScoreAction',
+  {
+    highScore: number;
+  }
+>;
 
 export type Actions =
   | MoveAction

@@ -4,6 +4,8 @@
  */
 
 import React from 'react';
+import type { State } from 'typesafe-reducer';
+import { generateReducer } from 'typesafe-reducer';
 
 import {
   BOARD_X,
@@ -15,26 +17,30 @@ import type {
   LanguageStringsStructure,
 } from '../../../lib/languages';
 import type { Actions } from '../../../lib/projects/tetris/reducer';
-import type { State } from '../../../lib/stateManagement';
-import { generateReducer } from '../../../lib/stateManagement';
 import { Cell, fancyButtonStyles } from './components';
 
-type GameOverState = State<'GameOverState'> & {
-  score: number;
-  bestScore: number;
-};
+type GameOverState = State<
+  'GameOverState',
+  {
+    score: number;
+    bestScore: number;
+  }
+>;
 
 export type ShapeLocation = Record<number, Record<number, boolean>>;
 
-export type MainState = State<'MainState'> & {
-  board: (keyof typeof SHAPES)[][];
-  score: number;
-  bestScore: number;
-  currentShape: keyof typeof SHAPES;
-  currentShapeLocation: ShapeLocation;
-  nextShape: keyof typeof SHAPES;
-  paused: boolean;
-};
+export type MainState = State<
+  'MainState',
+  {
+    board: (keyof typeof SHAPES)[][];
+    score: number;
+    bestScore: number;
+    currentShape: keyof typeof SHAPES;
+    currentShapeLocation: ShapeLocation;
+    nextShape: keyof typeof SHAPES;
+    paused: boolean;
+  }
+>;
 
 export type States = MainState | GameOverState;
 
