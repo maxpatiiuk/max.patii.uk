@@ -6,18 +6,20 @@
 import React from 'react';
 
 import type { SHAPES } from '../../../const/projects/tetris/config';
-import { namedComponent } from '../../../lib/stateManagement';
 
-export const Cell = namedComponent(
-  React.memo(({ color }: { color: typeof SHAPES[string]['color'] }) => (
+export const Cell = React.memo(function Cell({
+  color,
+}: {
+  color: typeof SHAPES[string]['color'];
+}) {
+  return (
     <div
       style={{
         backgroundColor: color,
       }}
     />
-  )),
-  'Cell'
-);
+  );
+});
 
 export const fancyButtonStyles =
   'bg-white hover:bg-gray-600 mt-6 p-5' +
