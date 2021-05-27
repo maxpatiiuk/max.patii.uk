@@ -1,4 +1,4 @@
-import type { Action } from './stateManagement';
+import type { Action } from 'typesafe-reducer';
 
 export type AvailableLanguages = Action<'en-US'>;
 
