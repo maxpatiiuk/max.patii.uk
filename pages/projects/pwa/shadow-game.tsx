@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { Action, State } from 'typesafe-reducer';
 import { generateReducer } from 'typesafe-reducer';
 
-import Layout from '../../../../components/Layout';
+import Layout from '../../../components/Layout';
 
 const winStateDuration = 1000;
 const vibrationScaler = 0.7;
