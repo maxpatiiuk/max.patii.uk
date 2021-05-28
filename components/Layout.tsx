@@ -38,6 +38,7 @@ const Layout = ({
   private_page = false,
   manifest = '/site.webmanifest',
   icon,
+  props,
 }: {
   readonly title?:
     | string
@@ -49,6 +50,7 @@ const Layout = ({
   readonly private_page?: boolean;
   readonly manifest?: string;
   readonly icon?: string;
+  readonly props?: JSX.Element;
 }) => (
   <LanguageContext.Consumer>
     {(language) => (
@@ -92,6 +94,7 @@ const Layout = ({
           />
           <meta name="msapplication-TileColor" content={themeColor} />
           <meta name="theme-color" content={themeColor} />
+          {props}
         </Head>
         <div id="root">{children(language)}</div>
       </>

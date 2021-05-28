@@ -93,6 +93,7 @@ function formatTime(time: number, includeMilliseconds = false): string {
   if (hours > 0) results.push(hours);
   if (hours > 0 || minutes > 0) results.push(minutes);
   if (hours > 0 || minutes > 0 || seconds > 0) results.push(seconds);
+  if (results.length === 0 && milliseconds === 0) return '';
   return `${results
     .map((number, index) =>
       index === 0 ? number : String(number).padStart(2, '0')
@@ -121,6 +122,16 @@ export default function Stopwatch(): JSX.Element {
       title="Stopwatch"
       manifest={'/projects/pwa/stopwatch/site.webmanifest'}
       icon={'/projects/pwa/stopwatch/icon.png'}
+      props={
+        <>
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
+        </>
+      }
     >
       {(): JSX.Element => (
         <div className="w-screen h-screen bg-black flex flex-col">

@@ -1,16 +1,17 @@
 {
     "name": "Stopwatch",
     "short_name": "Stopwatch",
+    "description": "A minimalistic stopwatch for AMOLED screens",
     "icons": [
         {
-            "src": "/projects/pwa/stopwatch/icon.png",
+            "src": "./icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "theme_color": "#000000",
     "background_color": "#000000",
-    "start_url": "/projects/pwa/stopwatch/",
-    "scope": "/projects/pwa/stopwatch/",
+    "start_url": "./",
+    "scope": "./",
     "display": "fullscreen"
 }

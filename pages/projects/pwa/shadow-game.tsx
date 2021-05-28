@@ -134,6 +134,16 @@ export default function ShadowGame(): JSX.Element {
       title="Shadow Game"
       manifest={'/projects/pwa/shadow-game/site.webmanifest'}
       icon={'/projects/pwa/shadow-game/icon.png'}
+      props={
+        <>
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
+        </>
+      }
     >
       {(): JSX.Element => <div className="w-screen h-screen bg-black" />}
     </Layout>
