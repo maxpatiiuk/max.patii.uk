@@ -115,6 +115,7 @@ export default function ShadowGame(): JSX.Element {
 
   React.useEffect(() => {
     dispatch({ type: 'GenerateRandomPointAction' });
+
     window.addEventListener('mousedown', (event) => {
       hadInteractions.current = true;
       dispatch({
@@ -122,6 +123,7 @@ export default function ShadowGame(): JSX.Element {
         point: { x: event.x, y: event.y },
       });
     });
+
     window.addEventListener('resize', () =>
       dispatch({
         type: 'ResizeAction',
