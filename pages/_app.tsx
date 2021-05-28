@@ -9,8 +9,16 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import LanguageContext from '../components/LanguageContext';
 import type { AvailableLanguages } from '../lib/languages';
 
-export default function app({ Component, pageProps }: AppProps) {
+export default function app({ Component, pageProps }: AppProps): JSX.Element {
   const { defaultLocale = 'en-US', locale = defaultLocale } = useRouter();
+
+  React.useEffect(() => {
+    if ('serviceWorker' in navigator)
+      window.addEventListener(
+        'load',
+        () => void navigator.serviceWorker.register('/sw.js')
+      );
+  }, []);
 
   return (
     <LanguageContext.Provider value={locale as AvailableLanguages['type']}>
