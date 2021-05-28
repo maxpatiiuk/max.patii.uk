@@ -1,0 +1,16 @@
+{
+    "name": "Stopwatch",
+    "short_name": "Stopwatch",
+    "icons": [
+        {
+            "src": "/projects/pwa/stopwatch/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "start_url": "/projects/pwa/stopwatch/",
+    "scope": "/projects/pwa/stopwatch/",
+    "display": "fullscreen"
+}
