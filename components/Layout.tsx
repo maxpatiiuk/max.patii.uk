@@ -36,22 +36,26 @@ const Layout = ({
   title = '',
   children,
   private_page = false,
+  manifest = '/site.webmanifest',
+  icon,
 }: {
-  title?:
+  readonly title?:
     | string
     | LanguageStringsStructure<{
         title: string;
       }>
     | ((string: AvailableLanguages['type']) => string);
-  children: (language: AvailableLanguages['type']) => React.ReactNode;
-  private_page?: boolean;
+  readonly children: (language: AvailableLanguages['type']) => React.ReactNode;
+  readonly private_page?: boolean;
+  readonly manifest?: string;
+  readonly icon?: string;
 }) => (
   <LanguageContext.Consumer>
     {(language) => (
       <>
         <Head>
           <title>{extractTitle(language, title)}</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href={icon ?? '/favicon.ico"'} />
           <meta
             name="robots"
             content={private_page ? 'noindex,nofollow' : robots}
@@ -59,24 +63,28 @@ const Layout = ({
           <meta name="description" content={siteInfo[language].description} />
           <meta name="keywords" content={siteInfo[language].keywords} />
           <meta name="author" content={siteInfo[language].author} />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/icons/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/icons/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/icons/favicon-16x16.png"
-          />
-          <link rel="manifest" href="/site.webmanifest" />
+          {typeof icon === 'undefined' && (
+            <>
+              <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="/icons/apple-touch-icon.png"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                sizes="32x32"
+                href="/icons/favicon-32x32.png"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                sizes="16x16"
+                href="/icons/favicon-16x16.png"
+              />
+            </>
+          )}
+          <link rel="manifest" href={manifest} />
           <link
             rel="mask-icon"
             href="/icons/safari-pinned-tab.svg"

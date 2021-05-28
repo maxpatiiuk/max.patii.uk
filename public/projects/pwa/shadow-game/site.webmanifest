@@ -1,0 +1,16 @@
+{
+    "name": "Shadow Game",
+    "short_name": "Shadow Game",
+    "icons": [
+        {
+            "src": "/projects/pwa/shadow-game/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "start_url": "/projects/pwa/shadow-game/",
+    "scope": "/projects/pwa/shadow-game/",
+    "display": "fullscreen"
+}
