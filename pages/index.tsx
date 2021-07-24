@@ -24,8 +24,8 @@ const links: {
     image: 'github',
   },
   {
-    label: 'maksym.patiiuk@ku.edu',
-    url: 'mailto:maksym.patiiuk@ku.edu',
+    label: 'max@patii.uk',
+    url: 'mailto:max@patii.uk',
     className: 'from-email-dark to-email-light',
   },
   {
