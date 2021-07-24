@@ -15,20 +15,20 @@ import {
   mainState,
 } from '../../../components/projects/tetris/stateReducer';
 import { SHAPES } from '../../../const/projects/tetris/config';
-import { DIRECTION } from './definitions';
+import { Direction } from './definitions';
 import { moveShape } from './transofrmShapes';
 import { spawnNewShape, updateBoard } from './utilities';
 
 type MoveAction = Action<
   'MoveAction',
   {
-    direction: DIRECTION;
+    direction: Direction;
   }
 >;
 
 type RestartGameAction = Action<'RestartGameAction'>;
 
-type TogglePauseGame = Action<'TogglePauseGame'>;
+type TogglePauseGameAction = Action<'TogglePauseGameAction'>;
 
 type GravityAction = Action<
   'GravityAction',
@@ -51,7 +51,7 @@ type LoadHighScoreAction = Action<
 export type Actions =
   | MoveAction
   | RestartGameAction
-  | TogglePauseGame
+  | TogglePauseGameAction
   | GravityAction
   | SaveGameAction
   | LoadGameAction
@@ -62,7 +62,7 @@ export const reducer = generateReducer<States, Actions>({
     Object.keys(mainState(state).currentShapeLocation).length === 0 ||
     (mainState(state).paused &&
       // Don't cheat :_)
-      direction !== DIRECTION.DOWN)
+      direction !== Direction.DOWN)
       ? state
       : updateBoard(
           mainState(state),
@@ -73,7 +73,7 @@ export const reducer = generateReducer<States, Actions>({
           )
         ),
   RestartGameAction: ({ state }) => getInitialState(state.bestScore),
-  TogglePauseGame: ({ state }) => ({
+  TogglePauseGameAction: ({ state }) => ({
     ...mainState(state),
     paused: !mainState(state).paused,
   }),
@@ -97,22 +97,22 @@ export const reducer = generateReducer<States, Actions>({
     };
 
     return Object.keys(newState.currentShapeLocation).length === 0
-      ? // Spawn new shape
-        spawnNewShape(newState)
-      : // Move current shape down
-        updateBoard(
+      ? spawnNewShape(newState)
+      : updateBoard(
           newState,
-          moveShape(newState.currentShapeLocation, DIRECTION.DOWN)
+          moveShape(newState.currentShapeLocation, Direction.DOWN)
         );
   },
   SaveGameAction: ({ state }) => {
     localStorage.setItem('state', JSON.stringify(state));
     return state;
   },
-  LoadGameAction: ({ state }) =>
-    localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state')!)
-      : state,
+  LoadGameAction({ state }) {
+    const savedState = localStorage.getItem('state');
+    return typeof savedState === 'string'
+      ? (JSON.parse(savedState) as MainState)
+      : state;
+  },
   LoadHighScoreAction: ({ state, action: { highScore } }) => ({
     ...state,
     bestScore: highScore,

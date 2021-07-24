@@ -142,7 +142,7 @@ repos:
         types: [text]
         types_or: [javascript, jsx, ts, tsx]
         additional_dependencies:
-          - '@maxxxxxdlp/eslint-config@^1.0.6'
+          - '@maxxxxxdlp/eslint-config@^1.0.7'
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
     rev: v1.2.1

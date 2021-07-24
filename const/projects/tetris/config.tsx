@@ -20,6 +20,7 @@ export const INITIAL_SPEED = 1000;
 export const SCORE_MULTIPLIER = 100;
 
 // Shapes to use in the game, their colors and definitions
+/* eslint-disable @typescript-eslint/naming-convention */
 export const SHAPES: Readonly<
   Record<
     string,
@@ -33,13 +34,16 @@ export const SHAPES: Readonly<
     }
   >
 > = {
+  /* eslint-disable id-length */
   I: {
-    color: '#0ff', // Cyan
+    // Cyan
+    color: '#0ff',
     definition: [['1'], ['1'], ['1'], ['1']],
     spawn: true,
   },
   O: {
-    color: '#0af', // Blue
+    // Blue
+    color: '#0af',
     definition: [
       ['1', '1'],
       ['1', '1'],
@@ -47,7 +51,8 @@ export const SHAPES: Readonly<
     spawn: true,
   },
   T: {
-    color: '#f0f', // Purple
+    // Purple
+    color: '#f0f',
     definition: [
       ['1', '0'],
       ['1', '1'],
@@ -56,7 +61,8 @@ export const SHAPES: Readonly<
     spawn: true,
   },
   S: {
-    color: '#0f0', // Green
+    // Green
+    color: '#0f0',
     definition: [
       ['0', '1', '1'],
       ['1', '1', '0'],
@@ -64,7 +70,8 @@ export const SHAPES: Readonly<
     spawn: true,
   },
   J: {
-    color: '#00f', // Blue
+    // Blue
+    color: '#00f',
     definition: [
       ['1', '0', '0'],
       ['1', '1', '1'],
@@ -72,7 +79,8 @@ export const SHAPES: Readonly<
     spawn: true,
   },
   Z: {
-    color: '#f00', // Red
+    // Red
+    color: '#f00',
     definition: [
       ['1', '1', '0'],
       ['0', '1', '1'],
@@ -80,7 +88,8 @@ export const SHAPES: Readonly<
     spawn: true,
   },
   L: {
-    color: '#ffa500', // Orange
+    // Orange
+    color: '#ffa500',
     definition: [
       ['1', '0'],
       ['1', '0'],
@@ -88,10 +97,13 @@ export const SHAPES: Readonly<
     ],
     spawn: true,
   },
+  // Empty Cell
   _: {
-    // Empty Cell
-    color: '#000', // Black
+    // Black
+    color: '#000',
     definition: [],
     spawn: false,
   },
+  /* eslint-enable @typescript-eslint/naming-convention */
+  /* eslint-enable id-length */
 } as const;

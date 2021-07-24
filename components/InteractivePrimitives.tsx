@@ -1,13 +1,13 @@
 import React from 'react';
 
 const baseButtonStyle =
-  'inline-flex px-4 py-2 rounded-md sm:text-sm' + ' sm:w-auto text-gray-700';
+  'inline-flex px-4 py-2 rounded-md sm:text-sm sm:w-auto text-gray-700';
 
 interface ButtonProps {
-  children: React.ReactNode;
-  props?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-  extraStyles?: string;
-  baseStyles?: string;
+  readonly children: React.ReactNode;
+  readonly props?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  readonly extraStyles?: string;
+  readonly baseStyles?: string;
 }
 
 function Button({
@@ -15,7 +15,7 @@ function Button({
   props = {},
   baseStyles = '',
   extraStyles = '',
-}: ButtonProps) {
+}: ButtonProps): JSX.Element {
   return (
     <button
       type="button"
@@ -27,7 +27,7 @@ function Button({
   );
 }
 
-export function ButtonDanger({ children, ...props }: ButtonProps) {
+export function ButtonDanger({ children, ...props }: ButtonProps): JSX.Element {
   return (
     <Button baseStyles={'bg-red-600 hover:bg-red-700'} {...props}>
       {children}

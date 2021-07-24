@@ -9,13 +9,12 @@ export function ModalDialog({
   children,
   onCloseClick: handleCloseClick,
 }: {
-  isOpen?: boolean;
-  title: string;
-  onClose?: () => void;
-  buttons?: React.ReactNode;
-  children: React.ReactNode;
-  onCloseClick?: () => void;
-}) {
+  readonly isOpen?: boolean;
+  readonly title: string;
+  readonly buttons?: React.ReactNode;
+  readonly children: React.ReactNode;
+  readonly onCloseClick?: () => void;
+}): JSX.Element {
   const { className } = css.resolve``;
 
   Modal.setAppElement('#__next');
@@ -54,21 +53,22 @@ export function ModalDialog({
         className={'w-full'}
         shouldCloseOnEsc={typeof handleCloseClick === 'function'}
       >
-        <div className="bg-white shadow-xl w-auto w-1/2 m-auto">
+        <div className="w-auto w-1/2 m-auto bg-white shadow-xl">
           <div
             className={`bg-gray-50 p-4 flex justify-between
           items-center`}
           >
             <h3 className="text-lg text-gray-900">{title}</h3>
             {handleCloseClick && (
-              <div
+              <button
+                type="button"
                 className={`flex items-center justify-center
                 rounded-full bg-red-100 sm:h-10 sm:w-10
                 cursor-pointer`}
                 onClick={handleCloseClick}
               >
                 <svg
-                  className="h-6 w-6 text-red-600"
+                  className="w-6 h-6 text-red-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -81,11 +81,11 @@ export function ModalDialog({
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
-              </div>
+              </button>
             )}
           </div>
           <div className="p-4 text-sm text-gray-500">{children}</div>
-          <div className="bg-gray-50 flex justify-end p-4 gap-x-2">
+          <div className="bg-gray-50 gap-x-2 flex justify-end p-4">
             {buttons}
           </div>
         </div>
@@ -100,13 +100,5 @@ export function ModalDialog({
         }
       `}</style>
     </div>
-  );
-}
-export function Loading() {
-  return (
-    <ModalDialog title="Loading...">
-      {/* TODO: add a fancy loading bar here */}
-      Loading...
-    </ModalDialog>
   );
 }

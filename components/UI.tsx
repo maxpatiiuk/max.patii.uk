@@ -1,10 +1,13 @@
 import React from 'react';
 
-export const Centered = ({ children }: { children: React.ReactNode }) => (
-  <div
-    className="w-screen h-screen flex items-center justify-center
-  text-center"
-  >
-    {children}
-  </div>
-);
+export function Centered({
+  children,
+}: {
+  readonly children: React.ReactNode;
+}): JSX.Element {
+  return (
+    <div className="flex items-center justify-center w-screen h-screen text-center">
+      {children}
+    </div>
+  );
+}

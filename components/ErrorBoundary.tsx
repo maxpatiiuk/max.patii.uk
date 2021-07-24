@@ -1,8 +1,6 @@
 /*
- *
- * Error Boundary for React Components. Catches exceptions and provides a stack trace
- *
- *
+ * Error Boundary for React Components. Catches exceptions and provides a
+ * stack trace
  */
 
 import React from 'react';
@@ -42,15 +40,15 @@ export default class ErrorBoundary extends React.Component<
   { children: JSX.Element },
   ErrorBoundaryState
 > {
-  state: ErrorBoundaryState = {
+  public state: ErrorBoundaryState = {
     hasError: false,
     error: undefined,
     errorInfo: undefined,
   };
 
-  componentDidCatch(
-    error: { toString: () => string },
-    errorInfo: { componentStack: string }
+  public componentDidCatch(
+    error: { readonly toString: () => string },
+    errorInfo: { readonly componentStack: string }
   ): void {
     console.error(error, errorInfo);
     this.setState({
@@ -60,17 +58,17 @@ export default class ErrorBoundary extends React.Component<
     });
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     return this.state.hasError ? (
       <LanguageContext.Consumer>
-        {(language) => (
+        {(language): JSX.Element => (
           <ModalDialog
             title={'Unexpected Error'}
             buttons={
               <>
                 <ButtonDanger
                   props={{
-                    onClick() {
+                    onClick(): void {
                       window.location.reload();
                     },
                   }}
@@ -79,7 +77,7 @@ export default class ErrorBoundary extends React.Component<
                 </ButtonDanger>
                 <ButtonDanger
                   props={{
-                    onClick() {
+                    onClick(): void {
                       window.history.back();
                     },
                   }}
@@ -91,9 +89,9 @@ export default class ErrorBoundary extends React.Component<
           >
             <p>{languageStrings[language].unexpectedErrorHasOccurred}</p>
             <details style={{ whiteSpace: 'pre-wrap' }}>
-              {this.state.error && this.state.error.toString()}
+              {this.state.error?.toString()}
               <br />
-              {this.state.errorInfo!.componentStack}
+              {this.state.errorInfo?.componentStack}
             </details>
           </ModalDialog>
         )}

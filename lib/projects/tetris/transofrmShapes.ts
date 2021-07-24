@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 
 import type { ShapeLocation } from '../../../components/projects/tetris/stateReducer';
-import { DIRECTION } from './definitions';
+import { Direction } from './definitions';
 
 export const flattenShape = (shape: ShapeLocation): number[][] =>
   Object.entries(shape).flatMap(([rowIndex, row]) =>
@@ -19,7 +19,9 @@ const getShapeSize = (shape: ShapeLocation, direction: 'x' | 'y'): number =>
     ).map((value) => Number.parseInt(value) + 1)
   );
 
-const matrixToShape = (matrix: (0 | 1)[][]): ShapeLocation =>
+const matrixToShape = (
+  matrix: readonly (readonly (0 | 1)[])[]
+): ShapeLocation =>
   Object.fromEntries(
     matrix
       .map((row, rowIndex) => [
@@ -51,7 +53,7 @@ const rotateMatrix = <T>(matrix: T[][]) =>
 const rotateMatrixNTimes = R.curryN(
   2,
   <T>(times: number, matrix: T[][]) =>
-    [...Array(times % 4)].reduce<T[][]>(
+    Array.from(new Array(times % 4)).reduce<T[][]>(
       (matrix) => rotateMatrix(matrix),
       matrix
     ) || matrix
@@ -64,10 +66,10 @@ const shapeToMatrix = (shape: ShapeLocation): (0 | 1)[][] =>
       size: R.max(getShapeSize(shape, 'x'), getShapeSize(shape, 'y')),
     }))
     .map(({ shape, size }) =>
-      [...Array(size)].reduce(
+      Array.from(new Array(size)).reduce(
         (array, _, rowIndex) => [
           ...array,
-          [...Array(size)].reduce(
+          Array.from(new Array(size)).reduce(
             (array, _, colIndex) => [
               ...array,
               shape[rowIndex]?.[colIndex] ? 1 : 0,
@@ -119,8 +121,8 @@ const editShape = (
 
 const padShape = (shape: ShapeLocation, xOffset: number, yOffset: number) =>
   moveShape(
-    moveShape(shape, DIRECTION.DOWN, yOffset),
-    DIRECTION.RIGHT,
+    moveShape(shape, Direction.DOWN, yOffset),
+    Direction.RIGHT,
     xOffset
   );
 
@@ -129,8 +131,8 @@ const autoStripShape = (shape: ShapeLocation) =>
 
 const stripShape = (shape: ShapeLocation, xOffset: number, yOffset: number) =>
   moveShape(
-    moveShape(shape, DIRECTION.DOWN, -yOffset),
-    DIRECTION.LEFT,
+    moveShape(shape, Direction.DOWN, -yOffset),
+    Direction.LEFT,
     xOffset
   );
 
@@ -147,22 +149,22 @@ const rotateShape = (shape: ShapeLocation, multiplier = 1): ShapeLocation =>
 
 export const moveShape = (
   currentShapeLocation: ShapeLocation,
-  direction: DIRECTION,
+  direction: Direction,
   multiplier = 1
 ): ShapeLocation =>
-  direction === DIRECTION.UP
+  direction === Direction.UP
     ? rotateShape(currentShapeLocation, multiplier)
     : Object.fromEntries(
         Object.entries(currentShapeLocation).map(([rowIndex, row]) => [
-          direction === DIRECTION.DOWN
+          direction === Direction.DOWN
             ? Number.parseInt(rowIndex) + multiplier
             : rowIndex,
-          direction === DIRECTION.DOWN
+          direction === Direction.DOWN
             ? row
             : Object.fromEntries(
                 Object.keys(row).map((colIndex) => [
                   Number.parseInt(colIndex) +
-                    (direction === DIRECTION.RIGHT ? 1 : -1) * multiplier,
+                    (direction === Direction.RIGHT ? 1 : -1) * multiplier,
                   true,
                 ])
               ),

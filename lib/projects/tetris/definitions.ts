@@ -3,9 +3,9 @@
  *
  */
 
-export enum DIRECTION {
-  UP,
-  DOWN,
-  LEFT,
-  RIGHT,
+export enum Direction {
+  UP = 'UP',
+  DOWN = 'DOWN',
+  LEFT = 'LEFT',
+  RIGHT = 'RIGHT',
 }

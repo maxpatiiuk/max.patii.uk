@@ -17,7 +17,7 @@ import {
   INITIAL_SPEED,
   SCORE_MULTIPLIER,
 } from '../../const/projects/tetris/config';
-import { DIRECTION } from '../../lib/projects/tetris/definitions';
+import { Direction } from '../../lib/projects/tetris/definitions';
 import { reducer } from '../../lib/projects/tetris/reducer';
 
 export default function Tetris() {
@@ -53,27 +53,27 @@ export default function Tetris() {
   }, []);
 
   function captureKeyDown(event: KeyboardEvent) {
-    const keys: Record<string, DIRECTION> = {
-      ArrowUp: DIRECTION.UP,
-      ArrowDown: DIRECTION.DOWN,
-      ArrowLeft: DIRECTION.LEFT,
-      ArrowRight: DIRECTION.RIGHT,
-      W: DIRECTION.UP,
-      S: DIRECTION.DOWN,
-      A: DIRECTION.LEFT,
-      D: DIRECTION.RIGHT,
+    const keys: Record<string, Direction> = {
+      ArrowUp: Direction.UP,
+      ArrowDown: Direction.DOWN,
+      ArrowLeft: Direction.LEFT,
+      ArrowRight: Direction.RIGHT,
+      W: Direction.UP,
+      S: Direction.DOWN,
+      A: Direction.LEFT,
+      D: Direction.RIGHT,
       // For Vim users :)
-      K: DIRECTION.UP,
-      J: DIRECTION.DOWN,
-      H: DIRECTION.LEFT,
-      L: DIRECTION.RIGHT,
+      K: Direction.UP,
+      J: Direction.DOWN,
+      H: Direction.LEFT,
+      L: Direction.RIGHT,
     };
 
     const keyName = event.key[0].toUpperCase() + event.key.slice(1);
 
     if (keyName === 'Escape' || keyName === 'P')
       dispatch({
-        type: 'TogglePauseGame',
+        type: 'TogglePauseGameAction',
       });
 
     if (keyName in keys && state.type === 'MainState')
@@ -93,10 +93,7 @@ export default function Tetris() {
   return (
     <Layout title={languageStrings}>
       {(language) => (
-        <div
-          className="bg-black w-screen h-screen flex justify-center items-center
-          text-white"
-        >
+        <div className="flex items-center justify-center w-screen h-screen text-white bg-black">
           {stateReducer(<></>, {
             ...state,
             parameters: {

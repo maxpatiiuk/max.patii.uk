@@ -1,10 +1,8 @@
-import * as R from 'ramda';
-
 export const socialMedias = [
   'facebook',
   'twitter',
   'instagram',
-  'linked_in',
+  'linkedIn',
   'github',
 ] as const;
 
@@ -57,7 +55,7 @@ const images: Record<
       </>
     ),
   },
-  linked_in: {
+  linkedIn: {
     size: 455,
     content: (
       <>
@@ -105,16 +103,14 @@ export function SocialMediaImage({
   className,
   imageName,
 }: {
-  className: string;
-  imageName: typeof socialMedias[number];
-}) {
+  readonly className: string;
+  readonly imageName: typeof socialMedias[number];
+}): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={`fill-current ${className}`}
-      viewBox={R.chain((n: number) => [n, n], [0, images[imageName].size]).join(
-        ' '
-      )}
+      viewBox={`0 0 ${images[imageName].size} ${images[imageName].size}`}
     >
       {images[imageName].content}
     </svg>

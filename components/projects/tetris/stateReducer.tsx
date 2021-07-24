@@ -1,6 +1,5 @@
 /*
  * State Reducer
- *
  */
 
 import React from 'react';
@@ -32,7 +31,7 @@ export type ShapeLocation = Record<number, Record<number, boolean>>;
 export type MainState = State<
   'MainState',
   {
-    board: (keyof typeof SHAPES)[][];
+    board: readonly (readonly (keyof typeof SHAPES)[])[];
     score: number;
     bestScore: number;
     currentShape: keyof typeof SHAPES;
@@ -64,7 +63,11 @@ export function gameOverState(state: MainState): GameOverState {
 
 export const getInitialState = (bestScore = 0): MainState => ({
   type: 'MainState',
-  board: new Array(BOARD_Y).fill(new Array(BOARD_X).fill('_')),
+  board: Array.from<MainState['board'][number]>({ length: BOARD_Y }).fill(
+    Array.from<MainState['board'][number][number]>({ length: BOARD_X }).fill(
+      '_'
+    )
+  ),
   currentShapeLocation: {},
   currentShape: '_',
   nextShape: '_',
@@ -83,6 +86,7 @@ type StatesWithParameters = States & {
 export const languageStrings: LanguageStringsStructure<{
   title: string;
   paused: string;
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   pressKeyToResume: (key: JSX.Element) => JSX.Element;
   instructions: string;
   score: string;
@@ -97,9 +101,11 @@ export const languageStrings: LanguageStringsStructure<{
   'en-US': {
     title: 'Tetris ',
     paused: 'Game is paused',
-    pressKeyToResume: (key) => <>Press {key} to resume</>,
+    pressKeyToResume(key) {
+      return <>Press {key} to resume</>;
+    },
     instructions:
-      'Control the game using WSAD or arrow keys. Pause using ' + 'the ESC key',
+      'Control the game using WSAD or arrow keys. Pause using the ESC key',
     score: 'Score: ',
     gameOver: 'Game Over!',
     yourScore: 'Your score was: ',
@@ -112,7 +118,7 @@ export const languageStrings: LanguageStringsStructure<{
 };
 
 export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
-  MainState: ({ action: { parameters, ...state } }) => {
+  MainState({ action: { parameters, ...state } }) {
     return (
       <div
         className="grid grid-cols-4"
@@ -123,21 +129,19 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
       >
         <span />
         {state.paused && (
-          <div
-            className="absolute bg-black flex h-screen inset-0 items-center
-          justify-center opacity-75 text-4xl text-center w-screen"
-          >
+          <div className="absolute inset-0 flex items-center justify-center w-screen h-screen text-4xl text-center bg-black opacity-75">
             <span>
               {languageStrings[parameters.language].paused}
               <br />
               {languageStrings[parameters.language].pressKeyToResume(
-                <span className="bg-white p-px rounded-xl text-black">ESC</span>
+                <span className="rounded-xl p-px text-black bg-white">ESC</span>
               )}
               <br />
               <div className="flex gap-4">
                 <button
+                  type="button"
                   className={fancyButtonStyles}
-                  onClick={() =>
+                  onClick={(): void =>
                     parameters.dispatch({
                       type: 'SaveGameAction',
                     })
@@ -146,9 +150,10 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
                   {languageStrings[parameters.language].saveGame}
                 </button>
                 <button
+                  type="button"
                   className={fancyButtonStyles}
                   disabled={localStorage.getItem('state') === null}
-                  onClick={() =>
+                  onClick={(): void =>
                     parameters.dispatch({
                       type: 'LoadGameAction',
                     })
@@ -160,10 +165,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
             </span>
           </div>
         )}
-        <div
-          className="col-span-2 bg-gradient-to-tr from-yellow-400
-          to-purple-400 p-2"
-        >
+        <div className="bg-gradient-to-tr from-yellow-400 to-purple-400 col-span-2 p-2">
           <div className="h-full grid grid-cols-10 gap-0.5">
             {state.board.map((row, index) => (
               <React.Fragment key={index}>
@@ -182,7 +184,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           </span>
           <br />
           {state.nextShape !== '_' && (
-            <span className="text-4xl pt-2">
+            <span className="pt-2 text-4xl">
               {languageStrings[parameters.language].nextShape} {state.nextShape}
             </span>
           )}
@@ -190,29 +192,31 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
       </div>
     );
   },
-  GameOverState: ({ action: { parameters, ...state } }) => (
-    <div className="flex items-center justify-center text-3xl text-center">
-      <span>
-        <h1 className="pb-4 text-6xl">
-          {languageStrings[parameters.language].gameOver}
-        </h1>
-        <h2>
-          {languageStrings[parameters.language].yourScore} {state.score}
-        </h2>
-        <h2>
-          {languageStrings[parameters.language].yourBestScore} {state.bestScore}
-        </h2>
-        <button
-          className={fancyButtonStyles}
-          onClick={() =>
-            parameters.dispatch({
-              type: 'RestartGameAction',
-            })
-          }
-        >
-          {languageStrings[parameters.language].playAgain}
-        </button>
-      </span>
-    </div>
-  ),
+  GameOverState({ action: { parameters, ...state } }) {
+    return (
+      <div className="flex items-center justify-center text-3xl text-center">
+        <span>
+          <h1 className="pb-4 text-6xl">
+            {languageStrings[parameters.language].gameOver}
+          </h1>
+          <h2>
+            {languageStrings[parameters.language].yourScore} {state.score}
+          </h2>
+          <h2>
+            {languageStrings[parameters.language].yourBestScore}{' '}
+            {state.bestScore}
+          </h2>
+          <button
+            type="button"
+            className={fancyButtonStyles}
+            onClick={(): void =>
+              parameters.dispatch({ type: 'RestartGameAction' })
+            }
+          >
+            {languageStrings[parameters.language].playAgain}
+          </button>
+        </span>
+      </div>
+    );
+  },
 });

@@ -1,17 +1,16 @@
 /*
  * React components
- *
  */
 
 import React from 'react';
 
 import type { SHAPES } from '../../../const/projects/tetris/config';
 
-export const Cell = React.memo(function Cell({
+export function Cell({
   color,
 }: {
-  color: typeof SHAPES[string]['color'];
-}) {
+  readonly color: typeof SHAPES[string]['color'];
+}): JSX.Element {
   return (
     <div
       style={{
@@ -19,7 +18,7 @@ export const Cell = React.memo(function Cell({
       }}
     />
   );
-});
+}
 
 export const fancyButtonStyles =
   'bg-white hover:bg-gray-600 mt-6 p-5' +
