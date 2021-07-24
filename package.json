@@ -1,12 +1,12 @@
 {
-  "name": "mambo_in_ua",
+  "name": "patii_uk",
   "version": "0.1.0",
   "private": true,
-  "description": "Source code for mambo.in.ua",
+  "description": "Source code for patii.uk",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/maxxxxxdlp/mambo.in.ua"
+    "url": "git://github.com/maxxxxxdlp/patii.uk"
   },
   "scripts": {
     "build": "next build",
