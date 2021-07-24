@@ -2,7 +2,7 @@
 
 Source code for MAMBO.IN.UA.
 
-Live version available at [https://patii.uk](https://patii.uk).
+Live version available at [https://max.patii.uk](https://max.patii.uk).
 
 I am a huge fan of tacking minimalism to its extreme, so here is how my home
 page looks like:
@@ -13,7 +13,7 @@ That's right, there are no cluttered submenus, no useless footers and no
 unnecessary information.
 
 This site is primarily used as my portfolio, though it can also host random JS
-projects (check out my [Tetris Game](https://patii.uk/projects/tetris)).
+projects (check out my [Tetris Game](https://max.patii.uk/projects/tetris)).
 
 You are free to copy and/or modify this site without giving credit.
 

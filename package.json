@@ -1,12 +1,12 @@
 {
-  "name": "patii_uk",
+  "name": "max.patii.uk",
   "version": "0.1.0",
   "private": true,
-  "description": "Source code for patii.uk",
+  "description": "Source code for max.patii.uk",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/maxxxxxdlp/patii.uk"
+    "url": "git://github.com/maxxxxxdlp/max.patii.uk"
   },
   "scripts": {
     "build": "next build",
