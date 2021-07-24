@@ -10,13 +10,13 @@ const links: {
 }[] = [
   {
     label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/maksym-patiiuk/',
+    url: 'https://linkedin.patii.uk',
     className: 'from-linked_in-dark to-linked_in-light',
     image: 'linkedIn',
   },
   {
     label: 'GitHub',
-    url: 'https://github.com/maxxxxxdlp',
+    url: 'https://github.patii.uk',
     className: 'from-github-dark to-github-light',
     image: 'github',
   },
@@ -27,19 +27,19 @@ const links: {
   },
   {
     label: 'Instagram',
-    url: 'https://www.instagram.com/mambo_youtube/',
+    url: 'https://instagram.patii.uk',
     className: 'from-instagram-dark to-instagram-light',
     image: 'instagram',
   },
   {
     label: 'Facebook',
-    url: 'https://www.facebook.com/mamboyoutube/',
+    url: 'https://facebook.patii.uk',
     className: 'from-facebook-dark to-facebook-light',
     image: 'facebook',
   },
   {
     label: 'Twitter',
-    url: 'https://twitter.com/maxxxxxdlp1/',
+    url: 'https://twitter.patii.uk',
     className: 'from-twitter-dark to-twitter-light',
     image: 'twitter',
   },
