@@ -24,7 +24,7 @@
     "typesafe-reducer": "^1.0.2"
   },
   "devDependencies": {
-    "@maxxxxxdlp/eslint-config": "^1.0.6",
+    "@maxxxxxdlp/eslint-config": "^1.0.7",
     "@maxxxxxdlp/stylelint-config": "^0.1.2",
     "@types/node": "^15.12.5",
     "@types/ramda": "^0.27.42",
