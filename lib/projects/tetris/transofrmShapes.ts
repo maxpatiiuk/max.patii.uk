@@ -39,9 +39,9 @@ const matrixToShape = (
       .filter(([, row]) => Object.keys(row).length > 0)
   );
 
-const rotateMatrix = <T>(matrix: T[][]) =>
+const rotateMatrix = <T>(matrix: readonly T[][]) =>
   R.map(
-    (row: T[]) =>
+    (row: readonly T[]) =>
       /*
        * Need to write this down explicitly because of poor
        * TypeScript support by Ramda.JS
@@ -50,7 +50,7 @@ const rotateMatrix = <T>(matrix: T[][]) =>
     R.transpose(matrix)
   );
 
-const rotateMatrixNTimes = R.curryN(
+const rotateMatrixTimes = R.curryN(
   2,
   <T>(times: number, matrix: T[][]) =>
     Array.from(new Array(times % 4)).reduce<T[][]>(
@@ -81,13 +81,13 @@ const shapeToMatrix = (shape: ShapeLocation): (0 | 1)[][] =>
       )
     )[0];
 
-const getMaxArrayValue = (array: number[]): number =>
+const getMaxArrayValue = (array: readonly number[]): number =>
   array.reduce(
     (max, value) => (Number.isNaN(max) || value > max ? value : max),
     Number.NaN
   );
 
-const getMinArrayValue = (array: number[]): number =>
+const getMinArrayValue = (array: readonly number[]): number =>
   array.reduce(
     (min, value) => (Number.isNaN(min) || value < min ? value : min),
     Number.NaN
@@ -142,7 +142,7 @@ const rotateShape = (shape: ShapeLocation, multiplier = 1): ShapeLocation =>
     R.compose(
       autoStripShape,
       matrixToShape,
-      rotateMatrixNTimes(multiplier),
+      rotateMatrixTimes(multiplier),
       shapeToMatrix
     )
   );

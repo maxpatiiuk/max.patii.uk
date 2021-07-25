@@ -25,13 +25,13 @@ type States = MainState;
 type ClickAction = Action<'ClickAction', { point: Point }>;
 type GenerateRandomPointAction = Action<'GenerateRandomPointAction'>;
 type ResizeAction = Action<'ResizeAction'>;
-type StopVibration = Action<'StopVibration'>;
+type StopVibrationAction = Action<'StopVibrationAction'>;
 
 type Actions =
   | ClickAction
   | ResizeAction
   | GenerateRandomPointAction
-  | StopVibration;
+  | StopVibrationAction;
 
 const reducer = generateReducer<States, Actions>({
   ClickAction: ({ state, action }) => {
@@ -68,7 +68,7 @@ const reducer = generateReducer<States, Actions>({
     errorRadius: calculateErrorRadius(),
     vibrationDuration: winStateDuration,
   }),
-  StopVibration: ({ state }) => ({
+  StopVibrationAction: ({ state }) => ({
     ...state,
     vibrationDuration: 0,
   }),
@@ -88,7 +88,7 @@ const getInitialState = (): States => ({
 
 const errorRadiusSize = 2 ** 4;
 
-const getWindowDiagonalSize = () =>
+const getWindowDiagonalSize = (): number =>
   Math.sqrt(window.innerHeight ** 2 + window.innerWidth ** 2);
 
 const calculateErrorRadius = (): number =>
@@ -107,7 +107,7 @@ export default function ShadowGame(): JSX.Element {
     setTimeout(
       () =>
         dispatch({
-          type: 'StopVibration',
+          type: 'StopVibrationAction',
         }),
       state.vibrationDuration
     );

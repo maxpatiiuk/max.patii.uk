@@ -9,7 +9,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import LanguageContext from '../components/LanguageContext';
 import type { AvailableLanguages } from '../lib/languages';
 
-export default function app({ Component, pageProps }: AppProps): JSX.Element {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   const { defaultLocale = 'en-US', locale = defaultLocale } = useRouter();
 
   React.useEffect(() => {
@@ -36,3 +36,6 @@ export default function app({ Component, pageProps }: AppProps): JSX.Element {
     </LanguageContext.Provider>
   );
 }
+
+const app = App;
+export default app;

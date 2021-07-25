@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import type { socialMedias } from '../components/SocialMediaIcons';
-import { SocialMediaImage } from '../components/SocialMediaIcons';
+import { Svg } from '../components/SocialMediaIcons';
 
 const links: {
   label: string;
@@ -66,12 +66,7 @@ export default function index(): JSX.Element {
               motion-safe:transition-all focus:text-gray-200
               duration-200 group`}
             >
-              {image && (
-                <SocialMediaImage
-                  className={'w-full h-full'}
-                  imageName={image}
-                />
-              )}
+              {image && <Svg className={'w-full h-full'} imageName={image} />}
               <span
                 className={`text-xl md:text-3xl group-hover:text-sm
                 md:group-hover:text-2xl ${image ? 'sr-only' : ''}`}

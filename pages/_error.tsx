@@ -3,12 +3,12 @@ import React from 'react';
 
 import ErrorPage from '../components/ErrorPage';
 
-const error = ({ statusCode }: { statusCode: number }) => (
-  <ErrorPage errorCode={statusCode} />
-);
+function Error({ statusCode }: { statusCode: number }): JSX.Element {
+  return <ErrorPage errorCode={statusCode} />;
+}
 
-error.getInitialProps = ({ res, err }: NextPageContext) => ({
+Error.getInitialProps = ({ res, err }: NextPageContext) => ({
   statusCode: res ? res.statusCode : err ? err.statusCode : 404,
 });
 
-export default error;
+export default Error;

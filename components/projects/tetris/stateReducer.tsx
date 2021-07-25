@@ -26,7 +26,10 @@ type GameOverState = State<
   }
 >;
 
-export type ShapeLocation = Record<number, Record<number, boolean>>;
+export type ShapeLocationWritable = Record<number, Record<number, boolean>>;
+export type ShapeLocation = Readonly<
+  Record<number, Readonly<Record<number, boolean>>>
+>;
 
 export type MainState = State<
   'MainState',

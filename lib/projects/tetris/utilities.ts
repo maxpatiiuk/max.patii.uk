@@ -1,6 +1,7 @@
 import type {
   MainState,
   ShapeLocation,
+  ShapeLocationWritable,
   States,
 } from '../../../components/projects/tetris/stateReducer';
 import { gameOverState } from '../../../components/projects/tetris/stateReducer';
@@ -28,11 +29,10 @@ export function spawnNewShape(state: MainState): States {
   )
     return gameOverState(state);
 
-  let currentShapeLocation: ShapeLocation = {};
+  const currentShapeLocation: ShapeLocationWritable = {};
 
   // Probably the most impure function in this entire game
   function updateCurrentShape(rowIndex: number, cellIndex: number) {
-    if (!currentShapeLocation) currentShapeLocation = {};
     if (!(rowIndex in currentShapeLocation))
       currentShapeLocation[rowIndex] = {};
     if (!(cellIndex in currentShapeLocation[rowIndex]))
