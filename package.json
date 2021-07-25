@@ -24,14 +24,14 @@
     "typesafe-reducer": "^1.0.2"
   },
   "devDependencies": {
-    "@maxxxxxdlp/eslint-config": "^1.0.6",
+    "@maxxxxxdlp/eslint-config": "^1.0.7",
     "@maxxxxxdlp/stylelint-config": "^0.1.2",
     "@types/node": "^16.4.2",
     "@types/ramda": "^0.27.44",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@types/react-modal": "^3.12.1",
-    "@types/styled-jsx": "^2.2.8",
+    "@types/styled-jsx": "^2.2.9",
     "autoprefixer": "^10.3.1",
     "eslint": "^7.31.0",
     "postcss": "^8.3.6",
