@@ -1,8 +1,6 @@
-# MAMBO.IN.UA
+# max.patii.uk
 
-Source code for MAMBO.IN.UA.
-
-Live version available at [https://max.patii.uk](https://max.patii.uk).
+Source code for [https://max.patii.uk](https://max.patii.uk).
 
 I am a huge fan of tacking minimalism to its extreme, so here is how my home
 page looks like:
