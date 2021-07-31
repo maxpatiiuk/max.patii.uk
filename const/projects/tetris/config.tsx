@@ -8,6 +8,8 @@
  * NOTE: if you change this, you also need to change the className for the
  * main grid component from `grid-cols-10` to the new value
  */
+import type { IR } from '../../../lib/utilities';
+
 export const BOARD_X = 10;
 
 // Board size vertical
@@ -21,19 +23,14 @@ export const SCORE_MULTIPLIER = 100;
 
 // Shapes to use in the game, their colors and definitions
 /* eslint-disable @typescript-eslint/naming-convention */
-export const SHAPES: Readonly<
-  Record<
-    string,
-    {
-      // What color to use for the shape
-      color: string;
-      // How does this shape look
-      definition: readonly (readonly ('0' | '1')[])[];
-      // Whether this shape can be randomly selected
-      spawn: boolean;
-    }
-  >
-> = {
+export const SHAPES: IR<{
+  // What color to use for the shape
+  color: string;
+  // How does this shape look
+  definition: readonly (readonly ('0' | '1')[])[];
+  // Whether this shape can be randomly selected
+  spawn: boolean;
+}> = {
   /* eslint-disable id-length */
   I: {
     // Cyan

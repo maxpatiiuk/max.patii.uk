@@ -16,6 +16,7 @@ import type {
   LanguageStringsStructure,
 } from '../../../lib/languages';
 import type { Actions } from '../../../lib/projects/tetris/reducer';
+import type { RR } from '../../../lib/utilities';
 import { Cell, fancyButtonStyles } from './components';
 
 type GameOverState = State<
@@ -27,9 +28,7 @@ type GameOverState = State<
 >;
 
 export type ShapeLocationWritable = Record<number, Record<number, boolean>>;
-export type ShapeLocation = Readonly<
-  Record<number, Readonly<Record<number, boolean>>>
->;
+export type ShapeLocation = RR<number, RR<number, boolean>>;
 
 export type MainState = State<
   'MainState',

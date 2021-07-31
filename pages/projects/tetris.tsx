@@ -19,6 +19,7 @@ import {
 } from '../../const/projects/tetris/config';
 import { Direction } from '../../lib/projects/tetris/definitions';
 import { reducer } from '../../lib/projects/tetris/reducer';
+import type { IR } from '../../lib/utilities';
 
 export default function Tetris(): JSX.Element {
   const [state, dispatch] = React.useReducer(reducer, 0, getInitialState);
@@ -53,7 +54,7 @@ export default function Tetris(): JSX.Element {
   }, []);
 
   function captureKeyDown(event: KeyboardEvent): void {
-    const keys: Record<string, Direction> = {
+    const keys: IR<Direction> = {
       ArrowUp: Direction.UP,
       ArrowDown: Direction.DOWN,
       ArrowLeft: Direction.LEFT,

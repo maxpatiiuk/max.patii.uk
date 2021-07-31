@@ -1,81 +1,79 @@
-import Layout from '../components/Layout';
-import type { socialMedias } from '../components/SocialMediaIcons';
-import { Svg } from '../components/SocialMediaIcons';
+import Link from 'next/link';
 
-const links: {
-  label: string;
-  url: string;
-  className: string;
-  image?: typeof socialMedias[number];
-}[] = [
-  {
-    label: 'LinkedIn',
-    url: 'https://linkedin.patii.uk',
-    className: 'from-linked_in-dark to-linked_in-light',
-    image: 'linkedIn',
-  },
-  {
-    label: 'GitHub',
-    url: 'https://github.patii.uk',
-    className: 'from-github-dark to-github-light',
-    image: 'github',
-  },
-  {
-    label: 'max@patii.uk',
-    url: 'mailto:max@patii.uk',
-    className: 'from-email-dark to-email-light',
-  },
-  {
-    label: 'Instagram',
-    url: 'https://instagram.patii.uk',
-    className: 'from-instagram-dark to-instagram-light',
-    image: 'instagram',
-  },
-  {
-    label: 'Facebook',
-    url: 'https://facebook.patii.uk',
-    className: 'from-facebook-dark to-facebook-light',
-    image: 'facebook',
-  },
-  {
-    label: 'Twitter',
-    url: 'https://twitter.patii.uk',
-    className: 'from-twitter-dark to-twitter-light',
-    image: 'twitter',
-  },
+import Layout from '../components/Layout';
+import { projects } from '../const/projects/projects';
+import siteInfo from '../const/siteInfo';
+import type { LanguageStringsStructure } from '../lib/languages';
+import type { RA } from '../lib/utilities';
+
+const links: RA<{ readonly label: string; readonly url: string }> = [
+  { label: 'max@patii.uk', url: 'mailto:max@patii.uk' },
+  { label: 'linkedin', url: 'https://linkedin.patii.uk' },
+  { label: 'github', url: 'https://github.patii.uk' },
+  { label: 'twitter', url: 'https://twitter.patii.uk' },
+  { label: 'instagram', url: 'https://instagram.patii.uk' },
 ];
+
+const languageStrings: LanguageStringsStructure<{
+  title: string;
+  myProjects: string;
+}> = {
+  'en-US': {
+    title: 'Full Stack Web Developer',
+    myProjects: 'My projects',
+  },
+};
 
 export default function index(): JSX.Element {
   return (
     <Layout>
-      {(): JSX.Element => (
-        <header
-          className={`grid grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-rows-3
-        lg:grid-cols-3 lg:grid-rows-2 lg:h-screen`}
+      {(language): JSX.Element => (
+        <div
+          className={`min-h-screen lg:h-screen w-screen flex flex-col
+            lg:flex-row justify-center bg-black text-white`}
         >
-          {links.map(({ label, url, className, image }) => (
-            <a
-              href={url}
-              key={label}
-              title={label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`relative flex justify-center items-center
-              p-20 bg-gradient-to-tr ${className}
-              hover:bg-gradient-to-bl text-white hover:p-24
-              motion-safe:transition-all focus:text-gray-200
-              duration-200 group`}
-            >
-              {image && <Svg className={'w-full h-full'} imageName={image} />}
-              <span
-                className={`text-xl md:text-3xl group-hover:text-sm
-                md:group-hover:text-2xl ${image ? 'sr-only' : ''}`}
+          <header className="gap-y-10 flex flex-col justify-between p-20">
+            <div className="gap-y-4 flex flex-col">
+              <h1 className="text-7xl">{siteInfo[language].author}</h1>
+              <p className="text-3xl text-gray-400">
+                {languageStrings[language].title}
+              </p>
+            </div>
+            <nav className="flex flex-col">
+              {links.map(({ label, url }) => (
+                <a
+                  key={label}
+                  href={url}
+                  rel="noopener"
+                  className="hover:text-gray-500 py-1"
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </header>
+          <main className="gap-y-10 flex flex-col p-20 overflow-y-scroll">
+            <h2 className="text-3xl">{languageStrings[language].myProjects}</h2>
+            {Object.entries(projects).map(([id, { localized }]) => (
+              <article
+                key={id}
+                className={
+                  'bg-white flex flex-col gap-y-3 p-6 rounded-xl text-black'
+                }
               >
-                {label}
-              </span>
-            </a>
-          ))}
-        </header>
+                <Link href={`/projects/${id}/`}>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a>
+                    <h3 className="hover:text-gray-500 text-2xl">
+                      {localized[language].title}
+                    </h3>
+                  </a>
+                </Link>
+                <p className="text-xl">{localized[language].description}</p>
+              </article>
+            ))}
+          </main>
+        </div>
       )}
     </Layout>
   );

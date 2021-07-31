@@ -39,6 +39,7 @@ function Layout({
   manifest = '/site.webmanifest',
   icon,
   props,
+  useDefaultDescription = true,
 }: {
   readonly title?:
     | string
@@ -46,6 +47,7 @@ function Layout({
         title: string;
       }>
     | ((string: AvailableLanguages['type']) => string);
+  readonly useDefaultDescription?: boolean;
   readonly children: (language: AvailableLanguages['type']) => React.ReactNode;
   readonly privatePage?: boolean;
   readonly manifest?: string;
@@ -63,7 +65,12 @@ function Layout({
               name="robots"
               content={privatePage ? 'noindex,nofollow' : robots}
             />
-            <meta name="description" content={siteInfo[language].description} />
+            {useDefaultDescription && (
+              <meta
+                name="description"
+                content={siteInfo[language].description}
+              />
+            )}
             <meta name="keywords" content={siteInfo[language].keywords} />
             <meta name="author" content={siteInfo[language].author} />
             {typeof icon === 'undefined' && (
