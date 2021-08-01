@@ -5,7 +5,7 @@ Source code for [https://max.patii.uk](https://max.patii.uk).
 I am a huge fan of tacking minimalism to its extreme, so here is how my home
 page looks like:
 
-![Main Page](./docs/src/main_page.jpg)
+![Main Page](./docs/src/mainPage.png)
 
 That's right, there are no cluttered submenus, no useless footers and no
 unnecessary information.
