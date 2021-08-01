@@ -12,6 +12,7 @@ const links: RA<{ readonly label: string; readonly url: string }> = [
   { label: 'github', url: 'https://github.patii.uk' },
   { label: 'twitter', url: 'https://twitter.patii.uk' },
   { label: 'instagram', url: 'https://instagram.patii.uk' },
+  { label: 'cv', url: 'https://cv.patii.uk' },
 ];
 
 const languageStrings: LanguageStringsStructure<{
