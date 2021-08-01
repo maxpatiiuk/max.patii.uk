@@ -97,6 +97,7 @@ export function YouTube({
               width="640"
               height="360"
               title={caption}
+              className="max-w-full"
               src={`https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
                 document.location.origin
               )}&widget_referrer=${encodeURIComponent(
