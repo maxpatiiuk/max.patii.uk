@@ -13,13 +13,14 @@ unnecessary information.
 This site is primarily used as my portfolio, though it can also host random JS
 projects (check out my [Tetris Game](https://max.patii.uk/projects/tetris)).
 
-You are free to copy and/or modify this site without giving credit.
+The design was inspired by
+[Clement Grellier's portfolio](https://clementgrellier.fr/).
 
 ## Development
 
 ```zsh
 npm i       # install dependencies
-npm run dev # start a development server
+npm run dev # start development server
 ```
 
 This would start the development server at
