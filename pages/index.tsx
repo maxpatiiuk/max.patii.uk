@@ -30,30 +30,35 @@ export default function index(): JSX.Element {
     <Layout>
       {(language): JSX.Element => (
         <div
-          className={`min-h-screen lg:h-screen w-screen flex flex-col
-            lg:flex-row justify-center bg-black text-white`}
+          className={`min-h-screen flex flex-col lg:flex-row justify-center
+            bg-black text-white`}
         >
-          <header className="gap-y-10 flex flex-col justify-between p-20">
-            <div className="gap-y-4 flex flex-col">
-              <h1 className="text-7xl">{siteInfo[language].author}</h1>
-              <p className="text-3xl text-gray-400">
-                {languageStrings[language].title}
-              </p>
+          <header>
+            <div
+              className={`lg:min-h-screen gap-y-10 flex flex-col
+                justify-between sticky top-0 p-20`}
+            >
+              <div className="gap-y-4 flex flex-col">
+                <h1 className="text-7xl">{siteInfo[language].author}</h1>
+                <p className="text-3xl text-gray-400">
+                  {languageStrings[language].title}
+                </p>
+              </div>
+              <nav className="flex flex-col">
+                {links.map(({ label, url }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    rel="noopener"
+                    className="hover:text-gray-500 py-1"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </nav>
             </div>
-            <nav className="flex flex-col">
-              {links.map(({ label, url }) => (
-                <a
-                  key={label}
-                  href={url}
-                  rel="noopener"
-                  className="hover:text-gray-500 py-1"
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
           </header>
-          <main className="gap-y-10 flex flex-col p-20 overflow-y-scroll">
+          <main className="gap-y-10 lg:pt-20 flex flex-col p-20 pt-0">
             <h2 className="text-3xl">{languageStrings[language].myProjects}</h2>
             {Object.entries(projects).map(([id, { localized }]) => (
               <article
