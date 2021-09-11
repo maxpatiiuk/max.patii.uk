@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import { robots, themeColor } from '../const/siteConfig';
+import { twitter } from '../const/siteConfig';
 import siteInfo from '../const/siteInfo';
 import type {
   AvailableLanguages,
@@ -60,19 +61,35 @@ function Layout({
         <>
           <Head>
             <title>{extractTitle(language, title)}</title>
+            <meta name="og:title" content={extractTitle(language, title)} />
+            <meta
+              name="twitter:title"
+              content={extractTitle(language, title)}
+            />
             <link rel="icon" href={icon ?? '/favicon.ico"'} />
             <meta
               name="robots"
               content={privatePage ? 'noindex,nofollow' : robots}
             />
             {useDefaultDescription && (
-              <meta
-                name="description"
-                content={siteInfo[language].description}
-              />
+              <>
+                <meta
+                  name="description"
+                  content={siteInfo[language].description}
+                />
+                <meta
+                  name="og:description"
+                  content={siteInfo[language].description}
+                />
+                <meta
+                  name="twitter:description"
+                  content={siteInfo[language].description}
+                />
+              </>
             )}
             <meta name="keywords" content={siteInfo[language].keywords} />
-            <meta name="author" content={siteInfo[language].author} />
+            <meta name="twitter:site" content={twitter} />
+            <meta name="twitter:card" content="summary_large_image" />
             {typeof icon === 'undefined' && (
               <>
                 <link
