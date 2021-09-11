@@ -5,7 +5,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { projects } from '../../const/projects/projects';
 import type { LanguageStringsStructure } from '../../lib/languages';
-import type { RA } from '../../lib/utilities';
 
 type ProjectIdQuery = {
   readonly id: keyof typeof projects;
@@ -19,19 +18,20 @@ const languageStrings: LanguageStringsStructure<{
   },
 };
 
+type OgImage = {
+  readonly src: string;
+  readonly label: string;
+};
+
+export const OgImageContext = React.createContext<
+  ((ogImage: OgImage | undefined) => void) | undefined
+>(undefined);
+OgImageContext.displayName = 'OpImageContext';
+
 export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
   const project = projects[id];
-  // Find first image and use it as a preview
-  const ogImage = Array.from(
-    project.localized['en-US'].content.props.children as RA<JSX.Element>
-  ).find((element) => element.type.name === 'Image')?.props as
-    | {
-        readonly source: {
-          readonly src: string;
-        };
-        readonly children: string;
-      }
-    | undefined;
+  const [ogImage, setOgImage] = React.useState<OgImage | undefined>(undefined);
+  const hasOgImage = React.useRef(false);
   return (
     <Layout title={project.localized}>
       {(language): JSX.Element => (
@@ -48,9 +48,9 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
             />
             {typeof ogImage === 'object' && (
               <>
-                <meta name="og:image" content={ogImage.source.src} />
-                <meta name="twitter:image" content={ogImage.source.src} />
-                <meta name="twitter:image:alt" content={ogImage.children} />
+                <meta name="og:image" content={ogImage.src} />
+                <meta name="twitter:image" content={ogImage.src} />
+                <meta name="twitter:image:alt" content={ogImage.label} />
               </>
             )}
           </Head>
@@ -69,7 +69,15 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
           </header>
           <main className="flex justify-center p-4 pt-16 pb-16">
             <div className="md:w-9/12">
-              {project.localized[language].content}
+              <OgImageContext.Provider
+                value={(newOgImage): void => {
+                  if (hasOgImage.current) return;
+                  setOgImage(newOgImage);
+                  hasOgImage.current = true;
+                }}
+              >
+                {project.localized[language].content}
+              </OgImageContext.Provider>
             </div>
           </main>
         </div>
