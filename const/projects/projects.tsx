@@ -12,6 +12,8 @@ import lifemapper1 from '../../public/projects/images/lifemapper/1.jpg';
 import lifemapper2 from '../../public/projects/images/lifemapper/2.jpg';
 import lifemapper3 from '../../public/projects/images/lifemapper/3.png';
 import lifemapper4 from '../../public/projects/images/lifemapper/4.png';
+import lifemapper5 from '../../public/projects/images/lifemapper/5.png';
+import lifemapper6 from '../../public/projects/images/lifemapper/6.png';
 import openApi1 from '../../public/projects/images/open-api/1.png';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
@@ -158,6 +160,14 @@ export const projects: IR<Project> = {
             <Image source={lifemapper4}>
               Pop-up bubble with information about a specimen
             </Image>
+            <Image source={lifemapper5}>
+              Occurrences of &quot;Mycteroperca microlepis&quot; as reported by
+              several data aggregators
+            </Image>
+            <Image source={lifemapper6}>
+              A heat-map of all the specimens obtained by a collection between
+              1901 and 2021
+            </Image>
 
             <Header>Technologies used</Header>
             <List>
@@ -166,6 +176,7 @@ export const projects: IR<Project> = {
               <li>React</li>
               <li>Docker</li>
               <li>Leaflet (library for interactive maps)</li>
+              <li>Python (CherryPy)</li>
             </List>
 
             <YouTube caption="Video overview" video="AQeWtZxQTns" />
