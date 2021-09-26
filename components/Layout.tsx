@@ -61,11 +61,7 @@ function Layout({
         <>
           <Head>
             <title>{extractTitle(language, title)}</title>
-            <meta name="og:title" content={extractTitle(language, title)} />
-            <meta
-              name="twitter:title"
-              content={extractTitle(language, title)}
-            />
+            <meta property="og:title" content={extractTitle(language, title)} />
             <link rel="icon" href={icon ?? '/favicon.ico"'} />
             <meta
               name="robots"
@@ -78,11 +74,7 @@ function Layout({
                   content={siteInfo[language].description}
                 />
                 <meta
-                  name="og:description"
-                  content={siteInfo[language].description}
-                />
-                <meta
-                  name="twitter:description"
+                  property="og:description"
                   content={siteInfo[language].description}
                 />
               </>

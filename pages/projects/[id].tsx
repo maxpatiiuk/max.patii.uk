@@ -5,6 +5,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { projects } from '../../const/projects/projects';
 import type { LanguageStringsStructure } from '../../lib/languages';
+import type { RA } from '../../lib/utilities';
 
 type ProjectIdQuery = {
   readonly id: keyof typeof projects;
@@ -18,39 +19,55 @@ const languageStrings: LanguageStringsStructure<{
   },
 };
 
-type OgImage = {
-  readonly src: string;
-  readonly label: string;
-};
-
-export const OgImageContext = React.createContext<
-  ((ogImage: OgImage | undefined) => void) | undefined
->(undefined);
-OgImageContext.displayName = 'OpImageContext';
-
 export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
   const project = projects[id];
-  const [ogImage, setOgImage] = React.useState<OgImage | undefined>(undefined);
-  const hasOgImage = React.useRef(false);
+  const ogImage = Array.from(
+    project.localized['en-US'].content.props.children as RA<JSX.Element>
+  ).find((element) => typeof element.props.source?.src === 'string')?.props as
+    | {
+        readonly source: {
+          readonly src: string;
+          readonly width: number;
+          readonly height: number;
+        };
+        readonly children: string;
+      }
+    | undefined;
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
   return (
-    <Layout title={project.localized}>
+    <Layout title={project.localized} useDefaultDescription={false}>
       {(language): JSX.Element => (
         <div className="min-h-screen text-white bg-black">
           <Head>
-            <meta name="og:title" content={project.localized[language].title} />
+            <meta
+              property="og:title"
+              content={project.localized[language].title}
+            />
             <meta
               name="description"
               content={project.localized[language].description}
             />
             <meta
-              name="og:description"
+              property="og:description"
               content={project.localized[language].description}
             />
             {typeof ogImage === 'object' && (
               <>
-                <meta name="og:image" content={ogImage.src} />
-                <meta name="twitter:image" content={ogImage.src} />
-                <meta name="twitter:image:alt" content={ogImage.label} />
+                <meta
+                  property="og:image"
+                  content={`${baseUrl}${ogImage.source.src}`}
+                />
+                <meta property="og:image:alt" content={ogImage.children} />
+                <meta
+                  property="og:image:width"
+                  content={`${ogImage.source.width}`}
+                />
+                <meta
+                  property="og:image:height"
+                  content={`${ogImage.source.height}`}
+                />
               </>
             )}
           </Head>
@@ -69,15 +86,7 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
           </header>
           <main className="flex justify-center p-4 pt-16 pb-16">
             <div className="md:w-9/12">
-              <OgImageContext.Provider
-                value={(newOgImage): void => {
-                  if (hasOgImage.current) return;
-                  setOgImage(newOgImage);
-                  hasOgImage.current = true;
-                }}
-              >
-                {project.localized[language].content}
-              </OgImageContext.Provider>
+              {project.localized[language].content}
             </div>
           </main>
         </div>

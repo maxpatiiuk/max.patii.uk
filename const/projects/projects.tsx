@@ -96,7 +96,7 @@ export const projects: IR<Project> = {
               . Username and password are{' '}
               <mark className="text-red-700">demouser</mark>. When prompted to
               select a collection, choose any option. See usage instructions in
-              the above video.
+              the video above.
             </Paragraph>
 
             <Header>Technologies used</Header>

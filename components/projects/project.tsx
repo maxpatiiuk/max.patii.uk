@@ -3,7 +3,6 @@ import Img from 'next/image';
 import React from 'react';
 
 import type { RA } from '../../lib/utilities';
-import { OgImageContext } from '../../pages/projects/[id]';
 
 export function Paragraph({
   children,
@@ -122,10 +121,6 @@ export function Image({
   readonly source: Exclude<ImageProps['src'], string>;
   readonly children: string;
 }): JSX.Element {
-  const ogContext = React.useContext(OgImageContext);
-  React.useEffect(() => {
-    if ('src' in source) ogContext?.({ src: source.src, label: children });
-  }, [source, children]);
   return (
     <figure className="mb-4 bg-gray-900">
       <Img alt={children} src={source} layout="responsive" />
