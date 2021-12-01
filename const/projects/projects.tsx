@@ -458,7 +458,7 @@ export const projects: IR<Project> = {
           <>
             <Paragraph>
               Tetris was one game I could always easily lose myself in. I
-              decided to make learning Next.js and Ramda.js more fun my trying
+              decided to make learning Next.js and Ramda.js more fun by trying
               to build a game with them.
             </Paragraph>
             <Paragraph>
