@@ -8,6 +8,8 @@ import {
 } from '../../components/projects/project';
 import type { LanguageStringsStructure } from '../../lib/languages';
 import type { IR } from '../../lib/utilities';
+import battleship1 from '../../public/projects/images/battleship/1.png';
+import battleship2 from '../../public/projects/images/battleship/2.png';
 import lifemapper1 from '../../public/projects/images/lifemapper/1.jpg';
 import lifemapper2 from '../../public/projects/images/lifemapper/2.jpg';
 import lifemapper3 from '../../public/projects/images/lifemapper/3.png';
@@ -15,9 +17,16 @@ import lifemapper4 from '../../public/projects/images/lifemapper/4.png';
 import lifemapper5 from '../../public/projects/images/lifemapper/5.png';
 import lifemapper6 from '../../public/projects/images/lifemapper/6.png';
 import openApi1 from '../../public/projects/images/open-api/1.png';
+import pixelland1 from '../../public/projects/images/pixelland/1.png';
+import pixelland2 from '../../public/projects/images/pixelland/2.png';
+import pixelland3 from '../../public/projects/images/pixelland/3.png';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
 import taxa3 from '../../public/projects/images/taxa/3.png';
+import testPanel1 from '../../public/projects/images/test-panel/1.png';
+import testPanel2 from '../../public/projects/images/test-panel/2.png';
+import testPanel3 from '../../public/projects/images/test-panel/3.png';
+import testPanel4 from '../../public/projects/images/test-panel/4.png';
 import tetris1 from '../../public/projects/images/tetris/1.png';
 import tetris2 from '../../public/projects/images/tetris/2.png';
 import tetris3 from '../../public/projects/images/tetris/3.png';
@@ -29,11 +38,6 @@ import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';
 import workbench4 from '../../public/projects/images/workbench/4.jpg';
-import battleship1 from '../../public/projects/images/battleship/1.png';
-import battleship2 from '../../public/projects/images/battleship/2.png';
-import pixelland1 from '../../public/projects/images/pixelland/1.png';
-import pixelland2 from '../../public/projects/images/pixelland/2.png';
-import pixelland3 from '../../public/projects/images/pixelland/3.png';
 
 export type Project = {
   readonly gitHub: string;
@@ -122,6 +126,140 @@ export const projects: IR<Project> = {
               video="fw_Ps4nF5FY"
               start={386}
             />
+          </>
+        ),
+      },
+    },
+  },
+  'specify7-test-panel': {
+    gitHub: 'http://github.com/specify/specify7-test-panel',
+    localized: {
+      'en-US': {
+        title: 'Specify 7 Test Panel',
+        description:
+          'A dashboard for deploying Specify 7 instances for QA purposes',
+        content: (
+          <>
+            <Paragraph>
+              Test Panel is a Dashboard for configuring a cluster of docker
+              containers of{' '}
+              <Link href="http://github.com/specify/specify7">Specify 7</Link>,
+              with an automatic deployment feature.
+            </Paragraph>
+            <Paragraph>
+              The Test Panel is used to easily test different versions of the
+              software and to speed up the QA process for bug fixes by
+              automatically deploying bug fixes that are ready to be tested .
+            </Paragraph>
+            <List caption="Notable features">
+              <li>
+                Ability to reconfigure an existing deployment, or add a new one
+              </li>
+              <li>Automatic deployment of bug fixes that a ready to test</li>
+              <li>
+                Automatic cleanup of old deployments that are no longer used
+              </li>
+              <li>Beautiful UI</li>
+              <li>GitHub oAuth authentication</li>
+              <li>
+                Regular polling of data to update the status of each deployment
+              </li>
+              <li>Ability to upload/download/drop a database</li>
+            </List>
+            <Paragraph>
+              These features are described in more detail below:
+            </Paragraph>
+
+            <Header>Automatic deployments</Header>
+            <Paragraph>
+              A GitHub Webhook has been configured for the Specify 7 repository
+              which pings the test panel to check if some bug is ready to be
+              tested.
+            </Paragraph>
+            <Paragraph>
+              A ready to be tested bug is defined as a branch in the Specify 7
+              repository, for which all automated test have passed, and which
+              has an associated pull-request that has been assigned for review
+              to the QA team (or a member of the team), and has not yet been
+              reviewed. If pull-request has been assigned for review both to a
+              member of the development team and a member of the QA team, the
+              test panel deploys the branch only after the developer has
+              approved the pull request, so as not to waste QA team's time
+              testing code that may be rejected.
+            </Paragraph>
+            <Paragraph>
+              If a maximum number of deployments has already been reached
+              (defined in the config file), the test panel tries to destroy old
+              deployments that haven't been accessed recently.
+            </Paragraph>
+            <Image source={testPanel1}>Automatic deployments</Image>
+
+            <Header>Custom deployments</Header>
+            <Paragraph>
+              Besides the automated deployments, there is often a need to test a
+              specific branch (e.i. production) in a specific database to
+              replicate a bug, or get everything ready for a release.
+            </Paragraph>
+            <Paragraph>
+              For these purposes, any deployment can have its configuration
+              changed. Each deployment has an associated DockerHub tag (created
+              from a HEAD of a GitHub branches), a database and a datamodel
+              version
+            </Paragraph>
+            <Image source={testPanel2}>Custom deployments (+dark mode)</Image>
+
+            <Header>Database Management</Header>
+            <Paragraph>
+              Besides all deployments running in Docker, the test panel itself
+              is Dockerized. Docker composition comes with a MariaDB server to
+              provide databases for deployments.
+            </Paragraph>
+            <Paragraph>
+              Dashboard provides a list of databases, a list of users in each
+              database (needed for authentication into a Specify 7 instance), an
+              ability to upload a new database, download an existing one, or
+              drop it.
+            </Paragraph>
+            <Image source={testPanel3}>Database management (+dark mode)</Image>
+
+            <Header>Online demo</Header>
+            <Paragraph>
+              For security purposes, the test panel is protected behind a GitHub
+              oAuth authentication, which only permits signing it with accounts
+              that are members of the{' '}
+              <Link href="https://github.com/specify/">
+                "specify" GitHub organization
+              </Link>
+              . Thus, even though a live version is available at,{' '}
+              <Link href="https://test.specifysystems.org/">
+                test.specifysystems.org
+              </Link>
+              , the dashboard itself is inaccessible. If you want to try out the
+              test panel, I encourage you to deploy it on your own machine.
+            </Paragraph>
+            <Paragraph>
+              Exhaustive deployment instructions are documented in the
+              <Link href="https://github.com/specify/specify7-test-panel#readme">
+                README.md
+              </Link>
+            </Paragraph>
+            <Paragraph>
+              It should be possible to reconfigure the dashboard to server
+              deployments of software other than Specify 7.
+            </Paragraph>
+            <Image source={testPanel4}>Sign-in screen (+dark mode)</Image>
+
+            <Header>Technologies used</Header>
+            <List>
+              <li>Docker</li>
+              <li>Javascript ES6+</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>react-modal</li>
+              <li>Next.js</li>
+              <li>Tailwind.CSS</li>
+              <li>MariaDB (and a mysql2 npm dependency)</li>
+            </List>
           </>
         ),
       },
