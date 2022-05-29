@@ -1,3 +1,16 @@
+/**
+ * While this might not be the best way to define posts, here are some
+ * benefits:
+ *  - Very simple infrastructure (no database required)
+ *  - Type safety included (since posts are defined in TypeScript)
+ *  - Autocompletion & Grammar checker included (thanks to IDE plugins)
+ *  - Easy to search among all posts at once
+ *  - Since there aren't too many posts, and they aren't modified often, and
+ *    there aren't multiple people editing them, and there aren't multiple
+ *    localizations of a post, this is definitelly the simplest way to get the
+ *    task done.
+ */
+
 import {
   Header,
   Image,
