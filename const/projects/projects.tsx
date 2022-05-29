@@ -33,6 +33,13 @@ import openApi1 from '../../public/projects/images/open-api/1.png';
 import pixelland1 from '../../public/projects/images/pixelland/1.png';
 import pixelland2 from '../../public/projects/images/pixelland/2.png';
 import pixelland3 from '../../public/projects/images/pixelland/3.png';
+import projectEphemeris1 from '../../public/projects/images/project-ephemeris/1.png';
+import projectEphemeris2 from '../../public/projects/images/project-ephemeris/2.png';
+import projectEphemeris3 from '../../public/projects/images/project-ephemeris/3.png';
+import projectEphemeris4 from '../../public/projects/images/project-ephemeris/4.png';
+import projectEphemeris5 from '../../public/projects/images/project-ephemeris/5.png';
+import projectEphemeris6 from '../../public/projects/images/project-ephemeris/6.png';
+import projectEphemeris7 from '../../public/projects/images/project-ephemeris/7.png';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
 import taxa3 from '../../public/projects/images/taxa/3.png';
@@ -156,7 +163,7 @@ export const projects: IR<Project> = {
             <Paragraph>
               Test Panel is a Dashboard for configuring a cluster of docker
               containers of{' '}
-              <Link href="http://github.com/specify/specify7">Specify 7</Link>,
+              <Link href="https://github.com/specify/specify7">Specify 7</Link>,
               with an automatic deployment feature.
             </Paragraph>
             <Paragraph>
@@ -272,6 +279,55 @@ export const projects: IR<Project> = {
               <li>Next.js</li>
               <li>Tailwind.CSS</li>
               <li>MariaDB (and a mysql2 npm dependency)</li>
+            </List>
+          </>
+        ),
+      },
+    },
+  },
+  'project-ephemeris': {
+    gitHub: 'https://github.com/maxxxxxdlp/project-ephemeris',
+    localized: {
+      'en-US': {
+        title: 'Project Ephemeris',
+        description: 'A Google Calendar clone',
+        content: (
+          <>
+            <Paragraph>
+              A full-fledged calendar application with support for multiple
+              calendars, repeated events and best of all, dark mode. It has four
+              view modes: year, month, week and day. Additionally, there is good
+              screen reader and keyboard navigation support.
+            </Paragraph>
+
+            <Header>Online demo</Header>
+            <Paragraph>
+              You can try out the live version at{' '}
+              <Link href="https://project-ephemeris.vercel.app">
+                project-ephemeris.vercel.app
+              </Link>
+              .
+            </Paragraph>
+
+            <YouTube caption="Video overview" video="15tJGmPTuhQ" />
+
+            <Header>Screenshots</Header>
+            <Image source={projectEphemeris1}>Main page</Image>
+            <Image source={projectEphemeris2}>Editing an event</Image>
+            <Image source={projectEphemeris3}>Searching for events</Image>
+            <Image source={projectEphemeris4}>Month view</Image>
+            <Image source={projectEphemeris5}>Year view</Image>
+            <Image source={projectEphemeris6}>Light mode</Image>
+            <Image source={projectEphemeris7}>Editing calendar</Image>
+
+            <Header>Technologies used</Header>
+            <List>
+              <li>Javascript ES6+</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
+              <li>MySQL</li>
             </List>
           </>
         ),
