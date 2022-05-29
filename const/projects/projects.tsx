@@ -112,7 +112,7 @@ export const projects: IR<Project> = {
             <Header>Online demo</Header>
             <Paragraph>
               You can try out the live version at{' '}
-              <Link href="http://workbench.test.specifycloud.org/">
+              <Link href="https://workbench.test.specifycloud.org/">
                 workbench.test.specifycloud.org
               </Link>
               . Username and password are{' '}
@@ -145,7 +145,7 @@ export const projects: IR<Project> = {
     },
   },
   'specify7-test-panel': {
-    gitHub: 'http://github.com/specify/specify7-test-panel',
+    gitHub: 'https://github.com/specify/specify7-test-panel',
     localized: {
       'en-US': {
         title: 'Specify 7 Test Panel',
