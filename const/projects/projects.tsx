@@ -431,7 +431,7 @@ export const projects: IR<Project> = {
               While automated tests are an awesome low-effort solution,
               sometimes you need to provide specific test values and define
               expected constrains (how given parameter should affect the
-              output). This use case is also handled by the libriaryj.
+              output). This use case is also handled by the libriary.
             </Paragraph>
             <Paragraph>
               Additionally, some tests may require to run a particular sequence
@@ -440,6 +440,11 @@ export const projects: IR<Project> = {
               would run the output of one request though a generator to produce
               the input for the next request and so on.
             </Paragraph>
+
+            <YouTube
+              caption="Recorded presentation from TDWG 2021"
+              video="G_3lzy_wOHI"
+            />
 
             <YouTube
               caption="A non-technical overview of APIs"
