@@ -33,9 +33,10 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
         readonly children: string;
       }
     | undefined;
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
+  const baseUrl =
+    typeof process.env.VERCEL_URL === 'string'
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
   return (
     <Layout title={project.localized} useDefaultDescription={false}>
       {(language): JSX.Element => (
@@ -76,12 +77,14 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
               <h1 className="w-full text-3xl">
                 {project.localized[language].title}
               </h1>
-              <a
-                className="hover:text-white w-full text-gray-300"
-                href={project.gitHub}
-              >
-                {languageStrings[language].viewOnGitHub}
-              </a>
+              {typeof project.gitHub === 'string' && (
+                <a
+                  className="hover:text-white w-full text-gray-300"
+                  href={project.gitHub}
+                >
+                  {languageStrings[language].viewOnGitHub}
+                </a>
+              )}
             </div>
           </header>
           <main className="flex justify-center p-4 pt-16 pb-16">

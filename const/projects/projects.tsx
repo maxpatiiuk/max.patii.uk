@@ -58,9 +58,10 @@ import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';
 import workbench4 from '../../public/projects/images/workbench/4.jpg';
+import { internshipProjects } from './internshipProjects';
 
 export type Project = {
-  readonly gitHub: string;
+  readonly gitHub: string | undefined;
   readonly localized: LanguageStringsStructure<{
     title: string;
     description: string;
@@ -69,6 +70,7 @@ export type Project = {
 };
 
 export const projects: IR<Project> = {
+  ...internshipProjects,
   workbench: {
     gitHub: 'https://github.com/specify/specify7',
     localized: {
