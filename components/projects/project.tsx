@@ -54,6 +54,14 @@ export function Header({
   return <h2 className="pt-4 pb-1 text-2xl text-gray-400">{children}</h2>;
 }
 
+export function SubHeader({
+  children,
+}: {
+  readonly children: string;
+}): JSX.Element {
+  return <h3 className="pt-2 pb-1 text-xl">{children}</h3>;
+}
+
 export function EnsureClientSide({
   children,
 }: {
