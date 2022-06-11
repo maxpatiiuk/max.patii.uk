@@ -61,7 +61,7 @@ export const reducer = generateReducer<States, Actions>({
   MoveAction: ({ state, action: { direction } }) =>
     Object.keys(mainState(state).currentShapeLocation).length === 0 ||
     (mainState(state).paused &&
-      // Don't cheat :_)
+      // Don't cheat :)
       direction !== Direction.DOWN)
       ? state
       : updateBoard(

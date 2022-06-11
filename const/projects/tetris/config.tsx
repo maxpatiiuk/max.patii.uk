@@ -39,7 +39,7 @@ export const SHAPES: IR<{
     spawn: true,
   },
   O: {
-    // Blue
+    // Light blue
     color: '#0af',
     definition: [
       ['1', '1'],
@@ -94,7 +94,7 @@ export const SHAPES: IR<{
     ],
     spawn: true,
   },
-  // Empty Cell
+  // Empty cell
   _: {
     // Black
     color: '#000',

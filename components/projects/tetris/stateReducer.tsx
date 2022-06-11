@@ -182,12 +182,26 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           {languageStrings[parameters.language].instructions}
           <br />
           <span className="text-4xl">
-            {languageStrings[parameters.language].score} {state.score}
+            {languageStrings[parameters.language].score}
+            <span
+              className={
+                state.score > state.bestScore ? 'text-red-500' : undefined
+              }
+            >
+              {state.score}
+            </span>
           </span>
           <br />
           {state.nextShape !== '_' && (
             <span className="pt-2 text-4xl">
-              {languageStrings[parameters.language].nextShape} {state.nextShape}
+              {languageStrings[parameters.language].nextShape}{' '}
+              <span
+                style={{
+                  color: SHAPES[state.nextShape].color,
+                }}
+              >
+                {state.nextShape}
+              </span>
             </span>
           )}
         </div>
