@@ -86,7 +86,7 @@ export const projects: IR<Project> = {
             </Paragraph>
             <List
               caption={`
-                I worked on the front-end, including the following features:
+                I worked on the front end, including the following features:
               `}
             >
               <li>Support for spreadsheets of up to 500,000 rows</li>
@@ -171,7 +171,7 @@ export const projects: IR<Project> = {
             <Paragraph>
               The Test Panel is used to easily test different versions of the
               software and to speed up the QA process for bug fixes by
-              automatically deploying bug fixes that are ready to be tested .
+              automatically deploying bug fixes that are ready to be tested.
             </Paragraph>
             <List caption="Notable features">
               <li>
@@ -182,7 +182,7 @@ export const projects: IR<Project> = {
                 Automatic cleanup of old deployments that are no longer used
               </li>
               <li>Beautiful UI</li>
-              <li>GitHub oAuth authentication</li>
+              <li>GitHub OAuth authentication</li>
               <li>
                 Regular polling of data to update the status of each deployment
               </li>
@@ -199,14 +199,14 @@ export const projects: IR<Project> = {
               tested.
             </Paragraph>
             <Paragraph>
-              A ready to be tested bug is defined as a branch in the Specify 7
-              repository, for which all automated test have passed, and which
-              has an associated pull-request that has been assigned for review
+              A ready-to-be-tested bug is defined as a branch in the Specify 7
+              repository, for which all automated tests have passed, and which
+              has an associated pull request that has been assigned for review
               to the QA team (or a member of the team), and has not yet been
-              reviewed. If pull-request has been assigned for review both to a
+              reviewed. If a pull request has been assigned for review both to a
               member of the development team and a member of the QA team, the
               test panel deploys the branch only after the developer has
-              approved the pull request, so as not to waste QA team's time
+              approved the pull request, so as not to waste the QA team's time
               testing code that may be rejected.
             </Paragraph>
             <Paragraph>
@@ -220,15 +220,17 @@ export const projects: IR<Project> = {
             <Paragraph>
               Besides the automated deployments, there is often a need to test a
               specific branch (e.i. production) in a specific database to
-              replicate a bug, or get everything ready for a release.
+              replicate a bug or get everything ready for a release.
             </Paragraph>
             <Paragraph>
               For these purposes, any deployment can have its configuration
               changed. Each deployment has an associated DockerHub tag (created
-              from a HEAD of a GitHub branches), a database and a datamodel
+              from a HEAD of a GitHub branche), a database, and a data model
               version
             </Paragraph>
-            <Image source={testPanel2}>Custom deployments (+dark mode)</Image>
+            <Image source={testPanel2}>
+              Custom deployments (with dark mode)
+            </Image>
 
             <Header>Database Management</Header>
             <Paragraph>
@@ -237,39 +239,41 @@ export const projects: IR<Project> = {
               provide databases for deployments.
             </Paragraph>
             <Paragraph>
-              Dashboard provides a list of databases, a list of users in each
-              database (needed for authentication into a Specify 7 instance), an
-              ability to upload a new database, download an existing one, or
-              drop it.
+              The dashboard provides a list of databases, a list of users in
+              each database (needed for authentication into a Specify 7
+              instance), and an ability to upload a new database, download an
+              existing one, or drop it.
             </Paragraph>
-            <Image source={testPanel3}>Database management (+dark mode)</Image>
+            <Image source={testPanel3}>
+              Database management (with dark mode)
+            </Image>
 
             <Header>Online demo</Header>
             <Paragraph>
               For security purposes, the test panel is protected behind a GitHub
-              oAuth authentication, which only permits signing it with accounts
+              OAuth authentication, which only permits signing it with accounts
               that are members of the{' '}
               <Link href="https://github.com/specify/">
                 "specify" GitHub organization
               </Link>
-              . Thus, even though a live version is available at,{' '}
+              . Thus, even though a live version is available at{' '}
               <Link href="https://test.specifysystems.org/">
                 test.specifysystems.org
               </Link>
               , the dashboard itself is inaccessible. If you want to try out the
-              test panel, I encourage you to deploy it on your own machine.
+              test panel, I encourage you to deploy it on your machine.
             </Paragraph>
             <Paragraph>
-              Exhaustive deployment instructions are documented in the
+              Exhaustive deployment instructions are documented in the{' '}
               <Link href="https://github.com/specify/specify7-test-panel#readme">
                 README.md
               </Link>
             </Paragraph>
             <Paragraph>
-              It should be possible to reconfigure the dashboard to server
+              It should be possible to reconfigure the dashboard to serve
               deployments of software other than Specify 7.
             </Paragraph>
-            <Image source={testPanel4}>Sign-in screen (+dark mode)</Image>
+            <Image source={testPanel4}>Sign-in screen (with dark mode)</Image>
 
             <Header>Technologies used</Header>
             <List>
@@ -297,9 +301,9 @@ export const projects: IR<Project> = {
           <>
             <Paragraph>
               A full-fledged calendar application with support for multiple
-              calendars, repeated events and best of all, dark mode. It has four
-              view modes: year, month, week and day. Additionally, there is good
-              screen reader and keyboard navigation support.
+              calendars, repeated events, and best of all, dark mode. It has
+              four view modes: year, month, week, and day. Additionally, there
+              is a good screen reader and keyboard navigation support.
             </Paragraph>
 
             <Header>Online demo</Header>
@@ -415,32 +419,33 @@ export const projects: IR<Project> = {
           <>
             <Paragraph>
               Public APIs must be stable and reliable, yet manual testing is
-              often not practical due to time constraints. Thankfully, OpenAPI
-              schema allows to define endpoints, describe their input parameters
-              as well as the response schema in a machine readable way.
+              often not practical due to time constraints. Thankfully, the
+              OpenAPI schema allows to define endpoints, and describe their
+              input parameters as well as the response schema in a
+              machine-readable way.
             </Paragraph>
             <Paragraph>
               This schema can then be used to validate incoming requests on the
               fly, as well as to provide continuous testing.
             </Paragraph>
             <Paragraph>
-              The OpenAPI testing framework I developed is able to run automated
-              tests on all endpoints by randomly creating a valid query string
-              and comparing the response object against the schema.
+              The OpenAPI testing framework I developed can run automated tests
+              on all endpoints by randomly creating a valid query string and
+              comparing the response object against the schema.
             </Paragraph>
             <Image source={openApi1}>Example automated tests</Image>
             <Paragraph>
               While automated tests are an awesome low-effort solution,
               sometimes you need to provide specific test values and define
-              expected constrains (how given parameter should affect the
-              output). This use case is also handled by the libriary.
+              expected constraints (how a given parameter should affect the
+              output). This use case is also handled by the library.
             </Paragraph>
             <Paragraph>
-              Additionally, some tests may require to run a particular sequence
+              Additionally, some tests may require running a particular sequence
               of operations (for example, Create, View, Edit, View, Delete).
-              This can be solved though Chain tests, where the testing framework
-              would run the output of one request though a generator to produce
-              the input for the next request and so on.
+              This can be solved through Chain tests, where the testing
+              framework would run the output of one request through a generator
+              to produce the input for the next request and so on.
             </Paragraph>
 
             <YouTube
@@ -455,8 +460,8 @@ export const projects: IR<Project> = {
 
             <Paragraph>
               By default, the testing framework runs tests on all endpoints,
-              prints any issues and exits once done. For the purposes of
-              continuous integration it may be desirable to continuously run
+              prints any issues, and exits once done. For the purposes of
+              continuous integration, it may be desirable to continuously run
               periodic tests, results of which are logged and failures are
               reported. My coworker developed a testing daemon and a scheduler
               just for that -{' '}
@@ -490,7 +495,7 @@ export const projects: IR<Project> = {
                 The game utilizes OffscreenCanvas to cache resized textures and
                 improve performance
               </li>
-              <li>Special Development, Debugging and Testing modes</li>
+              <li>Special Development, Debugging, and Testing modes</li>
               <li>Autogenerated documentation</li>
               <li>
                 Extensive description of the development and deployment process
@@ -501,8 +506,8 @@ export const projects: IR<Project> = {
               I worked on this project in a Team of 5 as part of the EECS 448
               class at the University of Kansas. I took on the responsibilities
               of a team lead, which involved keeping the team on track,
-              prioritizing features and working on the most complex parts of the
-              project.
+              prioritizing features, and working on the most complex parts of
+              the project.
             </Paragraph>
             <Paragraph>
               Other team members lacked some experience with JavaScript, which
@@ -525,7 +530,7 @@ export const projects: IR<Project> = {
 
             <Header>Technologies used</Header>
             <Paragraph>
-              Since there was a varying level of experience between the team
+              Since there was a varying level of experience among the team
               members, we decided not to use any fancy framework. Instead,{' '}
               <Link href="https://github.com/maxxxxxdlp/eecs-448-pixelland/blob/main/eecs-448-project-3/lib/js/view.js">
                 I wrote a tiny MVC library
@@ -533,8 +538,8 @@ export const projects: IR<Project> = {
               modeled after Backbone.js's views.
             </Paragraph>
             <Paragraph>
-              Additionally, we used OpenSimplex Noise generator to facilitate
-              biome and terrain generation.
+              Additionally, we used the OpenSimplex Noise generator to
+              facilitate biome and terrain generation.
             </Paragraph>
 
             <Header>Documentation</Header>
@@ -728,7 +733,7 @@ export const projects: IR<Project> = {
             <Paragraph>
               I worked on this project in a Team of 5. I took on the
               responsibilities of a team lead, which involved keeping the team
-              on track, prioritizing features and working on the most complex
+              on track, prioritizing features, and working on the most complex
               parts of the project.
             </Paragraph>
             <Paragraph>
@@ -742,7 +747,7 @@ export const projects: IR<Project> = {
               to be able to pick up our game and add additional features.
             </Paragraph>
             <Paragraph>
-              While traditional Battleship game would require some sort of
+              While a traditional Battleship game would require some sort of
               multiplayer support to coordinate the game state between two
               players, we chose a simpler, and ultimately more intimate
               approach. Two players are supposed to open the game on separate
@@ -769,7 +774,7 @@ export const projects: IR<Project> = {
 
             <Header>Technologies used</Header>
             <Paragraph>
-              Since there was a varying level of experience between the team
+              Since there was a varying level of experience among the team
               members, we decided not to use any fancy framework. Instead,{' '}
               <Link href="https://github.com/maxxxxxdlp/eecs-448-battleship/blob/main/eecs-448-battleship/lib/js/view.js">
                 I wrote a tiny MVC library
