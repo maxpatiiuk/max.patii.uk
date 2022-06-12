@@ -9,7 +9,7 @@ export function draw(
     imageData.data[i] = color;
     imageData.data[i + 1] = monochrome ? color : colorGenerator();
     imageData.data[i + 2] = monochrome ? color : colorGenerator();
-    imageData.data[i + 3] = 1;
+    imageData.data[i + 3] = 255;
   }
 
   context.putImageData(imageData, 0, 0);
