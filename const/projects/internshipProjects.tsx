@@ -167,7 +167,38 @@ export const internshipProjects: IR<Project> = {
         description: '',
         content: (
           <>
-            <Paragraph>TODO</Paragraph>
+            <Header>PR/FAQ</Header>
+            <Paragraph>
+              At Amazon, the first step in starting work on a new project is
+              writing the "Press Release/Frequently Asked Questions" (PR/FAQ)
+              document. It is written from the perspective of an imaginary
+              future when the product is finished, and you are ready to release
+              it to the public. The first part of the PR/FAQ contains a brief
+              user-friendly introduction to the product, the problem it is
+              trying to solve, and how it is solving it. The second part serves
+              as a clarification for any confusion or concerns the user may have
+              by listing a dozen potential questions and showing prepared
+              answers to those.
+            </Paragraph>
+            <Paragraph>
+              Taking a training course on PR/FAQs and writing this document for
+              my future project was the first task I did after the onboarding
+              process. I also used my knowledge of Figma graphics editor to
+              create a prototype of the final product and a service diagram,
+              which accompanied my PR/FAQ. Having written the first draft, our
+              team had a review meeting where I received feedback on the
+              document, as well as the project itself.
+            </Paragraph>
+            <Paragraph>
+              PR/FAQ is unique in the way that it forces you to "start from the
+              end", by imagining the final product and describing its features
+              before you even started the implementation. I found this
+              experience quite valuable as learning how to write PR/FAQs added a
+              nice tool to my arsenal. I can use it in the future during the
+              early stages of a project to get more clarity on what problem the
+              product is trying to solve and what concerns users may have about
+              it.
+            </Paragraph>
           </>
         ),
       },
