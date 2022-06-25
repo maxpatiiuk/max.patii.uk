@@ -199,6 +199,65 @@ export const internshipProjects: IR<Project> = {
               product is trying to solve and what concerns users may have about
               it.
             </Paragraph>
+
+            <Header>Minimum Viable Product</Header>
+            <SubHeader>Definition</SubHeader>
+            <Paragraph>
+              A minimum viable product (MVP) is a very early version of the
+              software, which has the bare minimum of features needed to cover
+              the most essential use cases only. It is an essential first step
+              in the development of a new product as it helps answer the
+              following questions early on:
+            </Paragraph>
+            <List>
+              <li>Is the product actually valuable to the customers?</li>
+              <li>Are they using it in the way we expected?</li>
+              <li>
+                Are there some unforeseen changes or things we should keep in
+                mind as we continue working on the product?
+              </li>
+            </List>
+            <Paragraph>
+              The greatest benefit of an NPM is that it allows to gauge custom
+              interest and get information about potential usage patterns very
+              early in the project before a substantial investment of time and
+              money has been made.
+            </Paragraph>
+            <Paragraph>
+              As a result of an MVP, a project direction may be altered, or the
+              project may be altogether scrapped if it is discovered that it
+              won't be able to solve the desired customer problem.
+            </Paragraph>
+            <SubHeader>My project</SubHeader>
+            <Paragraph>
+              As a reminder, I am working on a dashboard that can aggregate the
+              data on all the alarms and issues across Amazon services. The data
+              is then aggregated and plotted on the charts for quick analysis
+              and intelligence gathering.
+            </Paragraph>
+            <Paragraph>
+              After finalizing a PR/FAQ document, getting feedback, and making
+              the necessary adjustments, I worked on an MVP for my intern
+              project. Since I developed a mock-up of the final product during
+              the process of writing a PR/FAQ, I was ready to begin implementing
+              the basic features of the dashboard.
+            </Paragraph>
+            <Paragraph>
+              In just one week, the table that displays the list of tickets and
+              alarms was ready. Additionally, it had a simple search and sorting
+              capability, along with a single chart that plotted how many alarms
+              are there for each team, and which teams have the most alarms.
+            </Paragraph>
+            <Paragraph>
+              Based on this MVP, I was able to get valuable feedback from my
+              mentor, my manager, and the potential users of the product. This
+              feedback was extremely valuable as it made me realize that one of
+              the big features I was planning to add wasn't going to be useful
+              at all. At the same time, I received a large list of features that
+              would actually be important. Since I was so early in the
+              development process, making changes was quick and painless, which
+              is the goal of an MVP.
+            </Paragraph>
           </>
         ),
       },
