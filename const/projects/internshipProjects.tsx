@@ -258,6 +258,81 @@ export const internshipProjects: IR<Project> = {
               development process, making changes was quick and painless, which
               is the goal of an MVP.
             </Paragraph>
+
+            <Header>A presentation about accessible validation</Header>
+            <SubHeader>About form validation</SubHeader>
+            <Paragraph>
+              Forms and text inputs are some of the most important parts of a
+              webpage. There are several considerations a developer should make
+              when designing a form to make it accessible, intuitive, and
+              attractive.
+            </Paragraph>
+            <Paragraph>
+              All data a user puts in a form must be validated and in case of
+              any problems, there should be a clear error message.
+            </Paragraph>
+            <List caption="Common examples of validation">
+              <li>The phone number is in a valid format</li>
+              <li>The email address is entered correctly</li>
+              <li>Password satisfies security requirements</li>
+              <li>Required fields have values</li>
+            </List>
+            <Paragraph>
+              Validation is a crustal part of a form. It helps users catch their
+              mistakes, while also protecting the app from invalid data.
+            </Paragraph>
+            <Paragraph>
+              Yet, designing a good validation system from scratch is quite
+              complicated. Here are the things that need to be handled:
+            </Paragraph>
+            <List>
+              <li>Fields with invalid data are visually highlighted</li>
+              <li>Error messages are shown next to a field</li>
+              <li>The error message is localized to the user's language</li>
+              <li>
+                Error message and field have appropriate styles for when the
+                user prefers to use the dark mode or high-contrast mode
+              </li>
+              <li>
+                Screen-reader users and users of assistive technologies can use
+                the form and understand the error messages.
+              </li>
+            </List>
+            <Paragraph>
+              Fortunately, many of these concerns are already handled when using
+              the validation system that comes by default with a browser, rather
+              than designing a new one. Unfortunately, many people do not know
+              about it and continue using inferior alternatives.
+            </Paragraph>
+            <SubHeader>My presentation</SubHeader>
+            <Paragraph>
+              Our team has weekly meetings where someone prepares a talk about a
+              new technology or best practices. I decided to show a ~20-minute
+              presentation during one of these meetings. My talk focused on the
+              benefits of using the validation system that comes by default with
+              browsers. I did not talk much about the implementation details,
+              other than to mention that the system is simple to work with. My
+              reasoning was that I have to sell them my idea first, and once
+              they are sold, they can go online and search for more information
+              about the topic, as there is plenty of existing documentation
+              available.
+            </Paragraph>
+            <Paragraph>
+              While the presentation lasted only about 20 minutes, it took much
+              longer than that to make slides and prepare the material. In the
+              process of trying to teach someone else how to use the validation
+              system, I also learned a few new things about it.
+            </Paragraph>
+            <Paragraph>
+              When I first proposed the idea of this presentation to my manager,
+              he was quite intrigued and excited to see what I would show.
+            </Paragraph>
+            <Paragraph>
+              After the presentation, I received a few questions from the team
+              and nice comments. Some of them were surprised by the fast they
+              did not hear about this validation system earlier and mentioned
+              they would look into it more.
+            </Paragraph>
           </>
         ),
       },
