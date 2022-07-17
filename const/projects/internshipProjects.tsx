@@ -3,6 +3,7 @@ import {
   List,
   Paragraph,
   SubHeader,
+  YouTube,
 } from '../../components/projects/project';
 import type { IR } from '../../lib/utilities';
 import type { Project } from './projects';
@@ -346,7 +347,10 @@ export const internshipProjects: IR<Project> = {
         description: '',
         content: (
           <>
-            <Paragraph>TODO</Paragraph>
+            <YouTube
+              caption="Amazon SDE Intern Experience"
+              video="QxWt_XCQBZA"
+            />
           </>
         ),
       },
