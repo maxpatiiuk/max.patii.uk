@@ -58,6 +58,21 @@ export const internshipProjects: IR<Project> = {
               internship.
             </Paragraph>
 
+            <SubHeader>Reflection</SubHeader>
+            <Paragraph>
+              So far, I have watched approximately 37 hours of video and audio
+              material. Even though I still have 3 weeks left to complete the
+              earlier stated goal, I would prefer to focus the last few weeks on
+              scheduling 1:1 meetings with each team member to ask for feedback
+              on specific parts of my project and get career advice.
+            </Paragraph>
+            <Paragraph>
+              Since I downloaded the audio lectures to my phone, I can continue
+              listening to them even after my last day, which allows me to
+              prioritize the completion of more time-sensitive tasks over this
+              one.
+            </Paragraph>
+
             <Header>Learn from internal training courses</Header>
             <SubHeader>Objective</SubHeader>
             <Paragraph>
@@ -87,6 +102,34 @@ export const internshipProjects: IR<Project> = {
             <Paragraph>
               I would consider this learning objective complete if I manage to
               complete at least 50 hours of training courses.
+            </Paragraph>
+
+            <SubHeader>Reflection</SubHeader>
+            <Paragraph>
+              When I went over all of the available traning material in search
+              of trains that sound interesting and useful, I quickly realized
+              that there are hundreds of hours of great material, and that there
+              is no way I could finish it all during the time I have.
+            </Paragraph>
+            <Paragraph>
+              Instead, I separated all of the material into two categories:
+              courses that are internal only and courses that I can access even
+              after I finish the internship
+            </Paragraph>
+            <Paragraph>
+              This way I was able to prioritize completing some trainings over
+              the other. Overall, I completed 67 hours of trainings, and I am
+              extremely proud of that. I had time to complete many of them as
+              part of my onboarding experience, while others were done over the
+              course of holidays like Juneteenth, the 4th of July and the
+              post-Prime Day day off.
+            </Paragraph>
+            <Paragraph>
+              Most of the trainings I did where about specific Amazon Web
+              Services that I might find useful during the internship or in the
+              future career afterward. Also, there were a number of courses
+              about soft skiils, like emotional intelligence and team work
+              skiils.
             </Paragraph>
 
             <Header>Gain proficiency with software testing</Header>
@@ -132,6 +175,19 @@ export const internshipProjects: IR<Project> = {
               tools to evaluate how close I am to completing this goal. I would
               consider this learning objective complete if I achieve 90% test
               coverage or higher.
+            </Paragraph>
+
+            <SubHeader>Reflection</SubHeader>
+            <Paragraph>
+              I was able to quickly see the benefit of ensuring each part of the
+              program has associated tests as it allowed me to make changes
+              without fear of breaking things or introducing new bugs.
+            </Paragraph>
+            <Paragraph>
+              This lead me to prioritize writing tests, and I am happy to report
+              that my current test coverage is 96%. Along the way, I learned
+              simple ways to test complex components, and received valuable
+              feedback on writing clean and trustworthy tests.
             </Paragraph>
 
             <SubHeader>Definitions</SubHeader>
