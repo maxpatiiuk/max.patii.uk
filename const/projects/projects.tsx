@@ -34,6 +34,9 @@ import openApi1 from '../../public/projects/images/open-api/1.png';
 import pixelland1 from '../../public/projects/images/pixelland/1.png';
 import pixelland2 from '../../public/projects/images/pixelland/2.png';
 import pixelland3 from '../../public/projects/images/pixelland/3.png';
+import portfolio1 from '../../public/projects/images/portfolio/1.jpeg';
+import portfolio2 from '../../public/projects/images/portfolio/2.jpeg';
+import portfolio3 from '../../public/projects/images/portfolio/3.jpeg';
 import projectEphemeris1 from '../../public/projects/images/project-ephemeris/1.png';
 import projectEphemeris2 from '../../public/projects/images/project-ephemeris/2.png';
 import projectEphemeris3 from '../../public/projects/images/project-ephemeris/3.png';
@@ -41,6 +44,12 @@ import projectEphemeris4 from '../../public/projects/images/project-ephemeris/4.
 import projectEphemeris5 from '../../public/projects/images/project-ephemeris/5.png';
 import projectEphemeris6 from '../../public/projects/images/project-ephemeris/6.png';
 import projectEphemeris7 from '../../public/projects/images/project-ephemeris/7.png';
+import queryBuilder1 from '../../public/projects/images/query-builder/1.jpeg';
+import queryBuilder2 from '../../public/projects/images/query-builder/2.jpeg';
+import queryBuilder3 from '../../public/projects/images/query-builder/3.jpeg';
+import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
+import queryBuilder5 from '../../public/projects/images/query-builder/5.jpeg';
+import queryBuilder6 from '../../public/projects/images/query-builder/6.jpeg';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
 import taxa3 from '../../public/projects/images/taxa/3.png';
@@ -59,9 +68,6 @@ import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';
 import workbench4 from '../../public/projects/images/workbench/4.jpg';
-import portfolio1 from '../../public/projects/images/portfolio/1.jpeg';
-import portfolio2 from '../../public/projects/images/portfolio/2.jpeg';
-import portfolio3 from '../../public/projects/images/portfolio/3.jpeg';
 import { internshipProjects } from './internshipProjects';
 
 export type Project = {
@@ -125,13 +131,13 @@ export const projects: IR<Project> = {
             <Header>Online demo</Header>
             <Paragraph>
               You can try out the live version at{' '}
-              <Link href="https://workbench.test.specifycloud.org/">
-                workbench.test.specifycloud.org
+              <Link href="https://sp7demofish.specifycloud.org/">
+                sp7demofish.specifycloud.org
               </Link>
               . Username and password are{' '}
-              <mark className="text-red-700">demouser</mark>. When prompted to
-              select a collection, choose any option. See usage instructions in
-              the video above.
+              <mark className="text-red-700">sp7demofish</mark>. When prompted
+              to select a collection, choose any option. See usage instructions
+              in the video above.
             </Paragraph>
 
             <Header>Technologies used</Header>
@@ -152,6 +158,97 @@ export const projects: IR<Project> = {
               video="fw_Ps4nF5FY"
               start={386}
             />
+          </>
+        ),
+      },
+    },
+  },
+  'query-builder': {
+    gitHub: 'https://github.com/specify/specify7',
+    localized: {
+      'en-US': {
+        title: 'Specify 7 Query Builder',
+        description: 'Simple interface for building advanced queries',
+        content: (
+          <>
+            <Paragraph>
+              Query Builder is an interface for creating advanced queries
+              against the database. It is part of the collection management
+              software, Specify 7.
+            </Paragraph>
+            <List
+              caption={`
+                I worked on the front end, including the following features:
+              `}
+            >
+              <li>View results in a table (with infinite scrolling)</li>
+              <li>View results record-by-record in a form</li>
+              <li>Add "OR" conditions to fields</li>
+              <li>
+                Run a geospatial query (specify coordinates via dragging pins on
+                a map)
+              </li>
+              <li>Visualize query results using an interactive map</li>
+              <li>
+                Integrates with the permission system. Hides data from tables
+                you do not have "read" access to
+              </li>
+              <li>
+                WCAG 2.1 (accessibility standard) compliant user interface.
+                Supports screen readers, keyboard navigation and dark mode
+              </li>
+            </List>
+
+            <Header>Screenshots</Header>
+            <Image source={queryBuilder1}>Basic query</Image>
+            <Image source={queryBuilder2}>Results of basic query</Image>
+            <Image source={queryBuilder5}>
+              Viewing query results in a form (form layout is user-defined)
+            </Image>
+            <Image source={queryBuilder4}>
+              Advanced query with "OR" fileter
+            </Image>
+            <Image source={queryBuilder3}>Column mapper</Image>
+            <Image source={queryBuilder6}>Large query (with dark mode)</Image>
+
+            <YouTube
+              caption="Video overview"
+              description={`
+               Video overview of query builder, accessibility and other related features 
+              `}
+              video="YIbeZ_f_eQc"
+            />
+
+            <Header>Online demo</Header>
+            <Paragraph>
+              You can try out the live version at{' '}
+              <Link href="https://sp7demofish.specifycloud.org/">
+                sp7demofish.specifycloud.org
+              </Link>
+              . Username and password are{' '}
+              <mark className="text-red-700">sp7demofish</mark>. When prompted
+              to select a collection, choose any option. See usage instructions
+              in the video above.
+            </Paragraph>
+
+            <Header>Guided demo</Header>
+            <Paragraph>
+              <Link href="https://kansas.zoom.us/rec/play/8zB2DGagi2M7R_MBPtfYTpeT4c1uP2LnF5qFzPYDEek1UFKMwOdpiz9oZx-Kwyjles2OuQvbmGK52Gwp.dErnqgTY_ehRWlCi?continueMode=true&_x_zm_rtaid=4EU1jstUTGqE3SX7A5Acdg.1659276504455.07b339594a44b8809f15c2cb58efc38f&_x_zm_rhtaid=314">
+                A video recording
+              </Link>{' '}
+              of a zoom show-and-tell session is available. It covers new
+              features in the Specify 7.7 release and describes Query Builder
+              enhancements.
+            </Paragraph>
+
+            <Header>Technologies used</Header>
+            <List>
+              <li>Javascript ES6+</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>Tailwind CSS</li>
+              <li>Leaflet (library for interactive maps)</li>
+            </List>
           </>
         ),
       },
