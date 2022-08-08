@@ -73,7 +73,7 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
             )}
           </Head>
           <header className="flex items-end justify-center h-48 bg-gray-800">
-            <div className="gap-y-3 md:w-9/12 flex flex-col p-4 text-center">
+            <div className="gap-y-3 max-w-[1000px] flex flex-col p-4 text-center">
               <h1 className="w-full text-3xl">
                 {project.localized[language].title}
               </h1>
@@ -88,7 +88,7 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
             </div>
           </header>
           <main className="flex justify-center p-4 pt-16 pb-16">
-            <div className="md:w-9/12">
+            <div className="max-w-[1000px]">
               {project.localized[language].content}
             </div>
           </main>
