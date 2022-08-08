@@ -73,7 +73,6 @@ export function EnsureClientSide({
     setIsClientSide(true);
   }, []);
 
-  // eslint-disable-next-line unicorn/no-null
   return isClientSide ? children() : null;
 }
 
@@ -130,9 +129,9 @@ export function Image({
   readonly children: string;
 }): JSX.Element {
   return (
-    <figure className="mb-4 bg-gray-900">
+    <figure className="mb-4 bg-gray-800">
       <Img alt={children} src={source} layout="responsive" />
-      <figcaption className="p-2 text-center text-gray-700">
+      <figcaption className="p-2 text-center text-gray-200">
         {children}
       </figcaption>
     </figure>
