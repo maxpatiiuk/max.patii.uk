@@ -1,5 +1,18 @@
 # max.patii.uk
 
+This branch is a special version of my portfolio used for my
+"Internship Exploration" class at the University of Kansas at 2022.
+
+Enrollment in that class accompanied my summer internship at Amazon.
+
+During the semester, I was writing reflection pieces and posts about
+the internship. They are housed on this branch. 
+
+To make them accessible in the UI, go to the `/internship` route, and
+see the new menu items that appear on the left below my name.
+
+---
+
 Source code for [https://max.patii.uk](https://max.patii.uk).
 
 I am a huge fan of tacking minimalism to its extreme, so here is how my home
