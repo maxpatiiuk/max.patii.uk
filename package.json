@@ -28,7 +28,7 @@
     "@maxxxxxdlp/stylelint-config": "^1.0.0",
     "@types/node": "^18.0.0",
     "@types/ramda": "^0.28.14",
-    "@types/react": "^18.0.14",
+    "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.5",
     "@types/react-modal": "^3.13.1",
     "@types/styled-jsx": "^3.4.4",
