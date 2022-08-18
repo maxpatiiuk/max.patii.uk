@@ -77,7 +77,6 @@ import accessibility6 from '../../public/projects/images/accessibility-refactor/
 import interface1 from '../../public/projects/images/interface-redesign/1.jpg';
 import interface2 from '../../public/projects/images/interface-redesign/2.jpg';
 import interface3 from '../../public/projects/images/interface-redesign/3.jpg';
-import { internshipProjects } from './internshipProjects';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -89,7 +88,6 @@ export type Project = {
 };
 
 export const projects: IR<Project> = {
-  ...internshipProjects,
   workbench: {
     gitHub: 'https://github.com/specify/specify7',
     localized: {
