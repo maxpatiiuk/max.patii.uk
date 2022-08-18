@@ -60,26 +60,24 @@ export default function MainPage(): JSX.Element {
           </header>
           <main className="gap-y-10 lg:pt-20 flex flex-col p-20 pt-0">
             <h2 className="text-3xl">{languageStrings[language].myProjects}</h2>
-            {Object.entries(projects)
-              .filter(([_id, { gitHub }]) => typeof gitHub === 'string')
-              .map(([id, { localized }]) => (
-                <article
-                  key={id}
-                  className={
-                    'bg-white flex flex-col gap-y-3 p-6 rounded-xl text-black'
-                  }
-                >
-                  <Link href={`/projects/${id}/`}>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a>
-                      <h3 className="hover:text-gray-500 text-2xl">
-                        {localized[language].title}
-                      </h3>
-                    </a>
-                  </Link>
-                  <p className="text-xl">{localized[language].description}</p>
-                </article>
-              ))}
+            {Object.entries(projects).map(([id, { localized }]) => (
+              <article
+                key={id}
+                className={
+                  'bg-white flex flex-col gap-y-3 p-6 rounded-xl text-black'
+                }
+              >
+                <Link href={`/projects/${id}/`}>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <a>
+                    <h3 className="hover:text-gray-500 text-2xl">
+                      {localized[language].title}
+                    </h3>
+                  </a>
+                </Link>
+                <p className="text-xl">{localized[language].description}</p>
+              </article>
+            ))}
           </main>
         </div>
       )}
