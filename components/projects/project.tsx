@@ -99,7 +99,7 @@ export function YouTube({
           {typeof description === 'string' && (
             <Paragraph>{description}</Paragraph>
           )}
-          <div className="flex justify-center mb-5 bg-gray-900">
+          <div className="flex justify-center mb-5 bg-gray-900 rounded-xl">
             <iframe
               width="640"
               height="360"
@@ -129,8 +129,13 @@ export function Image({
   readonly children: string;
 }): JSX.Element {
   return (
-    <figure className="mb-4 bg-gray-800">
-      <Img alt={children} src={source} layout="responsive" />
+    <figure className="mb-4 bg-gray-800 rounded-xl">
+      <Img
+        alt={children}
+        src={source}
+        layout="responsive"
+        className="rounded-xl"
+      />
       <figcaption className="p-2 text-center text-gray-200">
         {children}
       </figcaption>
@@ -144,7 +149,7 @@ export function Quote({
   readonly children: JSX.Element | RA<JSX.Element>;
 }): JSX.Element {
   return (
-    <blockquote className="border-l-4 border-gray-800 bg-gray-300 p-2 my-4">
+    <blockquote className="border-l-4 rounded-xl border-gray-800 bg-gray-300 p-2 my-4">
       {children}
     </blockquote>
   );
