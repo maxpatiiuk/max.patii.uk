@@ -185,6 +185,15 @@ export const projects: IR<Project> = {
             </Paragraph>
 
             <Paragraph>
+              You also have an option of collapsing the table to focus on charts
+              or collapsing the charts to see more tickets at once.
+            </Paragraph>
+
+            <Image source={spacetime4}>
+              The table can be collapsed to focus on charts
+            </Image>
+
+            <Paragraph>
               The chart layout can be customized easily. You can add new charts
               change their size, the column data is plotted on, the column data
               is grouped by or even change the styling of the chart.
@@ -195,25 +204,33 @@ export const projects: IR<Project> = {
             </Image>
 
             <Paragraph>
-              You also have an option of collapsing the table to focus on charts
-              or collapsing the charts to see more tickets at once.
-            </Paragraph>
-
-            <Image source={spacetime4}>
-              The table can be collapsed to focus on charts
-            </Image>
-
-            <Paragraph>
               The table is very versatile too. Each row can be expanded to see
               additional information, as well as ticket descriptions. Table
-              columns can be reordered or hidden. Each column can be sorted or
-              filtered. Advanced filtering options like RegExp, OR, and NOT are
-              supported.
+              columns can be reordered or hidden. Each column can be sorted.
             </Paragraph>
 
             <Image source={spacetime2}>
               Each table row can be expanded to include additional information
             </Image>
+
+            <Paragraph>
+              After applying the filters, you can press a button to download the
+              table data as a TSV file.
+            </Paragraph>
+
+            <Paragraph>
+              At the top of the page there is a search bar for quickly filtering
+              the records. The search highlights matched records in the table.
+              However, instead or removing unmatched tickets, it simply grays
+              them out. This is super useful for being able to see the context
+              arround the search results.
+            </Paragraph>
+
+            <Paragraph>
+              For more advanced use cases, each table can have advanced filters
+              applied. For example, you can add a Regular Expression filter,
+              take a union of multiple filters or negate a filter.
+            </Paragraph>
 
             <Paragraph>
               Advanced customization options are included in the preferences
