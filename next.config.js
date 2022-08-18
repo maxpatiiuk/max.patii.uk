@@ -30,6 +30,16 @@ module.exports = {
       permanent: true,
     },
     {
+      source: '/project/:any*',
+      destination: '/projects/:any*',
+      permanent: true,
+    },
+    {
+      source: '/projects',
+      destination: '/',
+      permanent: true,
+    },
+    {
       source: '/shop.html',
       destination: 'https://shop.mambo.in.ua/',
       permanent: true,
