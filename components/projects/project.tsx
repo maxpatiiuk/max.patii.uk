@@ -91,6 +91,13 @@ export function YouTube({
    * &playlist and &loop get parameters are a workaround to hide YouTube's
    * obtrusive "Related Videos" overlay on pause
    */
+  const src = `https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
+    document.location.origin
+  )}&widget_referrer=${encodeURIComponent(
+    document.location.href
+  )}&playlist=${video}&loop=1${
+    typeof start === 'number' ? `&start=${start}` : ''
+  }`;
   return (
     <EnsureClientSide>
       {(): JSX.Element => (
@@ -105,13 +112,7 @@ export function YouTube({
               height="360"
               title={caption}
               className="max-w-full"
-              src={`https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
-                document.location.origin
-              )}&widget_referrer=${encodeURIComponent(
-                document.location.href
-              )}&playlist=${video}&loop=1${
-                typeof start === 'number' ? `&start=${start}` : ''
-              }`}
+              src={src}
               frameBorder="0"
             />
           </div>
@@ -135,5 +136,17 @@ export function Image({
         {children}
       </figcaption>
     </figure>
+  );
+}
+
+export function Quote({
+  children,
+}: {
+  readonly children: JSX.Element | RA<JSX.Element>;
+}): JSX.Element {
+  return (
+    <blockquote className="border-l-4 border-gray-800 bg-gray-300 p-2 my-4">
+      {children}
+    </blockquote>
   );
 }
