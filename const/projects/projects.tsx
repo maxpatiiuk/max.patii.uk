@@ -428,7 +428,7 @@ export const projects: IR<Project> = {
 
             <Image source={spacetime6}>Cloud diagram</Image>
 
-            <SubHeader>Appendix 2: Configuration</SubHeader>
+            <Header>Appendix 2: Configuration</Header>
 
             <Paragraph>
               Spacetime is designed from the ground up to be highly customizable
