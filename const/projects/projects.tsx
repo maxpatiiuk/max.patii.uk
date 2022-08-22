@@ -115,12 +115,12 @@ export const projects: IR<Project> = {
             </Paragraph>
             <Paragraph>
               Spacetime is a tool I created during my Amazon Internship in 2022.
-              Spacetime aims to reduce how long it takes to localize the problem
-              by analyzing the metadata of all high severity issues opened in
-              the last few hours to find the most affected areas and the scale
-              of the problem. It achieves this by plotting the metadata of
-              recently opened tickets and allowing users to quickly filter the
-              data and have the charts update instantaneously.
+              Spacetime aims to reduce how long it takes to troubleshoot an
+              Amazon service outage by analyzing the metadata of all high
+              severity issues opened in the last few hours to find the most
+              affected areas and the scale of the problem. Spacetime makes it
+              easy to see insights about the data and quickly filter out the
+              irrelevant noise and have the charts update instantaneously.
             </Paragraph>
             <Paragraph>
               There already exists a tool at Amazon, which shows all high
