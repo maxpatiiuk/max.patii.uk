@@ -101,7 +101,7 @@ export const projects: IR<Project> = {
     localized: {
       'en-US': {
         title: 'Spacetime',
-        description: 'My Amazon Internship Project',
+        description: 'My Amazon Internship Project - real time dashboard',
         content: (
           <>
             <Paragraph>
