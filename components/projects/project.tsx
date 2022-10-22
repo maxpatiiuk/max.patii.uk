@@ -149,7 +149,7 @@ export function Quote({
   readonly children: JSX.Element | RA<JSX.Element>;
 }): JSX.Element {
   return (
-    <blockquote className="border-l-4 rounded-xl border-gray-800 bg-gray-300 p-2 my-4">
+    <blockquote className="border-l-4 rounded-xl border-gray-600 bg-gray-800 p-2 my-4">
       {children}
     </blockquote>
   );
