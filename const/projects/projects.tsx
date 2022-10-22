@@ -24,8 +24,17 @@ import {
 } from '../../components/projects/project';
 import type { LanguageStringsStructure } from '../../lib/languages';
 import type { IR } from '../../lib/utilities';
+import accessibility1 from '../../public/projects/images/accessibility-refactor/1.jpg';
+import accessibility2 from '../../public/projects/images/accessibility-refactor/2.jpg';
+import accessibility3 from '../../public/projects/images/accessibility-refactor/3.jpg';
+import accessibility4 from '../../public/projects/images/accessibility-refactor/4.jpg';
+import accessibility5 from '../../public/projects/images/accessibility-refactor/5.jpg';
+import accessibility6 from '../../public/projects/images/accessibility-refactor/6.jpg';
 import battleship1 from '../../public/projects/images/battleship/1.png';
 import battleship2 from '../../public/projects/images/battleship/2.png';
+import interface1 from '../../public/projects/images/interface-redesign/1.jpg';
+import interface2 from '../../public/projects/images/interface-redesign/2.jpg';
+import interface3 from '../../public/projects/images/interface-redesign/3.jpg';
 import lifemapper1 from '../../public/projects/images/lifemapper/1.jpg';
 import lifemapper2 from '../../public/projects/images/lifemapper/2.jpg';
 import lifemapper3 from '../../public/projects/images/lifemapper/3.png';
@@ -52,6 +61,12 @@ import queryBuilder3 from '../../public/projects/images/query-builder/3.jpeg';
 import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
 import queryBuilder5 from '../../public/projects/images/query-builder/5.jpeg';
 import queryBuilder6 from '../../public/projects/images/query-builder/6.jpeg';
+import spacetime1 from '../../public/projects/images/spacetime/1.jpg';
+import spacetime2 from '../../public/projects/images/spacetime/2.jpg';
+import spacetime3 from '../../public/projects/images/spacetime/3.jpg';
+import spacetime4 from '../../public/projects/images/spacetime/4.jpg';
+import spacetime5 from '../../public/projects/images/spacetime/5.jpg';
+import spacetime6 from '../../public/projects/images/spacetime/6.png';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
 import taxa3 from '../../public/projects/images/taxa/3.png';
@@ -70,28 +85,13 @@ import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';
 import workbench4 from '../../public/projects/images/workbench/4.jpg';
-import accessibility1 from '../../public/projects/images/accessibility-refactor/1.jpg';
-import accessibility2 from '../../public/projects/images/accessibility-refactor/2.jpg';
-import accessibility3 from '../../public/projects/images/accessibility-refactor/3.jpg';
-import accessibility4 from '../../public/projects/images/accessibility-refactor/4.jpg';
-import accessibility5 from '../../public/projects/images/accessibility-refactor/5.jpg';
-import accessibility6 from '../../public/projects/images/accessibility-refactor/6.jpg';
-import interface1 from '../../public/projects/images/interface-redesign/1.jpg';
-import interface2 from '../../public/projects/images/interface-redesign/2.jpg';
-import interface3 from '../../public/projects/images/interface-redesign/3.jpg';
-import spacetime1 from '../../public/projects/images/spacetime/1.jpg';
-import spacetime2 from '../../public/projects/images/spacetime/2.jpg';
-import spacetime3 from '../../public/projects/images/spacetime/3.jpg';
-import spacetime4 from '../../public/projects/images/spacetime/4.jpg';
-import spacetime5 from '../../public/projects/images/spacetime/5.jpg';
-import spacetime6 from '../../public/projects/images/spacetime/6.png';
 
 export type Project = {
   readonly gitHub: string | undefined;
   readonly localized: LanguageStringsStructure<{
-    title: string;
-    description: string;
-    content: JSX.Element;
+    readonly title: string;
+    readonly description: string;
+    readonly content: JSX.Element;
   }>;
 };
 
@@ -652,7 +652,7 @@ export const projects: IR<Project> = {
           <>
             <Paragraph>
               I am very passionate about Web Accessibility. It makes worldwide
-              information accessible to all, and turns the internet into a a
+              information accessible to all, and turns the internet into a
               friendlier place for humans.
             </Paragraph>
             <Paragraph>
@@ -708,11 +708,27 @@ export const projects: IR<Project> = {
             </List>
 
             <YouTube
+              caption="Recording of a webinar on accessibility improvements in Specify 7"
+              description={`
+                Showcase of Accessibility and Usability improvements in Specify 7 
+              `}
+              video="lJZSk5-bKCk"
+            />
+
+            <YouTube
               caption="Presentation from iDigBio Digital Data Conference 2022"
               description={`
                Video overview of accessibility improvements and other enhancements
               `}
               video="YIbeZ_f_eQc"
+            />
+
+            <YouTube
+              caption="Recording of a webinar on user preferences in Specify 7"
+              description={`
+                Showcase of User Preferences in Specify 7 
+              `}
+              video="hw_rM4e12UY"
             />
 
             <Header>Screenshots</Header>
@@ -860,7 +876,7 @@ export const projects: IR<Project> = {
               software and to speed up the QA process for bug fixes by
               automatically deploying bug fixes that are ready to be tested.
             </Paragraph>
-            <List caption="Notable features">
+            <List caption="Notable features:">
               <li>
                 Ability to reconfigure an existing deployment, or add a new one
               </li>
@@ -1085,6 +1101,22 @@ export const projects: IR<Project> = {
             <Image source={queryBuilder4}>Updated Query Builder</Image>
             <Image source={interface2}>App Resources editor</Image>
             <Image source={interface3}>Improved attachments viewer</Image>
+
+            <YouTube
+              caption="Recording of a webinar on user preferences in Specify 7"
+              description={`
+                Showcase of User Preferences in Specify 7 
+              `}
+              video="hw_rM4e12UY"
+            />
+
+            <YouTube
+              caption="Recording of a webinar on accessibility improvements in Specify 7"
+              description={`
+                Showcase of Accessibility and Usability improvements in Specify 7 
+              `}
+              video="lJZSk5-bKCk"
+            />
 
             <YouTube
               caption="Presentation from iDigBio Digital Data Conference 2022"
