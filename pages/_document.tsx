@@ -6,7 +6,7 @@ import { googleAnalyticsId } from '../const/siteConfig';
 export default class MyDocument extends Document {
   public render(): JSX.Element {
     return (
-      <Html>
+      <Html className="bg-black">
         <Head />
         <body>
           <Main />
