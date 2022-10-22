@@ -16,8 +16,8 @@ const links: RA<{ readonly label: string; readonly url: string }> = [
 ];
 
 const languageStrings: LanguageStringsStructure<{
-  title: string;
-  myProjects: string;
+  readonly title: string;
+  readonly myProjects: string;
 }> = {
   'en-US': {
     title: 'Full Stack Web Developer',
@@ -36,7 +36,7 @@ export default function MainPage(): JSX.Element {
           <header>
             <div
               className={`lg:min-h-screen gap-y-10 flex flex-col
-                justify-between sticky top-0 p-20`}
+                justify-between sticky top-0 p-10 sm:p-20`}
             >
               <div className="gap-y-4 flex flex-col">
                 <h1 className="text-7xl">{siteInfo[language].author}</h1>
@@ -58,7 +58,7 @@ export default function MainPage(): JSX.Element {
               </nav>
             </div>
           </header>
-          <main className="gap-y-10 lg:pt-20 flex flex-col p-20 pt-0">
+          <main className="gap-y-10 lg:pt-20 flex flex-col p-10 sm:p-20 pt-0">
             <h2 className="text-3xl">{languageStrings[language].myProjects}</h2>
             {Object.entries(projects).map(([id, { localized }]) => (
               <article
