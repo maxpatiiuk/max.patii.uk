@@ -509,6 +509,11 @@ export const projects: IR<Project> = {
               video="lg9ybKMPQXI"
             />
 
+            <YouTube
+              caption="Specify WorkBench demo for SpeciForum 2021"
+              video="83GXeGeihqE"
+            />
+
             <Header>Online demo</Header>
             <Paragraph>
               You can try out the live version at{' '}
@@ -1525,6 +1530,16 @@ export const projects: IR<Project> = {
               .
             </Paragraph>
 
+            <YouTube
+              caption="A demo of Taxa Tree Generator"
+              video="zLrSncbOF8Y"
+            />
+
+            <Header>Screenshots</Header>
+            <Image source={taxa1}>Kingdom selection screen</Image>
+            <Image source={taxa2}>Configuring GBIF export</Image>
+            <Image source={taxa3}>Configuring ITIS export</Image>
+
             <Header>Technologies used</Header>
             <List>
               <li>PHP 7.4</li>
@@ -1534,11 +1549,6 @@ export const projects: IR<Project> = {
               <li>Bootstrap</li>
               <li>JavaScript</li>
             </List>
-
-            <Header>Screenshots</Header>
-            <Image source={taxa1}>Kingdom selection screen</Image>
-            <Image source={taxa2}>Configuring GBIF export</Image>
-            <Image source={taxa3}>Configuring ITIS export</Image>
           </>
         ),
       },
