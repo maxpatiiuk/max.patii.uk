@@ -90,7 +90,8 @@ export type Project = {
   readonly gitHub: string | undefined;
   readonly localized: LanguageStringsStructure<{
     readonly title: string;
-    readonly description: string;
+    // If undefined, then not visible on the home page
+    readonly description?: string;
     readonly content: JSX.Element;
   }>;
 };
