@@ -85,6 +85,7 @@ import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';
 import workbench4 from '../../public/projects/images/workbench/4.jpg';
+import { blawProject } from './blaw-project';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -97,6 +98,17 @@ export type Project = {
 };
 
 export const projects: IR<Project> = {
+  'students-for-fair-admissions': {
+    gitHub: undefined,
+    localized: {
+      'en-US': {
+        title:
+          'Students for Fair Admissions v. President and Fellows of Harvard College',
+        description: undefined,
+        content: blawProject,
+      },
+    },
+  },
   spacetime: {
     gitHub: undefined,
     localized: {
