@@ -1,5 +1,13 @@
 # max.patii.uk
 
+> This branch contains my final project for the BLAW 302 class at KU in
+> Fall 2022.
+> The project is a blog post that analyzes the Students for Fair Admissions v.
+> President and Fellows of Harvard College supreme court case and offers
+> commentary
+>
+> It is available at `/projects/students-for-fair-admissions`
+
 Source code for [https://max.patii.uk](https://max.patii.uk).
 
 I am a huge fan of tacking minimalism to its extreme, so here is how my home
