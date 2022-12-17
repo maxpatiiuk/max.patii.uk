@@ -7,8 +7,8 @@ import { commonStrings } from '../localization/global';
 import { Centered } from './UI';
 
 const languageStrings: LanguageStringsStructure<{
-  header: string;
-  message: string;
+  readonly header: string;
+  readonly message: string;
 }> = {
   'en-US': {
     header: 'Oops! Nothing was found',
@@ -27,14 +27,11 @@ function ErrorPage({ errorCode }: { readonly errorCode: number }): JSX.Element {
             <h2>{languageStrings[language].header}</h2>
             <p>
               {languageStrings[language].message}
-              <Link href="/">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  className={`block pt-10 transition
-                text-red-400 hover:text-black`}
-                >
-                  {commonStrings[language].returnToHomePage}
-                </a>
+              <Link
+                href="/"
+                className="block pt-10 transition text-red-400 hover:text-black"
+              >
+                {commonStrings[language].returnToHomePage}
               </Link>
             </p>
           </div>

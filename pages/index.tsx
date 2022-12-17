@@ -70,12 +70,9 @@ export default function MainPage(): JSX.Element {
                   }
                 >
                   <Link href={`/projects/${id}/`}>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a>
-                      <h3 className="hover:text-gray-500 text-2xl">
-                        {localized[language].title}
-                      </h3>
-                    </a>
+                    <h3 className="hover:text-gray-500 text-2xl">
+                      {localized[language].title}
+                    </h3>
                   </Link>
                   <p className="text-xl">{localized[language].description}</p>
                 </article>
