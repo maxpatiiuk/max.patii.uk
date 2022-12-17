@@ -133,8 +133,12 @@ export function Image({
       <Img
         alt={children}
         src={source}
-        layout="responsive"
         className="rounded-xl"
+        sizes="100vw"
+        style={{
+          width: '100%',
+          height: 'auto',
+        }}
       />
       <figcaption className="p-2 text-center text-gray-200">
         {children}
