@@ -62,6 +62,8 @@ import queryBuilder3 from '../../public/projects/images/query-builder/3.jpeg';
 import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
 import queryBuilder5 from '../../public/projects/images/query-builder/5.jpeg';
 import queryBuilder6 from '../../public/projects/images/query-builder/6.jpeg';
+import queryBuilder7 from '../../public/projects/images/query-builder/7.png';
+import queryBuilder8 from '../../public/projects/images/query-builder/8.png';
 import spacetime1 from '../../public/projects/images/spacetime/1.jpg';
 import spacetime2 from '../../public/projects/images/spacetime/2.jpg';
 import spacetime3 from '../../public/projects/images/spacetime/3.jpg';
@@ -651,6 +653,19 @@ export const projects: IR<Project> = {
               `}
               video="YIbeZ_f_eQc"
             />
+
+            <Header>Spatial Search</Header>
+            <Paragraph>
+              The query builder also supports spatial search. You have an
+              ability to constrain search to a region you drawn on the map or
+              plot query results on an interactive map.
+            </Paragraph>
+            <Image source={queryBuilder7}>
+              Constraining query results to a selected region
+            </Image>
+            <Image source={queryBuilder8}>
+              Plotting query results on a map
+            </Image>
 
             <Header>Online demo</Header>
             <Paragraph>
