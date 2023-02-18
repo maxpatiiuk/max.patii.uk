@@ -12,33 +12,30 @@
  *    task done.
  */
 
-import type { LanguageStringsStructure } from '../../lib/languages';
 import type { IR } from '../../lib/utilities';
-import { pixelland } from '../pixelland';
-import { accessibilityRefactor } from './accessibilityRefactor';
+import { pixelland } from './pixelland';
+import { accessibilityRefactor } from './accessibility-refactor';
 import { alia } from './alia';
 import { battleship } from './battleship';
 import { interfaceRedesign } from './interface-redesign';
 import { lifemapper } from './lifemapper';
 import { openApi } from './openApi';
 import { portfolio } from './portfolio';
-import { projectEphemeris } from './projectEphemeris';
-import { queryBuilder } from './queryBuilder';
+import { projectEphemeris } from './project-ephemeris';
+import { queryBuilder } from './query-builder';
 import { spacetime } from './spacetime';
-import { specify7TestPanel } from './specify7TestPanel';
+import { specify7TestPanel } from './specify7-test-panel';
 import { taxa } from './taxa';
-import { tetrisReact } from './tetrisReact';
-import { ttsKing } from './ttsKing';
+import { tetrisReact } from './tetris-react';
+import { ttsKing } from './tts-king';
 import { workbench } from './workbench';
 
 export type Project = {
   readonly gitHub: string | undefined;
-  readonly localized: LanguageStringsStructure<{
-    readonly title: string;
-    // If undefined, then not visible on the home page
-    readonly description?: string;
-    readonly content: JSX.Element;
-  }>;
+  readonly title: string;
+  // If undefined, then not visible on the home page
+  readonly description?: string;
+  readonly content: JSX.Element;
 };
 
 export const projects: IR<Project> = {

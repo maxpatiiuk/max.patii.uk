@@ -11,13 +11,10 @@ import {
   BOARD_Y,
   SHAPES,
 } from '../../../const/projects/tetris/config';
-import type {
-  AvailableLanguages,
-  LanguageStringsStructure,
-} from '../../../lib/languages';
 import type { Actions } from '../../../lib/projects/tetris/reducer';
 import type { RR } from '../../../lib/utilities';
 import { Cell, fancyButtonStyles } from './components';
+import { tetrisLocalization } from '../../../const/projects/tetris/localization';
 
 type GameOverState = State<
   'GameOverState',
@@ -81,42 +78,7 @@ export const getInitialState = (bestScore = 0): MainState => ({
 type StatesWithParameters = States & {
   parameters: {
     dispatch: (action: Actions) => void;
-    language: AvailableLanguages['type'];
   };
-};
-
-export const languageStrings: LanguageStringsStructure<{
-  title: string;
-  paused: string;
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-  pressKeyToResume: (key: JSX.Element) => JSX.Element;
-  instructions: string;
-  score: string;
-  gameOver: string;
-  yourScore: string;
-  yourBestScore: string;
-  playAgain: string;
-  nextShape: string;
-  saveGame: string;
-  loadGame: string;
-}> = {
-  'en-US': {
-    title: 'Tetris ',
-    paused: 'Game is paused',
-    pressKeyToResume(key) {
-      return <>Press {key} to resume</>;
-    },
-    instructions:
-      'Control the game using WSAD or arrow keys. Pause using the ESC key',
-    score: 'Score: ',
-    gameOver: 'Game Over!',
-    yourScore: 'Your score was: ',
-    yourBestScore: 'Your best score is: ',
-    playAgain: 'Play again?',
-    nextShape: 'Next Shape: ',
-    saveGame: 'Save game',
-    loadGame: 'Load game',
-  },
 };
 
 export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
@@ -133,10 +95,12 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
         {state.paused && (
           <div className="absolute inset-0 flex items-center justify-center w-screen h-screen text-4xl text-center bg-black opacity-75">
             <span>
-              {languageStrings[parameters.language].paused}
+              {tetrisLocalization.paused}
               <br />
-              {languageStrings[parameters.language].pressKeyToResume(
-                <span className="rounded-xl p-px text-black bg-white">ESC</span>
+              {tetrisLocalization.pressKeyToResume(
+                <span className="rounded-xl p-px text-black bg-white">
+                  {tetrisLocalization.esc}
+                </span>
               )}
               <br />
               <div className="flex gap-4">
@@ -149,7 +113,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
                     })
                   }
                 >
-                  {languageStrings[parameters.language].saveGame}
+                  {tetrisLocalization.saveGame}
                 </button>
                 <button
                   type="button"
@@ -161,7 +125,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
                     })
                   }
                 >
-                  {languageStrings[parameters.language].loadGame}
+                  {tetrisLocalization.loadGame}
                 </button>
               </div>
             </span>
@@ -179,10 +143,10 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           </div>
         </div>
         <div className="p-2 overflow-hidden">
-          {languageStrings[parameters.language].instructions}
+          {tetrisLocalization.instructions}
           <br />
           <span className="text-4xl">
-            {languageStrings[parameters.language].score}
+            {tetrisLocalization.score}
             <span
               className={
                 state.score > state.bestScore ? 'text-red-500' : undefined
@@ -194,7 +158,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
           <br />
           {state.nextShape !== '_' && (
             <span className="pt-2 text-4xl">
-              {languageStrings[parameters.language].nextShape}{' '}
+              {tetrisLocalization.nextShape}{' '}
               <span
                 style={{
                   color: SHAPES[state.nextShape].color,
@@ -212,15 +176,12 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
     return (
       <div className="flex items-center justify-center text-3xl text-center">
         <span>
-          <h1 className="pb-4 text-6xl">
-            {languageStrings[parameters.language].gameOver}
-          </h1>
+          <h1 className="pb-4 text-6xl">{tetrisLocalization.gameOver}</h1>
           <h2>
-            {languageStrings[parameters.language].yourScore} {state.score}
+            {tetrisLocalization.yourScore} {state.score}
           </h2>
           <h2>
-            {languageStrings[parameters.language].yourBestScore}{' '}
-            {state.bestScore}
+            {tetrisLocalization.yourBestScore} {state.bestScore}
           </h2>
           <button
             type="button"
@@ -229,7 +190,7 @@ export const stateReducer = generateReducer<JSX.Element, StatesWithParameters>({
               parameters.dispatch({ type: 'RestartGameAction' })
             }
           >
-            {languageStrings[parameters.language].playAgain}
+            {tetrisLocalization.playAgain}
           </button>
         </span>
       </div>

@@ -147,7 +147,7 @@ export default function ShadowGame(): JSX.Element {
         </>
       }
     >
-      {(): JSX.Element => <div className="w-screen h-screen bg-black" />}
+      <div className="w-screen h-screen bg-black" />
     </Layout>
   );
 }
