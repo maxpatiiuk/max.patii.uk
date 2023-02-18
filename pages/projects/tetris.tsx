@@ -10,13 +10,13 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import {
   getInitialState,
-  languageStrings,
   stateReducer,
 } from '../../components/projects/tetris/stateReducer';
 import {
   INITIAL_SPEED,
   SCORE_MULTIPLIER,
 } from '../../const/projects/tetris/config';
+import { tetrisLocalization } from '../../const/projects/tetris/localization';
 import { Direction } from '../../lib/projects/tetris/definitions';
 import { reducer } from '../../lib/projects/tetris/reducer';
 import type { IR } from '../../lib/utilities';
@@ -92,18 +92,15 @@ export default function Tetris(): JSX.Element {
   }, [state.type]);
 
   return (
-    <Layout title={languageStrings}>
-      {(language): JSX.Element => (
-        <div className="flex items-center justify-center w-screen h-screen text-white bg-black">
-          {stateReducer(<></>, {
-            ...state,
-            parameters: {
-              dispatch,
-              language,
-            },
-          })}
-        </div>
-      )}
+    <Layout title={tetrisLocalization.title}>
+      <div className="flex items-center justify-center w-screen h-screen text-white bg-black">
+        {stateReducer(<></>, {
+          ...state,
+          parameters: {
+            dispatch,
+          },
+        })}
+      </div>
     </Layout>
   );
 }

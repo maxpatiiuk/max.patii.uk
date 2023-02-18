@@ -6,7 +6,7 @@ import Layout from '../../Layout';
 function Canvas({
   getDraw,
 }: {
-  getDraw: (
+  readonly getDraw: (
     canvas: HTMLCanvasElement,
     context: CanvasRenderingContext2D
   ) => () => void;
@@ -60,21 +60,22 @@ function Canvas({
     };
   }, [canvasRef.current, draw, isPaused]);
 
-  React.useEffect(() => {
-    const handleClick = () => setIsPaused((isPaused) => !isPaused);
-    window.addEventListener('click', handleClick);
-    return (): void => window.removeEventListener('click', handleClick);
-  }, []);
-
-  return <Layout>{(): JSX.Element => <canvas ref={canvasRef} />}</Layout>;
+  return (
+    <Layout>
+      <canvas
+        ref={canvasRef}
+        onClick={(): void => setIsPaused((isPaused) => !isPaused)}
+      />
+    </Layout>
+  );
 }
 
 export function SnowCrash({
   colorGenerator,
   monochrome,
 }: {
-  colorGenerator: () => number;
-  monochrome: boolean;
+  readonly colorGenerator: () => number;
+  readonly monochrome: boolean;
 }): JSX.Element {
   return (
     <Canvas

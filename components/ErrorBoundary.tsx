@@ -5,42 +5,27 @@
 
 import React from 'react';
 
-import type { LanguageStringsStructure } from '../lib/languages';
+import { localization } from '../const/localization';
 import { ButtonDanger } from './InteractivePrimitives';
-import LanguageContext from './LanguageContext';
 import { ModalDialog } from './ModalDialog';
 
 type ErrorBoundaryState =
   | {
-      hasError: false;
-      error: undefined;
-      errorInfo: undefined;
+      readonly hasError: false;
+      readonly error: undefined;
+      readonly errorInfo: undefined;
     }
   | {
-      hasError: true;
-      error: { toString: () => string };
-      errorInfo: { componentStack: string };
+      readonly hasError: true;
+      readonly error: { readonly toString: () => string };
+      readonly errorInfo: { readonly componentStack: string };
     };
 
-const languageStrings: LanguageStringsStructure<{
-  title: string;
-  reload: string;
-  previousPage: string;
-  unexpectedErrorHasOccurred: string;
-}> = {
-  'en-US': {
-    title: 'Unexpected Error',
-    reload: 'Reload',
-    previousPage: 'Previous page',
-    unexpectedErrorHasOccurred: 'An unexpected error has occurred.',
-  },
-};
-
 export default class ErrorBoundary extends React.Component<
-  { children: JSX.Element },
+  { readonly children: JSX.Element },
   ErrorBoundaryState
 > {
-  public state: ErrorBoundaryState = {
+  public readonly state: ErrorBoundaryState = {
     hasError: false,
     error: undefined,
     errorInfo: undefined,
@@ -60,42 +45,38 @@ export default class ErrorBoundary extends React.Component<
 
   public render(): JSX.Element {
     return this.state.hasError ? (
-      <LanguageContext.Consumer>
-        {(language): JSX.Element => (
-          <ModalDialog
-            title={'Unexpected Error'}
-            buttons={
-              <>
-                <ButtonDanger
-                  props={{
-                    onClick(): void {
-                      window.location.reload();
-                    },
-                  }}
-                >
-                  {languageStrings[language].reload}
-                </ButtonDanger>
-                <ButtonDanger
-                  props={{
-                    onClick(): void {
-                      window.history.back();
-                    },
-                  }}
-                >
-                  {languageStrings[language].previousPage}
-                </ButtonDanger>
-              </>
-            }
-          >
-            <p>{languageStrings[language].unexpectedErrorHasOccurred}</p>
-            <details style={{ whiteSpace: 'pre-wrap' }}>
-              {this.state.error?.toString()}
-              <br />
-              {this.state.errorInfo?.componentStack}
-            </details>
-          </ModalDialog>
-        )}
-      </LanguageContext.Consumer>
+      <ModalDialog
+        title={'Unexpected Error'}
+        buttons={
+          <>
+            <ButtonDanger
+              props={{
+                onClick(): void {
+                  window.location.reload();
+                },
+              }}
+            >
+              {localization.reload}
+            </ButtonDanger>
+            <ButtonDanger
+              props={{
+                onClick(): void {
+                  window.history.back();
+                },
+              }}
+            >
+              {localization.previousPage}
+            </ButtonDanger>
+          </>
+        }
+      >
+        <p>{localization.unexpectedErrorHasOccurred}</p>
+        <details style={{ whiteSpace: 'pre-wrap' }}>
+          {this.state.error?.toString()}
+          <br />
+          {this.state.errorInfo?.componentStack}
+        </details>
+      </ModalDialog>
     ) : (
       this.props.children
     );

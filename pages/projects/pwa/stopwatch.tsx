@@ -133,44 +133,42 @@ export default function Stopwatch(): JSX.Element {
         </>
       }
     >
-      {(): JSX.Element => (
-        <div className="flex flex-col w-screen h-screen bg-black">
-          <div
-            className="flex items-center justify-center flex-1 text-white"
-            style={{ fontSize: '16vw' }}
-          >
-            {state.type === 'MainState'
-              ? formatTime(Date.now() - state.beginTime, false)
-              : formatTime(state.endTime - state.beginTime, true)}
-          </div>
-          <div className="flex flex-1">
-            <button
-              type="button"
-              className="active:bg-gray-300 flex-1 bg-black border-none"
-              onClick={(): void =>
-                dispatch({ type: 'ChangeTimeAction', duration: -MILLISECONDS })
-              }
-            />
-            <button
-              type="button"
-              className="active:bg-gray-300 flex-1 bg-black border-none"
-              onClick={(): void => dispatch({ type: 'PauseResumeAction' })}
-            />
-            <button
-              type="button"
-              className="active:bg-gray-300 flex-1 bg-black border-none"
-              onClick={(): void =>
-                dispatch({ type: 'ChangeTimeAction', duration: MILLISECONDS })
-              }
-            />
-          </div>
+      <div className="flex flex-col w-screen h-screen bg-black">
+        <div
+          className="flex items-center justify-center flex-1 text-white"
+          style={{ fontSize: '16vw' }}
+        >
+          {state.type === 'MainState'
+            ? formatTime(Date.now() - state.beginTime, false)
+            : formatTime(state.endTime - state.beginTime, true)}
+        </div>
+        <div className="flex flex-1">
           <button
             type="button"
             className="active:bg-gray-300 flex-1 bg-black border-none"
-            onClick={(): void => dispatch({ type: 'StartStopAction' })}
+            onClick={(): void =>
+              dispatch({ type: 'ChangeTimeAction', duration: -MILLISECONDS })
+            }
+          />
+          <button
+            type="button"
+            className="active:bg-gray-300 flex-1 bg-black border-none"
+            onClick={(): void => dispatch({ type: 'PauseResumeAction' })}
+          />
+          <button
+            type="button"
+            className="active:bg-gray-300 flex-1 bg-black border-none"
+            onClick={(): void =>
+              dispatch({ type: 'ChangeTimeAction', duration: MILLISECONDS })
+            }
           />
         </div>
-      )}
+        <button
+          type="button"
+          className="active:bg-gray-300 flex-1 bg-black border-none"
+          onClick={(): void => dispatch({ type: 'StartStopAction' })}
+        />
+      </div>
     </Layout>
   );
 }
