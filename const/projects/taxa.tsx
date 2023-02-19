@@ -61,6 +61,16 @@ export const taxa: Project = {
         <li>Bootstrap</li>
         <li>JavaScript</li>
       </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        Long gone are the days were crunching though the dataset of species
+        known to humanity is a task suitable for supercomputers only. Still,
+        there current implementation of the tool is not the most efficient
+        possible. In fairness, it was designed with features in mind first and
+        foremost, still, performance problems are plaguing the production use of
+        the tool.
+      </Paragraph>
     </>
   ),
 };

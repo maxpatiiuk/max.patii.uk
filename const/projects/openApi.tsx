@@ -1,6 +1,8 @@
 import {
+  Header,
   Image,
   Link,
+  List,
   Paragraph,
   YouTube,
 } from '../../components/projects/project';
@@ -57,6 +59,24 @@ export const openApi: Project = {
         results of which are logged and failures are reported. My coworker
         developed a testing daemon and a scheduler just for that -{' '}
         <Link href="https://github.com/lifemapper/lmtest/">LmTest</Link>.
+      </Paragraph>
+
+      <Header>Technologies used</Header>
+      <List>
+        <li>Python</li>
+        <li>OpenAPI v3.0</li>
+        <li>JSON Schema</li>
+        <li>Flask</li>
+      </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        Close to the end of this project, I found out that GraphQL exists, and
+        that it already does most of the things I was trying to reinvent, but it
+        does a much better job of it. Unfortunately, we can't move completely to
+        GraphQL as it would require a big migration. Still, this was one more
+        reminder to do research of existing solutions before trying to creat a
+        yet another library
       </Paragraph>
     </>
   ),

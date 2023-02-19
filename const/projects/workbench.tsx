@@ -23,11 +23,7 @@ export const workbench: Project = {
         WorkBench is a bulk data uploading system for collection management
         software, Specify 7.
       </Paragraph>
-      <List
-        caption={`
-                I worked on the front end, including the following features:
-              `}
-      >
+      <List caption="I worked on the front end, including the following features:">
         <li>Support for spreadsheets of up to 500,000 rows</li>
         <li>Built-in coordinate converter</li>
         <li>Live and static data validation</li>
@@ -90,6 +86,21 @@ export const workbench: Project = {
         video="fw_Ps4nF5FY"
         start={386}
       />
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        During the development of the WorkBench, most of the testing was done
+        with data sets that were convenient for developers - 20-50 rows with
+        10-20 columns. It's only in the last few months before release that
+        testing with a real world sizes data sets had begun. This quickly showed
+        as that the tool had obvious performance issues and required us to
+        scramble to fix it and to delay the release.
+      </Paragraph>
+      <Paragraph>
+        The lesson I learned from this is that testing should be done though the
+        development process to make sure the tool is on track to meet the goals,
+        and the testing performed should resemble real world use cases.
+      </Paragraph>
     </>
   ),
 };

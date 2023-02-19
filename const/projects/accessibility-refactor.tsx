@@ -214,6 +214,14 @@ export const accessibilityRefactor: Project = {
         <li>React</li>
         <li>Tailwind CSS</li>
       </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        Unlike my initial assumptions, there is no such thing as a fully
+        accessible application. There are however a lot of small steps in order
+        of increasing difficulty that can be taken to make an application more
+        accessible.
+      </Paragraph>
     </>
   ),
 };

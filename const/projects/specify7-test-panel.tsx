@@ -124,6 +124,47 @@ export const specify7TestPanel: Project = {
         <li>Tailwind.CSS</li>
         <li>MariaDB (and a mysql2 npm dependency)</li>
       </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        While this project was nice in terms of usability and features
+        (especially after a few incremental updates), it did fall short in one
+        important aspect.
+      </Paragraph>
+      <Paragraph>
+        A primary goal of the test panel is to emulate a production environment
+        so that testers can catch bugs before they get discovered by users.
+      </Paragraph>
+      <Paragraph>
+        However, as we eventually discovered, the test panel environment
+        differed from production in several important ways.
+      </Paragraph>
+
+      <List>
+        <li>
+          The test panel allows only one password bases sign in. In production,
+          single sign on and anonymous access can be configured. Since these are
+          not available on the test panel, they were not tested, and bugs with
+          these systems fell though the cracks
+        </li>
+        <li>
+          Performance of the test panel does not match an average production
+          system
+        </li>
+        <li>
+          There were quite a few bugs specific to the test panel because of
+          misconfiguration, latency issues, and other factors. If bugs occur
+          only in a test panel, but not in production, it leads to loss of faith
+          in the usefulness of the test panel.
+        </li>
+      </List>
+
+      <Paragraph>
+        As it often happens, once the test panel came into heavy usage, the
+        issues mentioned above were discovered. Fixing them is an ongoing
+        incremental process, but it showed me the importance of the tool being
+        really good at the core thing it is indented to do.
+      </Paragraph>
     </>
   ),
 };

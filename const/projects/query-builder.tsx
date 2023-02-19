@@ -27,11 +27,7 @@ export const queryBuilder: Project = {
         Query Builder is an interface for creating advanced queries against the
         database. It is part of the collection management software, Specify 7.
       </Paragraph>
-      <List
-        caption={`
-                I worked on the front end, including the following features:
-              `}
-      >
+      <List caption="I worked on the front end, including the following features:">
         <li>View results in a table (with infinite scrolling)</li>
         <li>View results record-by-record in a form</li>
         <li>Add "OR" conditions to fields</li>
@@ -114,6 +110,33 @@ export const queryBuilder: Project = {
         <li>Tailwind CSS</li>
         <li>Leaflet (library for interactive maps)</li>
       </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        During the development of the query builder, my assumption was that the
+        more validation on data and control over user I put the better. My
+        reasoning was that requiring all inputs to comply with strict
+        requirements would prevent many error conditions and give users an early
+        indicator of something going wrong.
+      </Paragraph>
+      <Paragraph>
+        However, I went overboard on this to the point were some valid use cases
+        were disallowed by the validation system.
+      </Paragraph>
+      <Paragraph>
+        For example, in our software, you can change field length and format
+        requirements for a given field. The query builder interface was looking
+        at these requirements and interesting search query to only values that
+        match these requirements. A thing I haven't considered is that the
+        requirements could be changed, while the data remains the same. This
+        leads to users wanting to query data that doesn't match the current
+        format and not being allowed to do so because of the rigid validation
+        system.
+      </Paragraph>
+      <Paragraph>
+        Lifting some validation restrictions while turning others from errors
+        into warnings resolved these issues.
+      </Paragraph>
     </>
   ),
 };
