@@ -73,6 +73,21 @@ export const lifemapper: Project = {
         video="fw_Ps4nF5FY"
         start={160}
       />
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        The final product did not look anything like the original
+        implementation. There was a lot of discussion and code rewriting. While
+        this allowed us to slowly converge on a best solution, the process
+        wasn't as efficient as it could have been. If I had to do it again
+        today, I would make sure to make heavy use of Figma to quickly prototype
+        the interface and to tell a story of the user experience.
+      </Paragraph>
+      <Paragraph>
+        Figma is great for creating prototypes that, unlike coded
+        implementation, can be adjusted easily until a satisfactory result is
+        achieved.
+      </Paragraph>
     </>
   ),
 };

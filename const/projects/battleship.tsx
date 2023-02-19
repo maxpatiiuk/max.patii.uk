@@ -80,6 +80,15 @@ export const battleship: Project = {
         </Link>
         .
       </Paragraph>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        This projected challenged my meager leadership skills, requiring me to
+        relate to team members to find a way to motivate them and to find a task
+        suitable for their skill level. It also required me to deal with cases
+        when motivation of others didn't match my own or expectations about the
+        scope of the project mismatched.
+      </Paragraph>
     </>
   ),
 };

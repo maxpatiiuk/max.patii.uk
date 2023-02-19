@@ -19,13 +19,17 @@ export default function MainPage(): JSX.Element {
   return (
     <Layout>
       <div
-        className={`min-h-screen flex flex-col lg:flex-row justify-center
-            bg-black text-white`}
+        className={`
+          min-h-screen flex flex-col lg:flex-row justify-cente rbg-black
+          text-white
+        `}
       >
         <header>
           <div
-            className={`lg:min-h-screen gap-y-10 flex flex-col
-                justify-between sticky top-0 p-10 sm:p-20`}
+            className={`
+              lg:min-h-screen gap-y-10 flex flex-col justify-between sticky
+              top-0 p-10 sm:p-20
+            `}
           >
             <div className="gap-y-4 flex flex-col">
               <h1 className="text-7xl">{localization.siteAuthor}</h1>

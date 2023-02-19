@@ -41,6 +41,17 @@ export const alia: Project = {
         <li>GDB assembly debugger</li>
         <li>MARS (MIPS Assembler and Runtime Simulator)</li>
       </List>
+
+      <Header>Things Learned</Header>
+      <Paragraph>
+        Besides the compiler construction related knowledge, I learned that GDB
+        can also be used as an assembly debugger.
+      </Paragraph>
+      <Paragraph>
+        In addition, working on the compiler for half a year showed me the value
+        of code quality and code refactoring as those impact developer
+        experience and software stability down the line.
+      </Paragraph>
     </>
   ),
 };

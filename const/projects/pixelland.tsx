@@ -86,6 +86,31 @@ export const pixelland: Project = {
         </Link>
         .
       </Paragraph>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        This project was developer under unique circumstances in the sense that
+        when we begun it we didn't try to think to hard about what we were
+        trying to achieve and just went along for the ride to see what we get
+        out of it.
+      </Paragraph>
+      <Paragraph>
+        While that's not the way I commonly approach projects, this gave us a
+        sense of freedom from externally imposed contains or fear of missing on
+        expectations.
+      </Paragraph>
+      <Paragraph>
+        Still, I am very happy with the result, especially the procedurally
+        generated map algorithm I developed.
+      </Paragraph>
+      <Paragraph>
+        One of the few goals we set at the beginning of this project was to not
+        use any external libraries beyond what native HTML/CSS/JavaScript
+        offered. This gave us an opportunity to learn about low level things
+        like keyboard navigation and canvas rendering. At the same time, beyond
+        the learning opportunity, this was not the most efficient way of doing
+        things as we ended up reinventing solutions to solved problems.
+      </Paragraph>
     </>
   ),
 };

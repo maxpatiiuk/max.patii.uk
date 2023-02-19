@@ -49,6 +49,15 @@ export const ttsKing: Project = {
       <Image source={ttsKing1}>Landing page</Image>
       <Image source={ttsKing2}>User&#39;s news streams configuration</Image>
       <Image source={ttsKing3}>User&#39;s profile</Image>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        It's okay to not finish a project. You can value out of it even if it's
+        not finished. I learned Next.js, Tailwind,CSS and other important tools
+        thanks to this project. Thus, despite the project being abandoned
+        unfinished, I feel like it's been a big net positive due to experience
+        gained.
+      </Paragraph>
     </>
   ),
 };

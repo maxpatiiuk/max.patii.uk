@@ -129,6 +129,21 @@ export const interfaceRedesign: Project = {
         <li>TypeScript</li>
         <li>React</li>
       </List>
+
+      <Header>Things learned</Header>
+      <Paragraph>
+        In the process of redesigning the interface, I unconsciously made
+        interface resemble my preferences and my usage habits. This way, dark
+        mode received more attention, there were no animations or moving
+        elements in the application, and drag & drop, context menus and other
+        complicated interface elements were removed.
+      </Paragraph>
+      <Paragraph>
+        While this did not significantly affect the user experience, it is
+        something I would pay more attention to in the future. I would try to
+        get more input from others thought the process and try to think about
+        the project from the perspectives of a diverse set of users.
+      </Paragraph>
     </>
   ),
 };

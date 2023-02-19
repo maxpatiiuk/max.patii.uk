@@ -56,6 +56,9 @@ export const tetrisReact: Project = {
       <Image source={tetris4}>Gave over((</Image>
 
       <Paragraph>By the way, can you beat my high score?</Paragraph>
+
+      <Header>Things learned</Header>
+      <Paragraph>Tetris is addictive.</Paragraph>
     </>
   ),
 };
