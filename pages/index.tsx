@@ -20,7 +20,7 @@ export default function MainPage(): JSX.Element {
     <Layout>
       <div
         className={`
-          min-h-screen flex flex-col lg:flex-row justify-cente rbg-black
+          min-h-screen flex flex-col lg:flex-row justify-center rbg-black
           text-white
         `}
       >
