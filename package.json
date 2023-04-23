@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@maxxxxxdlp/eslint-config-react": "^3.0.0",
-    "@maxxxxxdlp/stylelint-config": "^1.0.0",
     "@types/node": "^18.16.0",
     "@types/ramda": "^0.29.0",
     "@types/react": "^18.0.38",
@@ -39,7 +38,6 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^8.3.2",
     "prettier": "^2.8.8",
-    "stylelint": "^15.6.0",
     "typescript": "^5.0.4"
   },
   "browserslist": {
