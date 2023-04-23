@@ -29,6 +29,7 @@ import { taxa } from './taxa';
 import { tetrisReact } from './tetris-react';
 import { ttsKing } from './tts-king';
 import { workbench } from './workbench';
+import { calendarPlus } from './calendarPlus';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -41,6 +42,7 @@ export type Project = {
 export const projects: IR<Project> = {
   spacetime,
   alia,
+  'calendar-plus': calendarPlus,
   workbench,
   'query-builder': queryBuilder,
   'accessibility-refactor': accessibilityRefactor,

@@ -3,6 +3,7 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import { localization } from '../const/localization';
+import { icons } from './icons';
 import { Centered } from './UI';
 
 function ErrorPage({ errorCode }: { readonly errorCode: number }): JSX.Element {
@@ -18,6 +19,7 @@ function ErrorPage({ errorCode }: { readonly errorCode: number }): JSX.Element {
               href="/"
               className="block pt-10 transition text-red-400 hover:text-black"
             >
+              {icons.chevronLeft}
               {localization.returnToHomePage}
             </Link>
           </p>

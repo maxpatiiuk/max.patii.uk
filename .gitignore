@@ -1,4 +1,5 @@
 node_modules
 .next
+.swc
 .env*.local
 tsconfig.tsbuildinfo

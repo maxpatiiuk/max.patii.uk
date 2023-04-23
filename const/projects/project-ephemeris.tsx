@@ -18,7 +18,7 @@ import type { Project } from './index';
 export const projectEphemeris: Project = {
   gitHub: 'https://github.com/maxxxxxdlp/project-ephemeris',
   title: 'Project Ephemeris',
-  description: 'A Google Calendar clone',
+  description: 'Full-fledged calendar application',
   content: (
     <>
       <Paragraph>
