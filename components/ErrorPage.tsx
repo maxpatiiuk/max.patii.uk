@@ -17,7 +17,10 @@ function ErrorPage({ errorCode }: { readonly errorCode: number }): JSX.Element {
             {localization.notFoundDescription}
             <Link
               href="/"
-              className="block pt-10 transition text-red-400 hover:text-black"
+              className={`
+                flex justify-center items-center pt-10 transition text-red-400
+                hover:text-black
+              `}
             >
               {icons.chevronLeft}
               {localization.returnToHomePage}

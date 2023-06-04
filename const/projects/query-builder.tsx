@@ -59,8 +59,8 @@ export const queryBuilder: Project = {
       <YouTube
         caption="Presentation from iDigBio Digital Data Conference 2022"
         description={`
-               Video overview of the query builder, accessibility, and other related features 
-              `}
+         Video overview of the query builder, accessibility, and other related features 
+        `}
         video="YIbeZ_f_eQc"
       />
 

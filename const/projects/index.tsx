@@ -32,6 +32,7 @@ import { workbench } from './workbench';
 import { calendarPlus } from './calendarPlus';
 import { goodreadsStats } from './goodreadsStats';
 import { weblate } from './weblate';
+import { usageStats } from './usage-stats';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -54,6 +55,7 @@ export const projects: IR<Project> = {
   'interface-redesign': interfaceRedesign,
   'goodreads-stats': goodreadsStats,
   lifemapper,
+  'usage-stats': usageStats,
   'open-api': openApi,
   pixelland,
   portfolio,

@@ -46,11 +46,7 @@ export const accessibilityRefactor: Project = {
         of the top priorities when planning the next release of Specify 7 (a
         scientific collection management software).
       </Paragraph>
-      <List
-        caption={`
-                The following accessibility improvements have been made:
-              `}
-      >
+      <List caption="The following accessibility improvements have been made:">
         <li>
           Added user preferences menu with the ability to customize font family,
           font size, interface scaling, keyboard behavior, and colors of UI
@@ -80,24 +76,24 @@ export const accessibilityRefactor: Project = {
       <YouTube
         caption="Recording of a webinar on accessibility improvements in Specify 7"
         description={`
-                Showcase of Accessibility and Usability improvements in Specify 7 
-              `}
+          Showcase of Accessibility and Usability improvements in Specify 7 
+        `}
         video="lJZSk5-bKCk"
       />
 
       <YouTube
         caption="Presentation from iDigBio Digital Data Conference 2022"
         description={`
-               Video overview of accessibility improvements and other enhancements
-              `}
+         Video overview of accessibility improvements and other enhancements
+        `}
         video="YIbeZ_f_eQc"
       />
 
       <YouTube
         caption="Recording of a webinar on user preferences in Specify 7"
         description={`
-                Showcase of User Preferences in Specify 7 
-              `}
+          Showcase of User Preferences in Specify 7 
+        `}
         video="hw_rM4e12UY"
       />
 
