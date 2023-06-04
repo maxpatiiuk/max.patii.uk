@@ -30,6 +30,7 @@ import { tetrisReact } from './tetris-react';
 import { ttsKing } from './tts-king';
 import { workbench } from './workbench';
 import { calendarPlus } from './calendarPlus';
+import {goodreadsStats} from './goodreadsStats';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -49,6 +50,7 @@ export const projects: IR<Project> = {
   'specify7-test-panel': specify7TestPanel,
   'project-ephemeris': projectEphemeris,
   'interface-redesign': interfaceRedesign,
+  'goodreads-stats': goodreadsStats,
   lifemapper,
   'open-api': openApi,
   pixelland,
