@@ -33,6 +33,7 @@ import { calendarPlus } from './calendarPlus';
 import { goodreadsStats } from './goodreadsStats';
 import { weblate } from './weblate';
 import { usageStats } from './usage-stats';
+import { modernizingUsageStats } from './modernizing-usage-stats';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -56,6 +57,7 @@ export const projects: IR<Project> = {
   'goodreads-stats': goodreadsStats,
   lifemapper,
   'usage-stats': usageStats,
+  'modernizing-usage-stats': modernizingUsageStats,
   'open-api': openApi,
   pixelland,
   portfolio,

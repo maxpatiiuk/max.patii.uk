@@ -15,14 +15,20 @@ export function Paragraph({
 export function List({
   caption,
   children,
+  style = 'ul',
 }: {
   readonly caption?: string;
   readonly children: RA<JSX.Element>;
+  readonly style?: 'ul' | 'ol';
 }): JSX.Element {
   return (
     <>
       {typeof caption === 'string' && <p>{caption}</p>}
-      <ul className="pl-7 pb-2 list-disc">{children}</ul>
+      {React.createElement(
+        style,
+        { className: 'pl-7 pb-2 list-disc' },
+        children
+      )}
     </>
   );
 }

@@ -92,6 +92,15 @@ export const usageStats: Project = {
         <li>GitHub APIs</li>
       </List>
 
+      <Header>Specify 6 Usage Stats</Header>
+      <Paragraph>
+        In parallel with this project, I was tasked with modernizing an existing
+        usage stats visualizer for a separate application.
+        <Link href="https://max.patii.uk/projects/modernizing-usage-stats">
+          See the results of that project.
+        </Link>
+      </Paragraph>
+
       <Header>Reflecting on the project</Header>
       <Paragraph>
         When I started this project, I used the technologies I knew best. Among
