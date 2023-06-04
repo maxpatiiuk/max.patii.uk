@@ -16,7 +16,11 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
   const project = projects[id];
   const ogImage = Array.from(
     project.content.props.children as RA<JSX.Element>
-  ).find((element) => typeof element.props.source?.src === 'string')?.props as
+  ).find(
+    (element) =>
+      typeof element === 'object' &&
+      typeof element.props.source?.src === 'string'
+  )?.props as
     | {
         readonly source: {
           readonly src: string;

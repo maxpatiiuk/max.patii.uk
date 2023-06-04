@@ -62,20 +62,6 @@ export function SubHeader({
   return <h3 className="pt-2 pb-1 text-xl">{children}</h3>;
 }
 
-export function EnsureClientSide({
-  children,
-}: {
-  readonly children: () => JSX.Element;
-}): JSX.Element | null {
-  const [isClientSide, setIsClientSide] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setIsClientSide(true);
-  }, []);
-
-  return isClientSide ? children() : null;
-}
-
 export function YouTube({
   caption,
   description,
@@ -84,40 +70,70 @@ export function YouTube({
 }: {
   readonly caption: string;
   readonly description?: string;
-  readonly video: string;
+  readonly video: string | JSX.Element;
   readonly start?: number;
 }): JSX.Element {
   /*
    * &playlist and &loop get parameters are a workaround to hide YouTube's
    * obtrusive "Related Videos" overlay on pause
    */
+  const src = `https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
+    globalThis.document?.location.origin
+  )}&widget_referrer=${encodeURIComponent(
+    globalThis.document?.location.href
+  )}&playlist=${video}&loop=1${
+    typeof start === 'number' ? `&start=${start}` : ''
+  }`;
+
+  return <VideoPlayer src={src} caption={caption} description={description} />;
+}
+
+export function Vimeo({
+  caption,
+  description,
+  video,
+}: {
+  readonly caption: string;
+  readonly description?: string | JSX.Element;
+  readonly video: string;
+}): JSX.Element {
   return (
-    <EnsureClientSide>
-      {(): JSX.Element => (
-        <>
-          <Header>{caption}</Header>
-          {typeof description === 'string' && (
-            <Paragraph>{description}</Paragraph>
-          )}
-          <div className="flex justify-center mb-5 bg-gray-900 rounded-xl">
-            <iframe
-              width="640"
-              height="360"
-              title={caption}
-              className="max-w-full"
-              src={`https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
-                document.location.origin
-              )}&widget_referrer=${encodeURIComponent(
-                document.location.href
-              )}&playlist=${video}&loop=1${
-                typeof start === 'number' ? `&start=${start}` : ''
-              }`}
-              frameBorder="0"
-            />
-          </div>
-        </>
+    <VideoPlayer
+      src={`https://player.vimeo.com/video/${video}`}
+      caption={caption}
+      description={description}
+    />
+  );
+}
+
+function VideoPlayer({
+  caption,
+  description,
+  src,
+}: {
+  readonly caption: string;
+  readonly description?: string | JSX.Element;
+  readonly src: string;
+}): JSX.Element {
+  return (
+    <>
+      <Header>{caption}</Header>
+      {typeof description === 'string' ? (
+        <Paragraph>{description}</Paragraph>
+      ) : (
+        description
       )}
-    </EnsureClientSide>
+      <div className="flex justify-center mb-5 bg-gray-900 rounded-xl">
+        <iframe
+          width="640"
+          height="360"
+          title={caption}
+          className="max-w-full"
+          src={src}
+          frameBorder="0"
+        />
+      </div>
+    </>
   );
 }
 

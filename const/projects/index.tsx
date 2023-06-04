@@ -1,6 +1,6 @@
 /**
- * While this might not be the best way to define posts, here are some
- * benefits:
+ * While this might be not the most sophisticated way to define posts, here are
+ * some benefits:
  *  - Very simple infrastructure (no database required)
  *  - Type safety included (since posts are defined in TypeScript)
  *  - Autocompletion & Grammar checker included (thanks to IDE plugins)
@@ -8,7 +8,7 @@
  *  - All content is version controlled
  *  - Since there aren't too many posts, and they aren't modified often, and
  *    there aren't multiple people editing them, and there aren't multiple
- *    localizations of a post, this is definitelly the simplest way to get the
+ *    localizations of a post, this is definitely the simplest way to get the
  *    task done.
  */
 
@@ -30,7 +30,8 @@ import { tetrisReact } from './tetris-react';
 import { ttsKing } from './tts-king';
 import { workbench } from './workbench';
 import { calendarPlus } from './calendarPlus';
-import {goodreadsStats} from './goodreadsStats';
+import { goodreadsStats } from './goodreadsStats';
+import { weblate } from './weblate';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -44,11 +45,12 @@ export const projects: IR<Project> = {
   spacetime,
   alia,
   'calendar-plus': calendarPlus,
-  workbench,
   'query-builder': queryBuilder,
   'accessibility-refactor': accessibilityRefactor,
   'specify7-test-panel': specify7TestPanel,
+  workbench,
   'project-ephemeris': projectEphemeris,
+  weblate,
   'interface-redesign': interfaceRedesign,
   'goodreads-stats': goodreadsStats,
   lifemapper,
