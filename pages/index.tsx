@@ -12,6 +12,7 @@ const links: RA<{ readonly label: string; readonly url: string }> = [
   { label: 'twitter', url: 'https://twitter.patii.uk' },
   { label: 'instagram', url: 'https://instagram.patii.uk' },
   { label: 'youtube', url: 'https://youtube.com/@maxpatiiuk' },
+  { label: 'blog', url: 'https://blog.patii.uk' },
   { label: 'about', url: 'https://doc.patii.uk' },
   { label: 'cv', url: 'https://cv.patii.uk' },
 ];
