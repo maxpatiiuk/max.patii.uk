@@ -1,6 +1,7 @@
 import {
   Header,
   Image,
+  Link,
   List,
   Paragraph,
   Quote,
@@ -39,6 +40,17 @@ export const spacetime: Project = {
         data and quickly filter out the irrelevant noise and have the charts
         update instantaneously.
       </Paragraph>
+
+      <Quote>
+        <p>
+          See also, a blog post on{' '}
+          <Link href="https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b">
+            50 Lessons learned from an Amazon Internship
+          </Link>
+          .
+        </p>
+      </Quote>
+
       <Paragraph>
         There already exists a tool at Amazon, which shows all high severity
         tickets in real-time as a long table, allowing you to stay in touch with
@@ -211,6 +223,13 @@ export const spacetime: Project = {
         <li>AWS CloudFront</li>
         <li>AWS Route53</li>
       </List>
+
+      <Paragraph>
+        See also my blog post on{' '}
+        <Link href="https://dev.to/maxpatiiuk/6-big-issues-with-vuejs-3he5">
+          6 big issues with Vue.js
+        </Link>
+      </Paragraph>
 
       <Header>FAQ</Header>
 
