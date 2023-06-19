@@ -13,7 +13,7 @@ export const localization = {
     Максим Патіюк
   `,
   siteAuthor: 'Max Patiiuk',
-  siteAuthorTitle: 'Full Stack Web Developer',
+  siteAuthorTitle: 'SDE II at Esri',
   myProjects: 'My projects',
   yes: 'Yes',
   no: 'No',
