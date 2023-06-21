@@ -33,7 +33,7 @@ function Layout({
       <Head>
         <title>{fullTitle}</title>
         <meta property="og:title" content={fullTitle} />
-        <link rel="icon" href={icon ?? '/favicon.ico"'} />
+        <link rel="icon" href={icon ?? '/favicon.ico'} />
         <meta
           name="robots"
           content={privatePage ? 'noindex,nofollow' : robots}
