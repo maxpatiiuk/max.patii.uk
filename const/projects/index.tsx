@@ -34,6 +34,7 @@ import { goodreadsStats } from './goodreads-stats';
 import { weblate } from './weblate';
 import { usageStats } from './usage-stats';
 import { modernizingUsageStats } from './modernizing-usage-stats';
+import { socksyLinen } from './socksy-linen';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -58,6 +59,7 @@ export const projects: IR<Project> = {
   lifemapper,
   'usage-stats': usageStats,
   'modernizing-usage-stats': modernizingUsageStats,
+  'socksy-linen': socksyLinen,
   'open-api': openApi,
   pixelland,
   portfolio,
