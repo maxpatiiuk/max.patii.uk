@@ -41,12 +41,12 @@ module.exports = {
     },
     {
       source: '/shop.html',
-      destination: 'https://shop.mambo.in.ua/',
+      destination: 'https://max.patii.uk/projects/shop',
       permanent: true,
     },
     {
       source: '/shop/:any*',
-      destination: 'https://shop.mambo.in.ua/',
+      destination: 'https://max.patii.uk/projects/shop',
       permanent: true,
     },
     {
