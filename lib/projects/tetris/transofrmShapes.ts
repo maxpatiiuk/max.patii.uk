@@ -60,7 +60,7 @@ const rotateMatrixTimes = R.curryN(
 );
 
 const shapeToMatrix = (shape: ShapeLocation): (0 | 1)[][] =>
-  R.of(shape)
+  R.of(Array, shape)
     .map((shape) => ({
       shape,
       size: R.max(getShapeSize(shape, 'x'), getShapeSize(shape, 'y')),
