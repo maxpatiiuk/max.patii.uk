@@ -11,7 +11,7 @@ import {
   SCORE_MULTIPLIER,
   SHAPES,
 } from '../../../const/projects/tetris/config';
-import { flattenShape } from './transofrmShapes';
+import { flattenShape } from './transformShapes';
 
 export function spawnNewShape(state: MainState): States {
   const shapeDefinition = SHAPES[state.nextShape].definition;

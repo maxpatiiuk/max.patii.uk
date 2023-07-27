@@ -16,7 +16,7 @@ import {
 } from '../../../components/projects/tetris/stateReducer';
 import { SHAPES } from '../../../const/projects/tetris/config';
 import { Direction } from './definitions';
-import { moveShape } from './transofrmShapes';
+import { moveShape } from './transformShapes';
 import { spawnNewShape, updateBoard } from './utilities';
 
 type MoveAction = Action<
