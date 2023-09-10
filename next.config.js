@@ -64,5 +64,10 @@ module.exports = {
       destination: 'http://mambo.zzz.com.ua/project/arduino_call',
       permanent: true,
     },
+    {
+      source: '/projects/tetris',
+      destination: 'https://bit.ly/-tetris-react',
+      permanent: true,
+    },
   ],
 };
