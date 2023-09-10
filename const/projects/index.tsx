@@ -55,6 +55,7 @@ export const projects: IR<Project> = {
   workbench,
   weblate,
   'interface-redesign': interfaceRedesign,
+  'tetris-react': tetrisReact,
   'goodreads-stats': goodreadsStats,
   lifemapper,
   'usage-stats': usageStats,
@@ -65,6 +66,5 @@ export const projects: IR<Project> = {
   portfolio,
   'tts-king': ttsKing,
   taxa,
-  'tetris-react': tetrisReact,
   battleship,
 };
