@@ -155,12 +155,8 @@ export function Image({
       <Img
         alt={children}
         src={source}
-        className="rounded-xl"
+        className="rounded-xl w-full h-auto max-h-[80vh] object-contain"
         sizes="100vw"
-        style={{
-          width: '100%',
-          height: 'auto',
-        }}
       />
       <figcaption className="p-2 text-center text-gray-200">
         {children}

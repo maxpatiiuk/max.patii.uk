@@ -35,6 +35,7 @@ import { weblate } from './weblate';
 import { usageStats } from './usage-stats';
 import { modernizingUsageStats } from './modernizing-usage-stats';
 import { socksyLinen } from './socksy-linen';
+import { smallRetailManagement } from './small-retail-management';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -54,8 +55,9 @@ export const projects: IR<Project> = {
   'specify7-test-panel': specify7TestPanel,
   workbench,
   weblate,
-  'interface-redesign': interfaceRedesign,
+  'small-retail-management': smallRetailManagement,
   'tetris-react': tetrisReact,
+  'interface-redesign': interfaceRedesign,
   'goodreads-stats': goodreadsStats,
   lifemapper,
   'usage-stats': usageStats,

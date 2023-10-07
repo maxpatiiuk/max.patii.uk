@@ -90,10 +90,10 @@ export const weblate: Project = {
         video="795108035"
       />
       <Paragraph>
-        In addition, there is a
+        In addition, there is a{' '}
         <Link href="https://discourse.specifysoftware.org/t/get-started-with-specify-7-localization/956/1">
           mode detailed description
-        </Link>
+        </Link>{' '}
         of the localization process
       </Paragraph>
       <Header>Online demo</Header>
@@ -106,6 +106,7 @@ export const weblate: Project = {
         <Link href="https://hosted.weblate.org/projects/specify-7/#components">
           Weblate project for Specify 7 is available
         </Link>
+        .
       </Paragraph>
       <Header>Things learned</Header>
       <Paragraph>

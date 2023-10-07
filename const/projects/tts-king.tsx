@@ -52,9 +52,9 @@ export const ttsKing: Project = {
 
       <Header>Things learned</Header>
       <Paragraph>
-        It's okay to not finish a project. You can value out of it even if it's
-        not finished. I learned Next.js, Tailwind,CSS and other important tools
-        thanks to this project. Thus, despite the project being abandoned
+        It's okay to not finish a project. You can get value out of it even if
+        it's not finished. I learned Next.js, Tailwind.CSS and other important
+        tools thanks to this project. Thus, despite the project being left
         unfinished, I feel like it's been a big net positive due to experience
         gained.
       </Paragraph>
