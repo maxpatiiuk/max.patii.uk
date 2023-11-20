@@ -16,7 +16,7 @@ import type { Project } from './index';
 
 export const tetrisReact: Project = {
   gitHub:
-    'https://github.com/maxxxxxdlp/max.patii.uk/blob/main/pages/projects/tetris.tsx',
+    'https://github.com/maxxxxxdlp/tetris-react/',
   title: 'Tetris React',
   description: 'A tetris game written in React and Ramda.js',
   content: (
