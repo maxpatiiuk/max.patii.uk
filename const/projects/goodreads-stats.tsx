@@ -16,7 +16,7 @@ import goodreadsStats5 from '../../public/projects/images/goodreads-stats/5.jpg'
 import type { Project } from './index';
 
 export const goodreadsStats: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/goodreads-stats',
+  gitHub: 'https://github.com/maxpatiiuk/goodreads-stats',
   title: 'Goodreads Stats',
   description: 'Get insights into your reading habits',
   content: (
@@ -66,7 +66,7 @@ export const goodreadsStats: Project = {
       </Paragraph>
       <Paragraph>
         Take a look at{' '}
-        <Link href="https://github.com/maxxxxxdlp/calendar-plus">
+        <Link href="https://github.com/maxpatiiuk/calendar-plus">
           Calendar Plus
         </Link>{' '}
         - a Google Chrome extension for calendar power users. Having published

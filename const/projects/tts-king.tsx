@@ -10,7 +10,7 @@ import ttsKing3 from '../../public/projects/images/tts-king/3.png';
 import type { Project } from './index';
 
 export const ttsKing: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/TTS_King',
+  gitHub: 'https://github.com/maxpatiiuk/TTS_King',
   title: 'TTS King',
   description:
     'Turn daily news digests into audio you can listen to wherever you are',

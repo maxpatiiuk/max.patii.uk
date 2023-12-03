@@ -11,7 +11,7 @@ import portfolio3 from '../../public/projects/images/portfolio/3.jpeg';
 import type { Project } from './index';
 
 export const portfolio: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/max.patii.uk/',
+  gitHub: 'https://github.com/maxpatiiuk/max.patii.uk/',
   title: 'Portfolio',
   description: 'A minimalistic Next.js application',
   content: (

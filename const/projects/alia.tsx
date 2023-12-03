@@ -9,7 +9,7 @@ import alia1 from '../../public/projects/images/alia/1.png';
 import type { Project } from './index';
 
 export const alia: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/alia',
+  gitHub: 'https://github.com/maxpatiiuk/alia',
   title: 'Alia',
   description: 'x64, MIPS and LLVM compiler for my language',
   content: (
@@ -26,7 +26,7 @@ export const alia: Project = {
       <Paragraph>
         For of the documentation of implementation and language specification,
         see{' '}
-        <Link href="https://github.com/maxxxxxdlp/alia">Alia repository</Link>
+        <Link href="https://github.com/maxpatiiuk/alia">Alia repository</Link>
       </Paragraph>
 
       <Header>Screenshot</Header>
