@@ -50,16 +50,6 @@ module.exports = {
       permanent: true,
     },
     {
-      source: '/project/one_c',
-      destination: 'http://mambo.zzz.com.ua/project/one_c',
-      permanent: true,
-    },
-    {
-      source: '/map/files/d3_36.php',
-      destination: 'http://mambo.zzz.com.ua/project/one_c',
-      permanent: true,
-    },
-    {
       source: '/project/arduino_call',
       destination: 'http://mambo.zzz.com.ua/project/arduino_call',
       permanent: true,
