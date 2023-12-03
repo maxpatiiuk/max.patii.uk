@@ -13,7 +13,7 @@ import socksyLinen4 from '../../public/projects/images/socksy-linen/4.jpg';
 import type { Project } from './index';
 
 export const socksyLinen: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/socksy.zzz.com.ua/',
+  gitHub: 'https://github.com/maxpatiiuk/socksy.zzz.com.ua/',
   title: 'Socksy Linen',
   description: 'A fashion store landing page',
   content: (
@@ -51,7 +51,7 @@ export const socksyLinen: Project = {
       </Image>
       <Paragraph>
         I really like the{' '}
-        <Link href="https://github.com/maxxxxxdlp/socksy.zzz.com.ua/raw/main/public/videos/cover.mp4">
+        <Link href="https://github.com/maxpatiiuk/socksy.zzz.com.ua/raw/main/public/videos/cover.mp4">
           video we used on the home page
         </Link>
         . I assembled it from short clips from Chanel advertisements.

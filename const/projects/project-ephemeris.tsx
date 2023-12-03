@@ -16,7 +16,7 @@ import projectEphemeris7 from '../../public/projects/images/project-ephemeris/7.
 import type { Project } from './index';
 
 export const projectEphemeris: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/project-ephemeris',
+  gitHub: 'https://github.com/maxpatiiuk/project-ephemeris',
   title: 'Project Ephemeris',
   description: 'Full-fledged calendar application',
   content: (

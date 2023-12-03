@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/maxxxxxdlp/max.patii.uk"
+    "url": "https://github.com/maxpatiiuk/max.patii.uk"
   },
   "scripts": {
     "build": "next build",

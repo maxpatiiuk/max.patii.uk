@@ -8,7 +8,7 @@ export const localization = {
   siteTitle: 'Max Patiiuk',
   siteDescription: `Full Stack Web Developer`,
   siteKeywords: `
-    Max Patiiuk, Maksym Patiiuk, Maksym Patiiuk CV, Maksym Patiiuk portfolio,
+    Max Patiiuk, Maksym Patiiuk, Max Patiiuk CV, Max Patiiuk portfolio,
     mambo shop, mambo, В гостях у MAMBO, мамбо, mambo experimental,
     Максим Патіюк
   `,

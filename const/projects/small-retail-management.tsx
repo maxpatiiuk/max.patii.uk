@@ -15,7 +15,7 @@ import smallRetailManagement5 from '../../public/projects/images/small-retail-ma
 import type { Project } from './index';
 
 export const smallRetailManagement: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/small-retail-management',
+  gitHub: 'https://github.com/maxpatiiuk/small-retail-management',
   title: 'Small Retail Management',
   description: 'Track retail revenue, expenses, and salaries',
   content: (
@@ -77,7 +77,7 @@ export const smallRetailManagement: Project = {
       <Paragraph>
         While that worked for a large shop, it was too much overhead for their
         smaller shops. Thus, in 2018 I created a predecessor to this project -{' '}
-        <Link href="https://github.com/maxxxxxdlp/code_share/tree/main/archived/web/projects/1c-clone">
+        <Link href="https://github.com/maxpatiiuk/code_share/tree/main/archived/web/projects/1c-clone">
           1c-clone
         </Link>
         . It was written in PHP and MySQL in one continuous 9 hour codding

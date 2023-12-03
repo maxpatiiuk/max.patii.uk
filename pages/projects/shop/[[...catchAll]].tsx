@@ -35,7 +35,7 @@ export default function Shop(): JSX.Element {
           </p>
           <p>
             <a
-              href="https://github.com/maxxxxxdlp/code_share/tree/main/archived/web/websites/mambo-shop/v4%20-%20fancy%20design"
+              href="https://github.com/maxpatiiuk/code_share/tree/main/archived/web/websites/mambo-shop/v4%20-%20fancy%20design"
               className="text-red-500 hover:underline"
             >
               {localization.sourceCodeAndHistory}

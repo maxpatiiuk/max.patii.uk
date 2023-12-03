@@ -17,7 +17,7 @@ import calendarPlus6 from '../../public/projects/images/calendar-plus/6.png';
 import type { Project } from './index';
 
 export const calendarPlus: Project = {
-  gitHub: 'https://github.com/maxxxxxdlp/calendar-plus',
+  gitHub: 'https://github.com/maxpatiiuk/calendar-plus',
   title: 'Calendar Plus',
   description: 'Google Calendar extension for power users',
   content: (
@@ -99,7 +99,7 @@ export const calendarPlus: Project = {
         Writing a privacy policy and complying with other requirements was an
         interesting experience. Having done it once, I can do it much faster for
         my second extension{' '}
-        <Link href="https://github.com/maxxxxxdlp/goodreads-stats">
+        <Link href="https://github.com/maxpatiiuk/goodreads-stats">
           Goodreads Stats
         </Link>
         .
