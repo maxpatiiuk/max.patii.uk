@@ -31,7 +31,7 @@
     "@types/react-modal": "^3.16.0",
     "@types/styled-jsx": "^3.4.4",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.39.0",
+    "eslint": "^8.55.0",
     "postcss": "^8.4.23",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^8.3.2",
