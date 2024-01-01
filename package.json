@@ -16,27 +16,27 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "^13.3.1",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
-    "tailwindcss": "^3.3.1",
+    "tailwindcss": "^3.4.0",
     "typesafe-reducer": "^1.0.4"
   },
   "devDependencies": {
     "@maxxxxxdlp/eslint-config-react": "^3.0.0",
-    "@types/node": "^18.16.0",
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
-    "@types/react-modal": "^3.16.0",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-modal": "^3.16.3",
     "@types/styled-jsx": "^3.4.4",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.39.0",
-    "postcss": "^8.4.23",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "postcss": "^8.4.32",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^8.3.2",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4"
+    "postcss-preset-env": "^9.3.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "browserslist": {
     "production": [
