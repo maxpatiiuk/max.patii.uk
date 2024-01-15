@@ -53,12 +53,12 @@ export function ModalDialog({
         className={'w-full'}
         shouldCloseOnEsc={typeof handleCloseClick === 'function'}
       >
-        <div className="w-auto w-1/2 m-auto bg-white shadow-xl">
+        <div className="w-auto m-auto bg-white shadow-xl">
           <div
-            className={`bg-gray-50 p-4 flex justify-between
+            className={`bg-neutral-50 p-4 flex justify-between
           items-center`}
           >
-            <h3 className="text-lg text-gray-900">{title}</h3>
+            <h3 className="text-lg text-neutral-900">{title}</h3>
             {handleCloseClick && (
               <button
                 type="button"
@@ -84,8 +84,8 @@ export function ModalDialog({
               </button>
             )}
           </div>
-          <div className="p-4 text-sm text-gray-500">{children}</div>
-          <div className="bg-gray-50 gap-x-2 flex justify-end p-4">
+          <div className="p-4 text-sm text-neutral-500">{children}</div>
+          <div className="bg-neutral-50 gap-2 flex justify-end p-4">
             {buttons}
           </div>
         </div>

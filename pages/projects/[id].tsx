@@ -15,11 +15,11 @@ type ProjectIdQuery = {
 export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
   const project = projects[id];
   const ogImage = Array.from(
-    project.content.props.children as RA<JSX.Element>
+    project.content.props.children as RA<JSX.Element>,
   ).find(
     (element) =>
       typeof element === 'object' &&
-      typeof element.props.source?.src === 'string'
+      typeof element.props.source?.src === 'string',
   )?.props as
     | {
         readonly source: {
@@ -36,7 +36,7 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
       : 'http://localhost:3000';
   return (
     <Layout title={project.title} useDefaultDescription={false}>
-      <div className="min-h-screen text-white bg-black">
+      <div className="min-h-screen">
         <Head>
           <meta property="og:title" content={project.title} />
           <meta name="description" content={project.description} />
@@ -59,9 +59,12 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
             </>
           )}
         </Head>
-        <header className="flex h-48 bg-gray-800 justify-center">
-          <div className="gap-y-3 w-full max-w-[1000px] flex flex-col p-4 md:px-0 justify-center">
-            <a className="hover:text-white w-full text-gray-300 flex" href="/">
+        <header className="flex h-48 bg-neutral-800 justify-center">
+          <div className="gap-3 w-full max-w-[1000px] flex flex-col p-4 md:px-0 justify-center">
+            <a
+              className="hover:text-white w-full text-neutral-300 flex"
+              href="/"
+            >
               {icons.chevronLeft}
               {localization.returnToHomePage}
             </a>
@@ -69,7 +72,7 @@ export default function ProjectPage({ id }: ProjectIdQuery): JSX.Element {
               <h1 className="w-full text-3xl">{project.title}</h1>
               {typeof project.gitHub === 'string' && (
                 <a
-                  className="hover:text-white w-full text-gray-300"
+                  className="hover:text-white w-full text-neutral-300"
                   href={project.gitHub}
                 >
                   {localization.viewOnGitHub}

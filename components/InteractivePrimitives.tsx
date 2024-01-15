@@ -1,7 +1,7 @@
 import React from 'react';
 
 const baseButtonStyle =
-  'inline-flex px-4 py-2 rounded-md sm:text-sm sm:w-auto text-gray-700';
+  'inline-flex px-4 py-2 rounded-md sm:text-sm sm:w-auto text-neutral-700';
 
 interface ButtonProps {
   readonly children: React.ReactNode;

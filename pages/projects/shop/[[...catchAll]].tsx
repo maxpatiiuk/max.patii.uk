@@ -22,7 +22,7 @@ export default function Shop(): JSX.Element {
             <span className={'text-red-500'}>{localization.shop}</span>
             {` ${localization.noLongerWorks}`}
           </h1>
-          <p className="pt-1 pb-4 text-gray-500">{localization.years}</p>
+          <p className="pt-1 pb-4 text-neutral-500">{localization.years}</p>
           <p>{localization.subheading}</p>
           <p>
             {`${localization.contacts} `}

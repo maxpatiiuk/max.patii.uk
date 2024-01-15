@@ -14,7 +14,8 @@ This site is primarily used as my portfolio, though it can also host random JS
 projects (check out my [Tetris Game](https://max.patii.uk/projects/tetris)).
 
 The design was inspired by
-[Clement Grellier's portfolio](https://clementgrellier.fr/).
+[Clement Grellier's portfolio](https://clementgrellier.fr/) and
+[Aakash N S's portfolio](https://aakashns.com/)
 
 ## Development
 

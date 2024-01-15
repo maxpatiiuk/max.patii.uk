@@ -25,7 +25,7 @@ export const portfolio: Project = {
       <Paragraph>
         This site is primarily used as my portfolio, though it can also host
         random JS projects (
-        <Link href="https://max.patii.uk/projects/tetris">
+        <Link href="https://bit.ly/-tetris-react">
           check out my Tetris Game
         </Link>
         ).

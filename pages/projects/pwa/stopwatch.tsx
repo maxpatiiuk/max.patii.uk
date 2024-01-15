@@ -96,7 +96,7 @@ function formatTime(time: number, includeMilliseconds = false): string {
   if (results.length === 0 && milliseconds === 0) return '';
   return `${results
     .map((number, index) =>
-      index === 0 ? number : String(number).padStart(2, '0')
+      index === 0 ? number : String(number).padStart(2, '0'),
     )
     .join(':')}${includeMilliseconds ? `.${milliseconds}` : ''}`;
 }
@@ -108,9 +108,14 @@ export default function Stopwatch(): JSX.Element {
   React.useEffect(() => {
     if (state.type !== 'MainState') return undefined;
 
-    const timeOut = setTimeout(() => {
-      setUpdateValue(!updateValue);
-    }, MILLISECONDS - (Date.now() % MILLISECONDS) + (state.beginTime % MILLISECONDS));
+    const timeOut = setTimeout(
+      () => {
+        setUpdateValue(!updateValue);
+      },
+      MILLISECONDS -
+        (Date.now() % MILLISECONDS) +
+        (state.beginTime % MILLISECONDS),
+    );
 
     return (): void => {
       clearTimeout(timeOut);
@@ -145,19 +150,19 @@ export default function Stopwatch(): JSX.Element {
         <div className="flex flex-1">
           <button
             type="button"
-            className="active:bg-gray-300 flex-1 bg-black border-none"
+            className="active:bg-neutral-300 flex-1 bg-black border-none"
             onClick={(): void =>
               dispatch({ type: 'ChangeTimeAction', duration: -MILLISECONDS })
             }
           />
           <button
             type="button"
-            className="active:bg-gray-300 flex-1 bg-black border-none"
+            className="active:bg-neutral-300 flex-1 bg-black border-none"
             onClick={(): void => dispatch({ type: 'PauseResumeAction' })}
           />
           <button
             type="button"
-            className="active:bg-gray-300 flex-1 bg-black border-none"
+            className="active:bg-neutral-300 flex-1 bg-black border-none"
             onClick={(): void =>
               dispatch({ type: 'ChangeTimeAction', duration: MILLISECONDS })
             }
@@ -165,7 +170,7 @@ export default function Stopwatch(): JSX.Element {
         </div>
         <button
           type="button"
-          className="active:bg-gray-300 flex-1 bg-black border-none"
+          className="active:bg-neutral-300 flex-1 bg-black border-none"
           onClick={(): void => dispatch({ type: 'StartStopAction' })}
         />
       </div>

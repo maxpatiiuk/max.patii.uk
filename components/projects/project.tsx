@@ -27,7 +27,7 @@ export function List({
       {React.createElement(
         style,
         { className: 'pl-7 pb-2 list-disc' },
-        children
+        children,
       )}
     </>
   );
@@ -44,7 +44,7 @@ export function Link({
     <a
       href={href}
       target="_blank"
-      className="hover:text-white text-gray-500"
+      className="hover:text-neutral-300 text-white underline"
       rel="noopener noreferrer"
     >
       {children}
@@ -57,7 +57,7 @@ export function Header({
 }: {
   readonly children: string;
 }): JSX.Element {
-  return <h2 className="pt-4 pb-1 text-2xl text-gray-400">{children}</h2>;
+  return <h2 className="pt-4 pb-1 text-2xl text-neutral-400">{children}</h2>;
 }
 
 export function SubHeader({
@@ -84,9 +84,9 @@ export function YouTube({
    * obtrusive "Related Videos" overlay on pause
    */
   const src = `https://www.youtube.com/embed/${video}?origin=${encodeURIComponent(
-    globalThis.document?.location.origin
+    globalThis.document?.location.origin,
   )}&widget_referrer=${encodeURIComponent(
-    globalThis.document?.location.href
+    globalThis.document?.location.href,
   )}&playlist=${video}&loop=1${
     typeof start === 'number' ? `&start=${start}` : ''
   }`;
@@ -129,7 +129,7 @@ function VideoPlayer({
       ) : (
         description
       )}
-      <div className="flex justify-center mb-5 bg-gray-900 rounded-xl">
+      <div className="flex justify-center mb-5 bg-neutral-900 rounded-xl">
         <iframe
           width="640"
           height="360"
@@ -151,14 +151,14 @@ export function Image({
   readonly children: string;
 }): JSX.Element {
   return (
-    <figure className="mb-4 bg-gray-800 rounded-xl">
+    <figure className="mb-4 bg-neutral-700 border-4 border-neutral-700 border-b-0 rounded-xl">
       <Img
         alt={children}
         src={source}
         className="rounded-xl w-full h-auto max-h-[80vh] object-contain"
         sizes="100vw"
       />
-      <figcaption className="p-2 text-center text-gray-200">
+      <figcaption className="p-2 text-center text-neutral-200">
         {children}
       </figcaption>
     </figure>
@@ -171,7 +171,7 @@ export function Quote({
   readonly children: JSX.Element | RA<JSX.Element>;
 }): JSX.Element {
   return (
-    <blockquote className="border-l-4 rounded-xl border-gray-600 bg-gray-800 p-2 my-4">
+    <blockquote className="border-l-4 rounded-xl border-neutral-600 bg-neutral-700 p-5 my-4">
       {children}
     </blockquote>
   );

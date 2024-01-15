@@ -15,7 +15,7 @@ import React from 'react';
 export const weblate: Project = {
   gitHub:
     'https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src',
-  title: 'Streamlining localization',
+  title: 'Specify 7 Continuous Localization',
   description: 'Two way integration with Weblate',
   content: (
     <>
@@ -67,7 +67,7 @@ export const weblate: Project = {
       <Paragraph>
         <Link href="https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src/lib/localization/#about-the-solution">
           Technical details about the solution
-        </Link>
+        </Link>{' '}
         and{' '}
         <Link href="https://github.com/specify/specify7/tree/weblate-localization#readme">
           and reasoning
@@ -92,7 +92,7 @@ export const weblate: Project = {
       <Paragraph>
         In addition, there is a{' '}
         <Link href="https://discourse.specifysoftware.org/t/get-started-with-specify-7-localization/956/1">
-          mode detailed description
+          more detailed description
         </Link>{' '}
         of the localization process
       </Paragraph>
