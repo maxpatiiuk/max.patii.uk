@@ -1,4 +1,3 @@
-import type { ImageProps } from 'next/dist/client/image';
 import Img from 'next/image';
 import React from 'react';
 
@@ -147,7 +146,7 @@ export function Image({
   source,
   children,
 }: {
-  readonly source: Exclude<ImageProps['src'], string>;
+  readonly source: Exclude<Parameters<typeof Img>[0]['src'], string>;
   readonly children: string;
 }): JSX.Element {
   return (
