@@ -150,7 +150,7 @@ export function Image({
   readonly children: string;
 }): JSX.Element {
   return (
-    <figure className="mb-4 bg-neutral-700 border-4 border-neutral-700 border-b-0 rounded-xl">
+    <figure className="mb-4 bg-neutral-700 p-1 pb-0 rounded-xl">
       <Img
         alt={children}
         src={source}
