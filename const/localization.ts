@@ -15,8 +15,6 @@ export const localization = {
   siteAuthor: 'Max Patiiuk',
   siteAuthorTitle: 'SDE II at Esri',
   myProjects: 'My projects',
-  yes: 'Yes',
-  no: 'No',
   returnToHomePage: 'Return to homepage',
   viewOnGitHub: 'View this project on GitHub',
   unexpectedError: 'Unexpected Error',

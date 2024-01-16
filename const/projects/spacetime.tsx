@@ -7,7 +7,7 @@ import {
   Quote,
   SubHeader,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import spacetime1 from '../../public/projects/images/spacetime/1.jpg';
 import spacetime2 from '../../public/projects/images/spacetime/2.jpg';
 import spacetime3 from '../../public/projects/images/spacetime/3.jpg';

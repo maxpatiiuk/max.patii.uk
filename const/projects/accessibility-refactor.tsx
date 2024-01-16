@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import accessibility1 from '../../public/projects/images/accessibility-refactor/1.jpg';
 import accessibility2 from '../../public/projects/images/accessibility-refactor/2.jpg';
 import accessibility3 from '../../public/projects/images/accessibility-refactor/3.jpg';

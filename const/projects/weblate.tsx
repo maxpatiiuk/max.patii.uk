@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   Vimeo,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import type { Project } from './index';
 import weblate1 from '../../public/projects/images/weblate/1.jpg';
 import weblate2 from '../../public/projects/images/weblate/2.jpg';

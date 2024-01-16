@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import taxa1 from '../../public/projects/images/taxa/1.png';
 import taxa2 from '../../public/projects/images/taxa/2.png';
 import taxa3 from '../../public/projects/images/taxa/3.png';

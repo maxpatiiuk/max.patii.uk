@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import portfolio1 from '../../public/projects/images/portfolio/1.jpeg';
 import portfolio2 from '../../public/projects/images/portfolio/2.jpeg';
 import portfolio3 from '../../public/projects/images/portfolio/3.jpeg';

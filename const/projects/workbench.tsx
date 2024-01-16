@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import workbench1 from '../../public/projects/images/workbench/1.png';
 import workbench2 from '../../public/projects/images/workbench/2.png';
 import workbench3 from '../../public/projects/images/workbench/3.png';

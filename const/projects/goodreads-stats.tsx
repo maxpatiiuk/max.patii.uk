@@ -7,7 +7,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import goodreadsStats1 from '../../public/projects/images/goodreads-stats/1.jpg';
 import goodreadsStats2 from '../../public/projects/images/goodreads-stats/2.jpg';
 import goodreadsStats3 from '../../public/projects/images/goodreads-stats/3.jpg';

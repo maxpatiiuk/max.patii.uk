@@ -1,9 +1,4 @@
-import {
-  Header,
-  Image,
-  Link,
-  Paragraph,
-} from '../../components/projects/project';
+import { Header, Image, Link, Paragraph } from '../../components/Atoms/Project';
 import battleship1 from '../../public/projects/images/battleship/1.png';
 import battleship2 from '../../public/projects/images/battleship/2.png';
 import type { Project } from './index';

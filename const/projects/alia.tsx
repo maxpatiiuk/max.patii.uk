@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import alia1 from '../../public/projects/images/alia/1.png';
 import type { Project } from './index';
 

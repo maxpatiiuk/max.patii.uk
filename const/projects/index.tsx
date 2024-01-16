@@ -12,7 +12,7 @@
  *    task done.
  */
 
-import type { IR } from '../../lib/utilities';
+import type { IR } from '../../lib/types';
 import { pixelland } from './pixelland';
 import { accessibilityRefactor } from './accessibility-refactor';
 import { alia } from './alia';

@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import pixelland1 from '../../public/projects/images/pixelland/1.png';
 import pixelland2 from '../../public/projects/images/pixelland/2.png';
 import pixelland3 from '../../public/projects/images/pixelland/3.png';

@@ -4,7 +4,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import lifemapper1 from '../../public/projects/images/lifemapper/1.jpg';
 import lifemapper2 from '../../public/projects/images/lifemapper/2.jpg';
 import lifemapper3 from '../../public/projects/images/lifemapper/3.png';

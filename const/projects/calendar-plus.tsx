@@ -7,7 +7,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import calendarPlus1 from '../../public/projects/images/calendar-plus/1.png';
 import calendarPlus2 from '../../public/projects/images/calendar-plus/2.png';
 import calendarPlus3 from '../../public/projects/images/calendar-plus/3.png';

@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import openApi1 from '../../public/projects/images/open-api/1.png';
 import type { Project } from './index';
 

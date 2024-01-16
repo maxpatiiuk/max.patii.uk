@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import usageStats1 from '../../public/projects/images/usage-stats/1.png';
 import usageStats2 from '../../public/projects/images/usage-stats/1.png';
 import usageStats3 from '../../public/projects/images/usage-stats/1.png';

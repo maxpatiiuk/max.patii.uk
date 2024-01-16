@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import projectEphemeris1 from '../../public/projects/images/project-ephemeris/1.png';
 import projectEphemeris2 from '../../public/projects/images/project-ephemeris/2.png';
 import projectEphemeris3 from '../../public/projects/images/project-ephemeris/3.png';

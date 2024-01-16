@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import testPanel1 from '../../public/projects/images/test-panel/1.png';
 import testPanel2 from '../../public/projects/images/test-panel/2.png';
 import testPanel3 from '../../public/projects/images/test-panel/3.png';

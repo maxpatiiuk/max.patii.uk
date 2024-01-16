@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import socksyLinen1 from '../../public/projects/images/socksy-linen/1.jpg';
 import socksyLinen2 from '../../public/projects/images/socksy-linen/2.jpg';
 import socksyLinen3 from '../../public/projects/images/socksy-linen/3.jpg';
@@ -34,9 +34,8 @@ export const socksyLinen: Project = {
         This website is now retired. The URL is now redirecting to our{' '}
         <Link href="https://facebook.com/socksy.linen/">Facebook page</Link>. We
         also purchased a shorter domain{' '}
-        <Link href="https://socksy.in.ua">socksy.in.ua</Link> that also
-        leads to <Link href="https://facebook.com/socksy.linen/">Facebook</Link>
-        .
+        <Link href="https://socksy.in.ua">socksy.in.ua</Link> that also leads to{' '}
+        <Link href="https://facebook.com/socksy.linen/">Facebook</Link>.
       </Paragraph>
       <List caption="Facebook is going to be used over this website going forward because:">
         <li>Facebook is a popular social media among our target audience</li>

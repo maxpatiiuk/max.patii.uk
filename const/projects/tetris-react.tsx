@@ -6,7 +6,7 @@ import {
   Paragraph,
   Quote,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import tetris1 from '../../public/projects/images/tetris/1.jpg';
 import tetris2 from '../../public/projects/images/tetris/2.jpg';
 import tetris3 from '../../public/projects/images/tetris/3.jpg';
@@ -15,8 +15,7 @@ import tetris5 from '../../public/projects/images/tetris/5.jpg';
 import type { Project } from './index';
 
 export const tetrisReact: Project = {
-  gitHub:
-    'https://github.com/maxpatiiuk/tetris-react/',
+  gitHub: 'https://github.com/maxpatiiuk/tetris-react/',
   title: 'Tetris React',
   description: 'A tetris game written in React and Ramda.js',
   content: (

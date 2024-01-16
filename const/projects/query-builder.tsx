@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import queryBuilder1 from '../../public/projects/images/query-builder/1.jpeg';
 import queryBuilder2 from '../../public/projects/images/query-builder/2.jpeg';
 import queryBuilder3 from '../../public/projects/images/query-builder/3.jpeg';

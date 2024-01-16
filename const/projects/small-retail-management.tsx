@@ -6,7 +6,7 @@ import {
   Paragraph,
   SubHeader,
   YouTube,
-} from '../../components/projects/project';
+} from '../../components/Atoms/Project';
 import smallRetailManagement1 from '../../public/projects/images/small-retail-management/1.jpg';
 import smallRetailManagement2 from '../../public/projects/images/small-retail-management/2.jpg';
 import smallRetailManagement3 from '../../public/projects/images/small-retail-management/3.jpg';
