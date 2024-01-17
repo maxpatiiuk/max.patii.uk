@@ -6,6 +6,7 @@ import { projects } from '../../../const/projects';
 import type { RA } from '../../../lib/types';
 import { Metadata } from 'next';
 import { baseUrl } from '../../../const/siteConfig';
+import Link from 'next/link';
 
 type ProjectIdParam = {
   readonly id: keyof typeof projects;
@@ -19,34 +20,43 @@ export const generateStaticParams = (): RA<ProjectIdParam> =>
 
 export const dynamicParams = false;
 
+const linkStyle = 'hover:text-white text-neutral-300 flex gap-2 items-center';
+
 export default function ProjectPage({ params: { id } }: Payload): JSX.Element {
   const project = projects[id];
 
   return (
-    <>
-      <header className="flex h-48 bg-neutral-800 justify-center">
-        <div className="gap-3 w-full max-w-[1000px] flex flex-col p-4 md:px-0 justify-center">
-          <a className="hover:text-white w-full text-neutral-300 flex" href="/">
+    <main
+      className={`
+        grid grid-cols-[1fr_min(64ch,100%)_1fr] [&>*]:col-start-2
+        [&>*]:col-end-2 p-4 sm:p-8 gap-x-0 gap-y-6 pb-16 leading-8
+      `}
+    >
+      <header className="flex flex-col gap-16 pb-4">
+        <div className="flex flex-wrap justify-between gap-y-4 gap-x-16">
+          <Link className={`${linkStyle} sm:-ml-2`} href="/">
             {icons.chevronLeft}
             {localization.returnToHomePage}
-          </a>
-          <div className="flex-1 flex flex-col justify-center text-center">
-            <h1 className="w-full text-3xl">{project.title}</h1>
-            {typeof project.gitHub === 'string' && (
-              <a
-                className="hover:text-white w-full text-neutral-300"
-                href={project.gitHub}
-              >
-                {localization.viewOnGitHub}
-              </a>
-            )}
-          </div>
+          </Link>
+          {typeof project.gitHub === 'string' && (
+            <a
+              className={`${linkStyle} sm:flex-row-reverse`}
+              href={project.gitHub}
+            >
+              {icons.github}
+              {localization.viewOnGitHub}
+            </a>
+          )}
         </div>
+        <hgroup className="flex flex-col gap-2">
+          <h1 className="w-full text-4xl font-bold">{project.title}</h1>
+          <p className="text-neutral-300 text-lg italic">
+            {project.description}
+          </p>
+        </hgroup>
       </header>
-      <main className="flex justify-center p-4 pt-16 pb-16">
-        <div className="max-w-[1000px]">{project.content}</div>
-      </main>
-    </>
+      {project.content}
+    </main>
   );
 }
 

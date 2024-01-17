@@ -6,8 +6,8 @@ export function Centered({
   readonly children: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex items-center justify-center w-screen h-screen text-center">
+    <main className="flex items-center justify-center w-screen h-screen text-center">
       {children}
-    </div>
+    </main>
   );
 }

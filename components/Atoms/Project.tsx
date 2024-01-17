@@ -3,6 +3,12 @@ import React from 'react';
 
 import type { RA } from '../../lib/types';
 
+function FullBleed({ children }: { children: React.ReactNode }): JSX.Element {
+  return (
+    <div className="!col-span-full flex flex-col items-center">{children}</div>
+  );
+}
+
 export function Paragraph({
   children,
 }: {
@@ -25,7 +31,7 @@ export function List({
       {typeof caption === 'string' && <p>{caption}</p>}
       {React.createElement(
         style,
-        { className: 'pl-7 pb-2 list-disc' },
+        { className: 'pl-7 pb-2 list-disc [&>li]:pb-2' },
         children,
       )}
     </>
@@ -128,16 +134,20 @@ function VideoPlayer({
       ) : (
         description
       )}
-      <div className="flex justify-center mb-5 bg-neutral-900 rounded-xl">
-        <iframe
-          width="640"
-          height="360"
-          title={caption}
-          className="max-w-full"
-          src={src}
-          frameBorder="0"
-        />
-      </div>
+      <FullBleed>
+        <div
+          className={`bg-neutral-700 flex justify-center mb-5 p-1 rounded-xl`}
+        >
+          <iframe
+            width="640"
+            height="360"
+            title={caption}
+            className="bg-neutral-900 max-w-full rounded-xl"
+            src={src}
+            frameBorder="0"
+          />
+        </div>
+      </FullBleed>
     </>
   );
 }
@@ -150,17 +160,19 @@ export function Image({
   readonly children: string;
 }): JSX.Element {
   return (
-    <figure className="mb-4 bg-neutral-700 p-1 pb-0 rounded-xl">
-      <Img
-        alt={children}
-        src={source}
-        className="rounded-xl w-full h-auto max-h-[80vh] object-contain"
-        sizes="100vw"
-      />
-      <figcaption className="p-2 text-center text-neutral-200">
-        {children}
-      </figcaption>
-    </figure>
+    <FullBleed>
+      <figure className="mb-4 bg-neutral-700 p-1 pb-0 rounded-xl">
+        <Img
+          alt={children}
+          src={source}
+          className="rounded-xl w-full h-auto md:max-h-[80vh] md:max-w-[80vw]  object-contain"
+          sizes="100vw"
+        />
+        <figcaption className="p-2 text-center text-neutral-200">
+          {children}
+        </figcaption>
+      </figure>
+    </FullBleed>
   );
 }
 

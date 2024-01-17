@@ -23,12 +23,14 @@ export default function MainPage(): JSX.Element {
       <header>
         <div
           className={`
-              lg:min-h-screen gap-10 flex flex-col justify-between sticky
-              top-0 p-10 sm:p-20
-            `}
+            lg:min-h-screen gap-10 flex flex-col justify-between sticky
+            top-0 p-10 sm:p-20
+          `}
         >
           <hgroup className="gap-4 flex flex-col">
-            <h1 className="text-7xl -mt-1">{localization.siteAuthor}</h1>
+            <h1 className="text-7xl -mt-1 font-semibold">
+              {localization.siteAuthor}
+            </h1>
             <p className="text-3xl text-neutral-400">
               {localization.siteAuthorTitle}
             </p>
@@ -51,7 +53,7 @@ export default function MainPage(): JSX.Element {
         </div>
       </header>
       <main className="gap-10 lg:pt-20 flex flex-col p-10 sm:p-20 pt-0">
-        <h2 className="text-3xl">{localization.myProjects}</h2>
+        <h2 className="text-4xl">{localization.myProjects}</h2>
         {Object.entries(projects).map(([id, { description, title }]) =>
           typeof description === 'string' ? (
             <article key={id}>
