@@ -6,14 +6,14 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import queryBuilder1 from '../../public/projects/images/query-builder/1.jpeg';
-import queryBuilder2 from '../../public/projects/images/query-builder/2.jpeg';
-import queryBuilder3 from '../../public/projects/images/query-builder/3.jpeg';
-import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
-import queryBuilder5 from '../../public/projects/images/query-builder/5.jpeg';
-import queryBuilder6 from '../../public/projects/images/query-builder/6.jpeg';
-import queryBuilder7 from '../../public/projects/images/query-builder/7.png';
-import queryBuilder8 from '../../public/projects/images/query-builder/8.png';
+import queryBuilder1 from '../../public/projects/images/query-builder/1.webp';
+import queryBuilder2 from '../../public/projects/images/query-builder/2.webp';
+import queryBuilder3 from '../../public/projects/images/query-builder/3.webp';
+import queryBuilder4 from '../../public/projects/images/query-builder/4.webp';
+import queryBuilder5 from '../../public/projects/images/query-builder/5.webp';
+import queryBuilder6 from '../../public/projects/images/query-builder/6.webp';
+import queryBuilder7 from '../../public/projects/images/query-builder/7.webp';
+import queryBuilder8 from '../../public/projects/images/query-builder/8.webp';
 import type { Project } from './index';
 
 export const queryBuilder: Project = {

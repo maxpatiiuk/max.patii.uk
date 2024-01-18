@@ -5,10 +5,10 @@ import {
   List,
   Paragraph,
 } from '../../components/Atoms/Project';
-import testPanel1 from '../../public/projects/images/test-panel/1.png';
-import testPanel2 from '../../public/projects/images/test-panel/2.png';
-import testPanel3 from '../../public/projects/images/test-panel/3.png';
-import testPanel4 from '../../public/projects/images/test-panel/4.png';
+import testPanel1 from '../../public/projects/images/test-panel/1.webp';
+import testPanel2 from '../../public/projects/images/test-panel/2.webp';
+import testPanel3 from '../../public/projects/images/test-panel/3.webp';
+import testPanel4 from '../../public/projects/images/test-panel/4.webp';
 import type { Project } from './index';
 
 export const specify7TestPanel: Project = {

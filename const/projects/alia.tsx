@@ -5,7 +5,7 @@ import {
   List,
   Paragraph,
 } from '../../components/Atoms/Project';
-import alia1 from '../../public/projects/images/alia/1.png';
+import alia1 from '../../public/projects/images/alia/1.webp';
 import type { Project } from './index';
 
 export const alia: Project = {

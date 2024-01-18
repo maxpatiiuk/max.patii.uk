@@ -8,12 +8,12 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import calendarPlus1 from '../../public/projects/images/calendar-plus/1.png';
-import calendarPlus2 from '../../public/projects/images/calendar-plus/2.png';
-import calendarPlus3 from '../../public/projects/images/calendar-plus/3.png';
-import calendarPlus4 from '../../public/projects/images/calendar-plus/4.png';
-import calendarPlus5 from '../../public/projects/images/calendar-plus/5.png';
-import calendarPlus6 from '../../public/projects/images/calendar-plus/6.png';
+import calendarPlus1 from '../../public/projects/images/calendar-plus/1.webp';
+import calendarPlus2 from '../../public/projects/images/calendar-plus/2.webp';
+import calendarPlus3 from '../../public/projects/images/calendar-plus/3.webp';
+import calendarPlus4 from '../../public/projects/images/calendar-plus/4.webp';
+import calendarPlus5 from '../../public/projects/images/calendar-plus/5.webp';
+import calendarPlus6 from '../../public/projects/images/calendar-plus/6.webp';
 import type { Project } from './index';
 
 export const calendarPlus: Project = {

@@ -6,9 +6,9 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import pixelland1 from '../../public/projects/images/pixelland/1.png';
-import pixelland2 from '../../public/projects/images/pixelland/2.png';
-import pixelland3 from '../../public/projects/images/pixelland/3.png';
+import pixelland1 from '../../public/projects/images/pixelland/1.webp';
+import pixelland2 from '../../public/projects/images/pixelland/2.webp';
+import pixelland3 from '../../public/projects/images/pixelland/3.webp';
 import type { Project } from './index';
 
 export const pixelland: Project = {

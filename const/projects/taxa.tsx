@@ -6,9 +6,9 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import taxa1 from '../../public/projects/images/taxa/1.png';
-import taxa2 from '../../public/projects/images/taxa/2.png';
-import taxa3 from '../../public/projects/images/taxa/3.png';
+import taxa1 from '../../public/projects/images/taxa/1.webp';
+import taxa2 from '../../public/projects/images/taxa/2.webp';
+import taxa3 from '../../public/projects/images/taxa/3.webp';
 import type { Project } from './index';
 
 export const taxa: Project = {

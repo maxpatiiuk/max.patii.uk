@@ -6,7 +6,7 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import openApi1 from '../../public/projects/images/open-api/1.png';
+import openApi1 from '../../public/projects/images/open-api/1.webp';
 import type { Project } from './index';
 
 export const openApi: Project = {

@@ -6,13 +6,13 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import accessibility1 from '../../public/projects/images/accessibility-refactor/1.jpg';
-import accessibility2 from '../../public/projects/images/accessibility-refactor/2.jpg';
-import accessibility3 from '../../public/projects/images/accessibility-refactor/3.jpg';
-import accessibility4 from '../../public/projects/images/accessibility-refactor/4.jpg';
-import accessibility5 from '../../public/projects/images/accessibility-refactor/5.jpg';
-import accessibility6 from '../../public/projects/images/accessibility-refactor/6.jpg';
-import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
+import accessibility1 from '../../public/projects/images/accessibility-refactor/1.webp';
+import accessibility2 from '../../public/projects/images/accessibility-refactor/2.webp';
+import accessibility3 from '../../public/projects/images/accessibility-refactor/3.webp';
+import accessibility4 from '../../public/projects/images/accessibility-refactor/4.webp';
+import accessibility5 from '../../public/projects/images/accessibility-refactor/5.webp';
+import accessibility6 from '../../public/projects/images/accessibility-refactor/6.webp';
+import queryBuilder4 from '../../public/projects/images/query-builder/4.webp';
 import type { Project } from './index';
 
 export const accessibilityRefactor: Project = {

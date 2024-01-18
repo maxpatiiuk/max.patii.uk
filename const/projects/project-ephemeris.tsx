@@ -6,13 +6,13 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import projectEphemeris1 from '../../public/projects/images/project-ephemeris/1.png';
-import projectEphemeris2 from '../../public/projects/images/project-ephemeris/2.png';
-import projectEphemeris3 from '../../public/projects/images/project-ephemeris/3.png';
-import projectEphemeris4 from '../../public/projects/images/project-ephemeris/4.png';
-import projectEphemeris5 from '../../public/projects/images/project-ephemeris/5.png';
-import projectEphemeris6 from '../../public/projects/images/project-ephemeris/6.png';
-import projectEphemeris7 from '../../public/projects/images/project-ephemeris/7.png';
+import projectEphemeris1 from '../../public/projects/images/project-ephemeris/1.webp';
+import projectEphemeris2 from '../../public/projects/images/project-ephemeris/2.webp';
+import projectEphemeris3 from '../../public/projects/images/project-ephemeris/3.webp';
+import projectEphemeris4 from '../../public/projects/images/project-ephemeris/4.webp';
+import projectEphemeris5 from '../../public/projects/images/project-ephemeris/5.webp';
+import projectEphemeris6 from '../../public/projects/images/project-ephemeris/6.webp';
+import projectEphemeris7 from '../../public/projects/images/project-ephemeris/7.webp';
 import type { Project } from './index';
 
 export const projectEphemeris: Project = {

@@ -6,10 +6,10 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import socksyLinen1 from '../../public/projects/images/socksy-linen/1.jpg';
-import socksyLinen2 from '../../public/projects/images/socksy-linen/2.jpg';
-import socksyLinen3 from '../../public/projects/images/socksy-linen/3.jpg';
-import socksyLinen4 from '../../public/projects/images/socksy-linen/4.jpg';
+import socksyLinen1 from '../../public/projects/images/socksy-linen/1.webp';
+import socksyLinen2 from '../../public/projects/images/socksy-linen/2.webp';
+import socksyLinen3 from '../../public/projects/images/socksy-linen/3.webp';
+import socksyLinen4 from '../../public/projects/images/socksy-linen/4.webp';
 import type { Project } from './index';
 
 export const socksyLinen: Project = {

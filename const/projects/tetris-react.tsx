@@ -7,11 +7,11 @@ import {
   Quote,
   YouTube,
 } from '../../components/Atoms/Project';
-import tetris1 from '../../public/projects/images/tetris/1.jpg';
-import tetris2 from '../../public/projects/images/tetris/2.jpg';
-import tetris3 from '../../public/projects/images/tetris/3.jpg';
-import tetris4 from '../../public/projects/images/tetris/4.jpg';
-import tetris5 from '../../public/projects/images/tetris/5.jpg';
+import tetris1 from '../../public/projects/images/tetris/1.webp';
+import tetris2 from '../../public/projects/images/tetris/2.webp';
+import tetris3 from '../../public/projects/images/tetris/3.webp';
+import tetris4 from '../../public/projects/images/tetris/4.webp';
+import tetris5 from '../../public/projects/images/tetris/5.webp';
 import type { Project } from './index';
 
 export const tetrisReact: Project = {

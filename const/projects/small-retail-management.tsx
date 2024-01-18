@@ -7,11 +7,11 @@ import {
   SubHeader,
   YouTube,
 } from '../../components/Atoms/Project';
-import smallRetailManagement1 from '../../public/projects/images/small-retail-management/1.jpg';
-import smallRetailManagement2 from '../../public/projects/images/small-retail-management/2.jpg';
-import smallRetailManagement3 from '../../public/projects/images/small-retail-management/3.jpg';
-import smallRetailManagement4 from '../../public/projects/images/small-retail-management/4.jpg';
-import smallRetailManagement5 from '../../public/projects/images/small-retail-management/5.jpg';
+import smallRetailManagement1 from '../../public/projects/images/small-retail-management/1.webp';
+import smallRetailManagement2 from '../../public/projects/images/small-retail-management/2.webp';
+import smallRetailManagement3 from '../../public/projects/images/small-retail-management/3.webp';
+import smallRetailManagement4 from '../../public/projects/images/small-retail-management/4.webp';
+import smallRetailManagement5 from '../../public/projects/images/small-retail-management/5.webp';
 import type { Project } from './index';
 
 export const smallRetailManagement: Project = {

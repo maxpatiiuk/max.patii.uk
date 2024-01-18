@@ -6,10 +6,10 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import workbench1 from '../../public/projects/images/workbench/1.png';
-import workbench2 from '../../public/projects/images/workbench/2.png';
-import workbench3 from '../../public/projects/images/workbench/3.png';
-import workbench4 from '../../public/projects/images/workbench/4.jpg';
+import workbench1 from '../../public/projects/images/workbench/1.webp';
+import workbench2 from '../../public/projects/images/workbench/2.webp';
+import workbench3 from '../../public/projects/images/workbench/3.webp';
+import workbench4 from '../../public/projects/images/workbench/4.webp';
 import type { Project } from './index';
 
 export const workbench: Project = {

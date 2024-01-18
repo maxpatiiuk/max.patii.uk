@@ -8,12 +8,12 @@ import {
   SubHeader,
   YouTube,
 } from '../../components/Atoms/Project';
-import spacetime1 from '../../public/projects/images/spacetime/1.jpg';
-import spacetime2 from '../../public/projects/images/spacetime/2.jpg';
-import spacetime3 from '../../public/projects/images/spacetime/3.jpg';
-import spacetime4 from '../../public/projects/images/spacetime/4.jpg';
-import spacetime5 from '../../public/projects/images/spacetime/5.jpg';
-import spacetime6 from '../../public/projects/images/spacetime/6.png';
+import spacetime1 from '../../public/projects/images/spacetime/1.webp';
+import spacetime2 from '../../public/projects/images/spacetime/2.webp';
+import spacetime3 from '../../public/projects/images/spacetime/3.webp';
+import spacetime4 from '../../public/projects/images/spacetime/4.webp';
+import spacetime5 from '../../public/projects/images/spacetime/5.webp';
+import spacetime6 from '../../public/projects/images/spacetime/6.webp';
 import type { Project } from './index';
 
 export const spacetime: Project = {

@@ -6,12 +6,12 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import accessibility1 from '../../public/projects/images/accessibility-refactor/1.jpg';
-import accessibility4 from '../../public/projects/images/accessibility-refactor/4.jpg';
-import interface1 from '../../public/projects/images/interface-redesign/1.jpg';
-import interface2 from '../../public/projects/images/interface-redesign/2.jpg';
-import interface3 from '../../public/projects/images/interface-redesign/3.jpg';
-import queryBuilder4 from '../../public/projects/images/query-builder/4.jpeg';
+import accessibility1 from '../../public/projects/images/accessibility-refactor/1.webp';
+import accessibility4 from '../../public/projects/images/accessibility-refactor/4.webp';
+import interface1 from '../../public/projects/images/interface-redesign/1.webp';
+import interface2 from '../../public/projects/images/interface-redesign/2.webp';
+import interface3 from '../../public/projects/images/interface-redesign/3.webp';
+import queryBuilder4 from '../../public/projects/images/query-builder/4.webp';
 import type { Project } from './index';
 
 export const interfaceRedesign: Project = {

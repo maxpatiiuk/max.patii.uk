@@ -5,12 +5,12 @@ import {
   List,
   Paragraph,
 } from '../../components/Atoms/Project';
-import modernizingUsageStats1 from '../../public/projects/images/modernizing-usage-stats/1.png';
-import modernizingUsageStats2 from '../../public/projects/images/modernizing-usage-stats/2.png';
-import modernizingUsageStats3 from '../../public/projects/images/modernizing-usage-stats/3.png';
-import modernizingUsageStats4 from '../../public/projects/images/modernizing-usage-stats/4.png';
-import modernizingUsageStats5 from '../../public/projects/images/modernizing-usage-stats/5.png';
-import modernizingUsageStats6 from '../../public/projects/images/modernizing-usage-stats/6.png';
+import modernizingUsageStats1 from '../../public/projects/images/modernizing-usage-stats/1.webp';
+import modernizingUsageStats2 from '../../public/projects/images/modernizing-usage-stats/2.webp';
+import modernizingUsageStats3 from '../../public/projects/images/modernizing-usage-stats/3.webp';
+import modernizingUsageStats4 from '../../public/projects/images/modernizing-usage-stats/4.webp';
+import modernizingUsageStats5 from '../../public/projects/images/modernizing-usage-stats/5.webp';
+import modernizingUsageStats6 from '../../public/projects/images/modernizing-usage-stats/6.webp';
 import type { Project } from './index';
 import React from 'react';
 

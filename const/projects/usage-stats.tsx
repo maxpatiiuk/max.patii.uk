@@ -5,9 +5,9 @@ import {
   List,
   Paragraph,
 } from '../../components/Atoms/Project';
-import usageStats1 from '../../public/projects/images/usage-stats/1.png';
-import usageStats2 from '../../public/projects/images/usage-stats/1.png';
-import usageStats3 from '../../public/projects/images/usage-stats/1.png';
+import usageStats1 from '../../public/projects/images/usage-stats/1.webp';
+import usageStats2 from '../../public/projects/images/usage-stats/1.webp';
+import usageStats3 from '../../public/projects/images/usage-stats/1.webp';
 import type { Project } from './index';
 
 export const usageStats: Project = {

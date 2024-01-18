@@ -1,7 +1,7 @@
 import { Header, Image, List, Paragraph } from '../../components/Atoms/Project';
-import ttsKing1 from '../../public/projects/images/tts-king/1.png';
-import ttsKing2 from '../../public/projects/images/tts-king/2.png';
-import ttsKing3 from '../../public/projects/images/tts-king/3.png';
+import ttsKing1 from '../../public/projects/images/tts-king/1.webp';
+import ttsKing2 from '../../public/projects/images/tts-king/2.webp';
+import ttsKing3 from '../../public/projects/images/tts-king/3.webp';
 import type { Project } from './index';
 
 export const ttsKing: Project = {

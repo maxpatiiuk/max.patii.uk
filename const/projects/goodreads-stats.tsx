@@ -8,11 +8,11 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import goodreadsStats1 from '../../public/projects/images/goodreads-stats/1.jpg';
-import goodreadsStats2 from '../../public/projects/images/goodreads-stats/2.jpg';
-import goodreadsStats3 from '../../public/projects/images/goodreads-stats/3.jpg';
-import goodreadsStats4 from '../../public/projects/images/goodreads-stats/4.jpg';
-import goodreadsStats5 from '../../public/projects/images/goodreads-stats/5.jpg';
+import goodreadsStats1 from '../../public/projects/images/goodreads-stats/1.webp';
+import goodreadsStats2 from '../../public/projects/images/goodreads-stats/2.webp';
+import goodreadsStats3 from '../../public/projects/images/goodreads-stats/3.webp';
+import goodreadsStats4 from '../../public/projects/images/goodreads-stats/4.webp';
+import goodreadsStats5 from '../../public/projects/images/goodreads-stats/5.webp';
 import type { Project } from './index';
 
 export const goodreadsStats: Project = {

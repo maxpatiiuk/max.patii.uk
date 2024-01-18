@@ -1,6 +1,6 @@
 import { Header, Image, Link, Paragraph } from '../../components/Atoms/Project';
-import battleship1 from '../../public/projects/images/battleship/1.png';
-import battleship2 from '../../public/projects/images/battleship/2.png';
+import battleship1 from '../../public/projects/images/battleship/1.webp';
+import battleship2 from '../../public/projects/images/battleship/2.webp';
 import type { Project } from './index';
 
 export const battleship: Project = {

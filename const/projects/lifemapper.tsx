@@ -5,12 +5,12 @@ import {
   Paragraph,
   YouTube,
 } from '../../components/Atoms/Project';
-import lifemapper1 from '../../public/projects/images/lifemapper/1.jpg';
-import lifemapper2 from '../../public/projects/images/lifemapper/2.jpg';
-import lifemapper3 from '../../public/projects/images/lifemapper/3.png';
-import lifemapper4 from '../../public/projects/images/lifemapper/4.png';
-import lifemapper5 from '../../public/projects/images/lifemapper/5.png';
-import lifemapper6 from '../../public/projects/images/lifemapper/6.png';
+import lifemapper1 from '../../public/projects/images/lifemapper/1.webp';
+import lifemapper2 from '../../public/projects/images/lifemapper/2.webp';
+import lifemapper3 from '../../public/projects/images/lifemapper/3.webp';
+import lifemapper4 from '../../public/projects/images/lifemapper/4.webp';
+import lifemapper5 from '../../public/projects/images/lifemapper/5.webp';
+import lifemapper6 from '../../public/projects/images/lifemapper/6.webp';
 import type { Project } from './index';
 
 export const lifemapper: Project = {

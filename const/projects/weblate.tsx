@@ -7,9 +7,9 @@ import {
   Vimeo,
 } from '../../components/Atoms/Project';
 import type { Project } from './index';
-import weblate1 from '../../public/projects/images/weblate/1.jpg';
-import weblate2 from '../../public/projects/images/weblate/2.jpg';
-import weblate3 from '../../public/projects/images/weblate/3.jpg';
+import weblate1 from '../../public/projects/images/weblate/1.webp';
+import weblate2 from '../../public/projects/images/weblate/2.webp';
+import weblate3 from '../../public/projects/images/weblate/3.webp';
 import React from 'react';
 
 export const weblate: Project = {

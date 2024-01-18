@@ -5,9 +5,8 @@ import {
   List,
   Paragraph,
 } from '../../components/Atoms/Project';
-import portfolio1 from '../../public/projects/images/portfolio/1.jpeg';
-import portfolio2 from '../../public/projects/images/portfolio/2.jpeg';
-import portfolio3 from '../../public/projects/images/portfolio/3.jpeg';
+import portfolio1 from '../../public/projects/images/portfolio/1.webp';
+import portfolio2 from '../../public/projects/images/portfolio/2.webp';
 import type { Project } from './index';
 
 export const portfolio: Project = {
