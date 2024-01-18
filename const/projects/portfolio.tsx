@@ -32,7 +32,7 @@ export const portfolio: Project = {
 
       <Header>Screenshots</Header>
       <Image source={portfolio1}>Main page</Image>
-      <Image source={portfolio2}>A post about "Specify 7 WorkBench"</Image>
+      <Image source={portfolio2}>A post about "Specify&nbsp;7 WorkBench"</Image>
 
       <Header>Technologies used</Header>
       <List>

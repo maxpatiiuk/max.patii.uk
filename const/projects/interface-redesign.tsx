@@ -44,7 +44,7 @@ export const interfaceRedesign: Project = {
           between the pages
         </li>
         <li>
-          Modal dialogs are some of the most important parts of Specify 7
+          Modal dialogs are some of the most important parts of Specify&nbsp;7
           interface. They are used all over the place, from simple confirmation
           messages to complicated forms and elaborate grids. Thus, lots of
           thought was put into every detail. We debated the use of color in
@@ -72,26 +72,24 @@ export const interfaceRedesign: Project = {
       <Image source={interface3}>Improved attachments viewer</Image>
 
       <YouTube
-        caption="Recording of a webinar on user preferences in Specify 7"
-        description={`
-                Showcase of User Preferences in Specify 7 
-              `}
+        caption="Recording of a webinar on user preferences in Specify&nbsp;7"
+        description="Showcase of User Preferences in Specify&nbsp;7"
         video="hw_rM4e12UY"
       />
 
       <YouTube
-        caption="Recording of a webinar on accessibility improvements in Specify 7"
+        caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7"
         description={`
-                Showcase of Accessibility and Usability improvements in Specify 7 
-              `}
+          Showcase of Accessibility and Usability improvements in Specify&nbsp;7
+        `}
         video="lJZSk5-bKCk"
       />
 
       <YouTube
         caption="Presentation from iDigBio Digital Data Conference 2022"
         description={`
-               Video overview of UI&UX enhancements and accessibility refactor
-              `}
+          Video overview of UI&UX enhancements and accessibility refactor
+        `}
         video="YIbeZ_f_eQc"
       />
 
@@ -113,12 +111,12 @@ export const interfaceRedesign: Project = {
           A video recording
         </Link>{' '}
         of a zoom show-and-tell session is available. It covers new features in
-        the Specify 7.7 release and describes usability enhancements.
+        the Specify&nbsp;7.7 release and describes usability enhancements.
       </Paragraph>
 
       <Paragraph>
         <Link href="https://vimeo.com/734063637/d4cd165bc7">
-          An overview of all new features in Specify 7.7 release.
+          An overview of all new features in Specify&nbsp;7.7 release.
         </Link>
       </Paragraph>
 

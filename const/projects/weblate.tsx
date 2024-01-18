@@ -20,8 +20,8 @@ export const weblate: Project = {
   content: (
     <>
       <Paragraph>
-        <Link href="https://github.com/specify/specify7">Specify 7</Link> is an
-        open-source collection management software. It's used in over 50
+        <Link href="https://github.com/specify/specify7">Specify&nbsp;7</Link>{' '}
+        is an open-source collection management software. It's used in over 50
         countries, making localization a big necessity.
       </Paragraph>
       <Paragraph>
@@ -42,8 +42,8 @@ export const weblate: Project = {
       </Paragraph>
       <List caption="Main aspects of the solution:">
         <li>
-          On any changes to Specify 7 code, weblate is updated to receive new
-          localization strings
+          On any changes to Specify&nbsp;7 code, weblate is updated to receive
+          new localization strings
         </li>
         <li>
           In the code, programmers can provide context information about a
@@ -77,9 +77,9 @@ export const weblate: Project = {
       <Header>Screenshots</Header>
       <Image source={weblate1}>Translation languages</Image>
       <Image source={weblate2}>String localization interface</Image>
-      <Image source={weblate3}>Components of Specify 7</Image>
+      <Image source={weblate3}>Components of Specify&nbsp;7</Image>
       <Vimeo
-        caption="Webinar on the localization of Specify 7"
+        caption="Webinar on the localization of Specify&nbsp;7"
         description={
           <Paragraph>
             After the integration was complete, came the task of teaching
@@ -98,13 +98,13 @@ export const weblate: Project = {
       </Paragraph>
       <Header>Online demo</Header>
       <Paragraph>
-        You can try out the live version of Specify 7 at{' '}
+        You can try out the live version of Specify&nbsp;7 at{' '}
         <Link href="https://sp7demofish.specifycloud.org/">
           sp7demofish.specifycloud.org
         </Link>
         . Also, you can take a look at the{' '}
         <Link href="https://hosted.weblate.org/projects/specify-7/#components">
-          Weblate project for Specify 7 is available
+          Weblate project for Specify&nbsp;7 is available
         </Link>
         .
       </Paragraph>

@@ -20,12 +20,12 @@ export const usageStats: Project = {
         My first project at the first job <b>during</b> college was adding a way
         to see the usage stats for the{' '}
         <Link href="http://github.com/specify/specify7/">
-          Specify 7 application
+          Specify&nbsp;7 application
         </Link>{' '}
         - an open source scientific collection management software.
       </Paragraph>
       <Paragraph>
-        They already had the code for making Specify 7 ping our server on
+        They already had the code for making Specify&nbsp;7 ping our server on
         startup with telemetry information and storing that in a giant text
         file, but no way to visualize the data.
       </Paragraph>

@@ -43,8 +43,8 @@ export const accessibilityRefactor: Project = {
       </Paragraph>
       <Paragraph>
         For this and many other reasons, I put accessibility compliance as one
-        of the top priorities when planning the next release of Specify 7 (a
-        scientific collection management software).
+        of the top priorities when planning the next release of Specify&nbsp;7
+        (a scientific collection management software).
       </Paragraph>
       <List caption="The following accessibility improvements have been made:">
         <li>
@@ -61,7 +61,8 @@ export const accessibilityRefactor: Project = {
         <li>
           Tested the interface with screen reader software, automated
           accessibility checkers (Axe, DevTools Lighthouse), and verified that
-          all features of Specify 7 can be used productively with keyboard-only
+          all features of Specify&nbsp;7 can be used productively with
+          keyboard-only
         </li>
         <li>
           Made interface respect user preference for reducing motion, reducing
@@ -74,9 +75,9 @@ export const accessibilityRefactor: Project = {
       </List>
 
       <YouTube
-        caption="Recording of a webinar on accessibility improvements in Specify 7"
+        caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7"
         description={`
-          Showcase of Accessibility and Usability improvements in Specify 7 
+          Showcase of Accessibility and Usability improvements in Specify&nbsp;7
         `}
         video="lJZSk5-bKCk"
       />
@@ -90,9 +91,9 @@ export const accessibilityRefactor: Project = {
       />
 
       <YouTube
-        caption="Recording of a webinar on user preferences in Specify 7"
+        caption="Recording of a webinar on user preferences in Specify&nbsp;7"
         description={`
-          Showcase of User Preferences in Specify 7 
+          Showcase of User Preferences in Specify&nbsp;7
         `}
         video="hw_rM4e12UY"
       />
@@ -174,12 +175,12 @@ export const accessibilityRefactor: Project = {
           A video recording
         </Link>{' '}
         of a zoom show-and-tell session is available. It covers new features in
-        the Specify 7.7 release and describes accessibility enhancements.
+        the Specify&nbsp;7.7 release and describes accessibility enhancements.
       </Paragraph>
 
       <Paragraph>
         <Link href="https://vimeo.com/734063637/d4cd165bc7">
-          An overview of all new features in Specify 7.7 release.
+          An overview of all new features in Specify&nbsp;7.7 release.
         </Link>
       </Paragraph>
 

@@ -128,7 +128,7 @@ export const modernizingUsageStats: Project = {
         <li>GitHub APIs</li>
       </List>
 
-      <Header>Specify 7 Usage Stats</Header>
+      <Header>Specify&nbsp;7 Usage Stats</Header>
       <Paragraph>
         In parallel with this project, I was tasked with writing a usage stats
         visualizer for a separate application.

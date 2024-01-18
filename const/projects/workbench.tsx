@@ -21,7 +21,7 @@ export const workbench: Project = {
     <>
       <Paragraph>
         WorkBench is a bulk data uploading system for collection management
-        software, Specify 7.
+        software, Specify&nbsp;7.
       </Paragraph>
       <List caption="I worked on the front end, including the following features:">
         <li>Support for spreadsheets of up to 500,000 rows</li>

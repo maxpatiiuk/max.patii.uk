@@ -14,12 +14,14 @@ import type { Project } from './index';
 export const specify7TestPanel: Project = {
   gitHub: 'https://github.com/specify/specify7-test-panel',
   title: 'Specify 7 Test Panel',
-  description: 'A dashboard for deploying Specify 7 instances for QA purposes',
+  description:
+    'A dashboard for deploying Specify&nbsp;7 instances for QA purposes',
   content: (
     <>
       <Paragraph>
         Test Panel is a Dashboard for configuring a cluster of docker containers
-        of <Link href="https://github.com/specify/specify7">Specify 7</Link>,
+        of{' '}
+        <Link href="https://github.com/specify/specify7">Specify&nbsp;7</Link>,
         with an automatic deployment feature.
       </Paragraph>
       <Paragraph>
@@ -40,11 +42,11 @@ export const specify7TestPanel: Project = {
 
       <Header>Automatic deployments</Header>
       <Paragraph>
-        A GitHub Webhook has been configured for the Specify 7 repository which
-        pings the test panel to check if some bug is ready to be tested.
+        A GitHub Webhook has been configured for the Specify&nbsp;7 repository
+        which pings the test panel to check if some bug is ready to be tested.
       </Paragraph>
       <Paragraph>
-        A ready-to-be-tested bug is defined as a branch in the Specify 7
+        A ready-to-be-tested bug is defined as a branch in the Specify&nbsp;7
         repository, for which all automated tests have passed, and which has an
         associated pull request that has been assigned for review to the QA team
         (or a member of the team), and has not yet been reviewed. If a pull
@@ -81,8 +83,9 @@ export const specify7TestPanel: Project = {
       </Paragraph>
       <Paragraph>
         The dashboard provides a list of databases, a list of users in each
-        database (needed for authentication into a Specify 7 instance), and an
-        ability to upload a new database, download an existing one, or drop it.
+        database (needed for authentication into a Specify&nbsp;7 instance), and
+        an ability to upload a new database, download an existing one, or drop
+        it.
       </Paragraph>
       <Image source={testPanel3}>Database management (with dark mode)</Image>
 
@@ -109,7 +112,7 @@ export const specify7TestPanel: Project = {
       </Paragraph>
       <Paragraph>
         It should be possible to reconfigure the dashboard to serve deployments
-        of software other than Specify 7.
+        of software other than Specify&nbsp;7.
       </Paragraph>
       <Image source={testPanel4}>Sign-in screen (with dark mode)</Image>
 

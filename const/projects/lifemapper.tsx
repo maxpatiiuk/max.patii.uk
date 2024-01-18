@@ -27,7 +27,7 @@ export const lifemapper: Project = {
       <Paragraph>
         I added an interactive Leaflet map that shows the projection map for the
         species you are currently looking at in the collection management
-        system, Specify 7.
+        system, Specify&nbsp;7.
       </Paragraph>
       <Paragraph>
         Along with the distribution map and several base layers, specimen

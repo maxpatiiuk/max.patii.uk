@@ -25,7 +25,8 @@ export const queryBuilder: Project = {
     <>
       <Paragraph>
         Query Builder is an interface for creating advanced queries against the
-        database. It is part of the collection management software, Specify 7.
+        database. It is part of the collection management software,
+        Specify&nbsp;7.
       </Paragraph>
       <List caption="I worked on the front end, including the following features:">
         <li>View results in a table (with infinite scrolling)</li>
@@ -93,12 +94,12 @@ export const queryBuilder: Project = {
           A video recording
         </Link>{' '}
         of a zoom show-and-tell session is available. It covers new features in
-        the Specify 7.7 release and describes Query Builder enhancements.
+        the Specify&nbsp;7.7 release and describes Query Builder enhancements.
       </Paragraph>
 
       <Paragraph>
         <Link href="https://vimeo.com/734063637/d4cd165bc7">
-          An overview of all new features in Specify 7.7 release.
+          An overview of all new features in Specify&nbsp;7.7 release.
         </Link>
       </Paragraph>
 
