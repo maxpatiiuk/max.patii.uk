@@ -43,14 +43,18 @@ export const portfolio: Project = {
         <li>Tailwind.CSS</li>
       </List>
 
-      <Header>Credits</Header>
-      <Paragraph>
-        The design was inspired by{' '}
-        <Link href="https://clementgrellier.fr/">
-          Clement Grellier's portfolio.
-        </Link>
-      </Paragraph>
-      <Image source={portfolio3}>An inspiration for the design</Image>
+      <Header>Design inspirations</Header>
+      <List>
+        <li>
+          <Link href="https://clementgrellier.fr/">clementgrellier.fr</Link>
+        </li>
+        <li>
+          <Link href="https://aakashns.com/">aakashns.com</Link>
+        </li>
+        <li>
+          <Link href="https://www.apple.com/newsroom">apple.com/newsroom</Link>
+        </li>
+      </List>
 
       <Header>Things learned</Header>
       <Paragraph>
