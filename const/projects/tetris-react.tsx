@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-  Quote,
+  Aside,
   YouTube,
 } from '../../components/Atoms/Project';
 import tetris1 from '../../public/projects/images/tetris/1.webp';
@@ -72,13 +72,13 @@ export const tetrisReact: Project = {
         without the need for any changes to game's state or reducer logic.
       </Paragraph>
 
-      <Quote>
+      <Aside>
         <Paragraph>
           Note, this game was originally written by me in 2021 when I was
           learning Next.js and Ramda.js. Back then, it only included the "Grid
           World" level.
         </Paragraph>
-      </Quote>
+      </Aside>
 
       <Header>Things learned</Header>
       <List>

@@ -176,14 +176,14 @@ export function Image({
   );
 }
 
-export function Quote({
+export function Aside({
   children,
 }: {
   readonly children: JSX.Element | RA<JSX.Element>;
 }): JSX.Element {
   return (
-    <blockquote className="border-l-4 rounded-xl border-neutral-600 bg-neutral-700 p-5 my-4">
+    <aside className="border-l-4 rounded-xl border-neutral-600 bg-neutral-700 p-5 my-4">
       {children}
-    </blockquote>
+    </aside>
   );
 }

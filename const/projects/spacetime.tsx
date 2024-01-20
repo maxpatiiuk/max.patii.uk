@@ -4,7 +4,7 @@ import {
   Link,
   List,
   Paragraph,
-  Quote,
+  Aside,
   SubHeader,
   YouTube,
 } from '../../components/Atoms/Project';
@@ -41,7 +41,7 @@ export const spacetime: Project = {
         update instantaneously.
       </Paragraph>
 
-      <Quote>
+      <Aside>
         <p>
           See also, a blog post on{' '}
           <Link href="https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b">
@@ -49,7 +49,7 @@ export const spacetime: Project = {
           </Link>
           .
         </p>
-      </Quote>
+      </Aside>
 
       <Paragraph>
         There already exists a tool at Amazon, which shows all high severity
@@ -66,7 +66,7 @@ export const spacetime: Project = {
 
       <Header>Screenshots</Header>
 
-      <Quote>
+      <Aside>
         <p>
           I received written permission to display the screenshots you see
           below, under the condition that the screenshots do not include real
@@ -74,7 +74,7 @@ export const spacetime: Project = {
           screenshots. Keep in mind that the main benefit of Spacetime (how easy
           it is to spot anomalies), is void when looking at fake data.
         </p>
-      </Quote>
+      </Aside>
 
       <Paragraph>
         The top half of the page is a table of all the issues, with each column
