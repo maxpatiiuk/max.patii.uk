@@ -175,10 +175,10 @@ export const spacetime: Project = {
 
       <List
         caption={`
-                To summarize, Spacetime aims to analyze metadata of all the
-                incoming high severity tickets to help the response team localize
-                the issue quicker. It has advanced features like:
-              `}
+          To summarize, Spacetime aims to analyze metadata of all the
+          incoming high severity tickets to help the response team localize
+          the issue quicker. It has advanced features like:
+        `}
       >
         <li>
           Column filtering with support for regular expressions, and OR

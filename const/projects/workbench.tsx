@@ -45,9 +45,8 @@ export const workbench: Project = {
       <YouTube
         caption="Video review"
         description={`
-                An overview of a beta version of the WorkBench by one of our
-                team members:
-              `}
+          An overview of a beta version of the WorkBench by one of our team members:
+        `}
         video="lg9ybKMPQXI"
       />
 

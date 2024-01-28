@@ -142,9 +142,9 @@ function VideoPlayer({
             width="640"
             height="360"
             title={caption}
-            className="bg-neutral-900 max-w-full rounded-xl"
+            className="bg-neutral-900 max-w-full rounded-xl border-0"
             src={src}
-            frameBorder="0"
+            allow="fullscreen"
           />
         </div>
       </FullBleed>
@@ -163,7 +163,7 @@ export function Image({
     <FullBleed>
       <figure className="mb-4 bg-neutral-700 p-1 pb-0 rounded-xl">
         <Img
-          alt={children}
+          alt=""
           src={source}
           className="rounded-xl w-full h-auto md:max-h-[80vh] md:max-w-[80vw]  object-contain"
           sizes="100vw"

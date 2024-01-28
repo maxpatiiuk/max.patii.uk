@@ -80,7 +80,7 @@ export const interfaceRedesign: Project = {
       <YouTube
         caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7"
         description={`
-          Showcase of Accessibility and Usability improvements in Specify&nbsp;7
+          Showcase of Accessibility and Usability improvements in Specify 7
         `}
         video="lJZSk5-bKCk"
       />

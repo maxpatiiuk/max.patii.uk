@@ -77,7 +77,7 @@ export const accessibilityRefactor: Project = {
       <YouTube
         caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7"
         description={`
-          Showcase of Accessibility and Usability improvements in Specify&nbsp;7
+          Showcase of Accessibility and Usability improvements in Specify 7
         `}
         video="lJZSk5-bKCk"
       />
@@ -93,7 +93,7 @@ export const accessibilityRefactor: Project = {
       <YouTube
         caption="Recording of a webinar on user preferences in Specify&nbsp;7"
         description={`
-          Showcase of User Preferences in Specify&nbsp;7
+          Showcase of User Preferences in Specify 7
         `}
         video="hw_rM4e12UY"
       />

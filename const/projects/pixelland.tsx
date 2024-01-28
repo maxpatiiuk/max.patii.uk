@@ -18,11 +18,7 @@ export const pixelland: Project = {
   content: (
     <>
       <Paragraph>A Canvas-based walking & building simulator</Paragraph>
-      <List
-        caption={`
-                Notable features:
-              `}
-      >
+      <List caption="Notable features:">
         <li>Procedurally generated map with biomes and patches of resources</li>
         <li>Inventory system with block placement support</li>
         <li>Save & Load capability</li>
