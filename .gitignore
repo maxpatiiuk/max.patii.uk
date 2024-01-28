@@ -3,3 +3,4 @@ node_modules
 .swc
 .env*.local
 tsconfig.tsbuildinfo
+.vercel

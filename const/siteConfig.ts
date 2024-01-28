@@ -5,6 +5,7 @@ export const googleAnalyticsId = 'G-36ESPJ8S03';
 export const twitter = '@maxpatiiuk';
 
 export const baseUrl =
-  typeof process.env.VERCEL_URL === 'string'
+  typeof process.env.VERCEL_URL === 'string' &&
+  process.env.VERCEL_URL.length > 0
     ? `https://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
