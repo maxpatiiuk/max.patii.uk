@@ -30,7 +30,7 @@ export const tetrisReact: Project = {
 
       <Header>Play online</Header>
       <Paragraph>
-        <Link href="https://bit.ly/-tetris-react">Play online for free</Link>
+        <Link href="https://maxpatiiuk.github.io/tetris-react/">Play online for free</Link>
       </Paragraph>
 
       <Header>Screenshots</Header>
