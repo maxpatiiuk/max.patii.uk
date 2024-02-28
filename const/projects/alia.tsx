@@ -34,8 +34,8 @@ export const alia: Project = {
 
       <Header>Technologies used</Header>
       <List>
-        <li>Javascript ES6+</li>
         <li>TypeScript</li>
+        <li>JavaScript</li>
         <li>Jest</li>
         <li>Graphviz</li>
         <li>GDB assembly debugger</li>

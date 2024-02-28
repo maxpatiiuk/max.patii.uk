@@ -30,7 +30,9 @@ export const tetrisReact: Project = {
 
       <Header>Play online</Header>
       <Paragraph>
-        <Link href="https://maxpatiiuk.github.io/tetris-react/">Play online for free</Link>
+        <Link href="https://maxpatiiuk.github.io/tetris-react/">
+          Play online for free
+        </Link>
       </Paragraph>
 
       <Header>Screenshots</Header>
@@ -48,7 +50,7 @@ export const tetrisReact: Project = {
         <li>Tailwind.css</li>
         <li>TypeScript</li>
         <li>React</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>Next.js</li>
         <li>Ramda.js (used initially, but removed in later version)</li>
       </List>

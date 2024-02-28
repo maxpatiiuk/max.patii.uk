@@ -119,7 +119,7 @@ export const specify7TestPanel: Project = {
       <Header>Technologies used</Header>
       <List>
         <li>Docker</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
         <li>react-modal</li>

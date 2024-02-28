@@ -105,7 +105,7 @@ export const queryBuilder: Project = {
 
       <Header>Technologies used</Header>
       <List>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
         <li>Tailwind CSS</li>

@@ -60,7 +60,7 @@ export const smallRetailManagement: Project = {
       <List>
         <li>Firebase Firestore Database</li>
         <li>Firebase Authentication</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
         <li>Next.js</li>

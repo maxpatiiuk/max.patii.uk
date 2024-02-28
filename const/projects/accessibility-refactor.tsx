@@ -206,7 +206,7 @@ export const accessibilityRefactor: Project = {
       <List>
         <li>Axe Chrome extension</li>
         <li>Chrome DevTools Lighthouse</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
         <li>Tailwind CSS</li>

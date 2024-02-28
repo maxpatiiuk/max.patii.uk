@@ -123,7 +123,7 @@ export const interfaceRedesign: Project = {
       <Header>Technologies used</Header>
       <List>
         <li>Tailwind CSS</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
       </List>

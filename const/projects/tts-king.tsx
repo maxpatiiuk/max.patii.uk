@@ -37,7 +37,7 @@ export const ttsKing: Project = {
         <li>Tailwind.css</li>
         <li>TypeScript</li>
         <li>React</li>
-        <li>Javascript ES6+</li>
+        <li>JavaScript</li>
       </List>
 
       <Header>Screenshots</Header>
