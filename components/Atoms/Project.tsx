@@ -144,7 +144,7 @@ function VideoPlayer({
             title={caption}
             className="bg-neutral-900 max-w-full rounded-xl border-0"
             src={src}
-            allow="fullscreen"
+            allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           />
         </div>
       </FullBleed>
