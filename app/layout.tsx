@@ -21,7 +21,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en-US" className="bg-neutral-900 text-neutral-100 min-h-screen">
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <GoogleAnalytics gaId={googleAnalyticsId} />
         <React.Suspense fallback={null}>
