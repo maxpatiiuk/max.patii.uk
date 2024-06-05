@@ -19,9 +19,9 @@ export function ErrorPage({ error }: { readonly error: Error }): JSX.Element {
         <Link
           href="/"
           className={`
-                flex justify-center items-center pt-10 transition text-red-400
-                hover:text-black
-              `}
+            flex justify-center items-center pt-10 transition text-red-400
+            hover:text-white
+          `}
         >
           {icons.chevronLeft}
           {localization.returnToHomePage}
