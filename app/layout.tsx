@@ -9,7 +9,6 @@ import {
   themeColor,
   twitter,
 } from '../const/siteConfig';
-import { ClientHooks } from './ClientHooks';
 import { Metadata, Viewport } from 'next';
 import { localization } from '../const/localization';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -24,9 +23,6 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         {children}
         <GoogleAnalytics gaId={googleAnalyticsId} />
-        <React.Suspense fallback={null}>
-          <ClientHooks />
-        </React.Suspense>
       </body>
     </html>
   );
