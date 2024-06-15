@@ -36,6 +36,7 @@ import { usageStats } from './usage-stats';
 import { modernizingUsageStats } from './modernizing-usage-stats';
 import { socksyLinen } from './socksy-linen';
 import { smallRetailManagement } from './small-retail-management';
+import { textHoarder } from './text-hoarder';
 
 export type Project = {
   readonly gitHub: string | undefined;
@@ -49,6 +50,7 @@ export const projects: IR<Project> = {
   spacetime,
   alia,
   'calendar-plus': calendarPlus,
+  'text-hoarder': textHoarder,
   'query-builder': queryBuilder,
   'accessibility-refactor': accessibilityRefactor,
   'project-ephemeris': projectEphemeris,
