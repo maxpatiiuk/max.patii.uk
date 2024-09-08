@@ -5,7 +5,7 @@ import { localization } from '../const/localization';
 import { Metadata } from 'next';
 
 const notFound = new Error(localization.notFound);
-export default function (): JSX.Element {
+export default function NotFound(): JSX.Element {
   return <ErrorPage error={notFound} />;
 }
 

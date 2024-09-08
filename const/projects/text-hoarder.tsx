@@ -21,7 +21,7 @@ export const textHoarder: Project = {
   content: (
     <>
       <Paragraph>
-        Text Hoarder is a browser extension for Google Calendar that provides
+        Text Hoarder is a browser extension for Google Chrome that provides
         reader view, saving articles for later, and generation of stats based on
         your reading habits.
       </Paragraph>
