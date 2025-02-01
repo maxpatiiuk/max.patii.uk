@@ -6,14 +6,14 @@
 
 export const localization = {
   siteTitle: 'Max Patiiuk',
-  siteDescription: `SDE II at Esri`,
+  siteDescription: `Senior SDE at Esri`,
   siteKeywords: `
     Max Patiiuk, Maksym Patiiuk, Max Patiiuk CV, Max Patiiuk portfolio,
     mambo shop, mambo, В гостях у MAMBO, мамбо, mambo experimental,
     Максим Патіюк
   `,
   siteAuthor: 'Max Patiiuk',
-  siteAuthorTitle: 'SDE II at Esri',
+  siteAuthorTitle: 'Senior SDE at Esri',
   myProjects: 'My projects',
   returnToHomePage: 'Return to homepage',
   viewOnGitHub: 'View this project on GitHub',
