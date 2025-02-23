@@ -35,7 +35,8 @@ export const pixelland: Project = {
         I worked on this project in a Team of 5 as part of the EECS 448 class at
         the University of Kansas. I took on the responsibilities of a team lead,
         which involved keeping the team on track, prioritizing features, and
-        working on the most complex parts of the project.
+        working on the most complex parts of the project. Later we presented the
+        project in front of 100 peers.
       </Paragraph>
       <Paragraph>
         Other team members lacked some experience with JavaScript, which made

@@ -1,4 +1,10 @@
-import { Header, Image, List, Paragraph } from '../../components/Atoms/Project';
+import {
+  Header,
+  Image,
+  Link,
+  List,
+  Paragraph,
+} from '../../components/Atoms/Project';
 import ttsKing1 from '../../public/projects/images/tts-king/1.webp';
 import ttsKing2 from '../../public/projects/images/tts-king/2.webp';
 import ttsKing3 from '../../public/projects/images/tts-king/3.webp';
@@ -52,6 +58,11 @@ export const ttsKing: Project = {
         tools thanks to this project. Thus, despite the project being left
         unfinished, I feel like it's been a big net positive due to experience
         gained.
+      </Paragraph>
+
+      <Paragraph>
+        Few years later, I pivoted the goal, and launched a{' '}
+        <Link href="./text-hoarder">Text Hoarder</Link> browser extension.
       </Paragraph>
     </>
   ),

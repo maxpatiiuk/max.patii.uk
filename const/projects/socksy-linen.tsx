@@ -20,7 +20,7 @@ export const socksyLinen: Project = {
     <>
       <Paragraph>
         This website was developed in 2019 for my parent's shop. It was hosted
-        on <Link href="http://socksy.zzz.com.ua">socksy.zzz.com.ua</Link>
+        on <Link href="http://socksy.in.ua">socksy.in.ua</Link>
       </Paragraph>
       <Paragraph>
         It is a landing page that was linked to from printed and online ads.
@@ -31,7 +31,7 @@ export const socksyLinen: Project = {
         number, Email).
       </Paragraph>
       <Paragraph>
-        This website is now retired. The URL is now redirecting to our{' '}
+        This website has since been retired. The URL is now redirecting to our{' '}
         <Link href="https://facebook.com/socksy.linen/">Facebook page</Link>. We
         also purchased a shorter domain{' '}
         <Link href="https://socksy.in.ua">socksy.in.ua</Link> that also leads to{' '}
@@ -70,7 +70,7 @@ export const socksyLinen: Project = {
       <Paragraph>
         The website is now offline as it was replaced by a{' '}
         <Link href="https://facebook.com/socksy.linen/">Facebook page</Link>.
-        Previously, it was live at socksy.zzz.com.ua
+        Previously, it was live at socksy.in.ua
       </Paragraph>
       <Header>Technologies used</Header>
       <List>

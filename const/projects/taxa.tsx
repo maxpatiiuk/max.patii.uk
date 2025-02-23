@@ -71,6 +71,12 @@ export const taxa: Project = {
         foremost, still, performance problems are plaguing the production use of
         the tool.
       </Paragraph>
+
+      <Header>Impact</Header>
+      <Paragraph>
+        Update from 2025: its been 5 years, and this project is still in use to
+        import millions of taxa records.
+      </Paragraph>
     </>
   ),
 };

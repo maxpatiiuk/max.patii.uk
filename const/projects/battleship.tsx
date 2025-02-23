@@ -10,13 +10,14 @@ export const battleship: Project = {
   content: (
     <>
       <Paragraph>
-        A simple turn-based game of war. Place up to 6 ships on a 9x10 grid and
-        try to sink your opponent's ships before they sink yours.
+        A simple turn-based competitive game. Place up to 6 ships on a 9x10 grid
+        and try to sink your opponent's ships before they sink yours.
       </Paragraph>
       <Paragraph>
         I worked on this project in a Team of 5. I took on the responsibilities
         of a team lead, which involved keeping the team on track, prioritizing
         features, and working on the most complex parts of the project.
+        Afterward, we presented it in front of 100 peers.
       </Paragraph>
       <Paragraph>
         Other team members lacked some experience with JavaScript, which made
