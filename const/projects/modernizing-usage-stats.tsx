@@ -132,9 +132,7 @@ export const modernizingUsageStats: Project = {
       <Paragraph>
         In parallel with this project, I was tasked with writing a usage stats
         visualizer for a separate application.
-        <Link href="https://max.patii.uk/projects/usage-stats">
-          See the results of that project.
-        </Link>
+        <Link href="../usage-stats">See the results of that project.</Link>
       </Paragraph>
 
       <Header>Things learned</Header>

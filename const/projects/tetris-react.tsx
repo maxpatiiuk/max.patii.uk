@@ -20,6 +20,23 @@ export const tetrisReact: Project = {
   description: '(Mis)Using a mapping library to make a 3D game',
   content: (
     <>
+      <Aside>
+        <Paragraph>
+          This project was presented during SpeedGeeking session at Esri
+          DevSummit 2024.
+        </Paragraph>
+        <List>
+          <li>
+            <Link href="https://maxpatiiuk.github.io/tetris-react">Slides</Link>
+          </li>
+          <li>
+            <Link href="https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/202r/tetris-react">
+              Session Details
+            </Link>
+          </li>
+        </List>
+      </Aside>
+
       <Paragraph>
         Tetris was one game I could always easily lose myself in. I decided to
         make learning ArcGIS Maps SDK for JavaScript more fun by making a game

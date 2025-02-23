@@ -115,10 +115,9 @@ export const smallRetailManagement: Project = {
       <SubHeader>Firestore</SubHeader>
 
       <Paragraph>
-        I worked with{' '}
-        <Link href="https://max.patii.uk/projects/tts-king">Firebase</Link> a
-        bit in the past, but this project really allowed me to explore it's
-        features in more depth.
+        I worked with <Link href="../tts-king">Firebase</Link> a bit in the
+        past, but this project really allowed me to explore it's features in
+        more depth.
       </Paragraph>
 
       <Paragraph>

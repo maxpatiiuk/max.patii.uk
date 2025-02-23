@@ -27,6 +27,7 @@ import { spacetime } from './spacetime';
 import { specify7TestPanel } from './specify7-test-panel';
 import { taxa } from './taxa';
 import { tetrisReact } from './tetris-react';
+import { geoIo } from './geo-io';
 import { ttsKing } from './tts-king';
 import { workbench } from './workbench';
 import { calendarPlus } from './calendar-plus';
@@ -59,6 +60,7 @@ export const projects: IR<Project> = {
   weblate,
   'small-retail-management': smallRetailManagement,
   'tetris-react': tetrisReact,
+  'geo-io': geoIo,
   'interface-redesign': interfaceRedesign,
   'goodreads-stats': goodreadsStats,
   lifemapper,

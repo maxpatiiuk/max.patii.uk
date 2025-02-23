@@ -75,9 +75,7 @@ export const calendarPlus: Project = {
       </Paragraph>
       <Paragraph>
         See also my full-fledged calendar application:{' '}
-        <Link href="https://max.patii.uk/projects/project-ephemeris">
-          Project Ephemeris
-        </Link>
+        <Link href="./project-ephemeris">Project Ephemeris</Link>
       </Paragraph>
 
       <YouTube video="Qku_Sskglzo" caption="Early prototype of the extension" />

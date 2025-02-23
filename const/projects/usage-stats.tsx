@@ -96,7 +96,7 @@ export const usageStats: Project = {
       <Paragraph>
         In parallel with this project, I was tasked with modernizing an existing
         usage stats visualizer for a separate application.
-        <Link href="https://max.patii.uk/projects/modernizing-usage-stats">
+        <Link href="../modernizing-usage-stats">
           See the results of that project.
         </Link>
       </Paragraph>
