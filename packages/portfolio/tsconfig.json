@@ -1,0 +1,9 @@
+{
+  "extends": "@maxpatiiuk/typescript-config/dom.json",
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "noEmit": true
+  }
+}

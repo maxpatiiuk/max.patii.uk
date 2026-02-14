@@ -1,0 +1,21 @@
+{
+  "name": "@maxpatiiuk/portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@maxpatiiuk/static-site-forge": "workspace:*",
+    "@maxpatiiuk/web-components": "workspace:*"
+  },
+  "devDependencies": {
+    "@maxpatiiuk/typescript-config": "workspace:*",
+    "typescript": "^5.4.5",
+    "vite": "^6.3.0"
+  }
+}
