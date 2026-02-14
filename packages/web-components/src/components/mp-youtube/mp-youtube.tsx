@@ -1,11 +1,14 @@
-import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { h, LitElement, property } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
-@customElement('mp-youtube')
+declare global {
+  interface DeclareElements {
+    'mp-youtube': MpYoutube;
+  }
+}
+
 export class MpYoutube extends LitElement {
-  @property() video = '';
-  @property() caption = '';
-  @property({ type: Number }) start?: number;
+  //#region Static Members
 
   static override styles = css`
     :host {
@@ -42,6 +45,20 @@ export class MpYoutube extends LitElement {
     }
   `;
 
+  //#endregion
+
+  //#region Public Properties
+
+  @property() video = '';
+
+  @property() caption = '';
+
+  @property({}) start?: number;
+
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
     const origin =
       typeof document !== 'undefined' ? document.location.origin : '';
@@ -50,22 +67,29 @@ export class MpYoutube extends LitElement {
     const startParam = this.start !== undefined ? `&start=${this.start}` : '';
     const src = `https://www.youtube.com/embed/${this.video}?origin=${encodeURIComponent(origin)}&widget_referrer=${encodeURIComponent(referrer)}&playlist=${this.video}&loop=1${startParam}`;
 
-    const hasDescription = this.querySelector('[slot="description"]') !== null;
+    const hasDescription =
+      this.el.querySelector('[slot="description"]') !== null;
 
-    return html`
-      <h2>${this.caption}</h2>
-      ${hasDescription
-        ? html`<div class="description"><slot name="description"></slot></div>`
-        : nothing}
-      <div class="wrapper">
-        <iframe
-          width="640"
-          height="360"
-          title=${this.caption}
-          src=${src}
-          allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        ></iframe>
-      </div>
-    `;
+    return (
+      <span>
+        <h2>{this.caption}</h2>
+        {hasDescription ? (
+          <div class="description">
+            <slot name="description" />
+          </div>
+        ) : null}
+        <div class="wrapper">
+          <iframe
+            width="640"
+            height="360"
+            title={this.caption}
+            src={src}
+            allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          />
+        </div>
+      </span>
+    );
   }
+
+  //#endregion
 }
