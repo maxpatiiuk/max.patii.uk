@@ -1,13 +1,57 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call */
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(import.meta.dirname, 'src/index.ts'),
+      entry: {
+        'components/mp-paragraph/mp-paragraph': resolve(
+          import.meta.dirname,
+          'src/components/mp-paragraph/mp-paragraph.ts',
+        ),
+        'components/mp-header/mp-header': resolve(
+          import.meta.dirname,
+          'src/components/mp-header/mp-header.ts',
+        ),
+        'components/mp-subheader/mp-subheader': resolve(
+          import.meta.dirname,
+          'src/components/mp-subheader/mp-subheader.ts',
+        ),
+        'components/mp-link/mp-link': resolve(
+          import.meta.dirname,
+          'src/components/mp-link/mp-link.ts',
+        ),
+        'components/mp-list/mp-list': resolve(
+          import.meta.dirname,
+          'src/components/mp-list/mp-list.ts',
+        ),
+        'components/mp-image/mp-image': resolve(
+          import.meta.dirname,
+          'src/components/mp-image/mp-image.ts',
+        ),
+        'components/mp-youtube/mp-youtube': resolve(
+          import.meta.dirname,
+          'src/components/mp-youtube/mp-youtube.ts',
+        ),
+        'components/mp-vimeo/mp-vimeo': resolve(
+          import.meta.dirname,
+          'src/components/mp-vimeo/mp-vimeo.ts',
+        ),
+        'components/mp-aside/mp-aside': resolve(
+          import.meta.dirname,
+          'src/components/mp-aside/mp-aside.ts',
+        ),
+        'components/mp-full-bleed/mp-full-bleed': resolve(
+          import.meta.dirname,
+          'src/components/mp-full-bleed/mp-full-bleed.ts',
+        ),
+        'components/mp-button/mp-button': resolve(
+          import.meta.dirname,
+          'src/components/mp-button/mp-button.ts',
+        ),
+      },
       formats: ['es'],
-      fileName: 'index',
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       external: ['lit', 'lit/decorators.js'],

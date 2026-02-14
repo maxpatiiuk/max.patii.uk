@@ -142,12 +142,11 @@
 - Removed `pnpm.onlyBuiltDependencies` from root `package.json` (now in
   `pnpm-workspace.yaml`).
 - Added `globals` as a dev dependency for the ESLint config.
+- Removed the web-components barrel by using per-component exports and
+  multi-entry builds.
 
 ## TODOS (added by human)
 
-- Don't use barrels in web-components — have a separate
-  `components/tag-name/tag-name` entry in package.json "exports" and separate
-  bundle.
 - Use typescript-eslint projectService instead of parserOptions.project.
 
 ## Remaining work
