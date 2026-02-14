@@ -1,9 +1,4 @@
 {
-  "extends": "@maxpatiiuk/typescript-config/node.json",
-  "include": ["src/**/*.ts"],
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true
-  }
+  "extends": "@maxpatiiuk/typescript-config/tsconfig.node.json",
+  "include": ["src", "*.ts"]
 }

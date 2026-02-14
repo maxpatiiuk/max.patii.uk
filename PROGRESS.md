@@ -174,7 +174,10 @@
 
 ## Remaining work
 
-- All remaining tasks completed.
+Update root README.md
+
+Use `import { globalIgnores } from "eslint/config";` in eslint. hardcode ignores
+list based on gitignore and prettierignore
 
 ## Architecture Notes
 
