@@ -117,6 +117,10 @@
 - `src/content/projects/modernizing-usage-stats.md` — migrated project post
 - `src/content/projects/open-api.md` — migrated project post
 - `src/content/projects/pixelland.md` — migrated project post
+- `src/content/projects/portfolio.md` — migrated project post
+- `src/content/projects/project-ephemeris.md` — migrated project post
+- `src/content/projects/query-builder.md` — migrated project post
+- `src/content/projects/small-retail-management.md` — migrated project post
 - Build pipeline verified: `pnpm build` produces dist/ with index.html,
   404.html, projects/alia/index.html, js/web-components.js (27KB with lit
   bundled), styles/global.css, \_redirects, manifest.webmanifest
@@ -160,7 +164,7 @@
 
 ## Remaining work
 
-- [ ] Migrate remaining 14 project posts from TSX to Markdown (alia done as
+- [ ] Migrate remaining 10 project posts from TSX to Markdown (alia done as
       sample). Conversion rules documented in plan file. Key: Paragraph→plain
       text, Header→##, SubHeader→###, Link→\[text\](url),
       Image→!\[caption\](path), List→- items, YouTube/Vimeo/Aside→HTML custom
