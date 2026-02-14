@@ -1,5 +1,6 @@
 import { h, LitElement, state } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-shadow-game.css';
 
 const winStateDuration = 1000;
 const vibrationScaler = 0.7;
@@ -31,19 +32,7 @@ declare global {
 export class MpShadowGame extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-    }
-    .screen {
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

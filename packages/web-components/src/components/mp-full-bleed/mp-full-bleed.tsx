@@ -1,5 +1,6 @@
 import { h, LitElement } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-full-bleed.css';
 
 declare global {
   interface DeclareElements {
@@ -10,15 +11,7 @@ declare global {
 export class MpFullBleed extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-      grid-column: 1 / -1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

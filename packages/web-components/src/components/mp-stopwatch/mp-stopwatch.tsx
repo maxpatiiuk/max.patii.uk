@@ -1,5 +1,6 @@
 import { h, LitElement, state } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-stopwatch.css';
 
 const MINUTES = 60;
 const SECONDS = 60;
@@ -32,41 +33,7 @@ declare global {
 export class MpStopwatch extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-      color: #fff;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      height: 100vh;
-    }
-    .display {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16vw;
-    }
-    .row {
-      display: flex;
-      flex: 1;
-    }
-    button {
-      flex: 1;
-      background: #000;
-      border: none;
-      color: inherit;
-    }
-    button:active {
-      background: #d4d4d4;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

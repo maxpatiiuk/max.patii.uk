@@ -1,5 +1,6 @@
 import { h, LitElement } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-paragraph.css';
 
 declare global {
   interface DeclareElements {
@@ -10,14 +11,7 @@ declare global {
 export class MpParagraph extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-    }
-    p {
-      padding-bottom: 0.5rem;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

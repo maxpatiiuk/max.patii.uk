@@ -1,5 +1,6 @@
 import { h, LitElement } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-aside.css';
 
 declare global {
   interface DeclareElements {
@@ -10,19 +11,7 @@ declare global {
 export class MpAside extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-    }
-    aside {
-      border-left: 4px solid #525252;
-      border-radius: 0.75rem;
-      background: #404040;
-      padding: 1.25rem;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 
