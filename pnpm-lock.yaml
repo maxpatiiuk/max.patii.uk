@@ -52,6 +52,9 @@ importers:
         specifier: ^7.3.1
         version: 7.3.1(@types/node@25.2.3)(yaml@2.8.2)
     devDependencies:
+      '@arcgis/api-extractor':
+        specifier: 5.1.0-next.15
+        version: 5.1.0-next.15(@types/node@25.2.3)(rollup@4.57.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.2.3)(yaml@2.8.2))(yaml@2.8.2)
       '@maxpatiiuk/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config

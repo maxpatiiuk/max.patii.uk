@@ -44,6 +44,9 @@ function parseFrontmatter(raw: string): {
 
 /**
  * Discover and parse all .md content files in the given directory.
+ *
+ * @public
+ * @param contentDir - The directory containing markdown content.
  */
 export function resolvePages(contentDir: string): readonly PageData[] {
   const projectsDir = join(contentDir, 'projects');

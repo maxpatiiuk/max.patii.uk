@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
-import { staticSiteForge } from '@maxpatiiuk/static-site-forge';
+import { useStaticSiteForge } from '@maxpatiiuk/static-site-forge';
 
 import { siteConfig } from './src/config.js';
 import { renderProjectPage } from './src/layouts/project.js';
@@ -20,7 +20,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    staticSiteForge({
+    useStaticSiteForge({
       contentDir: resolve(root, 'src/content'),
       publicDir: resolve(root, 'public'),
       outDir: resolve(root, 'dist'),
