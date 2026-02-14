@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(pnpm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pnpm --filter @maxpatiiuk/web-components typecheck:*)",
+      "Bash(pnpm --filter @maxpatiiuk/web-components build:*)",
+      "Bash(pnpm --filter @maxpatiiuk/static-site-forge typecheck:*)",
+      "Bash(pnpm --filter @maxpatiiuk/static-site-forge build:*)",
+      "Bash(pnpm --filter @maxpatiiuk/portfolio typecheck:*)",
+      "Bash(pnpm --filter @maxpatiiuk/portfolio build:*)"
+    ]
+  }
+}
