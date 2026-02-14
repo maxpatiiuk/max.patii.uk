@@ -27,6 +27,22 @@ importers:
         specifier: ^5.4.5
         version: 5.9.3
 
+  packages/static-site-forge:
+    dependencies:
+      vite:
+        specifier: ^6.3.0
+        version: 6.4.1(@types/node@22.19.11)(yaml@2.8.2)
+    devDependencies:
+      '@maxpatiiuk/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.0.0
+        version: 22.19.11
+      typescript:
+        specifier: ^5.4.5
+        version: 5.9.3
+
   packages/typescript-config: {}
 
   packages/web-components:
@@ -43,7 +59,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^6.3.0
-        version: 6.4.1(yaml@2.8.2)
+        version: 6.4.1(@types/node@22.19.11)(yaml@2.8.2)
 
 packages:
 
@@ -423,6 +439,9 @@ packages:
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
+
+  '@types/node@22.19.11':
+    resolution: {integrity: sha512-BH7YwL6rA93ReqeQS1c4bsPpcfOmJasG+Fkr6Y59q83f9M1WcBRHR2vM+P9eOisYRcN3ujQoiZY8uk5W+1WL8w==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -1290,6 +1309,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
   unist-util-is@6.0.1:
     resolution: {integrity: sha512-LsiILbtBETkDz8I9p1dQ0uyRUWuaQzd/cuEeS1hoRSyW5E5XGmTzlwY1OrNzzakGowI9Dr/I8HVaw4hTtnxy8g==}
 
@@ -1666,6 +1688,10 @@ snapshots:
       '@types/unist': 2.0.11
 
   '@types/ms@2.1.0': {}
+
+  '@types/node@22.19.11':
+    dependencies:
+      undici-types: 6.21.0
 
   '@types/trusted-types@2.0.7': {}
 
@@ -2760,6 +2786,8 @@ snapshots:
 
   typescript@5.9.3: {}
 
+  undici-types@6.21.0: {}
+
   unist-util-is@6.0.1:
     dependencies:
       '@types/unist': 3.0.3
@@ -2790,7 +2818,7 @@ snapshots:
 
   validate-npm-package-name@7.0.2: {}
 
-  vite@6.4.1(yaml@2.8.2):
+  vite@6.4.1(@types/node@22.19.11)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -2799,6 +2827,7 @@ snapshots:
       rollup: 4.57.1
       tinyglobby: 0.2.15
     optionalDependencies:
+      '@types/node': 22.19.11
       fsevents: 2.3.3
       yaml: 2.8.2
 
