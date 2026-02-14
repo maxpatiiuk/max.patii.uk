@@ -10,3 +10,6 @@ import '@maxpatiiuk/web-components/components/mp-vimeo/mp-vimeo';
 import '@maxpatiiuk/web-components/components/mp-aside/mp-aside';
 import '@maxpatiiuk/web-components/components/mp-full-bleed/mp-full-bleed';
 import '@maxpatiiuk/web-components/components/mp-button/mp-button';
+import '@maxpatiiuk/web-components/components/mp-snow-crash/mp-snow-crash';
+import '@maxpatiiuk/web-components/components/mp-stopwatch/mp-stopwatch';
+import '@maxpatiiuk/web-components/components/mp-shadow-game/mp-shadow-game';

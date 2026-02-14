@@ -1,6 +1,6 @@
 {
   "extends": "@maxpatiiuk/typescript-config/dom.json",
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "vite.config.ts"],
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src"
