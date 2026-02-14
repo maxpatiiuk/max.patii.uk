@@ -12,4 +12,10 @@ export default [
       },
     },
   },
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'lumina/tag-name-rules': ['error', { namespaces: ['mp-'] }],
+    },
+  },
 ];

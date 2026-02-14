@@ -1,4 +1,7 @@
 {
   "extends": "@maxpatiiuk/typescript-config/tsconfig.json",
-  "include": ["src", "*.ts"]
+  "include": ["src", "*.ts", "*.tsx"],
+  "compilerOptions": {
+    "jsx": "preserve"
+  }
 }

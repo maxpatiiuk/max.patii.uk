@@ -169,6 +169,7 @@
 - Removed the web-components barrel by using per-component exports and
   multi-entry builds.
 - Switched ESLint to TypeScript ESLint `projectService`.
+- Converted interactive components to Lumina TSX format.
 
 ## TODOS (added by human)
 
