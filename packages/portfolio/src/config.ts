@@ -1,11 +1,10 @@
+import type { SiteConfig } from '@maxpatiiuk/static-site-forge';
+
 export const siteConfig = {
   title: 'Max Patiiuk',
   description: 'Senior SDE at Esri',
-  keywords: `
-    Max Patiiuk, Maksym Patiiuk, Max Patiiuk CV, Max Patiiuk portfolio,
-    mambo shop, mambo, В гостях у MAMBO, мамбо, mambo experimental,
-    Максим Патіюк
-  `.trim(),
+  keywords:
+    'Max Patiiuk, Maksym Patiiuk, Max Patiiuk CV, Max Patiiuk portfolio, mambo shop, mambo, В гостях у MAMBO, мамбо, mambo experimental, Максим Патіюк',
   author: 'Max Patiiuk',
   authorTitle: 'Senior SDE at Esri',
   baseUrl: 'https://max.patii.uk',
@@ -24,4 +23,4 @@ export const siteConfig = {
     { label: 'about', url: 'https://doc.patii.uk' },
     { label: 'cv', url: 'https://cv.patii.uk' },
   ],
-} as const;
+} as const satisfies Record<string, unknown> & SiteConfig;

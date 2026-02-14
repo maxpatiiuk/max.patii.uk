@@ -97,9 +97,6 @@ function renderList(list: ListNode, caption?: string): string {
  *
  * This scanner supports headings, paragraphs, lists (including nesting),
  * links, images, bold/italic/code spans, and HTML passthrough blocks.
- *
- * @public
- * @param input - Markdown input string.
  */
 export function markdownToHtml(input: string): string {
   const normalized = input.replace(/\r\n?/gu, '\n');
