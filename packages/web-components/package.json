@@ -66,11 +66,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "lit": "^3.2.0"
+    "lit": "^3.3.2"
   },
   "devDependencies": {
     "@maxpatiiuk/typescript-config": "workspace:*",
-    "typescript": "^5.4.5",
-    "vite": "^6.3.0"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }
