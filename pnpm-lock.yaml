@@ -27,6 +27,25 @@ importers:
         specifier: ^5.4.5
         version: 5.9.3
 
+  packages/portfolio:
+    dependencies:
+      '@maxpatiiuk/static-site-forge':
+        specifier: workspace:*
+        version: link:../static-site-forge
+      '@maxpatiiuk/web-components':
+        specifier: workspace:*
+        version: link:../web-components
+    devDependencies:
+      '@maxpatiiuk/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: ^5.4.5
+        version: 5.9.3
+      vite:
+        specifier: ^6.3.0
+        version: 6.4.1(@types/node@22.19.11)(yaml@2.8.2)
+
   packages/static-site-forge:
     dependencies:
       vite:
