@@ -7,7 +7,8 @@ export default [
     languageOptions: {
       sourceType: 'module',
       parserOptions: {
-        project: './tsconfig.json',
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.browser,

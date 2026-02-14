@@ -144,10 +144,9 @@
 - Added `globals` as a dev dependency for the ESLint config.
 - Removed the web-components barrel by using per-component exports and
   multi-entry builds.
+- Switched ESLint to TypeScript ESLint `projectService`.
 
 ## TODOS (added by human)
-
-- Use typescript-eslint projectService instead of parserOptions.project.
 
 ## Remaining work
 
