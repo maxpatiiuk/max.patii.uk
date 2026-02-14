@@ -182,7 +182,7 @@
 - [ ] Interactive Lit components: mp-snow-crash (canvas animation, 3 modes),
       mp-stopwatch (state machine PWA), mp-shadow-game (game PWA). Port from
       React useReducer/useState/useEffect to Lit @state/@query/lifecycle.
-- [ ] Move `public/projects/images/` from root to `packages/portfolio/public/`
+- [x] Move `public/projects/images/` from root to `packages/portfolio/public/`
 - [ ] Delete old code: app/, components/, const/, lib/, next.config.js,
       next-env.d.ts, tailwind.config.js, postcss.config.js, .stylelintrc.js,
       .vercel/, root tsconfig.json
