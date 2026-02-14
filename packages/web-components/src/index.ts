@@ -1,11 +1,1 @@
-export { MpParagraph } from './components/mp-paragraph/mp-paragraph.js';
-export { MpHeader } from './components/mp-header/mp-header.js';
-export { MpSubheader } from './components/mp-subheader/mp-subheader.js';
-export { MpLink } from './components/mp-link/mp-link.js';
-export { MpList } from './components/mp-list/mp-list.js';
-export { MpImage } from './components/mp-image/mp-image.js';
-export { MpYoutube } from './components/mp-youtube/mp-youtube.js';
-export { MpVimeo } from './components/mp-vimeo/mp-vimeo.js';
-export { MpAside } from './components/mp-aside/mp-aside.js';
-export { MpFullBleed } from './components/mp-full-bleed/mp-full-bleed.js';
-export { MpButton } from './components/mp-button/mp-button.js';
+// Intentionally empty: per-component entry points live in src/components/.

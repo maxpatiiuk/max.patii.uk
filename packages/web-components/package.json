@@ -3,10 +3,51 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    "./components/mp-paragraph/mp-paragraph": {
+      "types": "./dist/components/mp-paragraph/mp-paragraph.d.ts",
+      "default": "./dist/components/mp-paragraph/mp-paragraph.js"
+    },
+    "./components/mp-header/mp-header": {
+      "types": "./dist/components/mp-header/mp-header.d.ts",
+      "default": "./dist/components/mp-header/mp-header.js"
+    },
+    "./components/mp-subheader/mp-subheader": {
+      "types": "./dist/components/mp-subheader/mp-subheader.d.ts",
+      "default": "./dist/components/mp-subheader/mp-subheader.js"
+    },
+    "./components/mp-link/mp-link": {
+      "types": "./dist/components/mp-link/mp-link.d.ts",
+      "default": "./dist/components/mp-link/mp-link.js"
+    },
+    "./components/mp-list/mp-list": {
+      "types": "./dist/components/mp-list/mp-list.d.ts",
+      "default": "./dist/components/mp-list/mp-list.js"
+    },
+    "./components/mp-image/mp-image": {
+      "types": "./dist/components/mp-image/mp-image.d.ts",
+      "default": "./dist/components/mp-image/mp-image.js"
+    },
+    "./components/mp-youtube/mp-youtube": {
+      "types": "./dist/components/mp-youtube/mp-youtube.d.ts",
+      "default": "./dist/components/mp-youtube/mp-youtube.js"
+    },
+    "./components/mp-vimeo/mp-vimeo": {
+      "types": "./dist/components/mp-vimeo/mp-vimeo.d.ts",
+      "default": "./dist/components/mp-vimeo/mp-vimeo.js"
+    },
+    "./components/mp-aside/mp-aside": {
+      "types": "./dist/components/mp-aside/mp-aside.d.ts",
+      "default": "./dist/components/mp-aside/mp-aside.js"
+    },
+    "./components/mp-full-bleed/mp-full-bleed": {
+      "types": "./dist/components/mp-full-bleed/mp-full-bleed.d.ts",
+      "default": "./dist/components/mp-full-bleed/mp-full-bleed.js"
+    },
+    "./components/mp-button/mp-button": {
+      "types": "./dist/components/mp-button/mp-button.d.ts",
+      "default": "./dist/components/mp-button/mp-button.js"
+    }
   },
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
