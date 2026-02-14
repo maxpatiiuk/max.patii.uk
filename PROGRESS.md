@@ -186,7 +186,7 @@
 - [x] Delete old code: app/, components/, const/, lib/, next.config.js,
       next-env.d.ts, tailwind.config.js, postcss.config.js, .stylelintrc.js,
       .vercel/, root tsconfig.json
-- [ ] Implement real markdown scanner (while-loop state machine) in
+- [x] Implement real markdown scanner (while-loop state machine) in
       static-site-forge
 - [ ] Address human TODOs above (barrels, ESM configs, projectService, etc.)
 
