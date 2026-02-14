@@ -15,7 +15,7 @@ export type SiteConfig = {
 };
 
 /** @public */
-export type PageFrontmatter = {
+export type PageMetadata = {
   /** @public */
   readonly title: string;
   /** @public */
@@ -25,7 +25,7 @@ export type PageFrontmatter = {
   /** @public */
   readonly ogImage?: string;
   /** @public */
-  readonly layout: string;
+  readonly layout?: string;
   /** @public */
   readonly slug: string;
 };
@@ -33,13 +33,30 @@ export type PageFrontmatter = {
 /** @public */
 export type PageData = {
   /** @public */
-  readonly frontmatter: PageFrontmatter;
+  readonly metadata: PageMetadata;
   /** @public */
   readonly content: string;
   /** @public */
-  readonly rawMarkdown: string;
+  readonly sourcePath?: string;
+};
+
+/** @public */
+export type CollectionItem = {
   /** @public */
-  readonly sourcePath: string;
+  readonly metadata: PageMetadata;
+  /**
+   * @public
+   * @returns The markdown content.
+   */
+  readonly content: () => Promise<string>;
+};
+
+/** @public */
+export type Collection = {
+  /** @public */
+  readonly name: string;
+  /** @public */
+  readonly items: readonly CollectionItem[];
 };
 
 /** @public */
@@ -53,13 +70,9 @@ export type AdditionalPage = {
 /** @public */
 export type ForgeConfig = {
   /** @public */
-  readonly contentDir: string;
-  /** @public */
-  readonly publicDir: string;
-  /** @public */
-  readonly outDir: string;
-  /** @public */
   readonly siteConfig: SiteConfig;
+  /** @public */
+  readonly collections: readonly Collection[];
   /**
    * @public
    * @param page - Page data.
@@ -67,9 +80,9 @@ export type ForgeConfig = {
   readonly renderPage: (page: PageData) => string;
   /**
    * @public
-   * @param pages - List of pages.
+   * @param collections - List of collections.
    */
-  readonly renderIndex: (pages: readonly PageData[]) => string;
+  readonly renderIndex: (collections: readonly Collection[]) => string;
   /** @public */
   readonly render404: () => string;
   /** @public */

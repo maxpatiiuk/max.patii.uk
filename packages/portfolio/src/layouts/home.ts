@@ -1,29 +1,19 @@
-import type { PageData } from '@maxpatiiuk/static-site-forge';
+import type { Collection } from '@maxpatiiuk/static-site-forge';
 
 import { siteConfig } from '../config.js';
-import { projectOrder } from '../project-order.js';
 import { htmlDocument } from './document.js';
 
-export function renderHomePage(pages: readonly PageData[]): string {
-  // Sort pages by the defined project order
-  const pagesBySlug = new Map(
-    pages.map((page) => [page.frontmatter.slug, page]),
-  );
+export function renderHomePage(collections: readonly Collection[]): string {
+  const projects = collections.find((c) => c.name === 'projects');
 
-  const orderedPages = projectOrder
-    .map((slug) => pagesBySlug.get(slug))
-    .filter(
-      (page): page is PageData => page?.frontmatter.description !== undefined,
-    );
-
-  const projectLinks = orderedPages
+  const projectLinks = (projects?.items ?? [])
     .map(
-      (page) => `
+      (item) => `
         <article>
-          <a href="/projects/${page.frontmatter.slug}/">
-            <h3>${page.frontmatter.title}</h3>
+          <a href="/projects/${item.metadata.slug}/">
+            <h3>${item.metadata.title}</h3>
           </a>
-          <p class="project-description">${page.frontmatter.description}</p>
+          <p class="project-description">${item.metadata.description}</p>
         </article>`,
     )
     .join('\n');

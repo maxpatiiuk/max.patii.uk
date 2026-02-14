@@ -12,7 +12,9 @@
   "scripts": {
     "build": "vite build",
     "build-dev": "vite build --mode development",
-    "watch": "node --run build-dev -- --watch"
+    "watch": "node --run build-dev -- --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "vite": "^7.3.1"
