@@ -1,10 +1,14 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { h, LitElement, property } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
-@customElement('mp-image')
+declare global {
+  interface DeclareElements {
+    'mp-image': MpImage;
+  }
+}
+
 export class MpImage extends LitElement {
-  @property() src = '';
-  @property() alt = '';
+  //#region Static Members
 
   static override styles = css`
     :host {
@@ -40,12 +44,28 @@ export class MpImage extends LitElement {
     }
   `;
 
+  //#endregion
+
+  //#region Public Properties
+
+  @property() src = '';
+
+  @property() alt = '';
+
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
-    return html`
+    return (
       <figure>
-        <img src=${this.src} alt=${this.alt} />
-        <figcaption><slot></slot></figcaption>
+        <img src={this.src} alt={this.alt} />
+        <figcaption>
+          <slot />
+        </figcaption>
       </figure>
-    `;
+    );
   }
+
+  //#endregion
 }
