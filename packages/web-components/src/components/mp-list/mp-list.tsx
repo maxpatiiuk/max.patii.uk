@@ -1,5 +1,6 @@
 import { h, LitElement, property } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-list.css';
 
 declare global {
   interface DeclareElements {
@@ -10,26 +11,7 @@ declare global {
 export class MpList extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-    }
-    p {
-      padding-bottom: 0.25rem;
-    }
-    ul,
-    ol {
-      padding-left: 1.75rem;
-      padding-bottom: 0.5rem;
-      list-style: disc;
-    }
-    ol {
-      list-style: decimal;
-    }
-    ::slotted(li) {
-      padding-bottom: 0.5rem;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

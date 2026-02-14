@@ -1,5 +1,6 @@
 import { h, LitElement, property, state } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-snow-crash.css';
 
 type SnowCrashMode = 'binary' | 'grayscale' | 'hex';
 
@@ -29,19 +30,7 @@ function drawFrame(
 export class MpSnowCrash extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    :host {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-    }
-    canvas {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-      cursor: pointer;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

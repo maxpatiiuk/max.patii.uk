@@ -1,5 +1,6 @@
 import { h, LitElement, property } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-button.css';
 
 declare global {
   interface DeclareElements {
@@ -10,24 +11,7 @@ declare global {
 export class MpButton extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    button {
-      display: inline-flex;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      font-size: 0.875rem;
-      line-height: 1.25rem;
-      color: #404040;
-      border: none;
-      cursor: pointer;
-    }
-    :host([variant='danger']) button {
-      background: #dc2626;
-    }
-    :host([variant='danger']) button:hover {
-      background: #b91c1c;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 

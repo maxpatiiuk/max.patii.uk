@@ -1,5 +1,6 @@
 import { h, LitElement, property } from '@arcgis/lumina';
-import { css, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { styles } from './mp-link.css';
 
 declare global {
   interface DeclareElements {
@@ -10,15 +11,7 @@ declare global {
 export class MpLink extends LitElement {
   //#region Static Members
 
-  static override styles = css`
-    a {
-      color: white;
-      text-decoration: underline;
-    }
-    a:hover {
-      color: #d4d4d4;
-    }
-  `;
+  static override styles = styles;
 
   //#endregion
 
