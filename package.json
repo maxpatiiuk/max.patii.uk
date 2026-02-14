@@ -4,6 +4,7 @@
   "private": true,
   "description": "Source code for max.patii.uk",
   "license": "MIT",
+  "type": "module",
   "packageManager": "pnpm@10.6.2",
   "repository": {
     "type": "git",
@@ -16,14 +17,10 @@
     "typecheck": "pnpm -r typecheck",
     "prepare": "husky"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
   "devDependencies": {
     "@arcgis/eslint-config": "^5.1.0-next.15",
     "eslint": "^9.4.0",
+    "globals": "^17.3.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.3.1",

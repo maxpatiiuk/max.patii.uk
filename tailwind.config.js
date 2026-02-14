@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   content: ['./app/**/*.tsx', './components/**/*.tsx'],
   options: {
     keyframes: true,

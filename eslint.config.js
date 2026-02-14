@@ -1,7 +1,7 @@
-const { default: eslintConfig } = require('@arcgis/eslint-config');
-const globals = require('globals');
+import eslintConfig from '@arcgis/eslint-config';
+import globals from 'globals';
 
-module.exports = [
+export default [
   ...eslintConfig,
   {
     languageOptions: {

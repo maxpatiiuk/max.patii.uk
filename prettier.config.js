@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // single quote is more popular among JS libraries
   singleQuote: true,
   // GitHub renders Markdown properly, so we can wrap it safely
