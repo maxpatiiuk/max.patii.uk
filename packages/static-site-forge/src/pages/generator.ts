@@ -5,6 +5,10 @@ import type { ForgeConfig, PageData } from '../types.js';
 
 /**
  * Generate all static HTML pages and copy assets to the output directory.
+ *
+ * @public
+ * @param config - The forge configuration.
+ * @param pages - The list of pages to generate.
  */
 export function generateSite(
   config: ForgeConfig,

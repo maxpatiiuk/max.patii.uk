@@ -54,8 +54,11 @@ function setupDevServer(server: ViteDevServer, config: ForgeConfig): void {
 
 /**
  * Create the static-site-forge Vite plugin.
+ *
+ * @public
+ * @param config - The forge configuration.
  */
-export function staticSiteForge(config: ForgeConfig): Plugin {
+export function useStaticSiteForge(config: ForgeConfig): Plugin {
   return {
     name: 'static-site-forge',
 

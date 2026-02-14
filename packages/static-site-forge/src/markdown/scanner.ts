@@ -92,6 +92,15 @@ function renderList(list: ListNode, caption?: string): string {
   return `<mp-list${typeAttr}${captionAttr}>${itemsHtml}</mp-list>`;
 }
 
+/**
+ * Markdown-to-HTML scanner using a while-loop state machine.
+ *
+ * This scanner supports headings, paragraphs, lists (including nesting),
+ * links, images, bold/italic/code spans, and HTML passthrough blocks.
+ *
+ * @public
+ * @param input - Markdown input string.
+ */
 export function markdownToHtml(input: string): string {
   const normalized = input.replace(/\r\n?/gu, '\n');
   const lines = normalized.split('\n');
