@@ -2,7 +2,9 @@
   "name": "@maxpatiiuk/typescript-config",
   "version": "0.0.1",
   "private": true,
+  "type": "commonjs",
   "files": [
-    "*.json"
+    "tsconfig.json",
+    "tsconfig.node.json"
   ]
 }

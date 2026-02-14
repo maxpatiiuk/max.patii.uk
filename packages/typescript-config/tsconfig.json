@@ -1,0 +1,89 @@
+// Based off https://github.com/maxpatiiuk/monorepo-template/tree/main
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "compilerOptions": {
+    //#region Type Checking
+
+    // Enable pretty much all checks to get the most benefit from TypeScript.
+    "allowUnreachableCode": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+
+    //#endregion
+
+    //#region Modules
+
+    // Recommended option for browser-facing projects.
+    // Allows for top-level await and dynamic imports.
+    "module": "ES2022",
+    // Recommended option for browser-facing projects.
+    // Respects package.json's "exports" conditions
+    "moduleResolution": "Bundler",
+    // Enables type-checking for CSS imports and other side-effect imports.
+    "noUncheckedSideEffectImports": true,
+    // Allow importing from JSON files
+    "resolveJsonModule": true,
+    // Do not auto-include any node_modules/@types packages.
+    // This will be the default in future TypeScript version.
+    "types": [],
+
+    //#endregion
+
+    //#region Emit
+
+    "declaration": true,
+    // By externalizing runtime helpers into a "tslib" package, we reduce
+    // the bundle size for the final application.
+    "importHelpers": true,
+    "noEmitOnError": true,
+    // .js emit is done by Vite. .d.ts emit is done by Vite plugins.
+    // noEmit is also required for allowImportingTsExtensions
+    "noEmit": true,
+    "outDir": "${configDir}/dist",
+
+    //#endregion
+
+    //#region Interop Constraints
+
+    "esModuleInterop": true,
+    // This improves TypeScript transpiling performance a lot in certain tooling
+    // by letting tooling transpile each file in isolation. This will be most
+    // noticeable during hot reloading in watch mode.
+    "isolatedModules": true,
+    // Use simpler, stricter rules in regards to whether type-only import is
+    // kept or dropped.
+    "verbatimModuleSyntax": true,
+
+    //#endregion
+
+    //#region Language and Environment
+
+    // Add support for experimental decorators
+    // Do not use native decorators as they increase the bundle size (due to
+    // the need for the polyfill and auto-accessors)
+    "experimentalDecorators": true,
+    // These JSX settings work for Stencil and Lumina
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "es2024"],
+    // We don't use this feature. Disabling as a performance optimization.
+    // This may become future default in TypeScript.
+    "libReplacement": false,
+    // Keep this target in line with what browsers your project supports
+    "target": "es2024",
+
+    //#endregion
+
+    //#region Completeness
+
+    // Do not spend time checking .d.ts files in node_modules. Should only
+    // type-check the .ts files that you author.
+    "skipLibCheck": true
+
+    //#endregion
+  }
+}

@@ -1,15 +1,10 @@
 {
   "name": "max.patii.uk",
   "version": "1.0.0",
-  "private": true,
   "description": "Source code for max.patii.uk",
-  "license": "MIT",
+  "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.6.2",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/maxpatiiuk/max.patii.uk"
-  },
+  "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm --filter @maxpatiiuk/portfolio dev",
@@ -20,10 +15,14 @@
   "devDependencies": {
     "@arcgis/eslint-config": "^5.1.0-next.15",
     "eslint": "^9.4.0",
-    "globals": "^17.3.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.3.1",
     "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@10.6.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxpatiiuk/max.patii.uk"
   }
 }

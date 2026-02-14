@@ -1,18 +1,14 @@
 import eslintConfig from '@arcgis/eslint-config';
-import globals from 'globals';
+import eslintConfigLumina from '@arcgis/eslint-config/lumina';
 
 export default [
   ...eslintConfig,
+  ...eslintConfigLumina,
   {
     languageOptions: {
-      sourceType: 'module',
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
-      },
-      globals: {
-        ...globals.browser,
-        ...globals.node,
       },
     },
   },
