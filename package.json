@@ -16,6 +16,11 @@
     "typecheck": "pnpm -r typecheck",
     "prepare": "husky"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
   "devDependencies": {
     "@arcgis/eslint-config": "^5.1.0-next.15",
     "eslint": "^9.4.0",
