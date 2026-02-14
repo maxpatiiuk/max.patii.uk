@@ -1,8 +1,15 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { h, LitElement } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
-@customElement('mp-aside')
+declare global {
+  interface DeclareElements {
+    'mp-aside': MpAside;
+  }
+}
+
 export class MpAside extends LitElement {
+  //#region Static Members
+
   static override styles = css`
     :host {
       display: block;
@@ -17,7 +24,17 @@ export class MpAside extends LitElement {
     }
   `;
 
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
-    return html`<aside><slot></slot></aside>`;
+    return (
+      <aside>
+        <slot />
+      </aside>
+    );
   }
+
+  //#endregion
 }
