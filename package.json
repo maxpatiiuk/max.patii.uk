@@ -13,14 +13,14 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@arcgis/eslint-config": "^5.1.0-next.15",
-    "eslint": "^9.4.0",
-    "husky": "^9.1.0",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.3.1",
-    "typescript": "^5.4.5"
+    "@arcgis/eslint-config": "5.1.0-next.15",
+    "eslint": "^9.39.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.6.2",
+  "packageManager": "pnpm@10.29.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxpatiiuk/max.patii.uk"
