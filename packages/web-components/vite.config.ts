@@ -49,6 +49,18 @@ export default defineConfig({
           import.meta.dirname,
           'src/components/mp-button/mp-button.ts',
         ),
+        'components/mp-snow-crash/mp-snow-crash': resolve(
+          import.meta.dirname,
+          'src/components/mp-snow-crash/mp-snow-crash.ts',
+        ),
+        'components/mp-stopwatch/mp-stopwatch': resolve(
+          import.meta.dirname,
+          'src/components/mp-stopwatch/mp-stopwatch.ts',
+        ),
+        'components/mp-shadow-game/mp-shadow-game': resolve(
+          import.meta.dirname,
+          'src/components/mp-shadow-game/mp-shadow-game.ts',
+        ),
       },
       formats: ['es'],
       fileName: (_format, entryName) => `${entryName}.js`,

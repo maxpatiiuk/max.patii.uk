@@ -47,6 +47,18 @@
     "./components/mp-button/mp-button": {
       "types": "./dist/components/mp-button/mp-button.d.ts",
       "default": "./dist/components/mp-button/mp-button.js"
+    },
+    "./components/mp-snow-crash/mp-snow-crash": {
+      "types": "./dist/components/mp-snow-crash/mp-snow-crash.d.ts",
+      "default": "./dist/components/mp-snow-crash/mp-snow-crash.js"
+    },
+    "./components/mp-stopwatch/mp-stopwatch": {
+      "types": "./dist/components/mp-stopwatch/mp-stopwatch.d.ts",
+      "default": "./dist/components/mp-stopwatch/mp-stopwatch.js"
+    },
+    "./components/mp-shadow-game/mp-shadow-game": {
+      "types": "./dist/components/mp-shadow-game/mp-shadow-game.d.ts",
+      "default": "./dist/components/mp-shadow-game/mp-shadow-game.js"
     }
   },
   "scripts": {

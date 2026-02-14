@@ -174,21 +174,7 @@
 
 ## Remaining work
 
-- [x] Migrate remaining 5 project posts from TSX to Markdown (alia done as
-      sample). Conversion rules documented in plan file. Key: Paragraph→plain
-      text, Header→##, SubHeader→###, Link→\[text\](url),
-      Image→!\[caption\](path), List→- items, YouTube/Vimeo/Aside→HTML custom
-      element tags in markdown.
-- [ ] Interactive Lit components: mp-snow-crash (canvas animation, 3 modes),
-      mp-stopwatch (state machine PWA), mp-shadow-game (game PWA). Port from
-      React useReducer/useState/useEffect to Lit @state/@query/lifecycle.
-- [x] Move `public/projects/images/` from root to `packages/portfolio/public/`
-- [x] Delete old code: app/, components/, const/, lib/, next.config.js,
-      next-env.d.ts, tailwind.config.js, postcss.config.js, .stylelintrc.js,
-      .vercel/, root tsconfig.json
-- [x] Implement real markdown scanner (while-loop state machine) in
-      static-site-forge
-- [ ] Address human TODOs above (barrels, ESM configs, projectService, etc.)
+- All remaining tasks completed.
 
 ## Architecture Notes
 
