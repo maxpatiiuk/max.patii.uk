@@ -133,18 +133,22 @@
 - Prettier rejected pnpm-lock.yaml and pnpm-workspace.yaml via negative globs —
   added `.prettierignore`.
 
+## Chores
+
+- Converted root config files to ESM (`eslint.config.mjs`,
+  `prettier.config.mjs`, `lint-staged.config.mjs`) and set root package to ESM
+  (`"type": "module"`).
+- Deleted `.github/dependabot.yml`.
+- Removed `pnpm.onlyBuiltDependencies` from root `package.json` (now in
+  `pnpm-workspace.yaml`).
+- Added `globals` as a dev dependency for the ESLint config.
+
 ## TODOS (added by human)
 
-- Delete dependabot.yml — don't use it and don't care for it on a personal
-  project.
 - Don't use barrels in web-components — have a separate
   `components/tag-name/tag-name` entry in package.json "exports" and separate
   bundle.
-- Use ESM in all root-level configs (eslint.config.js, lint-staged.config.js,
-  prettier.config.js currently use CJS module.exports).
 - Use typescript-eslint projectService instead of parserOptions.project.
-- Remove `pnpm` key from root package.json — move `onlyBuiltDependencies` into
-  pnpm-workspace.yaml.
 
 ## Remaining work
 
