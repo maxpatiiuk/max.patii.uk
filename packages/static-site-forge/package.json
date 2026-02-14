@@ -1,6 +1,7 @@
 {
   "name": "@maxpatiiuk/static-site-forge",
   "version": "0.0.1",
+  "description": "A static site generator for max.patii.uk",
   "private": true,
   "type": "module",
   "main": "dist/index.js",

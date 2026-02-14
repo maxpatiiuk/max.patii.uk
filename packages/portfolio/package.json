@@ -1,6 +1,7 @@
 {
   "name": "@maxpatiiuk/portfolio",
   "version": "0.0.1",
+  "description": "Source code for max.patii.uk",
   "private": true,
   "type": "module",
   "scripts": {

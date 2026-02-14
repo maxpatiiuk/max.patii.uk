@@ -1,6 +1,7 @@
 {
   "name": "@maxpatiiuk/web-components",
   "version": "0.0.1",
+  "description": "Shared web components for max.patii.uk",
   "private": true,
   "type": "module",
   "exports": {
