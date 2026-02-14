@@ -1,9 +1,13 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
-
-const MILLISECONDS = 1000;
+import { h, LitElement, property, state } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
 type SnowCrashMode = 'binary' | 'grayscale' | 'hex';
+
+declare global {
+  interface DeclareElements {
+    'mp-snow-crash': MpSnowCrash;
+  }
+}
 
 function drawFrame(
   colorGenerator: () => number,
@@ -22,15 +26,8 @@ function drawFrame(
   context.putImageData(imageData, 0, 0);
 }
 
-@customElement('mp-snow-crash')
 export class MpSnowCrash extends LitElement {
-  @property() mode: SnowCrashMode = 'binary';
-
-  @query('canvas') private readonly canvas?: HTMLCanvasElement;
-  @state() private isPaused = false;
-
-  private draw?: () => void;
-  private animationId?: number;
+  //#region Static Members
 
   static override styles = css`
     :host {
@@ -46,11 +43,60 @@ export class MpSnowCrash extends LitElement {
     }
   `;
 
-  override connectedCallback(): void {
-    super.connectedCallback();
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', this.handleResize);
+  //#endregion
+
+  //#region Private Properties
+
+  canvas?: HTMLCanvasElement;
+
+  draw?: () => void;
+
+  animationId?: number;
+
+  private readonly handleResize = (): void => {
+    this.setupCanvas();
+  };
+
+  private togglePause = (): void => {
+    this.isPaused = !this.isPaused;
+    if (!this.isPaused) {
+      this.startAnimation();
+    } else {
+      this.stopAnimation();
     }
+  };
+
+  //#endregion
+
+  //#region State Properties
+
+  @state() isPaused = false;
+
+  //#endregion
+
+  //#region Public Properties
+
+  @property() mode: SnowCrashMode = 'binary';
+
+  //#endregion
+
+  //#region Lifecycle
+
+  load(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  override updated(changed: Map<PropertyKey, unknown>): void {
+    if (changed.has('mode')) {
+      this.setupCanvas();
+    }
+  }
+
+  loaded(): void {
+    this.setupCanvas();
   }
 
   override disconnectedCallback(): void {
@@ -61,26 +107,20 @@ export class MpSnowCrash extends LitElement {
     this.stopAnimation();
   }
 
-  override firstUpdated(): void {
-    this.setupCanvas();
-  }
+  //#endregion
 
-  override updated(changed: Map<PropertyKey, unknown>): void {
-    if (changed.has('mode')) {
-      this.setupCanvas();
-    }
-  }
-
-  private readonly handleResize = (): void => {
-    this.setupCanvas();
-  };
+  //#region Private Methods
 
   private setupCanvas(): void {
     if (typeof window === 'undefined') {
       return;
     }
+
     if (!this.canvas) {
-      return;
+      this.canvas = this.el.querySelector('canvas') ?? undefined;
+      if (!this.canvas) {
+        return;
+      }
     }
 
     const context = this.canvas.getContext('2d');
@@ -134,18 +174,13 @@ export class MpSnowCrash extends LitElement {
     }
   }
 
-  private togglePause(): void {
-    this.isPaused = !this.isPaused;
-    if (!this.isPaused) {
-      this.startAnimation();
-    } else {
-      this.stopAnimation();
-    }
-  }
+  //#endregion
+
+  //#region Rendering
 
   override render(): TemplateResult {
-    return html`<canvas @click=${this.togglePause}></canvas>`;
+    return <canvas onClick={this.togglePause} />;
   }
-}
 
-export const snowCrashTickInterval = MILLISECONDS;
+  //#endregion
+}

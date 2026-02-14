@@ -1,5 +1,5 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { h, LitElement, state } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
 const MINUTES = 60;
 const SECONDS = 60;
@@ -23,15 +23,14 @@ type Action =
   | { type: 'PauseResumeAction' }
   | { type: 'StartStopAction' };
 
-@customElement('mp-stopwatch')
-export class MpStopwatch extends LitElement {
-  @state() private state: StopwatchState = {
-    type: 'PausedState',
-    beginTime: 0,
-    endTime: 0,
-  };
+declare global {
+  interface DeclareElements {
+    'mp-stopwatch': MpStopwatch;
+  }
+}
 
-  private tickTimeout?: number;
+export class MpStopwatch extends LitElement {
+  //#region Static Members
 
   static override styles = css`
     :host {
@@ -69,6 +68,48 @@ export class MpStopwatch extends LitElement {
     }
   `;
 
+  //#endregion
+
+  //#region Private Properties
+
+  tickTimeout?: number;
+
+  private readonly handleRewind = (): void => {
+    this.dispatch({ type: 'ChangeTimeAction', duration: -MILLISECONDS });
+  };
+
+  private readonly handlePauseResume = (): void => {
+    this.dispatch({ type: 'PauseResumeAction' });
+  };
+
+  private readonly handleForward = (): void => {
+    this.dispatch({ type: 'ChangeTimeAction', duration: MILLISECONDS });
+  };
+
+  private readonly handleStartStop = (): void => {
+    this.dispatch({ type: 'StartStopAction' });
+  };
+
+  //#endregion
+
+  //#region State Properties
+
+  @state() state: StopwatchState = {
+    type: 'PausedState',
+    beginTime: 0,
+    endTime: 0,
+  };
+
+  //#endregion
+
+  //#region Lifecycle
+
+  override updated(changed: Map<PropertyKey, unknown>): void {
+    if (changed.has('state')) {
+      this.scheduleTick();
+    }
+  }
+
   override disconnectedCallback(): void {
     super.disconnectedCallback();
     if (this.tickTimeout !== undefined) {
@@ -76,11 +117,9 @@ export class MpStopwatch extends LitElement {
     }
   }
 
-  override updated(changed: Map<PropertyKey, unknown>): void {
-    if (changed.has('state')) {
-      this.scheduleTick();
-    }
-  }
+  //#endregion
+
+  //#region Private Methods
 
   private dispatch(action: Action): void {
     this.state = reducer(this.state, action);
@@ -108,60 +147,50 @@ export class MpStopwatch extends LitElement {
     }, delay);
   }
 
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
     const time =
       this.state.type === 'MainState'
         ? formatTime(Date.now() - this.state.beginTime, false)
         : formatTime(this.state.endTime - this.state.beginTime, true);
 
-    return html`
+    return (
       <div class="container">
-        <div class="display">${time}</div>
+        <div class="display">{time}</div>
         <div class="row">
           <button
             type="button"
             aria-label="Rewind"
             title="Rewind"
-            @click=${this.handleRewind}
-          ></button>
+            onClick={this.handleRewind}
+          />
           <button
             type="button"
             aria-label="Pause"
             title="Pause"
-            @click=${this.handlePauseResume}
-          ></button>
+            onClick={this.handlePauseResume}
+          />
           <button
             type="button"
             aria-label="Forward"
             title="Forward"
-            @click=${this.handleForward}
-          ></button>
+            onClick={this.handleForward}
+          />
         </div>
         <button
           type="button"
           aria-label="Start/Stop"
           title="Start/Stop"
-          @click=${this.handleStartStop}
-        ></button>
+          onClick={this.handleStartStop}
+        />
       </div>
-    `;
+    );
   }
 
-  private readonly handleRewind = (): void => {
-    this.dispatch({ type: 'ChangeTimeAction', duration: -MILLISECONDS });
-  };
-
-  private readonly handlePauseResume = (): void => {
-    this.dispatch({ type: 'PauseResumeAction' });
-  };
-
-  private readonly handleForward = (): void => {
-    this.dispatch({ type: 'ChangeTimeAction', duration: MILLISECONDS });
-  };
-
-  private readonly handleStartStop = (): void => {
-    this.dispatch({ type: 'StartStopAction' });
-  };
+  //#endregion
 }
 
 function reducer(state: StopwatchState, action: Action): StopwatchState {

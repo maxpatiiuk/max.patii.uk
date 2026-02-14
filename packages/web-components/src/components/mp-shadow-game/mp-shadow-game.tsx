@@ -1,5 +1,5 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { h, LitElement, state } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
 const winStateDuration = 1000;
 const vibrationScaler = 0.7;
@@ -22,16 +22,14 @@ type Action =
   | { type: 'ResizeAction' }
   | { type: 'StopVibrationAction' };
 
-@customElement('mp-shadow-game')
-export class MpShadowGame extends LitElement {
-  @state() private state: ShadowState = {
-    point: { x: 0, y: 0 },
-    errorRadius: 0,
-    vibrationDuration: 0,
-  };
+declare global {
+  interface DeclareElements {
+    'mp-shadow-game': MpShadowGame;
+  }
+}
 
-  private hadInteractions = false;
-  private vibrationTimeout?: number;
+export class MpShadowGame extends LitElement {
+  //#region Static Members
 
   static override styles = css`
     :host {
@@ -47,8 +45,41 @@ export class MpShadowGame extends LitElement {
     }
   `;
 
-  override connectedCallback(): void {
-    super.connectedCallback();
+  //#endregion
+
+  //#region Private Properties
+
+  hadInteractions = false;
+
+  vibrationTimeout?: number;
+
+  private readonly handleMouseDown = (event: MouseEvent): void => {
+    this.hadInteractions = true;
+    this.dispatch({
+      type: 'ClickAction',
+      point: { x: event.x, y: event.y },
+    });
+  };
+
+  private readonly handleResize = (): void => {
+    this.dispatch({ type: 'ResizeAction' });
+  };
+
+  //#endregion
+
+  //#region State Properties
+
+  @state() state: ShadowState = {
+    point: { x: 0, y: 0 },
+    errorRadius: 0,
+    vibrationDuration: 0,
+  };
+
+  //#endregion
+
+  //#region Lifecycle
+
+  load(): void {
     if (typeof window === 'undefined') {
       return;
     }
@@ -56,19 +87,6 @@ export class MpShadowGame extends LitElement {
     this.dispatch({ type: 'GenerateRandomPointAction' });
     window.addEventListener('mousedown', this.handleMouseDown);
     window.addEventListener('resize', this.handleResize);
-  }
-
-  override disconnectedCallback(): void {
-    super.disconnectedCallback();
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    window.removeEventListener('mousedown', this.handleMouseDown);
-    window.removeEventListener('resize', this.handleResize);
-    if (this.vibrationTimeout !== undefined) {
-      window.clearTimeout(this.vibrationTimeout);
-    }
   }
 
   override updated(changed: Map<PropertyKey, unknown>): void {
@@ -89,25 +107,36 @@ export class MpShadowGame extends LitElement {
     }
   }
 
-  private readonly handleMouseDown = (event: MouseEvent): void => {
-    this.hadInteractions = true;
-    this.dispatch({
-      type: 'ClickAction',
-      point: { x: event.x, y: event.y },
-    });
-  };
+  override disconnectedCallback(): void {
+    super.disconnectedCallback();
+    if (typeof window === 'undefined') {
+      return;
+    }
 
-  private readonly handleResize = (): void => {
-    this.dispatch({ type: 'ResizeAction' });
-  };
+    window.removeEventListener('mousedown', this.handleMouseDown);
+    window.removeEventListener('resize', this.handleResize);
+    if (this.vibrationTimeout !== undefined) {
+      window.clearTimeout(this.vibrationTimeout);
+    }
+  }
+
+  //#endregion
+
+  //#region Private Methods
 
   private dispatch(action: Action): void {
     this.state = reducer(this.state, action);
   }
 
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
-    return html`<div class="screen"></div>`;
+    return <div class="screen" />;
   }
+
+  //#endregion
 }
 
 function reducer(state: ShadowState, action: Action): ShadowState {
