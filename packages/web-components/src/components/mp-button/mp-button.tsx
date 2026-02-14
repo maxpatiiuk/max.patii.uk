@@ -1,9 +1,14 @@
-import { LitElement, css, html, type TemplateResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { h, LitElement, property } from '@arcgis/lumina';
+import { css, type TemplateResult } from 'lit';
 
-@customElement('mp-button')
+declare global {
+  interface DeclareElements {
+    'mp-button': MpButton;
+  }
+}
+
 export class MpButton extends LitElement {
-  @property() variant: 'danger' | 'default' = 'default';
+  //#region Static Members
 
   static override styles = css`
     button {
@@ -24,7 +29,23 @@ export class MpButton extends LitElement {
     }
   `;
 
+  //#endregion
+
+  //#region Public Properties
+
+  @property() variant: 'danger' | 'default' = 'default';
+
+  //#endregion
+
+  //#region Rendering
+
   override render(): TemplateResult {
-    return html`<button type="button"><slot></slot></button>`;
+    return (
+      <button type="button">
+        <slot />
+      </button>
+    );
   }
+
+  //#endregion
 }
