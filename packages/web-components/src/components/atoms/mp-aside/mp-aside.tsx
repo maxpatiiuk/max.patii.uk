@@ -8,6 +8,7 @@ declare global {
   }
 }
 
+// TODO: refactor out explicit usages in favor of > markdown
 export class MpAside extends LitElement {
   //#region Static Members
 
