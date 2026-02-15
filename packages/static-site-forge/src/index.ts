@@ -4,8 +4,6 @@ export { useStaticSiteForge } from './plugin.js';
 export type {
   SiteConfig,
   PageMetadata,
-  PageData,
   ForgeConfig,
   Collection,
-  AdditionalPage,
 } from './types.js';
