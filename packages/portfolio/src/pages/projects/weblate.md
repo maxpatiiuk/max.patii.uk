@@ -37,15 +37,11 @@ and
 ![String localization interface](/projects/images/weblate/2.webp)
 ![Components of Specify 7](/projects/images/weblate/3.webp)
 
-<mp-vimeo caption="Webinar on the localization of Specify&nbsp;7"
-video="795108035"
-
->   <span slot="description">
-
+<mp-vimeo caption="Webinar on the localization of Specify&nbsp;7" video="795108035">
+  <span slot="description">
     After the integration was complete, came the task of teaching translators
     how to use Weblate. The following is a webinar prepared by our community
     manager:
-
   </span>
 </mp-vimeo>
 
