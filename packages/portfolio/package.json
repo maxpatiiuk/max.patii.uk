@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@maxpatiiuk/static-site-forge": "workspace:*",
-    "@maxpatiiuk/web-components": "workspace:*"
+    "@maxpatiiuk/web-components": "workspace:*",
+    "lit": "3.3.2"
   },
   "devDependencies": {
     "@maxpatiiuk/typescript-config": "workspace:*",

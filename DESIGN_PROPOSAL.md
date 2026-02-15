@@ -304,6 +304,20 @@ directory.
 
 ---
 
+## 11. Implementation Progress
+
+- [x] `chore: implement markdown-to-lit transform logic`
+- [x] `chore: implement lit-ssr rendering utilities`
+- [x] `chore: update forge plugin hooks and config types`
+- [x] `chore: migrate dev server to vite environments api`
+- [x] `chore: convert layouts to lit-ssr web components`
+- [x] `chore: centralize metadata and layouts in collections.ts`
+- [x] `chore: add isServer guards to interactive components`
+- [x] `chore: update build pipeline for lit-ssr generation`
+- [x] `chore: migrate content to pure markdown and cleanup`
+
+---
+
 ## 10. Open Questions
 
 1. **Environment configuration**: How to best configure the `ssr` environment in

@@ -1,10 +1,3 @@
----
-title: Specify 6 Usage Stats visualizer
-description: Modernizing a legacy PHP codebase with no documentation
-gitHub: https://github.com/specify/sp6-stats
-layout: project
----
-
 One of the first projects at my first job **during** college was modernizing a
 legacy PHP codebase for an internal usage stats visualizer for
 [Specify 6 application](http://github.com/specify/specify6/) - an open source

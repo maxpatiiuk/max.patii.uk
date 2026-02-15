@@ -1,10 +1,3 @@
----
-title: Specify 7 Accessibility Improvements
-description: WCAG 2.1 compliance, screen reader and keyboard navigation support
-gitHub: https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src
-layout: project
----
-
 I am very passionate about Web Accessibility. It makes worldwide information
 accessible to all, and turns the internet into a friendlier place for humans.
 

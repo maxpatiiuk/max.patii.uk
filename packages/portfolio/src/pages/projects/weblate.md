@@ -1,10 +1,3 @@
----
-title: Specify 7 Continuous Localization
-description: Two way integration with Weblate
-gitHub: https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src
-layout: project
----
-
 [Specify&nbsp;7](https://github.com/specify/specify7) is an open-source
 collection management software. It's used in over 50 countries, making
 localization a big necessity.

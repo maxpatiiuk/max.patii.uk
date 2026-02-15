@@ -1,10 +1,3 @@
----
-title: Small Retail Management
-description: Track retail revenue, expenses, and salaries
-gitHub: https://github.com/maxpatiiuk/small-retail-management
-layout: project
----
-
 A simple-to-use dashboard for tracking revenue, expenses, and salaries for every
 employee of your small business. Gain insights, see trends, and make informed
 decisions.

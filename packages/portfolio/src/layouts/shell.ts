@@ -1,25 +1,21 @@
-import { siteConfig } from '../config.js';
+import { html, type TemplateResult } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import type { PageMetadata } from '@maxpatiiuk/static-site-forge';
 
-export function htmlDocument({
-  title,
-  description,
-  ogImage,
-  body,
-}: {
-  readonly title: string;
-  readonly description?: string;
-  readonly ogImage?: string;
-  readonly body: string;
-}): string {
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
+
+export function renderShell(
+  content: TemplateResult,
+  metadata: PageMetadata,
+  siteConfig: any,
+): TemplateResult {
   const fullTitle =
-    title === siteConfig.title
+    metadata.title === siteConfig.title
       ? siteConfig.title
-      : `${title} | ${siteConfig.title}`;
-  const desc = description ?? siteConfig.description;
+      : `${metadata.title} | ${siteConfig.title}`;
+  const desc = metadata.description ?? siteConfig.description;
 
-  return `<!DOCTYPE html>
-<html lang="en-US">
-<head>
+  const head = `
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${fullTitle}</title>
@@ -32,13 +28,13 @@ export function htmlDocument({
   <meta property="og:title" content="${fullTitle}">
   <meta property="og:description" content="${desc}">
   <meta property="og:type" content="website">
-  ${ogImage !== undefined ? `<meta property="og:image" content="${siteConfig.baseUrl}${ogImage}">` : ''}
+  ${metadata.ogImage !== undefined ? `<meta property="og:image" content="${siteConfig.baseUrl}${metadata.ogImage}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/styles/global.css">
-  <script type="module" src="/js/web-components.js"></script>
+  <script type="module" src="/src/entry.ts"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,9 +42,12 @@ export function htmlDocument({
     gtag('js', new Date());
     gtag('config', '${siteConfig.googleAnalyticsId}');
   </script>
-</head>
-<body>
-  ${body}
-</body>
-</html>`;
+  `;
+
+  return html`<head>
+      ${unsafeHTML(head)}
+    </head>
+    <body>
+      ${content}
+    </body>`;
 }

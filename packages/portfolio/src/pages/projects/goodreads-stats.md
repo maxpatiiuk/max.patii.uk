@@ -1,10 +1,3 @@
----
-title: Goodreads Stats
-description: Get insights into your reading habits
-gitHub: https://github.com/maxpatiiuk/goodreads-stats
-layout: project
----
-
 A browser extension for Goodreads that adds data export capability and displays
 extensive analytics about your reading habits.
 

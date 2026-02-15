@@ -1,11 +1,3 @@
----
-title: Taxa Tree of Life Generator
-description:
-  Convert Taxonomic Tree of Life from various authorities into a CSV file
-gitHub: https://github.com/specify/taxa_tree/
-layout: project
----
-
 There are various taxon data authorities that allow downloading their data
 either one species at a time, or as a huge SQL dump file, which is not practical
 for some use cases.

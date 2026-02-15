@@ -1,10 +1,3 @@
----
-title: Text Hoarder
-description: Chrome Extension: save articles & see reading stats
-gitHub: https://github.com/maxpatiiuk/text-hoarder
-layout: project
----
-
 Text Hoarder is a browser extension for Google Chrome that provides reader view,
 saving articles for later, and generation of stats based on your reading habits.
 

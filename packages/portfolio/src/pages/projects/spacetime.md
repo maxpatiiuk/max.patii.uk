@@ -1,9 +1,3 @@
----
-title: Spacetime
-description: My Amazon Internship Project - real time dashboard
-layout: project
----
-
 Amazon services have countless automated alarms set up to detect any anomalies
 and widespread outages. During an average day, there are about 10 high severity
 tickets opened every minute. In cases of extensive breakdown, that rate

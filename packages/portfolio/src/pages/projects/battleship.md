@@ -1,10 +1,3 @@
----
-title: Battleship
-description: A modern spin on a classic game
-gitHub: https://github.com/maxpatiiuk/eecs-448-battleship
-layout: project
----
-
 A simple turn-based competitive game. Place up to 6 ships on a 9x10 grid and try
 to sink your opponent's ships before they sink yours.
 
