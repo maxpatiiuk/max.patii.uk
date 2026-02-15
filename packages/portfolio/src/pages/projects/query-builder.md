@@ -22,14 +22,10 @@ I worked on the front end, including the following features:
 ![Column mapper](/projects/images/query-builder/3.webp)
 ![Large query (with dark mode)](/projects/images/query-builder/6.webp)
 
-<mp-youtube caption="Presentation from iDigBio Digital Data Conference 2022"
-video="YIbeZ_f_eQc"
-
->   <span slot="description">
-
+<mp-youtube caption="Presentation from iDigBio Digital Data Conference 2022" video="YIbeZ_f_eQc">
+  <span slot="description">
     Video overview of the query builder, accessibility, and other related
     features
-
   </span>
 </mp-youtube>
 

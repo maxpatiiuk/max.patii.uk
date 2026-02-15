@@ -25,10 +25,7 @@ I worked on the front end, including the following features:
   </span>
 </mp-youtube>
 
-<mp-youtube caption="Specify WorkBench demo for SpeciForum 2021"
-video="83GXeGeihqE"
-
-> </mp-youtube>
+<mp-youtube caption="Specify WorkBench demo for SpeciForum 2021" video="83GXeGeihqE"></mp-youtube>
 
 ## Online demo
 
@@ -45,14 +42,8 @@ collection, choose any option. See usage instructions in the video above.
 - Docker
 - Leaflet (library for interactive maps)
 
-<mp-youtube caption="Overview of the mapping capabilities" video="ELc4srgjvkU"
-
-> </mp-youtube>
-> <mp-youtube
->   caption="Overview of the mapping capabilities (in Russian)"
->   video="fw_Ps4nF5FY"
->   start="386"
-> </mp-youtube>
+<mp-youtube caption="Overview of the mapping capabilities" video="ELc4srgjvkU"></mp-youtube>
+<mp-youtube caption="Overview of the mapping capabilities (in Russian)" video="fw_Ps4nF5FY" start="386"></mp-youtube>
 
 ## Things learned
 

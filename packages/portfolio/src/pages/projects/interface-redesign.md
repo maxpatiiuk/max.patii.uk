@@ -32,29 +32,19 @@ List of most important changes
 ![App Resources editor](/projects/images/interface-redesign/2.webp)
 ![Improved attachments viewer](/projects/images/interface-redesign/3.webp)
 
-<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user
-preferences in Specify&nbsp;7"
+<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7">
+  <span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
+</mp-youtube>
 
-> <span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
-> </mp-youtube>
-
-<mp-youtube video="lJZSk5-bKCk" caption="Recording of a webinar on accessibility
-improvements in Specify&nbsp;7"
-
->   <span slot="description">
-
+<mp-youtube video="lJZSk5-bKCk" caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7">
+  <span slot="description">
     Showcase of Accessibility and Usability improvements in Specify&nbsp;7
-
   </span>
 </mp-youtube>
 
-<mp-youtube video="YIbeZ_f_eQc" caption="Presentation from iDigBio Digital Data
-Conference 2022"
-
->   <span slot="description">
-
+<mp-youtube video="YIbeZ_f_eQc" caption="Presentation from iDigBio Digital Data Conference 2022">
+  <span slot="description">
     Video overview of UI&UX enhancements and accessibility refactor
-
   </span>
 </mp-youtube>
 

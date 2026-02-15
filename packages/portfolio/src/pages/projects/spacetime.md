@@ -169,10 +169,7 @@ project has a lot to do with charts (where time is one axis), and you can go
 back in time to see data for the previous hour/day. Thus, a name related to
 traveling through space and time is appropriate.
 
-<mp-youtube caption="Can you share your impressions about the internship?"
-video="QxWt_XCQBZA"
-
-> </mp-youtube>
+<mp-youtube caption="Can you share your impressions about the internship?" video="QxWt_XCQBZA"></mp-youtube>
 
 ## Appendix 1: Architecture
 

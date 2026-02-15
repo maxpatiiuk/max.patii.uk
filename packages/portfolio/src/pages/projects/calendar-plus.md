@@ -36,9 +36,7 @@ activities.
 See also my full-fledged calendar application:
 [Project Ephemeris](/projects/project-ephemeris)
 
-<mp-youtube video="Qku_Sskglzo" caption="Early prototype of the extension"
-
-> </mp-youtube>
+<mp-youtube video="Qku_Sskglzo" caption="Early prototype of the extension"></mp-youtube>
 
 ## Things learned
 

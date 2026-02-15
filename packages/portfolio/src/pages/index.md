@@ -1,3 +1,3 @@
-import '@maxpatiiuk/web-components/components/mp-snow-crash';
+import '@maxpatiiuk/web-components/components/mp-home-page';
 
-<mp-snow-crash mode="binary" />
+<mp-home-page />

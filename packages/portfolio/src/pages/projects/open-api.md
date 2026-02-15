@@ -31,13 +31,9 @@ Additionally, some tests may require running a particular sequence of operations
 Chain tests, where the testing framework would run the output of one request
 through a generator to produce the input for the next request and so on.
 
-<mp-youtube caption="Recorded presentation from TDWG 2021" video="G_3lzy_wOHI"
+<mp-youtube caption="Recorded presentation from TDWG 2021" video="G_3lzy_wOHI"></mp-youtube>
 
-> </mp-youtube>
-
-<mp-youtube caption="A non-technical overview of APIs" video="nOJGjxUEwAI"
-
-> </mp-youtube>
+<mp-youtube caption="A non-technical overview of APIs" video="nOJGjxUEwAI"></mp-youtube>
 
 By default, the testing framework runs tests on all endpoints, prints any
 issues, and exits once done. For the purposes of continuous integration, it may
