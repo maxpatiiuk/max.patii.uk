@@ -1,10 +1,3 @@
----
-title: Specify 7 Query Builder
-description: Simple interface for building advanced queries
-gitHub: https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src
-layout: project
----
-
 Query Builder is an interface for creating advanced queries against the
 database. It is part of the collection management software, Specify&nbsp;7.
 

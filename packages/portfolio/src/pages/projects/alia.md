@@ -1,10 +1,3 @@
----
-title: Alia
-description: x64, MIPS and LLVM compiler for my language
-gitHub: https://github.com/maxpatiiuk/alia
-layout: project
----
-
 Alia is a programming language I designed and implemented as part of my Computer
 Science degree journey. The project started as a TypeScript-based interpreter
 and has since been extended with multiple compiler backends.

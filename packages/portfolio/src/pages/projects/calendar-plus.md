@@ -1,10 +1,3 @@
----
-title: Calendar Plus
-description: Google Calendar extension for power users
-gitHub: https://github.com/maxpatiiuk/calendar-plus
-layout: project
----
-
 Calendar Plus is a Chrome extension for Google Calendar. It provides insights
 into where your time goes, includes power user tools, data export and
 customization.

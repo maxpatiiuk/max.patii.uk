@@ -1,4 +1,5 @@
 import { h, LitElement, state } from '@arcgis/lumina';
+import { isServer } from 'lit';
 import type { TemplateResult } from 'lit';
 import { styles } from './mp-shadow-game.css';
 
@@ -121,7 +122,11 @@ export class MpShadowGame extends LitElement {
 
   //#region Rendering
 
-  override render(): TemplateResult {
+  override render(): TemplateResult | null {
+    /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */
+    if (isServer) {
+      return null;
+    }
     return <div class="screen" />;
   }
 

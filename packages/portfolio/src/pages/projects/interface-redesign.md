@@ -1,10 +1,3 @@
----
-title: Specify 7 UI&UX refactor
-description: Modern interface that feels intuitive and is a pleasure to use
-gitHub: https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src
-layout: project
----
-
 I am not a designer, but I like building user interfaces that look awesome while
 being easy to use. The best interface makes the user feel powerful, without
 overwhelming them.

@@ -1,10 +1,3 @@
----
-title: Project Ephemeris
-description: Full-fledged calendar application
-gitHub: https://github.com/maxpatiiuk/project-ephemeris
-layout: project
----
-
 A full-fledged calendar application with support for multiple calendars,
 repeated events, and best of all, dark mode. It has four view modes: year,
 month, week, and day. Additionally, there is a good screen reader and keyboard

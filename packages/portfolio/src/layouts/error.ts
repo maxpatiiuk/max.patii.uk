@@ -1,19 +1,13 @@
-import { htmlDocument } from './document.js';
-import { siteConfig } from '../config.js';
+import { html, type TemplateResult } from 'lit';
+import type { PageMetadata, SiteConfig } from '@maxpatiiuk/static-site-forge';
+import { renderShell } from './shell.js';
 
-export function render404Page(): string {
-  const body = `
-  <main class="error-layout">
-    <h1>Oops! Nothing was found</h1>
-    <p>
-      The page you are looking for might have been removed,
-      had its name changed or is temporarily unavailable.
-    </p>
-    <a href="/">Return to homepage</a>
-  </main>`;
+export function renderLayout(
+  content: TemplateResult,
+  metadata: PageMetadata,
+  siteConfig: SiteConfig,
+): TemplateResult {
+  const innerContent = html` <div class="error-layout">${content}</div>`;
 
-  return htmlDocument({
-    title: `404 | ${siteConfig.title}`,
-    body,
-  });
+  return renderShell(innerContent, metadata, siteConfig);
 }

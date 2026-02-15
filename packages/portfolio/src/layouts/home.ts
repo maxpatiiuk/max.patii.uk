@@ -1,57 +1,13 @@
-import { siteConfig } from '../config.js';
-import { htmlDocument } from './document.js';
-import { collections } from '../collections';
+import { html, type TemplateResult } from 'lit';
+import type { PageMetadata, SiteConfig } from '@maxpatiiuk/static-site-forge';
+import { renderShell } from './shell.js';
 
-export function renderHomePage(): string {
-  const projects = collections.projects;
+export function renderLayout(
+  content: TemplateResult,
+  metadata: PageMetadata,
+  siteConfig: SiteConfig,
+): TemplateResult {
+  const innerContent = html` <div class="home-layout">${content}</div>`;
 
-  const projectLinks = Object.entries(projects)
-    .map(
-      ([slug, metadata]) => `
-        <article>
-          <a href="/projects/${slug}/">
-            <h3>${metadata.title}</h3>
-          </a>
-          <p class="project-description">${metadata.description ?? ''}</p>${
-            metadata.gitHub !== undefined
-              ? `
-          <a class="github-link" href="${metadata.gitHub}">GitHub</a>`
-              : ''
-          }
-        </article>`,
-    )
-    .join('\n');
-
-  const navLinks = siteConfig.links
-    .map(
-      ({ label, url }) =>
-        `<li><a href="${url}" rel="noopener">${label}</a></li>`,
-    )
-    .join('\n');
-
-  const body = `
-  <div class="home-layout">
-    <header>
-      <div class="home-header-inner">
-        <hgroup>
-          <h1>${siteConfig.title}</h1>
-          <p class="author-title">${siteConfig.authorTitle}</p>
-        </hgroup>
-        <nav>
-          <ul>
-            ${navLinks}
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <h2>My projects</h2>
-      ${projectLinks}
-    </main>
-  </div>`;
-
-  return htmlDocument({
-    title: siteConfig.title,
-    body,
-  });
+  return renderShell(innerContent, metadata, siteConfig);
 }

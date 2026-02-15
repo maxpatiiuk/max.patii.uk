@@ -13,7 +13,12 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === 'development',
     minify: false,
     rollupOptions: {
-      external: [...builtinModules.map((module) => `node:${module}`), 'vite'],
+      external: [
+        ...builtinModules.map((module) => `node:${module}`),
+        'vite',
+        'lit',
+        /^@lit-labs\/ssr/u,
+      ],
     },
   },
   plugins: [useApiExtractor()],

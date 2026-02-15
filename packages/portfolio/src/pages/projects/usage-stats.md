@@ -1,10 +1,3 @@
----
-title: Specify 7 Usage Stats visualizer
-description: Internal usage stats explorer
-gitHub: https://github.com/specify/sp7-stats
-layout: project
----
-
 My first project at the first job **during** college was adding a way to see the
 usage stats for the
 [Specify&nbsp;7 application](http://github.com/specify/specify7/) - an open

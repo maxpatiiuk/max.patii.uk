@@ -1,4 +1,5 @@
 import { h, LitElement, state } from '@arcgis/lumina';
+import { isServer } from 'lit';
 import type { TemplateResult } from 'lit';
 import { styles } from './mp-stopwatch.css';
 
@@ -118,7 +119,11 @@ export class MpStopwatch extends LitElement {
 
   //#region Rendering
 
-  override render(): TemplateResult {
+  override render(): TemplateResult | null {
+    /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */
+    if (isServer) {
+      return null;
+    }
     const time =
       this.state.type === 'MainState'
         ? formatTime(Date.now() - this.state.beginTime, false)

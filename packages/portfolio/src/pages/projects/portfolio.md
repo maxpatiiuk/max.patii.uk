@@ -1,10 +1,3 @@
----
-title: Portfolio
-description: A minimalistic Next.js application
-gitHub: https://github.com/maxpatiiuk/max.patii.uk/
-layout: project
----
-
 When it came to designing my portfolio, I wanted to make it represent my
 aspirations for simplicity and purpose. That is why there are no cluttered
 submenus, no useless footers, and no unnecessary information.

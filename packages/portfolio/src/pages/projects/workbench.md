@@ -1,10 +1,3 @@
----
-title: Specify 7 WorkBench
-description: Bulk data uploading system for collection management software
-gitHub: https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src
-layout: project
----
-
 WorkBench is a bulk data uploading system for collection management software,
 Specify&nbsp;7.
 

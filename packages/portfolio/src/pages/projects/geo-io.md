@@ -1,10 +1,3 @@
----
-title: geo-io
-description: Agar.io, but more mappy
-gitHub: https://github.com/maxpatiiuk/geo-io/
-layout: project
----
-
 <mp-aside>
 
 This project was presented during SpeedGeeking session at Esri Dev&Tech

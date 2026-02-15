@@ -1,10 +1,3 @@
----
-title: Tetris React
-description: (Mis)Using a mapping library to make a 3D game
-gitHub: https://github.com/maxpatiiuk/tetris-react/
-layout: project
----
-
 <mp-aside>
 
 This project was presented during SpeedGeeking session at Esri DevSummit 2024.

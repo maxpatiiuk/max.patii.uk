@@ -1,10 +1,3 @@
----
-title: Socksy Linen
-description: A fashion store landing page
-gitHub: https://github.com/maxpatiiuk/socksy.zzz.com.ua/
-layout: project
----
-
 This website was developed in 2019 for my parent's shop. It was hosted on
 [socksy.in.ua](http://socksy.in.ua)
 

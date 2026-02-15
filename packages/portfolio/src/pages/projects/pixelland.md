@@ -1,10 +1,3 @@
----
-title: Pixelland
-description: A Canvas-based walking & building simulator
-gitHub: https://github.com/maxpatiiuk/eecs-448-pixelland
-layout: project
----
-
 A Canvas-based walking & building simulator
 
 Notable features:
