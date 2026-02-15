@@ -13,16 +13,23 @@
     "build": "vite build",
     "build-dev": "vite build --mode development",
     "watch": "node --run build-dev -- --watch",
+    "test": "vitest run",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@lit-labs/ssr": "^4.0.0",
     "vite": "^7.3.1"
   },
   "devDependencies": {
     "@arcgis/api-extractor": "5.1.0-next.15",
     "@maxpatiiuk/typescript-config": "workspace:*",
     "@types/node": "^25.2.3",
-    "typescript": "^5.9.3"
+    "lit": "3.3.2",
+    "typescript": "^5.9.3",
+    "vitest": "4.0.18"
+  },
+  "peerDependencies": {
+    "lit": "3.3.2"
   }
 }
