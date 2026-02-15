@@ -2,10 +2,11 @@ import { join } from 'node:path';
 
 import type { Plugin, ViteDevServer } from 'vite';
 
-import type { ForgeConfig } from './types.js';
+import type { ForgeConfig, PageMetadata } from './types.js';
 import { generateSite } from './pages/generator.js';
 import { pagesDirectory } from './const.js';
 import { markdownToHtml } from './markdown/scanner.js';
+import { readFile } from 'node:fs/promises';
 
 /**
  * Create the static-site-forge Vite plugin.
@@ -32,37 +33,40 @@ export function useStaticSiteForge(config: ForgeConfig): Plugin {
  */
 function setupDevServer(server: ViteDevServer, config: ForgeConfig): void {
   // Serve generated pages
-  server.middlewares.use(async (req, res, next) => {
-    const url = req.url ?? '/';
+  server.middlewares.use((req, res, next) => {
+    const handleRequest = async (): Promise<void> => {
+      const url = req.url ?? '/';
 
-    // Home page
-    if (url === '/' || url === '/index.html') {
-      const html = config.renderIndex(config.collections);
-      res.setHeader('Content-Type', 'text/html');
-      res.end(html);
-      return;
-    }
-
-    // Collection pages
-    for (const collection of config.collections) {
-      const prefix = `/${collection.name}/`;
-      if (url.startsWith(prefix)) {
-        const slug = url.slice(prefix.length).replace(/\/$/u, '') || 'index';
-        const item = collection.items.find((i) => i.metadata.slug === slug);
-        if (item !== undefined) {
-          const rawContent = await item.content();
-          const html = config.renderPage({
-            metadata: item.metadata,
-            content: markdownToHtml(rawContent),
-          });
-          res.setHeader('Content-Type', 'text/html');
-          res.end(html);
-          return;
-        }
+      // Home page
+      if (url === '/' || url === '/index.html') {
+        const html = config.renderIndex();
+        res.setHeader('Content-Type', 'text/html');
+        res.end(html);
+        return;
       }
-    }
 
-    next();
+      // Collection pages
+      const resolvedPage = resolveCollectionPage(url, config.collections);
+      if (resolvedPage !== undefined) {
+        const { name, slug, metadata } = resolvedPage;
+        const content = await readFile(
+          `${pagesDirectory}/${name}/${slug}.md`,
+          'utf-8',
+        );
+        const html = config.renderPage({
+          slug,
+          metadata,
+          content: markdownToHtml(content),
+        });
+        res.setHeader('Content-Type', 'text/html');
+        res.end(html);
+        return;
+      }
+
+      next();
+    };
+
+    handleRequest().catch(next);
   });
 
   // Watch content files for live reload
@@ -74,4 +78,21 @@ function setupDevServer(server: ViteDevServer, config: ForgeConfig): void {
       server.ws.send({ type: 'full-reload' });
     }
   });
+}
+
+function resolveCollectionPage(
+  url: string,
+  collections: ForgeConfig['collections'],
+): { name: string; slug: string; metadata: PageMetadata } | undefined {
+  for (const [name, collection] of Object.entries(collections)) {
+    const prefix = `/${name}/`;
+    if (url.startsWith(prefix)) {
+      const slug = url.slice(prefix.length).replace(/\/$/u, '') || 'index';
+      if (Object.hasOwn(collection, slug)) {
+        return { name, slug, metadata: collection[slug] };
+      }
+    }
+  }
+
+  return undefined;
 }

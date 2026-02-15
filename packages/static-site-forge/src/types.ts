@@ -26,38 +26,19 @@ export type PageMetadata = {
   readonly ogImage?: string;
   /** @public */
   readonly layout?: string;
-  /** @public */
-  readonly slug: string;
 };
 
 /** @public */
 export type PageData = {
+  readonly slug: string;
   /** @public */
   readonly metadata: PageMetadata;
   /** @public */
   readonly content: string;
-  /** @public */
-  readonly sourcePath?: string;
 };
 
 /** @public */
-export type CollectionItem = {
-  /** @public */
-  readonly metadata: PageMetadata;
-  /**
-   * @public
-   * @returns The markdown content.
-   */
-  readonly content: () => Promise<string>;
-};
-
-/** @public */
-export type Collection = {
-  /** @public */
-  readonly name: string;
-  /** @public */
-  readonly items: readonly CollectionItem[];
-};
+export type Collection = Record<string, PageMetadata>;
 
 /** @public */
 export type AdditionalPage = {
@@ -72,7 +53,7 @@ export type ForgeConfig = {
   /** @public */
   readonly siteConfig: SiteConfig;
   /** @public */
-  readonly collections: readonly Collection[];
+  readonly collections: Record<string, Collection>;
   /**
    * @public
    * @param page - Page data.
@@ -80,9 +61,8 @@ export type ForgeConfig = {
   readonly renderPage: (page: PageData) => string;
   /**
    * @public
-   * @param collections - List of collections.
    */
-  readonly renderIndex: (collections: readonly Collection[]) => string;
+  readonly renderIndex: () => string;
   /** @public */
   readonly render404: () => string;
   /** @public */

@@ -1,19 +1,23 @@
-import type { Collection } from '@maxpatiiuk/static-site-forge';
-
 import { siteConfig } from '../config.js';
 import { htmlDocument } from './document.js';
+import { collections } from '../collections';
 
-export function renderHomePage(collections: readonly Collection[]): string {
-  const projects = collections.find((c) => c.name === 'projects');
+export function renderHomePage(): string {
+  const projects = collections.projects;
 
-  const projectLinks = (projects?.items ?? [])
+  const projectLinks = Object.entries(projects)
     .map(
-      (item) => `
+      ([slug, metadata]) => `
         <article>
-          <a href="/projects/${item.metadata.slug}/">
-            <h3>${item.metadata.title}</h3>
+          <a href="/projects/${slug}/">
+            <h3>${metadata.title}</h3>
           </a>
-          <p class="project-description">${item.metadata.description}</p>
+          <p class="project-description">${metadata.description ?? ''}</p>${
+            metadata.gitHub !== undefined
+              ? `
+          <a class="github-link" href="${metadata.gitHub}">GitHub</a>`
+              : ''
+          }
         </article>`,
     )
     .join('\n');
