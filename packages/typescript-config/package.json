@@ -6,6 +6,7 @@
   "type": "commonjs",
   "files": [
     "tsconfig.json",
-    "tsconfig.node.json"
+    "tsconfig.node.json",
+    "with-strict-imports.json"
   ]
 }
