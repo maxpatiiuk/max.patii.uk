@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => ({
     lib: {
       entry: {
         index: './src/index.ts',
+        litHmrPatch: './src/litHmrPatch.ts',
       },
       formats: ['es'],
     },

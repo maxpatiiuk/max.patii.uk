@@ -1,4 +1,4 @@
 {
   "extends": "@maxpatiiuk/typescript-config/tsconfig.json",
-  "include": ["src", "*.ts", "../web-components/src/components/layouts"]
+  "include": ["src", "*.ts"]
 }

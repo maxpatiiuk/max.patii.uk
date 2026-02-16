@@ -1,4 +1,4 @@
-import type { Collection } from '@maxpatiiuk/static-site-forge/types';
+import type { Collection } from '@maxpatiiuk/static-site-forge/types.js';
 import type { ProjectMetadata } from '@maxpatiiuk/web-components/components/mp-project-layout';
 import { siteConfig } from '../../config';
 
