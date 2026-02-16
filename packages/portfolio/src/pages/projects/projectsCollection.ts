@@ -1,6 +1,6 @@
 import type { Collection } from '@maxpatiiuk/static-site-forge/types.js';
 import type { ProjectMetadata } from '@maxpatiiuk/web-components/components/mp-project-layout';
-import { siteConfig } from '../../config';
+import { siteConfig } from '../../config.ts';
 
 export const projectsCollection: Collection<ProjectMetadata> = {
   defaultLayout: async () =>

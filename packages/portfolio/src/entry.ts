@@ -1,3 +1,4 @@
+// TODO: inject on the fly based on what's used in the file? add a config option to resolve a path to web component
 import '@maxpatiiuk/web-components/components/mp-paragraph';
 import '@maxpatiiuk/web-components/components/mp-header';
 import '@maxpatiiuk/web-components/components/mp-subheader';

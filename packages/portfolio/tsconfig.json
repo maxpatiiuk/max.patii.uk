@@ -1,4 +1,7 @@
 {
-  "extends": "@maxpatiiuk/typescript-config/tsconfig.json",
+  "extends": [
+    "@maxpatiiuk/typescript-config/tsconfig.json",
+    "@maxpatiiuk/typescript-config/with-strict-imports.json"
+  ],
   "include": ["src", "*.ts"]
 }

@@ -5,7 +5,7 @@ import type {
   TypedLayoutMetadata,
 } from '@maxpatiiuk/static-site-forge/types.js';
 import type { HomeLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-home-layout';
-import { siteConfig } from '../config';
+import { siteConfig } from '../config.ts';
 
 const indexPage: TypedLayoutMetadata<HomeLayoutMetadata> = {
   title: 'Max Patiiuk',
