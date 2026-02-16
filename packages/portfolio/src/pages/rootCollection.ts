@@ -3,7 +3,7 @@ import type {
   Collection,
   LayoutModule,
   TypedLayoutMetadata,
-} from '@maxpatiiuk/static-site-forge/types';
+} from '@maxpatiiuk/static-site-forge/types.js';
 import type { HomeLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-home-layout';
 import { siteConfig } from '../config';
 

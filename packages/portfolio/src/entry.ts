@@ -7,6 +7,3 @@ import '@maxpatiiuk/web-components/components/mp-image';
 import '@maxpatiiuk/web-components/components/mp-youtube';
 import '@maxpatiiuk/web-components/components/mp-vimeo';
 import '@maxpatiiuk/web-components/components/mp-aside';
-import '@maxpatiiuk/web-components/components/mp-snow-crash';
-import '@maxpatiiuk/web-components/components/mp-stopwatch';
-import '@maxpatiiuk/web-components/components/mp-shadow-game';

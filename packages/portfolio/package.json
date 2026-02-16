@@ -5,17 +5,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc && vite build",
+    "start": "vite",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@maxpatiiuk/static-site-forge": "workspace:*",
     "@maxpatiiuk/web-components": "workspace:*",
     "lit": "3.3.2"
   },
   "devDependencies": {
+    "@lit-labs/ssr": "^4.0.0",
+    "@maxpatiiuk/static-site-forge": "workspace:*",
     "@maxpatiiuk/typescript-config": "workspace:*",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"

@@ -12,7 +12,11 @@
       "Bash(pnpm --filter @maxpatiiuk/portfolio typecheck:*)",
       "Bash(pnpm --filter @maxpatiiuk/portfolio build:*)",
       "Bash(pnpm --filter @maxpatiiuk/web-components run build:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(pnpm config:*)",
+      "Bash(pnpm why:*)",
+      "Bash(pnpm ls:*)",
+      "WebFetch(domain:vite.dev)"
     ]
   }
 }

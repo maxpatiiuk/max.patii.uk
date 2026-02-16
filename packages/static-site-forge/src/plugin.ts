@@ -1,187 +1,214 @@
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { pipeline } from 'node:stream/promises';
+import { isRunnableDevEnvironment, type Plugin, type UserConfig } from 'vite';
+import type { BasePageMetadata, Collection } from './types';
+import { createDebug } from './debug';
 
-import type { Plugin, ViteDevServer } from 'vite';
+const debugTransform = createDebug('transform');
+let isServe = false;
 
-import type { ForgeConfig, PageMetadata } from './types.js';
-import { transformMarkdown } from './transform.js';
-import { renderToString } from './ssr.js';
-
-/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unnecessary-condition, @typescript-eslint/prefer-optional-chain, no-await-in-loop */
-
-/**
- * Create the static-site-forge Vite plugin.
- *
- * @public
- * @param config - The forge configuration.
- */
-export function useStaticSiteForge(config: ForgeConfig): Plugin {
-  let outDir = 'dist';
-
+/** @public */
+export function useStaticSiteForge(): Plugin {
   return {
-    name: 'static-site-forge',
-
-    configResolved(resolvedConfig): void {
-      outDir = resolvedConfig.build.outDir;
-      (config as any).resolvedConfig = resolvedConfig;
+    /*builder: {
+    buildApp: async (builder): Promise<void> => {
+      // Client first — produces static assets, CSS, client JS.
+      await builder.build(builder.environments.client);
+      // SSR second — produces modules used for prerendering.
+      await builder.build(builder.environments.ssr);
     },
-
-    transform(code, id): string | null {
-      if (id.endsWith('.md')) {
-        return transformMarkdown(code);
+  },*/
+    // TODO: do I need to guard this to a single environment?
+    name: '@maxpatiiuk/static-site-forge',
+    sharedDuringBuild: true,
+    config(_config, env): UserConfig {
+      if (env.command === 'serve') {
+        isServe = true;
       }
-      return null;
+      return {
+        environments: {
+          ssr: {
+            build: {
+              outDir: 'dist-ssr',
+              rollupOptions: { input: 'src/test.js' },
+            },
+          },
+        },
+      };
+    },
+    resolveId: {
+      filter: { id: /\.md\?mp$/u },
+      handler(id): string {
+        return `${process.cwd()}/src/pages/${id}`;
+      },
+    },
+    load: {
+      filter: { id: /\.md\?mp$/u },
+      async handler(fullId): Promise<string | undefined> {
+        const id = fullId.slice(0, -'?mp'.length);
+        const file = await readFile(id, 'utf8');
+        const hasJsPrefix = file.startsWith('```');
+        const jsPrefixEnd = hasJsPrefix ? file.indexOf('\n```\n', 3) : -1;
+        const prefix = hasJsPrefix
+          ? file.slice(file.indexOf('\n') + 1, jsPrefixEnd + 1)
+          : '';
+        const content = hasJsPrefix
+          ? file.slice(jsPrefixEnd + '\n```\n'.length)
+          : file;
+        const html = content
+          .replaceAll('\n\n', '<br>')
+          .replaceAll(/\*\*(.*?)\*\*/gu, '<b>$1</b>');
+        // Wrap the module in a function rather than execute immediately
+        // so that `new Date()` is fresh on each request
+        const module = `${isServe ? `import "@maxpatiiuk/static-site-forge/litHmrPatch.js";` : ''}
+${prefix}import { html, render as ssrRender } from "@lit-labs/ssr";
+import {collectResultSync} from '@lit-labs/ssr/lib/render-result.js';
+
+export function render() {
+  const result = ssrRender(html\`${html}\`);
+  return collectResultSync(result);
+}`;
+        debugTransform?.(`${id}: ${module}`);
+        return module;
+      },
     },
 
     configureServer(server): void {
-      setupDevServer(server, config);
-    },
-
-    async writeBundle(): Promise<void> {
-      const resolvedConfig = (config as any).resolvedConfig;
-      const ssrEnvironment = resolvedConfig.environments?.ssr;
-      if (!ssrEnvironment) {
+      const ssrEnvironment = server.environments.ssr;
+      if (!isRunnableDevEnvironment(ssrEnvironment)) {
         return;
       }
+      const runner = ssrEnvironment.runner;
 
-      for (const [collectionName, collection] of Object.entries(
-        config.collections,
-      )) {
-        for (const [slug, metadata] of Object.entries(collection)) {
-          const isRoot =
-            collectionName === 'pages' || collectionName === 'root';
-          const url = isRoot
-            ? slug === 'index'
-              ? '/'
-              : `/${slug}/`
-            : `/${collectionName}/${slug}/`;
-
-          const mdPath = isRoot
-            ? `/src/pages/${slug}.md`
-            : `/src/pages/${collectionName}/${slug}.md`;
-
-          try {
-            // 1. Load the markdown module
-            const mdModule = await ssrEnvironment.runModule(mdPath);
-            const contentTemplate = mdModule.render(config.siteConfig);
-
-            // 2. Load the layout module
-            const layoutModule = await metadata.layout();
-            const finalTemplate = layoutModule.renderLayout(
-              contentTemplate,
-              metadata,
-              config.siteConfig,
-            );
-            const finalHtml = await renderToString(finalTemplate);
-
-            // 3. Write to file
-            const outputPath =
-              isRoot && slug === 'index'
-                ? join(outDir, 'index.html')
-                : join(outDir, url, 'index.html');
-
-            await mkdir(dirname(outputPath), { recursive: true });
-            await writeFile(outputPath, finalHtml, 'utf-8');
-            console.log(`Generated ${outputPath}`);
-          } catch (e) {
-            console.error(`Failed to generate ${url}:`, e);
-          }
+      async function fetchCollectionsModule(): Promise<
+        Record<string, Collection>
+      > {
+        const collectionsModule: unknown = await runner.import(
+          './src/collections.ts',
+        );
+        if (
+          typeof collectionsModule !== 'object' ||
+          collectionsModule === null ||
+          !('collections' in collectionsModule) ||
+          typeof collectionsModule.collections !== 'object'
+        ) {
+          throw Error(
+            'collections module must export an object named collections',
+          );
         }
+        return collectionsModule.collections as Record<string, Collection>;
       }
+
+      server.middlewares.use(
+        (request, response, next) =>
+          // Fetch collections.ts on each request. If it didn't change, Vite
+          // caches it
+          void fetchCollectionsModule()
+            .then(async (collections) => {
+              const resolved = resolveUrlToPage(
+                request.url ?? '/',
+                collections,
+              );
+
+              if (resolved === undefined) {
+                return next();
+              }
+
+              const module: unknown = await ssrEnvironment.runner.import(
+                `${resolved.collectionName}/${resolved.slug}.md?mp`,
+              );
+
+              if (
+                typeof module !== 'object' ||
+                module === null ||
+                !('render' in module) ||
+                typeof module.render !== 'function'
+              ) {
+                return next();
+              }
+              const renderer = module.render as () => string;
+              const rawHtml = renderer();
+              const html = await server.transformIndexHtml(
+                request.url ?? '/',
+                rawHtml,
+              );
+              response.setHeader('Content-Type', 'text/html');
+              await pipeline(html, response);
+            })
+            .catch((error) => {
+              console.error(
+                `[static-site-forge] Failed to render ${request.url}:`,
+                error,
+              );
+              response.statusCode = 500;
+              response.end(`Internal Server Error: ${String(error)}`);
+            }),
+      );
+    },
+
+    hotUpdate({ modules, server }): never[] | void {
+      if (this.environment.name !== 'ssr' || modules.length === 0) {
+        return;
+      }
+      // Could walk the modules[].importers to collect affected .md?mp pages
+      // and send a custom forge:update event to the client with just the list
+      // of affected pages. then the client can use import.meta.hot to check in
+      // that event if current page is affected. pros: edits that dont affect
+      // open browser page wont trigger reload. cons: complexity, and possibly
+      // stale state for any client-side JS code - they may require separate HMR
+      // support. Not much gain at present given these are simple static pages.
+      server.environments.client.hot.send({ type: 'full-reload' });
+      return [];
     },
   };
 }
 
+const debugResolve = createDebug('resolve');
 /**
- * Serve generated HTML during development via Vite's middleware.
+ * Map a request URL to a page in the collections.
+ *
+ * Routing rules:
+ * - The `` (root) collection owns top-level URLs: `/` → slug `index`, `/foo/` → slug `foo`.
+ * - Named collections own their prefix: `/projects/bar/` → collection `projects`, slug `bar`.
  */
-function setupDevServer(server: ViteDevServer, config: ForgeConfig): void {
-  // Serve generated pages
-  server.middlewares.use((req, res, next) => {
-    const handleRequest = async (): Promise<void> => {
-      const url = req.url ?? '/';
-
-      let resolvedPage: { slug: string; metadata: PageMetadata } | undefined;
-
-      // Home page
-      const homeCollection =
-        config.collections.pages ?? config.collections.root;
-      if (url === '/' || url === '/index.html') {
-        if (homeCollection && homeCollection.index) {
-          resolvedPage = { slug: 'index', metadata: homeCollection.index };
-        }
-      } else {
-        resolvedPage = resolveCollectionPage(url, config.collections);
-      }
-
-      if (resolvedPage !== undefined) {
-        const { slug, metadata } = resolvedPage;
-
-        // Find the .md file path.
-        // Assuming pages are in src/pages/
-        const isProject = url.startsWith('/projects/');
-        const mdPath = isProject
-          ? `/src/pages/projects/${slug}.md`
-          : `/src/pages/${slug}.md`;
-
-        try {
-          // 1. Load the markdown module
-          const mdModule = await (server as any).ssrLoadModule(mdPath);
-          const contentTemplate = mdModule.render(config.siteConfig);
-
-          // 2. Load the layout module
-          const layoutModule = await metadata.layout();
-
-          // Layout module exports a renderLayout(content, metadata, siteConfig) function
-          const finalTemplate = layoutModule.renderLayout(
-            contentTemplate,
-            metadata,
-            config.siteConfig,
-          );
-          const finalHtml = await renderToString(finalTemplate);
-
-          res.setHeader('Content-Type', 'text/html');
-          res.end(finalHtml);
-          return;
-        } catch (e) {
-          console.error(`Failed to render ${url}:`, e);
-          res.statusCode = 500;
-          res.end(
-            `Internal Server Error: ${e instanceof Error ? e.message : String(e)}`,
-          );
-          return;
-        }
-      }
-
-      next();
-    };
-
-    handleRequest().catch(next);
-  });
-
-  server.watcher.on('change', (changedPath) => {
-    if (changedPath.endsWith('.md')) {
-      server.ws.send({ type: 'full-reload' });
-    }
-  });
-}
-
-function resolveCollectionPage(
+function resolveUrlToPage(
   url: string,
-  collections: ForgeConfig['collections'],
-): { slug: string; metadata: PageMetadata } | undefined {
-  for (const [name, collection] of Object.entries(collections)) {
-    if (name === 'pages' || name === 'root') {
+  collections: Record<string, Collection>,
+): ResolvedPage | undefined {
+  // Strip query string, hash, and leading slash
+  const pathname = url.split(/[?#]/u)[0].slice('/'.length);
+  // Force ending slash
+  const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  debugResolve?.(`Resolving ${normalized}`);
+
+  for (const [collectionName, collection] of Object.entries(collections)) {
+    const prefix = collectionName === '' ? '' : `${collectionName}/`;
+    if (!normalized.startsWith(prefix)) {
       continue;
     }
-    const prefix = `/${name}/`;
-    if (url.startsWith(prefix)) {
-      const slug = url.slice(prefix.length).replace(/\/$/u, '') || 'index';
-      if (Object.hasOwn(collection, slug)) {
-        return { slug, metadata: collection[slug] };
-      }
+
+    const withoutPrefix = normalized.slice(prefix.length);
+    const slug =
+      withoutPrefix === '' ? 'index' : withoutPrefix.slice(0, -'/'.length);
+    if (Object.hasOwn(collection.pages, slug)) {
+      debugResolve?.(
+        `Resolved to collection "${collectionName}", slug "${slug}"`,
+      );
+      return {
+        collectionName,
+        slug,
+        metadata: collection.pages[slug],
+        collection,
+      };
     }
   }
 
-  return undefined;
+  return;
 }
+
+type ResolvedPage = {
+  collectionName: string;
+  slug: string;
+  metadata: BasePageMetadata;
+  collection: Collection;
+};

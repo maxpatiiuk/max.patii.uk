@@ -1,4 +1,8 @@
 {
   "extends": "@maxpatiiuk/typescript-config/tsconfig.node.json",
-  "include": ["src", "*.ts"]
+  "include": ["src", "*.ts"],
+  "compilerOptions": {
+    // Some entries need mock DOM access
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "es2024"]
+  }
 }
