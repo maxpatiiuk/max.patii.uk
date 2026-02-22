@@ -9,7 +9,10 @@ import { markdownToJs } from './markdown/markdownToJs.ts';
 const debugTransform = createDebug('transform');
 const ssrOutPath = `node_modules/.cache/static-site-forge/dist-ssr/`;
 
-/** @public */
+/**
+ * @public
+ * @param config
+ */
 export function useStaticSiteForge(
   config: ForgeConfig,
 ): [Plugin, Plugin, Plugin] {

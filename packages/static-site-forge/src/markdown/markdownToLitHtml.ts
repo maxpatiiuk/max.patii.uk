@@ -1,3 +1,5 @@
+import { throwParseError } from './throwParseError.ts';
+
 /**
  * A performant markdown-to-lit-html single-pass transformer.
  *
@@ -143,16 +145,16 @@ export function markdownToLitHtml(
           const altTextStart = index + 2;
           const altTextEnd = markdown.indexOf(']', altTextStart);
           if (altTextEnd === -1) {
-            throw Error('Unclosed alt text in image markdown');
+            throwParseError(markdown, index, 'Unclosed alt text in image');
           }
           const altText = markdown.slice(altTextStart, altTextEnd);
           if (markdown.charCodeAt(altTextEnd + 1) !== codeOpenParen) {
-            throw Error('Missing URL in image markdown');
+            throwParseError(markdown, altTextEnd + 1, 'Missing URL in image');
           }
           const urlStart = altTextEnd + 2;
           const urlEnd = markdown.indexOf(')', urlStart);
           if (urlEnd === -1) {
-            throw Error('Unclosed URL in image markdown');
+            throwParseError(markdown, urlStart, 'Unclosed URL in image');
           }
           const url = markdown.slice(urlStart, urlEnd);
           ropes.push(`<img src="${url}" alt="${altText}">`);
@@ -168,17 +170,17 @@ export function markdownToLitHtml(
         const linkTextStart = index + 1;
         const linkTextEnd = markdown.indexOf(']', linkTextStart);
         if (linkTextEnd === -1) {
-          throw Error('Unclosed link text in link markdown');
+          throwParseError(markdown, index, 'Unclosed link text');
         }
         // Not supporting images inside links yet
         const linkText = markdown.slice(linkTextStart, linkTextEnd);
         if (markdown.charCodeAt(linkTextEnd + 1) !== codeOpenParen) {
-          throw Error('Missing URL in link markdown');
+          throwParseError(markdown, linkTextEnd + 1, 'Missing URL in link');
         }
         const urlStart = linkTextEnd + 2;
         const urlEnd = markdown.indexOf(')', urlStart);
         if (urlEnd === -1) {
-          throw Error('Unclosed URL in link markdown');
+          throwParseError(markdown, urlStart, 'Unclosed URL in link');
         }
         const url = markdown.slice(urlStart, urlEnd);
         ropes.push(`<a href="${url}">${linkText}</a>`);
@@ -196,7 +198,7 @@ export function markdownToLitHtml(
           // HTML comment
           const commentEnd = markdown.indexOf('-->', index + 4);
           if (commentEnd === -1) {
-            throw Error('Unclosed HTML comment');
+            throwParseError(markdown, index, 'Unclosed HTML comment');
           }
           index = commentEnd + 2;
           flushIndex = index + 1;
@@ -205,15 +207,17 @@ export function markdownToLitHtml(
           const tagNameStart = index + 2;
           const tagNameEnd = markdown.indexOf('>', tagNameStart);
           if (tagNameEnd === -1) {
-            throw Error('Unclosed HTML tag');
+            throwParseError(markdown, index, 'Unclosed HTML tag');
           }
           const tagName = markdown.slice(tagNameStart, tagNameEnd).trimEnd();
           if (
             htmlStack.length === 0 ||
             htmlStack[htmlStack.length - 1] !== tagName
           ) {
-            throw Error(
-              `Mismatched closing HTML tag: ${tagName}. Expected ${htmlStack[htmlStack.length - 1]}`,
+            throwParseError(
+              markdown,
+              index,
+              `Mismatched closing HTML tag: </${tagName}>. Expected </${htmlStack[htmlStack.length - 1]}>`,
             );
           }
           htmlStack.pop();
@@ -231,10 +235,14 @@ export function markdownToLitHtml(
   }
 
   if (isInBold || isInItalic || isInStrikethrough) {
-    throw Error('Unclosed inline markdown');
+    throwParseError(markdown, length - 1, 'Unclosed inline markdown');
   }
   if (htmlStack.length > 0) {
-    throw Error(`Unclosed HTML block: ${htmlStack[htmlStack.length - 1]}`);
+    throwParseError(
+      markdown,
+      length - 1,
+      `Unclosed HTML tag: <${htmlStack[htmlStack.length - 1]}>`,
+    );
   }
 
   flushText(length);
@@ -329,7 +337,7 @@ export function markdownToLitHtml(
           continue;
       }
     }
-    throw Error('Unclosed backtick block');
+    throwParseError(markdown, length - 1, 'Unclosed backtick block');
   }
 
   function processHtmlTag(index: number): number {
@@ -342,7 +350,7 @@ export function markdownToLitHtml(
           tagName = markdown.slice(tagNameStart, index);
           const bracketIndex = markdown.indexOf('>', index);
           if (bracketIndex === -1) {
-            throw Error('Unclosed HTML tag');
+            throwParseError(markdown, index, 'Unclosed HTML tag');
           }
           if (
             markdown.charCodeAt(bracketIndex - 1) !== codeSlash &&
@@ -362,7 +370,9 @@ export function markdownToLitHtml(
           return index;
         case codeSlash:
           if (markdown.charCodeAt(index + 1) !== codeGreaterThan) {
-            throw Error(
+            throwParseError(
+              markdown,
+              index,
               'Expected closing angle bracket after slash in HTML tag',
             );
           }
@@ -396,7 +406,7 @@ export function markdownToLitHtml(
           continue;
       }
     }
-    throw Error('Unclosed HTML tag');
+    throwParseError(markdown, index - 1, 'Unclosed HTML tag');
   }
 
   /**
@@ -437,8 +447,10 @@ export function markdownToLitHtml(
             flushIndex = index + 1;
             return flushIndex;
           } else {
-            throw Error(
-              `Expected space or newline after >. Found: ${String.fromCharCode(nextChar)}. Index: ${index + 1}`,
+            throwParseError(
+              markdown,
+              index + 1,
+              `Expected space or newline after >`,
             );
           }
         } else {
@@ -460,9 +472,7 @@ export function markdownToLitHtml(
             closeLists(stackIndex);
             ropes.push('</li><li>');
           } else {
-            throw Error(
-              `Expected space or newline after -. Found: ${String.fromCharCode(nextChar)}. Index: ${index - 1}`,
-            );
+            throwParseError(markdown, index - 1, `Expected space after -`);
           }
         } else {
           closeLists(stackIndex);
@@ -484,8 +494,10 @@ export function markdownToLitHtml(
         if (markdown.charCodeAt(tentativeIndex) === codeDot) {
           const nextChar = markdown.charCodeAt(tentativeIndex + 1);
           if (nextChar !== codeSpace) {
-            throw Error(
-              `Expected space after dot in ordered list marker. Found: ${String.fromCharCode(nextChar)}. Index: ${tentativeIndex + 1}`,
+            throwParseError(
+              markdown,
+              tentativeIndex + 1,
+              `Expected space after dot in ordered list marker`,
             );
           }
           flushText(index);
@@ -514,7 +526,7 @@ export function markdownToLitHtml(
         flushText(index);
         const stackItem = listsStack.at(stackIndex);
         if (stackItem === blockquoteMarker || stackItem === undefined) {
-          throw Error(`Unexpected space at index ${index}`);
+          throwParseError(markdown, index, `Unexpected space`);
         } else {
           let spaceLength =
             stackItem === unorderedListMarker
@@ -522,8 +534,10 @@ export function markdownToLitHtml(
               : Math.floor(Math.log10(stackItem)) + 2;
           for (++index; spaceLength > 0; --spaceLength, ++index) {
             if (markdown.charCodeAt(index) !== codeSpace) {
-              throw Error(
-                `Expected ${spaceLength} spaces for nested ordered list. Found: ${String.fromCharCode(markdown.charCodeAt(index))}. Index: ${index}`,
+              throwParseError(
+                markdown,
+                index,
+                `Expected ${spaceLength} more spaces for nested list indentation`,
               );
             }
           }
