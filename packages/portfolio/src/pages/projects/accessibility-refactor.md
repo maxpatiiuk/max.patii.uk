@@ -34,22 +34,20 @@ The following accessibility improvements have been made:
 
 <mp-youtube video="lJZSk5-bKCk" caption="Recording of a webinar on accessibility improvements in Specify&nbsp;7">
 <span slot="description">
-
-    Showcase of Accessibility and Usability improvements in Specify&nbsp;7
-
-  </span>
+Showcase of Accessibility and Usability improvements in Specify&nbsp;7
+</span>
 </mp-youtube>
 
 <mp-youtube video="YIbeZ_f_eQc" caption="Presentation from iDigBio Digital Data Conference 2022">
-   <span slot="description">
+<span slot="description">
 
-    Video overview of accessibility improvements and other enhancements
+Video overview of accessibility improvements and other enhancements
 
-  </span>
+</span>
 </mp-youtube>
 
 <mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7">
-  <span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
+<span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
 </mp-youtube>
 
 ## Screenshots
