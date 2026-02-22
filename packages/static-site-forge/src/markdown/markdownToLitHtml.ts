@@ -1,7 +1,7 @@
 /**
- * A performant markdown-to-lit-html scanner using a while-loop state machine.
+ * A performant markdown-to-lit-html single-pass transformer.
  *
- * This scanner supports headings, paragraphs, lists (including nesting),
+ * This transformer supports headings, paragraphs, infinitely nested lists and blockquotes,
  * links, images, bold/italic/code spans, and HTML passthrough blocks.
  */
 export function markdownToLitHtml(
@@ -32,17 +32,15 @@ export function markdownToLitHtml(
           flushParagraph();
           flushIndex = index + 1;
           ropes.push('<br>');
-          index = progressLists(index + 1) - 1;
         } else {
-          isBlockLevel = true;
-          index = progressLists(index + 1) - 1;
-
           if (activeHeadingLevel > 0) {
             flushText(index);
             flushHeading();
             flushIndex = index;
           }
+          isBlockLevel = true;
         }
+        index = progressLists(index + 1) - 1;
         continue;
       case codeHash:
         if (isBlockLevel) {
@@ -86,7 +84,7 @@ export function markdownToLitHtml(
           hadBackslash = false;
         } else {
           flushText(index);
-          flushIndex = ++index;
+          flushIndex = index + 1;
           ropes.push(isInItalic ? '</i>' : '<i>');
           isInItalic = !isInItalic;
         }
@@ -184,13 +182,17 @@ export function markdownToLitHtml(
         }
         const url = markdown.slice(urlStart, urlEnd);
         ropes.push(`<a href="${url}">${linkText}</a>`);
-        index = urlEnd + 1;
-        flushIndex = index;
+        index = urlEnd;
+        flushIndex = index + 1;
         continue;
       case codeLessThan:
         flushText(index);
         flushIndex = index;
-        if (markdown.slice(index + 1, index + 4).toLowerCase() === '!--') {
+        if (
+          markdown.charCodeAt(index + 1) === codeExclamation &&
+          markdown.charCodeAt(index + 2) === codeDash &&
+          markdown.charCodeAt(index + 3) === codeDash
+        ) {
           // HTML comment
           const commentEnd = markdown.indexOf('-->', index + 4);
           if (commentEnd === -1) {

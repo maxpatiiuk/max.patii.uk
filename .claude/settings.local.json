@@ -16,7 +16,8 @@
       "Bash(pnpm config:*)",
       "Bash(pnpm why:*)",
       "Bash(pnpm ls:*)",
-      "WebFetch(domain:vite.dev)"
+      "WebFetch(domain:vite.dev)",
+      "Bash(pnpm --filter static-site-forge exec vitest run:*)"
     ]
   }
 }
