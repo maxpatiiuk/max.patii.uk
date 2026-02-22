@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { transformMarkdown } from './transform.js';
+import { markdownToJs } from './markdown/markdownToJs.ts';
 
 describe('transformMarkdown', () => {
   it('should transform a simple markdown file', () => {
@@ -11,7 +11,7 @@ import '@maxpatiiuk/web-components/components/mp-paragraph';
 This is a paragraph.
 `.trim();
 
-    const output = transformMarkdown(input);
+    const output = markdownToJs(input);
 
     expect(output).toContain("import { html } from 'lit';");
     expect(output).toContain(
@@ -29,7 +29,7 @@ This is a paragraph.
 <mp-project-header title={context.title} description="Static description" />
 `.trim();
 
-    const output = transformMarkdown(input);
+    const output = markdownToJs(input);
 
     expect(output).toContain('.title=${context.title}');
     expect(output).toContain('.description=${"Static description"}');
@@ -41,7 +41,7 @@ This is a paragraph.
 <mp-test data={{ a: 1, b: { c: 2 } }} />
 `.trim();
 
-    const output = transformMarkdown(input);
+    const output = markdownToJs(input);
 
     expect(output).toContain('.data=${{ a: 1, b: { c: 2 } }}');
   });
@@ -51,7 +51,7 @@ This is a paragraph.
 <mp-foo bar="baz" />
 `.trim();
 
-    const output = transformMarkdown(input);
+    const output = markdownToJs(input);
 
     expect(output).toContain('<mp-foo .bar=${"baz"}></mp-foo>');
   });
@@ -61,7 +61,7 @@ This is a paragraph.
 <div class="foo">Text</div>
 `.trim();
 
-    const output = transformMarkdown(input);
+    const output = markdownToJs(input);
 
     expect(output).toContain('<div class="foo">');
   });

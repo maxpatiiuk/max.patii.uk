@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     lib: {
       entry: {
-        index: './src/index.ts',
+        plugin: './src/plugin.ts',
         litHmrPatch: './src/litHmrPatch.ts',
       },
       formats: ['es'],

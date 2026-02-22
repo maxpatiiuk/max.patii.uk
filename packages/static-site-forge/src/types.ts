@@ -35,6 +35,9 @@ type LayoutModule<T extends BasePageMetadata> = Record<
 
 /** @public */
 export type ForgeConfig = {
-  /** @public */
-  readonly collections: Record<string, Collection>;
+  /**
+   * @public
+   * @param tagName
+   */
+  readonly getWebComponentImportPath: (tagName: string) => string;
 };

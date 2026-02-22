@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { html } from 'lit';
-import { renderToString } from './ssr.js';
+import { renderToString } from './ssr.ts';
 
 describe('renderToString', () => {
   it('should render a simple template', async () => {
