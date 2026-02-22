@@ -1,5 +1,5 @@
 import { render } from '@lit-labs/ssr';
-import { collectResult } from '@lit-labs/ssr/lib/render-result.js';
+import { collectResult } from '@lit-labs/ssr/lib/render-result.ts';
 import type { TemplateResult } from 'lit';
 
 /**

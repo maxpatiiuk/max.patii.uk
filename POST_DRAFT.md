@@ -6,6 +6,17 @@ understand it deeper, I wished to implement an Astro clone.
 Also, I wished to try out leading AI Agents (Copilot, Claude, Gemini) to compare
 their performance and get experience with context engineering.
 
+Static Site Forge's features:
+
+- 0 client-side JS by default (like Astro)
+
+- Type-safe frontmatter. Stored in a single file for faster dev server (home
+  page can get list of posts and their titles without having to read each post's
+  body).
+
+- No special `.astro` format (it requires each tooling to support it). Instead,
+  using `.md`, with an optional js code block at the top
+
 Lessons learned:
 
 Astro's collection concept is useful - a home page can get page meta in a lazy

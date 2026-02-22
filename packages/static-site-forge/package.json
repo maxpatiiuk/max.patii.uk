@@ -4,10 +4,8 @@
   "description": "A static site generator for max.patii.uk",
   "private": true,
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
+    "./plugin.js": "./dist/plugin.js",
     "./types.js": {
       "types": "./dist/types.d.ts"
     },

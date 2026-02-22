@@ -1,15 +1,18 @@
 import { readFile } from 'node:fs/promises';
 import { pipeline } from 'node:stream/promises';
 import { isRunnableDevEnvironment, type Plugin, type UserConfig } from 'vite';
-import type { BasePageMetadata, Collection } from './types';
-import { createDebug } from './debug';
+import type { BasePageMetadata, Collection, ForgeConfig } from './types.ts';
+import { createDebug } from './debug.ts';
 import { pathToFileURL } from 'node:url';
+import { markdownToJs } from './markdown/markdownToJs.ts';
 
 const debugTransform = createDebug('transform');
 const ssrOutPath = `node_modules/.cache/static-site-forge/dist-ssr/`;
 
 /** @public */
-export function useStaticSiteForge(): [Plugin, Plugin, Plugin] {
+export function useStaticSiteForge(
+  config: ForgeConfig,
+): [Plugin, Plugin, Plugin] {
   let isServe = false;
   const collectionsPath = `${process.cwd()}/src/collections.ts`;
   // Not supporting .root customization
@@ -189,30 +192,9 @@ export function useStaticSiteForge(): [Plugin, Plugin, Plugin] {
       async handler(fullId): Promise<string | undefined> {
         const id = fullId.slice(0, -'?mp'.length);
         const file = await readFile(id, 'utf8');
-        const hasJsPrefix = file.startsWith('```');
-        const jsPrefixEnd = hasJsPrefix ? file.indexOf('\n```\n', 3) : -1;
-        const prefix = hasJsPrefix
-          ? file.slice(file.indexOf('\n') + 1, jsPrefixEnd + 1)
-          : '';
-        const content = hasJsPrefix
-          ? file.slice(jsPrefixEnd + '\n```\n'.length)
-          : file;
-        const html = content
-          .replaceAll('\n\n', '<br>')
-          .replaceAll(/\*\*(.*?)\*\*/gu, '<b>$1</b>')
-          .replaceAll(/`(.*?)`/gu, '<code>$1</code>');
-        // Wrap the module in a function rather than execute immediately
-        // so that `new Date()` is fresh on each request
-        const module = `${isServe ? `import "@maxpatiiuk/static-site-forge/litHmrPatch.js";` : ''}
-${prefix}import { html, render as ssrRender } from "@lit-labs/ssr";
-import {collectResultSync} from '@lit-labs/ssr/lib/render-result.js';
-
-export function render() {
-  const result = ssrRender(html\`${html}\`);
-  return collectResultSync(result);
-}`;
-        debugTransform?.(`${id}: ${module}`);
-        return module;
+        const transformed = markdownToJs(file, isServe, config);
+        debugTransform?.(`${id}: ${transformed}`);
+        return transformed;
       },
     },
 

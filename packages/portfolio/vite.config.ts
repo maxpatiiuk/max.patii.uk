@@ -1,6 +1,11 @@
 import { defineConfig } from 'vite';
-import { useStaticSiteForge } from '@maxpatiiuk/static-site-forge';
+import { useStaticSiteForge } from '@maxpatiiuk/static-site-forge/plugin.js';
 
 export default defineConfig({
-  plugins: [useStaticSiteForge()],
+  plugins: [
+    useStaticSiteForge({
+      getWebComponentImportPath: (tagName) =>
+        `@maxpatiiuk/web-components/components/${tagName}`,
+    }),
+  ],
 });

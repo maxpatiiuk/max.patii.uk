@@ -16,7 +16,7 @@ import { isRunnableDevEnvironment } from 'vite';
 import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import type { TemplateResult } from 'lit';
 
-import { transformMarkdown } from './transform.js';
+import { markdownToJs } from './markdown/markdownToJs.ts';
 import { renderToString } from './ssr.js';
 import { pagesDirectory } from './const.js';
 
@@ -144,7 +144,7 @@ export function useStaticSiteForge(config: ForgeConfig): Plugin {
     // ------------------------------------------------------------------
     transform(code, id): string | null {
       if (id.endsWith('.md')) {
-        return transformMarkdown(code);
+        return markdownToJs(code);
       }
       return null;
     },
