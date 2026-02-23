@@ -4,7 +4,10 @@ But, complex implementation. I was recently learning Astro, and to help me
 understand it deeper, I wished to implement an Astro clone.
 
 Also, I wished to try out leading AI Agents (Copilot, Claude, Gemini) to compare
-their performance and get experience with context engineering.
+their performance and get experience with context engineering. They did great on
+monorepo boilerplate, pnpm, and adding fuzz tests to the markdown transformer,
+but implementing the transformer itself or the vite plugin was too complex for
+even the smartest model even after minutes of planning and research.
 
 Static Site Forge's features:
 
@@ -16,6 +19,8 @@ Static Site Forge's features:
 
 - No special `.astro` format (it requires each tooling to support it). Instead,
   using `.md`, with an optional js code block at the top
+
+- Extremely fast markdown to lit-html transformer.
 
 Lessons learned:
 

@@ -1,11 +1,7 @@
-<mp-aside>
-
-This project was presented during SpeedGeeking session at Esri DevSummit 2024.
-
-- [Slides](https://maxpatiiuk.github.io/tetris-react)
-- [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/202r/tetris-react)
-
-</mp-aside>
+> This project was presented during SpeedGeeking session at Esri DevSummit 2024.
+>
+> - [Slides](https://maxpatiiuk.github.io/tetris-react)
+> - [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/202r/tetris-react)
 
 Tetris was one game I could always easily lose myself in. I decided to make
 learning ArcGIS Maps SDK for JavaScript more fun by making a game using it.
@@ -18,14 +14,14 @@ learning ArcGIS Maps SDK for JavaScript more fun by making a game using it.
 
 ## Screenshots
 
-![Panorama World](/projects/images/tetris/1.webp)
-![Scenery World](/projects/images/tetris/2.webp)
-![Panorama World](/projects/images/tetris/3.webp)
-![Scenery World](/projects/images/tetris/4.webp)
+![Panorama World](../../../public/projects/images/tetris/1.webp)
+![Scenery World](../../../public/projects/images/tetris/2.webp)
+![Panorama World](../../../public/projects/images/tetris/3.webp)
+![Scenery World](../../../public/projects/images/tetris/4.webp)
 
 By the way, can you beat my high score?
 
-![Grid World](/projects/images/tetris/5.webp)
+![Grid World](../../../public/projects/images/tetris/5.webp)
 
 ## Technologies used
 
@@ -50,12 +46,8 @@ The code architecture is quite scalable thanks to the separation between view,
 model and controller - to add a new level, just create a new view, without the
 need for any changes to game's state or reducer logic.
 
-<mp-aside>
-
-Note, this game was originally written by me in 2021 when I was learning Next.js
-and Ramda.js. Back then, it only included the "Grid World" level.
-
-</mp-aside>
+> Note, this game was originally written by me in 2021 when I was learning
+> Next.js and Ramda.js. Back then, it only included the "Grid World" level.
 
 ## Things learned
 

@@ -4,7 +4,7 @@ and has since been extended with multiple compiler backends.
 
 ## Screenshot
 
-![Example Alia interpreter session](/projects/images/alia/1.webp)
+![Example Alia interpreter session](../../../public/projects/images/alia/1.webp)
 
 ## Technologies used
 

@@ -1,8 +1,8 @@
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-
 import { h, LitElement, property } from '@arcgis/lumina';
-import { html, type TemplateResult } from 'lit';
+import type { TemplateResult } from 'lit';
+import { html as ssrHtml } from '@lit-labs/ssr';
 import type { LayoutBase } from '../types';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 /** @public */
 export type SiteConfig = {
@@ -66,7 +66,7 @@ export class MpRootLayout extends LitElement implements LayoutBase {
         : `${layoutData.title} | ${siteConfig.title}`;
     const desc = layoutData.description ?? siteConfig.description;
 
-    const head = `
+    const head = ssrHtml`
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${fullTitle}</title>
@@ -84,19 +84,17 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="stylesheet" href="/styles/global.css">
-  <script type="module" src="/src/entry.ts"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>
-  <script>
+  ${unsafeHTML(`<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '${siteConfig.googleAnalyticsId}');
-  </script>
+  </script>`)}
   `;
 
-    return html`<head>
-        ${unsafeHTML(head)}
+    return ssrHtml`<head>
+        ${head}
       </head>
       <body>
         ${(<slot />)}

@@ -8,6 +8,8 @@ export default defineConfig(({ mode }) => ({
       entry: {
         plugin: './src/plugin.ts',
         litHmrPatch: './src/litHmrPatch.ts',
+        cssLoader: './src/cssLoader.ts',
+        runtime: './src/runtime.ts',
       },
       formats: ['es'],
     },
@@ -17,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       external: [
         ...builtinModules.map((module) => `node:${module}`),
         'vite',
-        'lit',
+        /^lit[/|$]/u,
         /^@lit-labs\/ssr/u,
       ],
     },

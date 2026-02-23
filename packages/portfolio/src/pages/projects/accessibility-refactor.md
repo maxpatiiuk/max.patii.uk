@@ -52,11 +52,11 @@ Video overview of accessibility improvements and other enhancements
 
 ## Screenshots
 
-![User Preferences menu](/projects/images/accessibility-refactor/1.webp)
-![Accessible modal dialog](/projects/images/accessibility-refactor/2.webp)
-![Accessible form (layout is user-defined)](/projects/images/accessibility-refactor/3.webp)
-![Accessible form in a non-modal dialog](/projects/images/accessibility-refactor/4.webp)
-![Query Builder accessibility refactor](/projects/images/query-builder/4.webp)
+![User Preferences menu](../../../public/projects/images/accessibility-refactor/1.webp)
+![Accessible modal dialog](../../../public/projects/images/accessibility-refactor/2.webp)
+![Accessible form (layout is user-defined)](../../../public/projects/images/accessibility-refactor/3.webp)
+![Accessible form in a non-modal dialog](../../../public/projects/images/accessibility-refactor/4.webp)
+![Query Builder accessibility refactor](../../../public/projects/images/query-builder/4.webp)
 
 ## Challenges
 
@@ -89,8 +89,8 @@ These issues were solved in the following ways
 - Tree conformation is remembered in local storage so that it is preserved
   between sessions.
 
-![Accessible Tree Viewer](/projects/images/accessibility-refactor/6.webp)
-![Accessible autocomplete](/projects/images/accessibility-refactor/5.webp)
+![Accessible Tree Viewer](../../../public/projects/images/accessibility-refactor/6.webp)
+![Accessible autocomplete](../../../public/projects/images/accessibility-refactor/5.webp)
 
 ## Online demo
 

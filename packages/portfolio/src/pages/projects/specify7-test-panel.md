@@ -36,7 +36,7 @@ If a maximum number of deployments has already been reached (defined in the
 config file), the test panel tries to destroy old deployments that haven't been
 accessed recently.
 
-![Automatic deployments](/projects/images/test-panel/1.webp)
+![Automatic deployments](../../../public/projects/images/test-panel/1.webp)
 
 ## Custom deployments
 
@@ -48,7 +48,7 @@ For these purposes, any deployment can have its configuration changed. Each
 deployment has an associated DockerHub tag (created from a HEAD of a GitHub
 branche), a database, and a data model version
 
-![Custom deployments (with dark mode)](/projects/images/test-panel/2.webp)
+![Custom deployments (with dark mode)](../../../public/projects/images/test-panel/2.webp)
 
 ## Database Management
 
@@ -60,7 +60,7 @@ The dashboard provides a list of databases, a list of users in each database
 (needed for authentication into a Specify&nbsp;7 instance), and an ability to
 upload a new database, download an existing one, or drop it.
 
-![Database management (with dark mode)](/projects/images/test-panel/3.webp)
+![Database management (with dark mode)](../../../public/projects/images/test-panel/3.webp)
 
 ## Online demo
 
@@ -78,7 +78,7 @@ Exhaustive deployment instructions are documented in the
 It should be possible to reconfigure the dashboard to serve deployments of
 software other than Specify&nbsp;7.
 
-![Sign-in screen (with dark mode)](/projects/images/test-panel/4.webp)
+![Sign-in screen (with dark mode)](../../../public/projects/images/test-panel/4.webp)
 
 ## Technologies used
 

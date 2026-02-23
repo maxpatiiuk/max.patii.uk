@@ -35,10 +35,10 @@ importers:
       lit:
         specifier: 3.3.2
         version: 3.3.2
+      tslib:
+        specifier: 2.8.1
+        version: 2.8.1
     devDependencies:
-      '@lit-labs/ssr':
-        specifier: ^4.0.0
-        version: 4.0.0(@types/node@24.10.13)
       '@maxpatiiuk/static-site-forge':
         specifier: workspace:*
         version: link:../static-site-forge
@@ -69,6 +69,9 @@ importers:
       lit:
         specifier: 3.3.2
         version: 3.3.2
+      tslib:
+        specifier: 2.8.1
+        version: 2.8.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -89,6 +92,9 @@ importers:
       '@arcgis/toolkit':
         specifier: 5.1.0-next.15
         version: 5.1.0-next.15
+      '@lit-labs/ssr':
+        specifier: ^4.0.0
+        version: 4.0.0(@types/node@24.10.13)
       lit:
         specifier: 3.3.2
         version: 3.3.2

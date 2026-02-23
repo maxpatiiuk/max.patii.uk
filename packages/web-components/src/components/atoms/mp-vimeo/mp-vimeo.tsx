@@ -27,17 +27,13 @@ export class MpVimeo extends LitElement {
 
   override render(): TemplateResult {
     const src = `https://player.vimeo.com/video/${this.video}`;
-    const hasDescription =
-      this.el.querySelector('[slot="description"]') !== null;
 
     return (
       <span>
         <h2>{this.caption}</h2>
-        {hasDescription ? (
-          <div class="description">
-            <slot name="description" />
-          </div>
-        ) : null}
+        <div class="description">
+          <slot name="description" />
+        </div>
         <div class="wrapper">
           <iframe
             width="640"

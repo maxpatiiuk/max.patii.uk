@@ -1,12 +1,8 @@
-<mp-aside>
-
-This project was presented during SpeedGeeking session at Esri Dev&Tech
-Summit 2025.
-
-- [Slides](https://maxpatiiuk.github.io/geo-io)
-- [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/2025/geo-io)
-
-</mp-aside>
+> This project was presented during SpeedGeeking session at Esri Dev&Tech
+> Summit 2025.
+>
+> - [Slides](https://maxpatiiuk.github.io/geo-io)
+> - [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/2025/geo-io)
 
 Dive into how ArcGIS Maps SDK for JavaScript can be (mis)used for creating a
 video game. Presenting to you: geo-io - like Agar.io, but more mappy! Powerful

@@ -12,13 +12,13 @@ You can try out the live version at
 
 ## Screenshots
 
-![Main page](/projects/images/project-ephemeris/1.webp)
-![Editing an event](/projects/images/project-ephemeris/2.webp)
-![Searching for events](/projects/images/project-ephemeris/3.webp)
-![Month view](/projects/images/project-ephemeris/4.webp)
-![Year view](/projects/images/project-ephemeris/5.webp)
-![Light mode](/projects/images/project-ephemeris/6.webp)
-![Editing calendar](/projects/images/project-ephemeris/7.webp)
+![Main page](../../../public/projects/images/project-ephemeris/1.webp)
+![Editing an event](../../../public/projects/images/project-ephemeris/2.webp)
+![Searching for events](../../../public/projects/images/project-ephemeris/3.webp)
+![Month view](../../../public/projects/images/project-ephemeris/4.webp)
+![Year view](../../../public/projects/images/project-ephemeris/5.webp)
+![Light mode](../../../public/projects/images/project-ephemeris/6.webp)
+![Editing calendar](../../../public/projects/images/project-ephemeris/7.webp)
 
 ## Technologies used
 

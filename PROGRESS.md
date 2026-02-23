@@ -2,7 +2,7 @@
 
 ## Long term TODOs
 
-Update root README.md - out of date
+Update root README.md - out of date. document the sub-projects
 
 Create an AGENTS.md based on the final code
 

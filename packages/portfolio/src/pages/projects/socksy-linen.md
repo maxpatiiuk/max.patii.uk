@@ -21,15 +21,15 @@ Facebook is going to be used over this website going forward because:
 
 ## Screenshots
 
-![The landing page includes an eye-catching video](/projects/images/socksy-linen/1.webp)
+![The landing page includes an eye-catching video](../../../public/projects/images/socksy-linen/1.webp)
 
 I really like the
 [video we used on the home page](https://github.com/maxpatiiuk/socksy.zzz.com.ua/raw/main/public/videos/cover.mp4).
 I assembled it from short clips from Chanel advertisements.
 
-![Socks category](/projects/images/socksy-linen/2.webp)
-![Linen category](/projects/images/socksy-linen/3.webp)
-![Contact details](/projects/images/socksy-linen/4.webp)
+![Socks category](../../../public/projects/images/socksy-linen/2.webp)
+![Linen category](../../../public/projects/images/socksy-linen/3.webp)
+![Contact details](../../../public/projects/images/socksy-linen/4.webp)
 
 <mp-youtube caption="Ad Videos" video="PYnPfBbp6M0">
 <span slot="description">
