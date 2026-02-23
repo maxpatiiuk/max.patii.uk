@@ -35,17 +35,12 @@ export class MpYoutube extends LitElement {
     const startParam = this.start !== undefined ? `&start=${this.start}` : '';
     const src = `https://www.youtube.com/embed/${this.video}?origin=${encodeURIComponent(origin)}&widget_referrer=${encodeURIComponent(referrer)}&playlist=${this.video}&loop=1${startParam}`;
 
-    const hasDescription =
-      this.el.querySelector('[slot="description"]') !== null;
-
     return (
       <span>
         <h2>{this.caption}</h2>
-        {hasDescription ? (
-          <div class="description">
-            <slot name="description" />
-          </div>
-        ) : null}
+        <div class="description">
+          <slot name="description" />
+        </div>
         <div class="wrapper">
           <iframe
             width="640"

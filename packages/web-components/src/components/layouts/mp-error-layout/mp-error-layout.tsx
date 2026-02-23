@@ -2,6 +2,7 @@ import type { TemplateResult } from 'lit';
 import { h, LitElement, property } from '@arcgis/lumina';
 import type { LayoutBase } from '../types';
 import type { RootLayoutMetadata } from '../mp-root-layout/mp-root-layout';
+import { chevronLeftSvg } from '../../atoms/icons';
 
 declare global {
   interface DeclareElements {
@@ -21,11 +22,10 @@ export class MpErrorLayout extends LitElement implements LayoutBase {
 
   override render(): TemplateResult {
     return (
-      <mp-root-layout layoutData={this.layoutData}>
-        <div class="error-layout">
-          <slot />
-        </div>
-      </mp-root-layout>
+      <div class="error-layout">
+        <slot />
+        {chevronLeftSvg}
+      </div>
     );
   }
 

@@ -1,5 +1,10 @@
 import { throwParseError } from './throwParseError.ts';
 
+export type MarkdownToLitHtmlOptions = {
+  readonly resolveImageUrl: (url: string) => string;
+  readonly onWebComponentTag: (tagName: string) => void;
+};
+
 /**
  * A performant markdown-to-lit-html single-pass transformer.
  *
@@ -8,8 +13,9 @@ import { throwParseError } from './throwParseError.ts';
  */
 export function markdownToLitHtml(
   markdown: string,
-  onWebComponentTag: (tagName: string) => void,
+  options: MarkdownToLitHtmlOptions,
 ): string {
+  const { onWebComponentTag, resolveImageUrl } = options;
   const ropes: string[] = [];
   const length = markdown.length;
 
@@ -156,8 +162,9 @@ export function markdownToLitHtml(
           if (urlEnd === -1) {
             throwParseError(markdown, urlStart, 'Unclosed URL in image');
           }
-          const url = markdown.slice(urlStart, urlEnd);
-          ropes.push(`<img src="${url}" alt="${altText}">`);
+          const rawUrl = markdown.slice(urlStart, urlEnd);
+          const url = escapeAttribute(resolveImageUrl(rawUrl));
+          ropes.push(`<img src="${url}" alt="${escapeAttribute(altText)}">`);
           index = urlEnd + 1;
           flushIndex = index;
         } else {
@@ -182,7 +189,8 @@ export function markdownToLitHtml(
         if (urlEnd === -1) {
           throwParseError(markdown, urlStart, 'Unclosed URL in link');
         }
-        const url = markdown.slice(urlStart, urlEnd);
+        const rawUrl = markdown.slice(urlStart, urlEnd);
+        const url = escapeAttribute(rawUrl);
         ropes.push(`<a href="${url}">${linkText}</a>`);
         index = urlEnd;
         flushIndex = index + 1;
@@ -622,3 +630,7 @@ const blockListedCustomElementNames = new Set([
   'font-face-name',
   'missing-glyph',
 ]);
+
+function escapeAttribute(value: string): string {
+  return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
+}

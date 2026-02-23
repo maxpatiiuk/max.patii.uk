@@ -19,11 +19,11 @@ Main features:
 
 ## Screenshots
 
-![Reader view removes noise from any article](/projects/images/text-hoarder/1.webp)
-![Customize reader view to your preferences](/projects/images/text-hoarder/2.webp)
-![Save articles to a private GitHub repository](/projects/images/text-hoarder/3.webp)
-![Stats based on your reading habits](/projects/images/text-hoarder/4.webp)
-![Find out your most common websites and topics](/projects/images/text-hoarder/5.webp)
+![Reader view removes noise from any article](../../../public/projects/images/text-hoarder/1.webp)
+![Customize reader view to your preferences](../../../public/projects/images/text-hoarder/2.webp)
+![Save articles to a private GitHub repository](../../../public/projects/images/text-hoarder/3.webp)
+![Stats based on your reading habits](../../../public/projects/images/text-hoarder/4.webp)
+![Find out your most common websites and topics](../../../public/projects/images/text-hoarder/5.webp)
 
 ## Motivation
 

@@ -7,8 +7,8 @@ projects ([check out my Tetris Game](https://bit.ly/-tetris-react)).
 
 ## Screenshots
 
-![Main page](/projects/images/portfolio/1.webp)
-![A post about "Specify 7 WorkBench"](/projects/images/portfolio/2.webp)
+![Main page](../../../public/projects/images/portfolio/1.webp)
+![A post about "Specify 7 WorkBench"](../../../public/projects/images/portfolio/2.webp)
 
 ## Technologies used
 

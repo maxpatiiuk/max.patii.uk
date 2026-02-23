@@ -1,11 +1,11 @@
 import type {
-  BasePageMetadata,
   Collection,
-  LayoutModule,
   TypedLayoutMetadata,
 } from '@maxpatiiuk/static-site-forge/types.js';
-import type { HomeLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-home-layout';
+import type { HomeLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-home';
 import { siteConfig } from '../config.ts';
+import type { RootLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-root-layout';
+import { projectsCollection } from './projects/projectsCollection.ts';
 
 const indexPage: TypedLayoutMetadata<HomeLayoutMetadata> = {
   title: 'Max Patiiuk',
@@ -24,20 +24,24 @@ const indexPage: TypedLayoutMetadata<HomeLayoutMetadata> = {
     { label: 'cv', url: 'https://cv.patii.uk' },
   ],
   layout: async () =>
-    await import('@maxpatiiuk/web-components/components/mp-home-layout'),
+    await import('@maxpatiiuk/web-components/components/mp-home'),
   siteConfig,
+  projects: projectsCollection.pages,
+  hasMarkdownContent: false,
 };
 
-const errorLayout = async (): Promise<LayoutModule<BasePageMetadata>> =>
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const errorLayout = async () =>
   await import('@maxpatiiuk/web-components/components/mp-error-layout');
 
-export const rootCollection: Collection = {
+export const rootCollection: Collection<RootLayoutMetadata> = {
   defaultLayout: errorLayout,
   pages: {
     index: indexPage,
     '404': {
       title: '404: Not Found',
       layout: errorLayout,
+      siteConfig,
     },
   },
 };

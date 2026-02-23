@@ -1,11 +1,7 @@
-<mp-aside>
-
-This project was presented at TDWG 2021.
-
-- [Presentation](https://www.youtube.com/watch?list=TLGGVe_xKrhFdrIyMzAyMjAyNQ&v=G_3lzy_wOHI)
-- [Published Abstract](https://biss.pensoft.net/article/75386/)
-
-</mp-aside>
+> This project was presented at TDWG 2021.
+>
+> - [Presentation](https://www.youtube.com/watch?list=TLGGVe_xKrhFdrIyMzAyMjAyNQ&v=G_3lzy_wOHI)
+> - [Published Abstract](https://biss.pensoft.net/article/75386/)
 
 Public APIs must be stable and reliable, yet manual testing is often not
 practical due to time constraints. Thankfully, the OpenAPI schema allows to
@@ -19,7 +15,7 @@ The OpenAPI testing framework I developed can run automated tests on all
 endpoints by randomly creating a valid query string and comparing the response
 object against the schema.
 
-![Example automated tests](/projects/images/open-api/1.webp)
+![Example automated tests](../../../public/projects/images/open-api/1.webp)
 
 While automated tests are an awesome low-effort solution, sometimes you need to
 provide specific test values and define expected constraints (how a given

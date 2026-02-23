@@ -35,12 +35,12 @@ Main features
 
 ## Screenshots
 
-![Very simple main menu](/projects/images/modernizing-usage-stats/1.webp)
-![Stats main page](/projects/images/modernizing-usage-stats/2.webp)
-![Charting size of the "Collection Object" database table for single institution](/projects/images/modernizing-usage-stats/3.webp)
-![Charting number of times institution edited a database query](/projects/images/modernizing-usage-stats/4.webp)
-![Displaying feedback submitted by users in the app (blurred out)](/projects/images/modernizing-usage-stats/5.webp)
-![Aggregating most common java exception messages](/projects/images/modernizing-usage-stats/6.webp)
+![Very simple main menu](../../../public/projects/images/modernizing-usage-stats/1.webp)
+![Stats main page](../../../public/projects/images/modernizing-usage-stats/2.webp)
+![Charting size of the "Collection Object" database table for single institution](../../../public/projects/images/modernizing-usage-stats/3.webp)
+![Charting number of times institution edited a database query](../../../public/projects/images/modernizing-usage-stats/4.webp)
+![Displaying feedback submitted by users in the app (blurred out)](../../../public/projects/images/modernizing-usage-stats/5.webp)
+![Aggregating most common java exception messages](../../../public/projects/images/modernizing-usage-stats/6.webp)
 
 ## Online demo
 

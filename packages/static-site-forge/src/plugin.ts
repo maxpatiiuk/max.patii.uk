@@ -1,10 +1,12 @@
 import { readFile } from 'node:fs/promises';
 import { pipeline } from 'node:stream/promises';
 import { isRunnableDevEnvironment, type Plugin, type UserConfig } from 'vite';
-import type { BasePageMetadata, Collection, ForgeConfig } from './types.ts';
+import type { Collection, ForgeConfig, ResolvedPage } from './types.ts';
 import { createDebug } from './debug.ts';
 import { pathToFileURL } from 'node:url';
 import { markdownToJs } from './markdown/markdownToJs.ts';
+import { fullCollectionsPath, fullPagesDirectory, root } from './const.ts';
+import { register } from 'node:module';
 
 const debugTransform = createDebug('transform');
 const ssrOutPath = `node_modules/.cache/static-site-forge/dist-ssr/`;
@@ -15,12 +17,13 @@ const ssrOutPath = `node_modules/.cache/static-site-forge/dist-ssr/`;
  */
 export function useStaticSiteForge(
   config: ForgeConfig,
-): [Plugin, Plugin, Plugin] {
+): [Plugin, Plugin, Plugin, Plugin] {
   let isServe = false;
-  const collectionsPath = `${process.cwd()}/src/collections.ts`;
-  // Not supporting .root customization
-  const root = `${process.cwd()}/`;
   let clientEntries: Record<string, string> | undefined;
+  const indexedPages: Record<
+    string,
+    Pick<ResolvedPage, 'collectionName' | 'metadata' | 'slug'>
+  > = {};
 
   const orchestratorPlugin: Plugin = {
     name: '@maxpatiiuk/static-site-forge:orchestrator',
@@ -66,6 +69,9 @@ export function useStaticSiteForge(
           ssr: {
             build: {
               outDir: ssrOutPath,
+              copyPublicDir: false,
+              cssMinify: false,
+              reportCompressedSize: false,
               rollupOptions: {
                 // Set to empty object to prevent default index.html behavior
                 // Will be overwritten by the plugin's options() hook
@@ -78,8 +84,15 @@ export function useStaticSiteForge(
               rollupOptions: {
                 input: {},
               },
+              reportCompressedSize: false,
             },
           },
+        },
+        css: {
+          // Provide inline config to avoid file system config lookup (which
+          // throws an exception, making it harder to debug with breakpoint
+          // on "Caught Exceptions")
+          postcss: {},
         },
       };
     },
@@ -92,9 +105,8 @@ export function useStaticSiteForge(
       const runner = ssrEnvironment.runner;
 
       async function fetchCollections(): Promise<Record<string, Collection>> {
-        const collectionsModule: unknown = await runner.import(
-          './src/collections.ts',
-        );
+        const collectionsModule: unknown =
+          await runner.import(fullCollectionsPath);
         return parseCollectionsModule(collectionsModule);
       }
 
@@ -113,10 +125,10 @@ export function useStaticSiteForge(
                 return next();
               }
 
-              const module: unknown = await ssrEnvironment.runner.import(
-                `${resolved.collectionName}/${resolved.slug}.md?mp`,
-              );
-              const rawHtml = renderModule(module);
+              const requestId = `${resolved.collectionName}/${resolved.slug}.md?mp`;
+              indexedPages[requestId] = resolved;
+              const module: unknown = await runner.import(requestId);
+              const rawHtml = await renderModule(module);
 
               const html = await server.transformIndexHtml(
                 request.url ?? '/',
@@ -146,6 +158,11 @@ export function useStaticSiteForge(
       if (isServe) {
         return;
       }
+
+      // Extract into a variable to avoid Vite rewriting the module
+      const cssLoaderPath = './cssLoader.js';
+      register(new URL(cssLoaderPath, import.meta.url));
+
       // Can't use environment.server.runner.import because .runner. exists in
       // dev server only.
       // Importing a .ts file is fine in Node.js 24+.
@@ -153,19 +170,20 @@ export function useStaticSiteForge(
       // (?raw, plugins don't run, import.meta.glob), which is fine as this
       // file is just an object full of static data.
       const collections = parseCollectionsModule(
-        await import(pathToFileURL(collectionsPath).href),
+        await import(pathToFileURL(fullCollectionsPath).href),
       );
       const ssrEntries: Record<string, string> = {};
       clientEntries = {};
       for (const [collectionName, collection] of Object.entries(collections)) {
         const prefix = collectionName === '' ? '' : `${collectionName}/`;
 
-        for (const slug of Object.keys(collection.pages)) {
+        for (const [slug, metadata] of Object.entries(collection.pages)) {
           const path = prefix + slug;
+          const requestId = `${prefix}${slug}.md?mp`;
           // TODO: is it auto-watching these or need to remove ?mp
           const htmlPath = `${path}.html`;
           // TODO: is it auto-watching these or need to remove ?mp
-          ssrEntries[path] = `${prefix}${slug}.md?mp`;
+          ssrEntries[path] = requestId;
           // Vite's .html files output destination is based on the file name,
           // not the key in the input object. That is why we need to point to
           // non-existent .html path here. Can't path relative path either
@@ -174,6 +192,11 @@ export function useStaticSiteForge(
           // some relative - best to force fake absolute for all here, and
           // strip it off when doing readFile() in load().
           clientEntries[htmlPath] = root + htmlPath;
+          indexedPages[requestId] = {
+            collectionName,
+            slug,
+            metadata,
+          };
         }
       }
       options.input = ssrEntries;
@@ -181,21 +204,34 @@ export function useStaticSiteForge(
 
     buildStart(): void {
       // TODO: test build --watch
-      this.addWatchFile(collectionsPath);
+      this.addWatchFile(fullCollectionsPath);
     },
 
     resolveId: {
+      // Execute before our "externalize all" plugin
+      order: 'pre',
       filter: { id: /\.md\?mp$/u },
       handler(id): string {
-        return `${process.cwd()}/src/pages/${id}`;
+        return `${fullPagesDirectory}${id}`;
       },
     },
     load: {
       filter: { id: /\.md\?mp$/u },
       async handler(fullId): Promise<string | undefined> {
+        const pageMetadata =
+          indexedPages[fullId.slice(fullPagesDirectory.length)];
         const id = fullId.slice(0, -'?mp'.length);
-        const file = await readFile(id, 'utf8');
-        const transformed = markdownToJs(file, isServe, config);
+        const content =
+          pageMetadata.metadata.hasMarkdownContent === false
+            ? ''
+            : await readFile(id, 'utf8');
+        const transformed = markdownToJs(
+          content,
+          id,
+          pageMetadata,
+          isServe,
+          config,
+        );
         debugTransform?.(`${id}: ${transformed}`);
         return transformed;
       },
@@ -214,6 +250,25 @@ export function useStaticSiteForge(
       // support. Not much gain at present given these are simple static pages.
       server.environments.client.hot.send({ type: 'full-reload' });
       return [];
+    },
+  };
+  const ssrExternalizePlugin: Plugin = {
+    name: '@maxpatiiuk/static-site-forge:ssr-externalize',
+    sharedDuringBuild: true,
+    apply: 'build',
+    applyToEnvironment: (environment) => environment.name === 'ssr',
+
+    resolveId: {
+      // Execute before Vite's default resolveId behavior
+      order: 'pre',
+      filter: {
+        id: {
+          exclude: [/^[\./]/u, ...(config.ssrBundleIn ?? [])],
+        },
+      },
+      handler(id) {
+        return { id, external: true };
+      },
     },
   };
 
@@ -244,14 +299,14 @@ export function useStaticSiteForge(
         const module: unknown = await import(
           pathToFileURL(ssrOutPath + jsPath).href
         );
-        const rawHtml = renderModule(module);
+        const rawHtml = await renderModule(module);
         // Vite calls .transformIndexHtml
         return rawHtml;
       },
     },
   };
 
-  return [orchestratorPlugin, ssrPlugin, clientPlugin];
+  return [orchestratorPlugin, ssrPlugin, ssrExternalizePlugin, clientPlugin];
 }
 
 function parseCollectionsModule(
@@ -268,7 +323,7 @@ function parseCollectionsModule(
   return collectionsModule.collections as Record<string, Collection>;
 }
 
-function renderModule(module: unknown): string {
+async function renderModule(module: unknown): Promise<string> {
   if (
     typeof module !== 'object' ||
     module === null ||
@@ -279,8 +334,8 @@ function renderModule(module: unknown): string {
       'Expected the virtual .md module to export a function named render()',
     );
   }
-  const renderer = module.render as () => string;
-  const rawHtml = renderer();
+  const renderer = module.render as () => Promise<string>;
+  const rawHtml = await renderer();
   return rawHtml;
 }
 
@@ -326,10 +381,3 @@ function resolveUrlToPage(
 
   return;
 }
-
-type ResolvedPage = {
-  collectionName: string;
-  slug: string;
-  metadata: BasePageMetadata;
-  collection: Collection;
-};
