@@ -32,14 +32,14 @@
     "test-watch": "node --run test-pre && vitest"
   },
   "dependencies": {
-    "@arcgis/lumina": "5.1.0-next.15",
-    "@arcgis/toolkit": "5.1.0-next.15",
+    "@arcgis/lumina": "5.1.0-next.29",
+    "@arcgis/toolkit": "5.1.0-next.29",
     "@lit-labs/ssr": "^4.0.0",
     "lit": "3.3.2",
     "tslib": "2.8.1"
   },
   "devDependencies": {
-    "@arcgis/lumina-compiler": "5.1.0-next.15",
+    "@arcgis/lumina-compiler": "5.1.0-next.29",
     "@maxpatiiuk/typescript-config": "workspace:*",
     "@vitest/browser-playwright": "4.0.18",
     "@vitest/coverage-v8": "4.0.18",

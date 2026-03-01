@@ -1,0 +1,18 @@
+diff --git a/dist/index.js b/dist/index.js
+index 331c50878f990dadf224800a3f88f5fb676cd8b4..d5dc2973bf260f95088f4dbe43da1f9c8480bdcc 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -401,6 +401,13 @@ const makeRuntime = (options) => {
+     customElement(tagName, component) {
+       component.K = runtime;
+       component.L = tagName;
++      if (isServer) {
++        function define(){
++          try { customElements.define(tagName, component); }
++          catch {}
++        }
++        define();
++      }
+       if (!customElements.get(tagName)) {
+         customElements.define(tagName, component);
+       }
