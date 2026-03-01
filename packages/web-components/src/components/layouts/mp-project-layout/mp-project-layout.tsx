@@ -44,29 +44,21 @@ export class MpProjectLayout extends LitElement implements LayoutBase {
 
     const githubLink =
       gitHub !== undefined ? (
-        <a class="nav-link reverse" href={gitHub}>
-          {githubSvg} View this project on GitHub
-        </a>
+        <a href={gitHub}>{githubSvg} View this project on GitHub</a>
       ) : (
         ''
       );
 
     return (
-      <main class="project-layout">
+      <main>
         <header>
-          <div class="nav-row">
-            <a class="nav-link" href="/">
-              {chevronLeftSvg} Return to homepage
-            </a>
+          <nav>
+            <a href="/">{chevronLeftSvg} Return to homepage</a>
             {githubLink}
-          </div>
+          </nav>
           <hgroup>
             <h1>{title}</h1>
-            {description !== undefined ? (
-              <p class="subtitle">{description}</p>
-            ) : (
-              ''
-            )}
+            {description !== undefined ? <p>{description}</p> : ''}
           </hgroup>
         </header>
         <slot />
