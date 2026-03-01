@@ -21,11 +21,42 @@ export async function renderPage(
     page,
     litHtml,
   );
-  debugger;
   const rootPage = await composeLayout(rootLayout, page, composedPage);
   const result = ssrRender(rootPage);
   const renderedHtml = collectResultSync(result);
-  return renderedHtml.replaceAll(reLitHtmlComment, '');
+  const cleanedHtml = renderedHtml.replaceAll(reLitHtmlComment, '');
+
+  // The root layout includes DOCTYPE, html, head, and body. Those cannot appear
+  // inside a web component or template, so pull them out.
+  const firstTemplate = cleanedHtml.indexOf('<template');
+  if (firstTemplate === -1) {
+    throw Error('Rendered HTML does not contain a template');
+  }
+  const firstTemplateStartEnd = cleanedHtml.indexOf('>', firstTemplate);
+  if (firstTemplateStartEnd === -1) {
+    throw Error('Malformed template tag in rendered HTML');
+  }
+  const defaultSlot = cleanedHtml.indexOf(
+    '<slot></slot>',
+    firstTemplateStartEnd,
+  );
+  if (defaultSlot === -1) {
+    throw Error('Rendered HTML does not contain a default slot');
+  }
+  const templateEnd = cleanedHtml.indexOf('</template>', firstTemplateStartEnd);
+  if (templateEnd === -1) {
+    throw Error('Rendered HTML does not contain a closing template tag');
+  }
+  const lastTagOpen = cleanedHtml.lastIndexOf('</');
+  if (lastTagOpen === -1) {
+    throw Error('Malformed template content in rendered HTML');
+  }
+  const joined =
+    cleanedHtml.slice(firstTemplateStartEnd + 1, defaultSlot) +
+    cleanedHtml.slice(templateEnd + '</template>'.length, lastTagOpen) +
+    cleanedHtml.slice(defaultSlot + '<slot></slot>'.length, templateEnd);
+
+  return joined;
 }
 
 const reLitHtmlComment = /<!--\/?lit-[^-]+-->/gu;
@@ -47,7 +78,9 @@ async function composeLayout(
   }
   const tagName = customElements.getName(LayoutCustomElement);
   if (tagName === null) {
-    throw Error('Layout module does not export a registered custom element');
+    throw Error(
+      `Layout module does not export a registered custom element. Expected ${LayoutCustomElement.name} to be registered.`,
+    );
   }
   const staticTagName = unsafeStatic(tagName);
   return html`<${staticTagName} .layoutData=${page}>${litHtml}</${staticTagName}>`;

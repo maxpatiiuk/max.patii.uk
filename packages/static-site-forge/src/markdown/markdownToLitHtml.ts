@@ -1,7 +1,7 @@
 import { throwParseError } from './throwParseError.ts';
 
 export type MarkdownToLitHtmlOptions = {
-  readonly resolveImageUrl: (url: string) => string;
+  readonly resolveImageUrl: (url: string, alt: string) => string;
   readonly onWebComponentTag: (tagName: string) => void;
 };
 
@@ -163,7 +163,7 @@ export function markdownToLitHtml(
             throwParseError(markdown, urlStart, 'Unclosed URL in image');
           }
           const rawUrl = markdown.slice(urlStart, urlEnd);
-          const url = escapeAttribute(resolveImageUrl(rawUrl));
+          const url = escapeAttribute(resolveImageUrl(rawUrl, altText));
           ropes.push(`<img src="${url}" alt="${escapeAttribute(altText)}">`);
           index = urlEnd + 1;
           flushIndex = index;

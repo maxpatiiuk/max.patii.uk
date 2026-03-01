@@ -18,7 +18,8 @@
       "Bash(pnpm ls:*)",
       "WebFetch(domain:vite.dev)",
       "Bash(pnpm --filter static-site-forge exec vitest run:*)",
-      "Bash(node --run test:*)"
+      "Bash(node --run test:*)",
+      "WebFetch(domain:max.patii.uk)"
     ]
   }
 }

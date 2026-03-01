@@ -4,11 +4,20 @@ export type BasePageMetadata = {
   readonly title: string;
   /** @public */
   readonly description?: string;
-  /** @public */
-  readonly ogImage?: string;
   /**
+   * Will be set based on first image if not provided.
+   *
    * @public
    */
+  ogImage?: string;
+  /**
+   * Will be set based on first image alt text if not provided.
+   * Only set alt for non-decorative images.
+   *
+   * @public
+   */
+  ogImageAlt?: string;
+  /** @public */
   readonly layout?: GetLayout<BasePageMetadata> | false;
   /** @public */
   readonly hasMarkdownContent?: false;
