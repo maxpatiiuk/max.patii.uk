@@ -1,0 +1,19 @@
+.error-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+::slotted(h1) {
+  font-size: 2rem;
+}
+
+::slotted(a) {
+  color: #a3a3a3;
+  text-decoration: underline;
+}

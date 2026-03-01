@@ -19,8 +19,8 @@ export default defineConfig(({ mode }) => ({
       external: [
         ...builtinModules.map((module) => `node:${module}`),
         'vite',
-        /^lit[/|$]/u,
-        /^@lit-labs\/ssr/u,
+        /^lit([-/]|$)/u,
+        /^@lit([-/]|$)/u,
       ],
     },
   },

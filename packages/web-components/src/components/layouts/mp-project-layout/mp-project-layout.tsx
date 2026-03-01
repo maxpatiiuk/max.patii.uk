@@ -3,6 +3,8 @@ import type { TemplateResult } from 'lit';
 import type { RootLayoutMetadata } from '../mp-root-layout/mp-root-layout';
 import type { LayoutBase } from '../types';
 import { chevronLeftSvg, githubSvg } from '../../atoms/icons';
+import styles from './mp-project-layout.css';
+import commonStyles from '../../../styles/common.css';
 
 /** @public */
 export interface ProjectMetadata extends RootLayoutMetadata {
@@ -18,6 +20,12 @@ declare global {
 
 /** @public */
 export class MpProjectLayout extends LitElement implements LayoutBase {
+  //#region Static Members
+
+  static override styles = [commonStyles, styles];
+
+  //#endregion
+
   //#region Public Properties
 
   /** @public */

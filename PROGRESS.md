@@ -12,3 +12,6 @@ list based on gitignore and prettierignore
 delete \_redirects file
 
 resolve all TODO comments in the codebase
+
+make agent diff each post content before/after, and main page content, and do
+basic copy-editing

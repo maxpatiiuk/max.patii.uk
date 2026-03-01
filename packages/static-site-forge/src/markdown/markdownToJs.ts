@@ -9,7 +9,7 @@ import { markdownToLitHtml } from './markdownToLitHtml.ts';
 export function markdownToJs(
   content: string,
   filePath: string,
-  resolvedPage: Pick<ResolvedPage, 'collectionName' | 'slug'>,
+  resolvedPage: Pick<ResolvedPage, 'collectionName' | 'metadata' | 'slug'>,
   isServe: boolean,
   config: ForgeConfig,
 ): string {
@@ -23,7 +23,13 @@ export function markdownToJs(
     ? content.slice(jsHeaderEnd + '\n```\n'.length)
     : content;
   const litHtml = markdownToLitHtml(bodyContent, {
-    resolveImageUrl: (url) => resolveAssetUrl(url, filePath),
+    resolveImageUrl: (url, alt) => {
+      if (resolvedPage.metadata.ogImage === undefined) {
+        resolvedPage.metadata.ogImage = url;
+        resolvedPage.metadata.ogImageAlt = alt;
+      }
+      return resolveAssetUrl(url, filePath);
+    },
     onWebComponentTag(tagName) {
       const importPath = config.getWebComponentImportPath(tagName);
       webComponentImports += `import "${importPath}";\n`;

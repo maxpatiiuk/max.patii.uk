@@ -1,8 +1,10 @@
 import type { TemplateResult } from 'lit';
-import { h, LitElement, property } from '@arcgis/lumina';
+import { h, Fragment, LitElement, property } from '@arcgis/lumina';
 import type { RootLayoutMetadata } from '../../layouts/mp-root-layout/mp-root-layout';
 import type { LayoutBase } from '../../layouts/types';
 import type { ProjectMetadata } from '../../layouts/mp-project-layout/mp-project-layout';
+import styles from './mp-home.css';
+import commonStyles from '../../../styles/common.css';
 
 /** @public */
 interface HomeLayoutMetadata extends RootLayoutMetadata {
@@ -22,6 +24,11 @@ declare global {
 
 /** @public */
 export class MpHome extends LitElement implements LayoutBase {
+  //#region Static Members
+  static override styles = [commonStyles, styles];
+
+  //#endregion
+
   //#region Public Properties
 
   /** @public */
@@ -33,14 +40,44 @@ export class MpHome extends LitElement implements LayoutBase {
 
   override render(): TemplateResult {
     if (this.layoutData === undefined) {
-      throw Error('layoutData is required for MpHome');
+      throw Error('layoutData is required for mp-home');
     }
-    const { projects } = this.layoutData;
+    const { projects, links, authorTitle, siteConfig } = this.layoutData;
     return (
-      <div class="home-layout">
-        There are {Object.keys(projects).length} projects
-        <slot />
-      </div>
+      <>
+        <header>
+          <hgroup>
+            <h1>{siteConfig.author}</h1>
+            <p>{authorTitle}</p>
+          </hgroup>
+          <nav>
+            <ul>
+              {links.map(({ label, url }) => (
+                <li>
+                  <a href={url} rel="noopener">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <h2>My projects</h2>
+          {Object.entries(projects).map(([id, metadata]) =>
+            metadata.description === undefined ? (
+              ''
+            ) : (
+              <article>
+                <a href={`/projects/${id}/`}>
+                  <h3>{metadata.title}</h3>
+                </a>
+                <p>{metadata.description}</p>
+              </article>
+            ),
+          )}
+        </main>
+      </>
     );
   }
 

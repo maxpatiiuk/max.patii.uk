@@ -33,6 +33,8 @@ export type RootLayoutMetadata = {
   /** @public */
   readonly ogImage?: string;
   /** @public */
+  readonly ogImageAlt?: string;
+  /** @public */
   readonly siteConfig: SiteConfig;
 };
 
@@ -76,13 +78,21 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta name="theme-color" content="${siteConfig.themeColor}">
   <meta name="color-scheme" content="dark">
   <meta name="robots" content="index, follow">
+  <meta name="application-name" content="${siteConfig.author}">
+  <meta name="creator" content="${siteConfig.author}">
   <meta property="og:title" content="${fullTitle}">
   <meta property="og:description" content="${desc}">
   <meta property="og:type" content="website">
+  <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" />
   ${layoutData.ogImage !== undefined ? `<meta property="og:image" content="${siteConfig.baseUrl}${layoutData.ogImage}">` : ''}
+  ${layoutData.ogImageAlt !== undefined ? `<meta property="og:image:alt" content="${layoutData.ogImageAlt}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
+  <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32"/>
+  <link rel="icon" href="/icon2.png" type="image/png" sizes="192x192"/>
+  <link rel="icon" href="/icon3.png" type="image/png" sizes="512x512"/>
+  <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180"/>
   <link rel="manifest" href="/manifest.webmanifest">
   <script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>
   ${unsafeHTML(`<script>
@@ -93,12 +103,11 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   </script>`)}
   `;
 
-    return ssrHtml`<head>
-        ${head}
-      </head>
-      <body>
-        ${(<slot />)}
-      </body>`;
+    return ssrHtml`<!DOCTYPE html><html lang="en-US"><head>
+${head}
+</head><body style="margin:0;font-size:112.5%">
+${(<slot />)}
+</body></html>`;
   }
 
   //#endregion

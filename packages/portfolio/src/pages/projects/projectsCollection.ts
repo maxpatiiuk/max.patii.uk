@@ -52,8 +52,7 @@ export const projectsCollection: Collection<ProjectMetadata> = {
     },
     'specify7-test-panel': {
       title: 'Specify 7 Test Panel',
-      description:
-        'A dashboard for deploying Specify&nbsp;7 instances for QA purposes',
+      description: 'Dashboard for orchestrating web-app deployments',
       gitHub: 'https://github.com/specify/specify7-test-panel',
       siteConfig,
     },
@@ -150,13 +149,15 @@ export const projectsCollection: Collection<ProjectMetadata> = {
     },
     'tts-king': {
       title: 'TTS King',
-      description: '',
+      description:
+        'Turn daily news digests into audio you can listen to wherever you are',
       gitHub: 'https://github.com/maxpatiiuk/TTS_King',
       siteConfig,
     },
     taxa: {
       title: 'Taxa Tree of Life Generator',
-      description: '',
+      description:
+        'Convert Taxonomic Tree of Life from various authorities into a CSV file',
       gitHub: 'https://github.com/specify/taxa_tree/',
       siteConfig,
     },

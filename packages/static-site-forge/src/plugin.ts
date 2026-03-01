@@ -125,7 +125,7 @@ export function useStaticSiteForge(
                 return next();
               }
 
-              const requestId = `${resolved.collectionName}/${resolved.slug}.md?mp`;
+              const requestId = `${resolved.collectionName === '' ? '' : `${resolved.collectionName}/`}${resolved.slug}.md?mp`;
               indexedPages[requestId] = resolved;
               const module: unknown = await runner.import(requestId);
               const rawHtml = await renderModule(module);
@@ -365,7 +365,7 @@ function resolveUrlToPage(
 
     const withoutPrefix = normalized.slice(prefix.length);
     const slug =
-      withoutPrefix === '' ? 'index' : withoutPrefix.slice(0, -'/'.length);
+      withoutPrefix === '/' ? 'index' : withoutPrefix.slice(0, -'/'.length);
     if (Object.hasOwn(collection.pages, slug)) {
       debugResolve?.(
         `Resolved to collection "${collectionName}", slug "${slug}"`,
