@@ -70,7 +70,7 @@ moving quickly to the toolbar in the header and back.
 
 These issues were solved in the following ways
 
-- The tree is rendered out of "&lt;ul&gt;" and "&lt;gt&gt;" elements with "role"
+- The tree is rendered out of "&lt;ul&gt;" and "&lt;li&gt;" elements with "role"
   of "tree", "treeitem", and "group". This helps accessible technology recognize
   the layout as a tree and announce it properly. At the same time, these
   elements are styled as a grid, to mimic a table layout. This ensures all cells

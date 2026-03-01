@@ -7,7 +7,7 @@
 Dive into how ArcGIS Maps SDK for JavaScript can be (mis)used for creating a
 video game. Presenting to you: geo-io - like Agar.io, but more mappy! Powerful
 geo-rendering capabilities of the Maps SDK allow for creative applications in
-unintended areas, showing it's versatility.
+unintended areas, showing its versatility.
 
 <mp-youtube video="Vp-_1FW4nd0" caption="geo-io - Gameplay"></mp-youtube>
 

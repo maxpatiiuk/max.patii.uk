@@ -50,10 +50,10 @@ collection, choose any option. See usage instructions in the video above.
 During the development of the WorkBench, most of the testing was done with data
 sets that were convenient for developers - 20-50 rows with 10-20 columns. It's
 only in the last few months before release that testing with a real world sizes
-data sets had begun. This quickly showed as that the tool had obvious
+data sets had begun. This quickly showed us that the tool had obvious
 performance issues and required us to scramble to fix it and to delay the
 release.
 
-The lesson I learned from this is that testing should be done though the
+The lesson I learned from this is that testing should be done through the
 development process to make sure the tool is on track to meet the goals, and the
 testing performed should resemble real world use cases.

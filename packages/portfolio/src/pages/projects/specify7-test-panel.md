@@ -9,7 +9,7 @@ are ready to be tested.
 Notable features:
 
 - Ability to reconfigure an existing deployment, or add a new one
-- Automatic deployment of bug fixes that a ready to test
+- Automatic deployment of bug fixes that are ready to test
 - Automatic cleanup of old deployments that are no longer used
 - Beautiful UI
 - GitHub OAuth authentication
@@ -46,7 +46,7 @@ everything ready for a release.
 
 For these purposes, any deployment can have its configuration changed. Each
 deployment has an associated DockerHub tag (created from a HEAD of a GitHub
-branche), a database, and a data model version
+branch), a database, and a data model version
 
 ![Custom deployments (with dark mode)](../../../public/projects/images/test-panel/2.webp)
 
@@ -102,7 +102,7 @@ testers can catch bugs before they get discovered by users.
 However, as we eventually discovered, the test panel environment differed from
 production in several important ways.
 
-- The test panel allows only one password bases sign in. In production, single
+- The test panel allows only one password-based sign-in. In production, single
   sign on and anonymous access can be configured. Since these are not available
   on the test panel, they were not tested, and bugs with these systems fell
   though the cracks
@@ -115,4 +115,4 @@ production in several important ways.
 As it often happens, once the test panel came into heavy usage, the issues
 mentioned above were discovered. Fixing them is an ongoing incremental process,
 but it showed me the importance of the tool being really good at the core thing
-it is indented to do.
+it is intended to do.

@@ -80,5 +80,5 @@ removed.
 
 While this did not significantly affect the user experience, it is something I
 would pay more attention to in the future. I would try to get more input from
-others thought the process and try to think about the project from the
+others through the process and try to think about the project from the
 perspectives of a diverse set of users.

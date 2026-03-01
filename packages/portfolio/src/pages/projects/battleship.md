@@ -1,7 +1,7 @@
 A simple turn-based competitive game. Place up to 6 ships on a 9x10 grid and try
 to sink your opponent's ships before they sink yours.
 
-I worked on this project in a Team of 5. I took on the responsibilities of a
+I worked on this project in a team of 5. I took on the responsibilities of a
 team lead, which involved keeping the team on track, prioritizing features, and
 working on the most complex parts of the project. Afterward, we presented it in
 front of 100 peers.
@@ -19,7 +19,7 @@ support to coordinate the game state between two players, we chose a simpler,
 and ultimately more intimate approach. Two players are supposed to open the game
 on separate computers. When any player makes a move, they are supposed to ask
 the opposite if it was a hit or miss and press the corresponding button in the
-game when promoted.
+game when prompted.
 
 Essentially, the state of the game is synchronized through verbal communication
 between the players, which is intended to make the game feel more personal and
@@ -50,7 +50,7 @@ based on JsDoc comments and
 
 ## Things learned
 
-This projected challenged my meager leadership skills, requiring me to relate to
+This project challenged my meager leadership skills, requiring me to relate to
 team members to find a way to motivate them and to find a task suitable for
 their skill level. It also required me to deal with cases when motivation of
 others didn't match my own or expectations about the scope of the project
