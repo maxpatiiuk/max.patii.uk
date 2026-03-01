@@ -35,5 +35,5 @@ I am a heavy calendar user and consider myself experienced with it. Yet, it's
 not until I tried to design a calendar that I started to realize the
 complexities of a good calendar system.
 
-There are big and gluing thins like time zones and things as inconspicuous as an
-algorithm for most efficiently placing overlying events on a grid.
+There are big and glaring things like time zones and subtleties as inconspicuous
+as an algorithm for most efficiently placing overlapping events on a grid.

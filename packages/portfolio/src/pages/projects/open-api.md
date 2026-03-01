@@ -50,4 +50,4 @@ Close to the end of this project, I found out that GraphQL exists, and that it
 already does most of the things I was trying to reinvent, but it does a much
 better job of it. Unfortunately, we can't move completely to GraphQL as it would
 require a big migration. Still, this was one more reminder to do research of
-existing solutions before trying to creat a yet another library
+existing solutions before trying to create yet another library

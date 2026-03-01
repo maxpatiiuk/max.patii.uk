@@ -4,8 +4,8 @@ legacy PHP codebase for an internal usage stats visualizer for
 scientific collection management software.
 
 The code already handled storing stats in the database, and rendering an
-extremely bareness interface for them. Unfortunately, copy paste was used
-generously during development, documentation was never written and questionable
+extremely bare interface for them. Unfortunately, copy paste was used generously
+during development, documentation was never written and questionable
 architectural decisions were made. As a result, before I could add any new
 features, I had to spend several days studying the project, untangling the
 spaghetti code and writing proper documentation along the way.
@@ -68,10 +68,10 @@ visualizer for a separate application.
 
 ## Things learned
 
-When I inherited the codebase, and so in what state it is, at times I doubted by
-ability to figure out what all of the code does. But, I had a vision in my head
-for how much better the final result could be and used that to guide me step by
-step.
+When I inherited the codebase, and saw in what state it was, at times I doubted
+my ability to figure out what all of the code does. But, I had a vision in my
+head for how much better the final result could be and used that to guide me
+step by step.
 
 This is where I first developed my approach for modernizing a legacy codebase:
 

@@ -8,7 +8,7 @@ re-integrating that back into the code quickly run into issues.
 
 As a solution, I researched available solutions in the localization space and
 decided on Weblate as the best choice, as it's an open-source platform, with
-free hosting for non-profits, and more features that in many paid solutions.
+free hosting for non-profits, and more features than in many paid solutions.
 
 The remaining challenges were integrating the way we store localization with
 Weblate and educating translators on how to use it.
@@ -29,7 +29,7 @@ Main aspects of the solution:
 
 [Technical details about the solution](https://github.com/specify/specify7/tree/production/specifyweb/frontend/js_src/lib/localization/#about-the-solution)
 and
-[and reasoning](https://github.com/specify/specify7/tree/weblate-localization#readme)
+[reasoning](https://github.com/specify/specify7/tree/weblate-localization#readme)
 
 ## Screenshots
 
@@ -61,6 +61,6 @@ can take a look at the
 At the start of the process, I had no idea that a platform like Weblate exists.
 I was about to bullishly start building my own interface for localization.
 Fortunately, my teammate, who knows my shortcomings, initiated the research of
-existing solutions, which I then picked up. After I shown an internal demo of a
+existing solutions, which I then picked up. After I showed an internal demo of a
 few finalists, Weblate was chosen by our community managers as the most friendly
 looking.

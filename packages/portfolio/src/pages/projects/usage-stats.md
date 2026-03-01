@@ -58,7 +58,7 @@ new things I had to learn was Chart.js and how to work with GitHub APIs. This
 made the development go very quick and I had a working prototype within a day.
 
 At the time, that was an effective approach as that way I was able to quickly
-show results to my team and impress them with, what I though at the time,
+show results to my team and impress them with, what I thought at the time,
 advanced skills.
 
 However, reflecting on this 4 years later, if I were to do this project again, I
@@ -68,5 +68,5 @@ Tableau and many others).
 
 Usage stats visualization is a problem that has been solved a thousand times
 before, and so there was little business value for the company to solve it
-again, beyond the fact that as a undergraduate student employee, my salary
+again, beyond the fact that as an undergraduate student employee, my salary
 didn't cost the company much, while my enthusiasm was boundless 😊.

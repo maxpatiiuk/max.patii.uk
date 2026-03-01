@@ -34,26 +34,26 @@ decisions.
 ## Motivation
 
 My parents tried a sophisticated solution for tracking revenue and expenses - it
-included barcode support, reports&labels, inventory management, permission
+included barcode support, reports & labels, inventory management, permission
 system...
 
 While that worked for a large shop, it was too much overhead for their smaller
 shops. Thus, in 2018 I created a predecessor to this project -
 [1c-clone](https://github.com/maxpatiiuk/code_share/tree/main/archived/web/projects/1c-clone).
-It was written in PHP and MySQL in one continuous 9 hour codding session.
-Consequentially, code quality wasn't the best (everything was in a single 2600
-line file) and mobile support wasn't great.
+It was written in PHP and MySQL in one continuous 9-hour coding session.
+Consequently, code quality wasn't the best (everything was in a single 2600 line
+file) and mobile support wasn't great.
 
-Still, it was enough for my parent's needs. However, I gradually deprecated or
+Still, it was enough for my parents' needs. However, I gradually deprecated or
 rewrote all of my PHP projects, and this was the only one left running - in
 order not to rent an entire server just for one small project, I decided to
 rewrite it, and in the process show off what I have learned over the last 5
 years.
 
-At the same time, the core design principle though this project was simplicity -
-fewer features, bigger buttons, clearer pages, more white space - resulting in a
-friendly looking application that does just what it was designed to do, and
-nothing more.
+At the same time, the core design principle through this project was
+simplicity - fewer features, bigger buttons, clearer pages, more white space -
+resulting in a friendly looking application that does just what it was designed
+to do, and nothing more.
 
 ### Reflection
 
@@ -69,7 +69,7 @@ overly bloated compared to the way it was in the past.
 ### Firestore
 
 I worked with [Firebase](/projects/tts-king) a bit in the past, but this project
-really allowed me to explore it's features in more depth.
+really allowed me to explore its features in more depth.
 
 In the process, I learned how Firestore is immensely scalable, while being
 focused on performance, low-latency and offline capability. All very impressive

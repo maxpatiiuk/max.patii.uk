@@ -25,7 +25,7 @@ Main features:
 This is one of the few projects where I worked against extreme time pressure,
 thus had to make smart trade-offs. I went against my approach of using few
 libraries, and took advantage of PrimeReact and PrimeIcon libraries for
-displaying the table, pop ups and icons. Even thought those did a lot pf the
+displaying the table, pop ups and icons. Even though those did a lot of the
 heavy lifting, customizing them and debugging issues, caused in part by poor
 documentation, made the process take longer than expected.
 

@@ -12,7 +12,7 @@ Notable features:
 - Extensive description of the development and deployment process
 - Keyboard navigation and screen reader support.
 
-I worked on this project in a Team of 5 as part of the EECS 448 class at the
+I worked on this project in a team of 5 as part of the EECS 448 class at the
 University of Kansas. I took on the responsibilities of a team lead, which
 involved keeping the team on track, prioritizing features, and working on the
 most complex parts of the project. Later we presented the project in front of
@@ -52,12 +52,13 @@ based on JsDoc comments and
 
 ## Things learned
 
-This project was developer under unique circumstances in the sense that when we
-begun it we didn't try to think to hard about what we were trying to achieve and
-just went along for the ride to see what we get out of it.
+This project was developed under unique circumstances in the sense that when we
+begun it we didn't try to think too hard about what we were trying to achieve
+and just went along for the ride to see what we get out of it.
 
 While that's not the way I commonly approach projects, this gave us a sense of
-freedom from externally imposed contains or fear of missing on expectations.
+freedom from externally imposed constraints or fear of missing out on
+expectations.
 
 Still, I am very happy with the result, especially the procedurally generated
 map algorithm I developed.

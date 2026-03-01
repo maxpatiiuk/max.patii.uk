@@ -34,13 +34,13 @@ You can try out the live version at
 
 ## Things learned
 
-Long gone are the days were crunching though the dataset of species known to
-humanity is a task suitable for supercomputers only. Still, there current
+Long gone are the days when crunching through the dataset of species known to
+humanity is a task suitable for supercomputers only. Still, their current
 implementation of the tool is not the most efficient possible. In fairness, it
 was designed with features in mind first and foremost, still, performance
 problems are plaguing the production use of the tool.
 
 ## Impact
 
-Update from 2025: its been 5 years, and this project is still in use to import
+Update from 2025: it's been 5 years, and this project is still in use to import
 millions of taxa records.

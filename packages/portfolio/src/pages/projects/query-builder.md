@@ -73,7 +73,7 @@ disallowed by the validation system.
 
 For example, in our software, you can change field length and format
 requirements for a given field. The query builder interface was looking at these
-requirements and interesting search query to only values that match these
+requirements and limiting the search query to only values that match these
 requirements. A thing I haven't considered is that the requirements could be
 changed, while the data remains the same. This leads to users wanting to query
 data that doesn't match the current format and not being allowed to do so

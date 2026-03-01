@@ -1,10 +1,10 @@
-Alia is a programming language I created. It's syntax resembles C. It has a
+Alia is a programming language I created. Its syntax resembles C. It has a
 compiler for x64 and MIPS assembly. Additionally, it can be compiled down to
 LLVM bitcode, which in turn can be compiled for any architecture.
 
 In addition, Alia includes an interpreter and a hefty test coverage.
 
-For of the documentation of implementation and language specification, see
+For documentation of implementation and language specification, see
 [Alia repository](https://github.com/maxpatiiuk/alia)
 
 ## Screenshot

@@ -76,9 +76,9 @@ After applying the filters, you can press a button to download the table data as
 a TSV file.
 
 At the top of the page there is a search bar for quickly filtering the records.
-The search highlights matched records in the table. However, instead or removing
+The search highlights matched records in the table. However, instead of removing
 unmatched tickets, it simply grays them out. This is super useful for being able
-to see the context arround the search results.
+to see the context around the search results.
 
 For more advanced use cases, each table can have advanced filters applied. For
 example, you can add a Regular Expression filter, take a union of multiple
@@ -87,7 +87,7 @@ filters or negate a filter.
 Advanced customization options are included in the preferences menu.
 
 Spacetime respects users preference for light and dark mode and switches
-accordingly. It aslo, listens for preference for reduced animation by disabling
+accordingly. It also listens for preference for reduced animation by disabling
 chart transition effects.
 
 ![A preferences menu includes advanced table and chart customization options](../../../public/projects/images/spacetime/5.webp)
@@ -112,7 +112,7 @@ advanced features like:
 - Lastly, it’s worth mentioning that Spacetime aims to be WCAG 2.1 compliant.
   It’s an accessibility standard. I wasn’t able to achieve full compliance
   because of non-compliant third-party libraries, but I am passionate about
-  accessibility and tried to pay attention to it thought the development
+  accessibility and tried to pay attention to it throughout the development
   process.
 
 Technologies used:
@@ -134,10 +134,10 @@ See also my blog post on
 
 I have a habit of reinventing the wheel and writing my own solutions even if an
 existing alternative exists. This leads to lots of extra code and common
-lifting. My teammates helped me identify this problem, and pursued me to replace
-a lot of custom code with third-party libraries. If I were to start again, I
-would use the libraries from the beginning, to save the time spent on rewriting
-the code.
+lifting. My teammates helped me identify this problem, and persuaded me to
+replace a lot of custom code with third-party libraries. If I were to start
+again, I would use the libraries from the beginning, to save the time spent on
+rewriting the code.
 
 ### What was the biggest challenge?
 
@@ -199,12 +199,12 @@ The proposed back-end architecture is very simple thanks to the usage of
 Serverless computing. User’s Web browser contacts the AWS Route53 DNS service to
 resolve the domain address. Once resolved, the browser requests static files
 from an AWS S3 bucket. Afterward, the web browser sends requests to the GraphQL
-API managed by AWS AppSync, which in turn forwards the requests to AWS Lamda
-Functions for processing. Lamda Functions fetch data from the AWS DynamoDB,
+API managed by AWS AppSync, which in turn forwards the requests to AWS Lambda
+Functions for processing. Lambda Functions fetch data from the AWS DynamoDB,
 aggregate it, and return it to the client while logging the entire process using
 AWS CloudWatch.
 
-At the same time, a different AWS Lamda Function polls SIM-T for newly opened
+At the same time, a different AWS Lambda Function polls SIM-T for newly opened
 tickets every minute, formats the response according to the Configuration file,
 and stores that in AWS DynamoDB. This means the front-end doesn’t have to do
 extra processing, improving the performance, while also ensuring that Spacetime
@@ -217,7 +217,7 @@ allows charts to update as soon as you changed a filter, rather than having to
 wait for a network request to complete.
 
 Finally, AWS CloudWatch has alarms configured to proactively detect when the AWS
-S3 bucket is getting full, or an unusual number of AWS Lamda Functions is
+S3 bucket is getting full, or an unusual number of AWS Lambda Functions is
 failing.
 
 ![Cloud diagram](../../../public/projects/images/spacetime/6.webp)
