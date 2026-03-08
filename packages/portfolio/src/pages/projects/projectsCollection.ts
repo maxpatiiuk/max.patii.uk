@@ -1,27 +1,43 @@
-import type { Collection } from '@maxpatiiuk/static-site-forge/types.js';
+import type {
+  Collection,
+  TypedLayoutMetadata,
+} from '@maxpatiiuk/static-site-forge/types.js';
 import type { ProjectMetadata } from '@maxpatiiuk/web-components/components/mp-project-layout';
 import { siteConfig } from '../../config.ts';
+import type { ProjectsPageMetadata } from '@maxpatiiuk/web-components/components/mp-projects';
 
+const indexPage: TypedLayoutMetadata<ProjectsPageMetadata> = {
+  layout: async () =>
+    await import('@maxpatiiuk/web-components/components/mp-projects'),
+  siteConfig,
+  title: 'Projects',
+  projects: undefined!,
+  hasMarkdownContent: false,
+};
 export const projectsCollection: Collection<ProjectMetadata> = {
   defaultLayout: async () =>
     await import('@maxpatiiuk/web-components/components/mp-project-layout'),
   pages: {
+    index: indexPage,
     spacetime: {
       title: 'Spacetime',
       description: 'My Amazon Internship Project - real time dashboard',
       siteConfig,
+      isFeatured: true,
     },
     alia: {
       title: 'Alia',
       description: 'x64, MIPS and LLVM compiler for my language',
       gitHub: 'https://github.com/maxpatiiuk/alia',
       siteConfig,
+      isFeatured: true,
     },
     'calendar-plus': {
       title: 'Calendar Plus',
       description: 'Google Calendar extension for power users',
       gitHub: 'https://github.com/maxpatiiuk/calendar-plus',
       siteConfig,
+      isFeatured: true,
     },
     'text-hoarder': {
       title: 'Text Hoarder',
@@ -169,3 +185,6 @@ export const projectsCollection: Collection<ProjectMetadata> = {
     },
   },
 };
+
+(indexPage as { projects: (typeof indexPage)['projects'] }).projects =
+  projectsCollection.pages;

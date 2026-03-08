@@ -33,7 +33,7 @@ of boilerplate code overhead. But I like the idea of having 3 clean packages:
 standards compliant SSR-friendly web components, a static site generator, and a
 package that brings both together by providing the content. While small type
 duplication was required, the web components package and static site generator
-don't depend on each other.
+don't depend on
 
 Shadow root is awesome for libraries and web components - styles encapsulation,
 slots. But for apps it is sometimes counter-productive - I need to globally

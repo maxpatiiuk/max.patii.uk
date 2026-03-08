@@ -1,0 +1,25 @@
+main {
+  article {
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin: 0 0 0.25rem;
+    }
+
+    a:hover h3 {
+      color: #a3a3a3;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #a3a3a3;
+      margin: 0;
+    }
+  }
+}
