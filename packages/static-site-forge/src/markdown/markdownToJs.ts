@@ -34,6 +34,7 @@ export function markdownToJs(
       const importPath = config.getWebComponentImportPath(tagName);
       webComponentImports += `import "${importPath}";\n`;
     },
+    isInline: false,
   });
 
   const templateString = litHtml === '' ? '' : `html\`${litHtml}\``;

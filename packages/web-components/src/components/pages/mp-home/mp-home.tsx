@@ -5,11 +5,17 @@ import commonStyles from '../../../styles/common.css';
 import pageListStyles from '../../../styles/page-list.css';
 import styles from './mp-home.css';
 import type { ProjectsPageMetadata } from '../mp-projects/mp-projects';
-import { ProjectList } from '../mp-projects/functional';
+import { PageList } from '../../molecules/PageList';
 import { chevronRightSvg } from '../../atoms/icons';
+import type { ArticlesPageMetadata } from '../mp-articles/mp-articles';
+import type { RootLayoutMetadata } from '../../layouts/mp-root-layout/mp-root-layout';
 
 /** @public */
-interface HomePageMetadata extends ProjectsPageMetadata {
+interface HomePageMetadata
+  extends
+    RootLayoutMetadata,
+    Pick<ProjectsPageMetadata, 'projects'>,
+    Pick<ArticlesPageMetadata, 'articles'> {
   /** @public */
   readonly authorTitle: string;
   /** @public */
@@ -39,11 +45,10 @@ export class MpHome extends LitElement implements LayoutBase {
   //#region Rendering
 
   override render(): TemplateResult {
-    if (this.layoutData === undefined) {
-      throw Error('layoutData is required for mp-home');
-    }
-    const { projects, links, authorTitle, siteConfig } = this.layoutData;
+    const { projects, links, authorTitle, siteConfig, articles } =
+      this.layoutData!;
     const projectEntries = Object.entries(projects);
+    const articlesEntries = Object.entries(articles);
     return (
       <>
         <header>
@@ -62,17 +67,34 @@ export class MpHome extends LitElement implements LayoutBase {
           </nav>
         </header>
         <main>
-          <h2>Projects</h2>
-          <ProjectList
-            projects={Object.fromEntries(
-              projectEntries.filter(
-                ([_, project]) => project.isFeatured === true,
-              ),
-            )}
-          />
-          <a href="/projects/">
-            {chevronRightSvg} View all {projectEntries.length} projects
-          </a>
+          <section>
+            <h2>Projects</h2>
+            <PageList
+              pages={Object.fromEntries(
+                projectEntries.filter(
+                  ([_, project]) => project.isFeatured === true,
+                ),
+              )}
+              prefix="projects"
+            />
+            <a href="/projects/">
+              {chevronRightSvg} See all {projectEntries.length - 1} projects
+            </a>
+          </section>
+          <section>
+            <h2>Articles</h2>
+            <PageList
+              pages={Object.fromEntries(
+                articlesEntries.filter(
+                  ([_, article]) => article.isFeatured === true,
+                ),
+              )}
+              prefix="articles"
+            />
+            <a href="/articles/">
+              {chevronRightSvg} See all {articlesEntries.length - 1} articles
+            </a>
+          </section>
         </main>
       </>
     );

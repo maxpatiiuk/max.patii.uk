@@ -1,5 +1,5 @@
 /** @public */
-export type BasePageMetadata = {
+export interface BasePageMetadata {
   /** @public */
   readonly title: string;
   /** @public */
@@ -21,7 +21,7 @@ export type BasePageMetadata = {
   readonly layout?: GetLayout<BasePageMetadata> | false;
   /** @public */
   readonly hasMarkdownContent?: false;
-};
+}
 
 /** @public */
 export type TypedLayoutMetadata<T extends BasePageMetadata> = BasePageMetadata &
@@ -31,12 +31,12 @@ export type TypedLayoutMetadata<T extends BasePageMetadata> = BasePageMetadata &
   };
 
 /** @public */
-export type Collection<T extends BasePageMetadata = BasePageMetadata> = {
+export interface Collection<T extends BasePageMetadata = BasePageMetadata> {
   /** @public */
   defaultLayout: GetLayout<T>;
   /** @public */
   pages: Record<string, BasePageMetadata & T>;
-};
+}
 
 /** @public */
 export type GetLayout<T extends BasePageMetadata> = () => Promise<
@@ -50,7 +50,7 @@ type LayoutModule<T extends BasePageMetadata> = Record<
 >;
 
 /** @public */
-export type ForgeConfig = {
+export interface ForgeConfig {
   /**
    * @public
    * @param tagName
@@ -64,11 +64,11 @@ export type ForgeConfig = {
    * @public
    */
   readonly ssrBundleIn?: RegExp[];
-};
+}
 
-export type ResolvedPage = {
+export interface ResolvedPage {
   collectionName: string;
   slug: string;
   metadata: BasePageMetadata;
   collection: Collection;
-};
+}

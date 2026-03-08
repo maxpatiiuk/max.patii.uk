@@ -2,27 +2,27 @@ import type { TemplateResult } from 'lit';
 import { h, LitElement, property } from '@arcgis/lumina';
 import type { RootLayoutMetadata } from '../../layouts/mp-root-layout/mp-root-layout';
 import type { LayoutBase } from '../../layouts/types';
-import type { PostPageMetadata } from '../../layouts/mp-post-layout/mp-post-layout';
 import commonStyles from '../../../styles/common.css';
 import centeredPageStyles from '../../../styles/centered-page.css';
 import pageListStyles from '../../../styles/page-list.css';
 import { Header, returnToHomepage } from '../../molecules/header';
 import { PageList } from '../../molecules/PageList';
+import type { PostPageMetadata } from '../../layouts/mp-post-layout/mp-post-layout';
 
 /** @public */
-export interface ProjectsPageMetadata extends RootLayoutMetadata {
+export interface ArticlesPageMetadata extends RootLayoutMetadata {
   /** @public */
-  readonly projects: Record<string, PostPageMetadata>;
+  articles: Record<string, PostPageMetadata>;
 }
 
 declare global {
   interface DeclareElements {
-    'mp-projects': MpProjects;
+    'mp-articles': MpArticles;
   }
 }
 
 /** @public */
-export class MpProjects extends LitElement implements LayoutBase {
+export class MpArticles extends LitElement implements LayoutBase {
   //#region Static Members
   static override styles = [commonStyles, centeredPageStyles, pageListStyles];
 
@@ -31,18 +31,18 @@ export class MpProjects extends LitElement implements LayoutBase {
   //#region Public Properties
 
   /** @public */
-  @property() layoutData?: ProjectsPageMetadata;
+  @property() layoutData?: ArticlesPageMetadata;
 
   //#endregion
 
   //#region Rendering
 
   override render(): TemplateResult {
-    const { projects } = this.layoutData!;
+    const { articles } = this.layoutData!;
     return (
       <main>
-        <Header title="My Projects">{returnToHomepage}</Header>
-        <PageList pages={projects} prefix="projects" />
+        <Header title="My Articles">{returnToHomepage}</Header>
+        <PageList pages={articles} prefix="articles" />
       </main>
     );
   }

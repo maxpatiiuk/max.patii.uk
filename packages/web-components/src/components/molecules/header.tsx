@@ -1,5 +1,5 @@
 import { h, type JsxNode } from '@arcgis/lumina';
-import { chevronLeftSvg } from './icons';
+import { chevronLeftSvg } from '../atoms/icons';
 import type { TemplateResult } from 'lit';
 
 export function Header({
@@ -27,5 +27,9 @@ export const returnToHomepage = (
 );
 
 export const returnToProjects = (
-  <a href="/projects">{chevronLeftSvg} Return to projects lists</a>
+  <a href="/projects">{chevronLeftSvg} Return to all projects</a>
+);
+
+export const returnToArticles = (
+  <a href="/articles">{chevronLeftSvg} Return to all articles</a>
 );
