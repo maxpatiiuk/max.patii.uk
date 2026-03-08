@@ -1,32 +1,37 @@
 :host {
   display: block;
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
+
 h2 {
   padding-top: 1rem;
   padding-bottom: 0.25rem;
   font-size: 1.5rem;
   line-height: 2rem;
+  font-weight: inherit;
   color: #a3a3a3;
   align-self: stretch;
 }
-.description {
+
+p {
   align-self: stretch;
+
+  &:not(:has(slot:empty)) {
+    display: none;
+  }
 }
-.wrapper {
-  background: #404040;
+
+div {
+  grid-column: 1 / -1;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
   justify-content: center;
   margin-bottom: 1.25rem;
-  padding: 0.25rem;
-  border-radius: 0.75rem;
 }
+
 iframe {
-  background: #171717;
-  max-width: 100%;
+  border: #404040 0.25rem solid;
   border-radius: 0.75rem;
-  border: 0;
+  max-width: 100%;
 }

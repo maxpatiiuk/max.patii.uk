@@ -164,7 +164,9 @@ export function markdownToLitHtml(
           }
           const rawUrl = markdown.slice(urlStart, urlEnd);
           const url = escapeAttribute(resolveImageUrl(rawUrl, altText));
-          ropes.push(`<img src="${url}" alt="${escapeAttribute(altText)}">`);
+          ropes.push(
+            `<figure><div><img src="${url}" alt=""><figcaption>${escapeAttribute(altText)}</figcaption></div></figure>`,
+          );
           index = urlEnd + 1;
           flushIndex = index;
         } else {
@@ -282,15 +284,13 @@ export function markdownToLitHtml(
   }
 
   function maybeStartParagraph(index: number): void {
-    if (isBlockLevel && !isInParagraph) {
-      isBlockLevel = false;
+    if (isBlockLevel && !isInParagraph && htmlStack.length === 0) {
       flushText(index);
       flushIndex = index;
       isInParagraph = true;
       ropes.push('<p>');
-    } else {
-      isBlockLevel = false;
     }
+    isBlockLevel = false;
   }
 
   function processBackticks(

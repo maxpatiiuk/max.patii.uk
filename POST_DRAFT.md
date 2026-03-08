@@ -34,3 +34,9 @@ standards compliant SSR-friendly web components, a static site generator, and a
 package that brings both together by providing the content. While small type
 duplication was required, the web components package and static site generator
 don't depend on each other.
+
+Shadow root is awesome for libraries and web components - styles encapsulation,
+slots. But for apps it is sometimes counter-productive - I need to globally
+apply the styles, especially css reset. and since the styles are inlined in
+shadow root by lit ssr, they aren't cached, so need to stay small and specific
+to each page

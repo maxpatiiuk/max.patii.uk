@@ -54,9 +54,7 @@ export class MpHome extends LitElement implements LayoutBase {
             <ul>
               {links.map(({ label, url }) => (
                 <li>
-                  <a href={url} rel="noopener">
-                    {label}
-                  </a>
+                  <a href={url}>{label}</a>
                 </li>
               ))}
             </ul>

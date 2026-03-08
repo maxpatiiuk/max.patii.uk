@@ -36,25 +36,11 @@ export async function renderPage(
   if (firstTemplateStartEnd === -1) {
     throw Error('Malformed template tag in rendered HTML');
   }
-  const defaultSlot = cleanedHtml.indexOf(
-    '<slot></slot>',
-    firstTemplateStartEnd,
-  );
-  if (defaultSlot === -1) {
-    throw Error('Rendered HTML does not contain a default slot');
-  }
-  const templateEnd = cleanedHtml.indexOf('</template>', firstTemplateStartEnd);
+  const templateEnd = cleanedHtml.lastIndexOf('</template>');
   if (templateEnd === -1) {
     throw Error('Rendered HTML does not contain a closing template tag');
   }
-  const lastTagOpen = cleanedHtml.lastIndexOf('</');
-  if (lastTagOpen === -1) {
-    throw Error('Malformed template content in rendered HTML');
-  }
-  const joined =
-    cleanedHtml.slice(firstTemplateStartEnd + 1, defaultSlot) +
-    cleanedHtml.slice(templateEnd + '</template>'.length, lastTagOpen) +
-    cleanedHtml.slice(defaultSlot + '<slot></slot>'.length, templateEnd);
+  const joined = cleanedHtml.slice(firstTemplateStartEnd + 1, templateEnd);
 
   return joined;
 }
@@ -83,5 +69,5 @@ async function composeLayout(
     );
   }
   const staticTagName = unsafeStatic(tagName);
-  return html`<${staticTagName} .layoutData=${page}>${litHtml}</${staticTagName}>`;
+  return html`<${staticTagName} .layoutData=${page} .slotted=${litHtml}></${staticTagName}>`;
 }

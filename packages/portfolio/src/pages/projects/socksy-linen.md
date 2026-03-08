@@ -32,9 +32,7 @@ I assembled it from short clips from Chanel advertisements.
 ![Contact details](../../../public/projects/images/socksy-linen/4.webp)
 
 <mp-youtube caption="Ad Videos" video="PYnPfBbp6M0">
-<span slot="description">
-In addition to the website, I also created ad videos for the shop
-</span>
+<span slot="description">In addition to the website, I also created ad videos for the shop</span>
 </mp-youtube>
 
 <mp-youtube caption="Linen. Fasion" video="7euUWt4fRiY"></mp-youtube>
