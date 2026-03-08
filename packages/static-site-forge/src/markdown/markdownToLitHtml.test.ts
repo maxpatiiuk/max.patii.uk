@@ -265,7 +265,9 @@ describe(markdownToLitHtml, () => {
     it('images', () => {
       expect(
         markdownToLitHtml('![alt](src)', { ...options, resolveImageUrl }),
-      ).toBe('<img src="src" alt="alt">');
+      ).toBe(
+        '<figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure>',
+      );
     });
     it('image between paragraphs', () => {
       expect(
@@ -273,7 +275,9 @@ describe(markdownToLitHtml, () => {
           ...options,
           resolveImageUrl,
         }),
-      ).toBe('<p>Before</p><br><img src="src" alt="alt"><br><p>After</p>');
+      ).toBe(
+        '<p>Before</p><br><figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure><br><p>After</p>',
+      );
     });
     it('image with complex alt text', () => {
       expect(
@@ -281,7 +285,9 @@ describe(markdownToLitHtml, () => {
           ...options,
           resolveImageUrl,
         }),
-      ).toBe('<img src="img.png" alt="a screenshot of app">');
+      ).toBe(
+        '<figure><div><img src="img.png" alt=""><figcaption>a screenshot of app</figcaption></div></figure>',
+      );
     });
     it('link with quotes in URL', () => {
       expect(markdownToLitHtml('[text](url?a="b")', options)).toBe(
@@ -299,7 +305,9 @@ describe(markdownToLitHtml, () => {
           ...options,
           resolveImageUrl,
         }),
-      ).toBe('<img src="img.png" alt="a &quot;quoted&quot; alt">');
+      ).toBe(
+        '<figure><div><img src="img.png" alt=""><figcaption>a &quot;quoted&quot; alt</figcaption></div></figure>',
+      );
     });
     it('image with ampersand in alt and URL', () => {
       expect(
@@ -307,7 +315,9 @@ describe(markdownToLitHtml, () => {
           ...options,
           resolveImageUrl,
         }),
-      ).toBe('<img src="img?a=1&amp;b=2" alt="A &amp; B">');
+      ).toBe(
+        '<figure><div><img src="img?a=1&amp;b=2" alt=""><figcaption>A &amp; B</figcaption></div></figure>',
+      );
     });
   });
 
@@ -380,6 +390,23 @@ describe(markdownToLitHtml, () => {
       expect(
         markdownToLitHtml('T <a href="url" class="link">text</a> m', options),
       ).toBe('<p>T <a href="url" class="link">text</a> m</p>');
+    });
+    it.only('with youtube embed', () => {
+      const customElements: string[] = [];
+      expect(
+        markdownToLitHtml(
+          `<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7">
+<span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
+</mp-youtube>`,
+          {
+            ...options,
+            onWebComponentTag: (tagName) => customElements.push(tagName),
+          },
+        ),
+      ).toBe(
+        `<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7"><br><span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
+</mp-youtube>`,
+      );
     });
   });
 
@@ -557,7 +584,9 @@ describe(markdownToLitHtml, () => {
     it('image then paragraph', () => {
       expect(
         markdownToLitHtml('![alt](src)\nText', { ...options, resolveImageUrl }),
-      ).toBe('<img src="src" alt="alt">\n<p>Text</p>');
+      ).toBe(
+        '<figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure>\n<p>Text</p>',
+      );
     });
     it('formatting in list inside blockquote', () => {
       expect(markdownToLitHtml('> - **bold**\n> - _italic_', options)).toBe(

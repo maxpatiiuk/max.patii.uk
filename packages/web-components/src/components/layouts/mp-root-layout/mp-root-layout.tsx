@@ -1,4 +1,4 @@
-import { h, LitElement, property } from '@arcgis/lumina';
+import { LitElement, property } from '@arcgis/lumina';
 import type { TemplateResult } from 'lit';
 import { html as ssrHtml } from '@lit-labs/ssr';
 import type { LayoutBase } from '../types';
@@ -51,6 +51,9 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   /** @public */
   @property() layoutData?: RootLayoutMetadata;
 
+  /** @public */
+  @property() slotted?: TemplateResult;
+
   //#endregion
 
   //#region Rendering
@@ -84,8 +87,8 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta property="og:description" content="${desc}">
   <meta property="og:type" content="website">
   <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" />
-  ${layoutData.ogImage !== undefined ? `<meta property="og:image" content="${siteConfig.baseUrl}${layoutData.ogImage}">` : ''}
-  ${layoutData.ogImageAlt !== undefined ? `<meta property="og:image:alt" content="${layoutData.ogImageAlt}">` : ''}
+  ${layoutData.ogImage !== undefined ? ssrHtml`<meta property="og:image" content="${siteConfig.baseUrl}${layoutData.ogImage}">` : ''}
+  ${layoutData.ogImageAlt !== undefined ? ssrHtml`<meta property="og:image:alt" content="${layoutData.ogImageAlt}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
@@ -106,7 +109,7 @@ export class MpRootLayout extends LitElement implements LayoutBase {
     return ssrHtml`<!DOCTYPE html><html lang="en-US"><head>
 ${head}
 </head><body style="margin:0;font-size:112.5%">
-${(<slot />)}
+${this.slotted}
 </body></html>`;
   }
 

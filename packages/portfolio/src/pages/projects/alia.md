@@ -5,7 +5,7 @@ LLVM bitcode, which in turn can be compiled for any architecture.
 In addition, Alia includes an interpreter and a hefty test coverage.
 
 For documentation of implementation and language specification, see
-[Alia repository](https://github.com/maxpatiiuk/alia)
+[Alia repository](https://github.com/maxpatiiuk/alia).
 
 ## Screenshot
 

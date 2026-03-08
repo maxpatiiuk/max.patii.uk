@@ -1,6 +1,7 @@
 import { h, LitElement, property } from '@arcgis/lumina';
 import type { TemplateResult } from 'lit';
 import { styles } from './mp-youtube.css';
+import { VideoPlayer } from './functional';
 
 declare global {
   interface DeclareElements {
@@ -21,37 +22,23 @@ export class MpYoutube extends LitElement {
 
   @property() caption = '';
 
-  @property({}) start?: number;
+  @property() start?: number;
 
   //#endregion
 
   //#region Rendering
 
   override render(): TemplateResult {
-    const origin =
+    // FEATURE: figure out a clean way to get the page url here
+    /*const origin =
       typeof document !== 'undefined' ? document.location.origin : '';
     const referrer =
       typeof document !== 'undefined' ? document.location.href : '';
+    origin=${encodeURIComponent(origin)}&widget_referrer=${encodeURIComponent(referrer)}&*/
     const startParam = this.start !== undefined ? `&start=${this.start}` : '';
-    const src = `https://www.youtube.com/embed/${this.video}?origin=${encodeURIComponent(origin)}&widget_referrer=${encodeURIComponent(referrer)}&playlist=${this.video}&loop=1${startParam}`;
+    const src = `https://www.youtube.com/embed/${this.video}?playlist=${this.video}&loop=1${startParam}`;
 
-    return (
-      <span>
-        <h2>{this.caption}</h2>
-        <div class="description">
-          <slot name="description" />
-        </div>
-        <div class="wrapper">
-          <iframe
-            width="640"
-            height="360"
-            title={this.caption}
-            src={src}
-            allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          />
-        </div>
-      </span>
-    );
+    return <VideoPlayer caption={this.caption} src={src} />;
   }
 
   //#endregion

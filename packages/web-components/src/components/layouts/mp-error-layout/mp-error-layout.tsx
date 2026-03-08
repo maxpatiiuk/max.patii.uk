@@ -25,6 +25,9 @@ export class MpErrorLayout extends LitElement implements LayoutBase {
   /** @public */
   @property() layoutData?: RootLayoutMetadata;
 
+  /** @public */
+  @property() slotted?: TemplateResult;
+
   //#endregion
 
   //#region Rendering
@@ -32,7 +35,7 @@ export class MpErrorLayout extends LitElement implements LayoutBase {
   override render(): TemplateResult {
     return (
       <div class="error-layout">
-        <slot />
+        {this.slotted}
         {chevronLeftSvg}
       </div>
     );

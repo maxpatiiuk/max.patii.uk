@@ -31,6 +31,9 @@ export class MpProjectLayout extends LitElement implements LayoutBase {
   /** @public */
   @property() layoutData?: ProjectMetadata;
 
+  /** @public */
+  @property() slotted?: TemplateResult;
+
   //#endregion
 
   //#region Rendering
@@ -61,7 +64,7 @@ export class MpProjectLayout extends LitElement implements LayoutBase {
             {description !== undefined ? <p>{description}</p> : ''}
           </hgroup>
         </header>
-        <slot />
+        {this.slotted}
       </main>
     );
   }

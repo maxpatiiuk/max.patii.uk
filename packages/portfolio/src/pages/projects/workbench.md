@@ -20,9 +20,7 @@ I worked on the front end, including the following features:
 ![Plotting data with Leaflet](../../../public/projects/images/workbench/4.webp)
 
 <mp-youtube caption="Video review" video="lg9ybKMPQXI">
-<span slot="description">
-An overview of a beta version of the WorkBench by one of our team members:
-</span>
+<span slot="description">An overview of a beta version of the WorkBench by one of our team members:</span>
 </mp-youtube>
 
 <mp-youtube caption="Specify WorkBench demo for SpeciForum 2021" video="83GXeGeihqE"></mp-youtube>
