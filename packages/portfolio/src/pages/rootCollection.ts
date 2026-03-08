@@ -2,12 +2,12 @@ import type {
   Collection,
   TypedLayoutMetadata,
 } from '@maxpatiiuk/static-site-forge/types.js';
-import type { HomeLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-home';
 import { siteConfig } from '../config.ts';
 import type { RootLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-root-layout';
 import { projectsCollection } from './projects/projectsCollection.ts';
+import type { HomePageMetadata } from '@maxpatiiuk/web-components/components/mp-home';
 
-const indexPage: TypedLayoutMetadata<HomeLayoutMetadata> = {
+const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   title: 'Max Patiiuk',
   description: 'Senior SDE at Esri',
   authorTitle: 'Senior SDE at Esri',

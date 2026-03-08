@@ -2,14 +2,18 @@ import { h, LitElement, property } from '@arcgis/lumina';
 import type { TemplateResult } from 'lit';
 import type { RootLayoutMetadata } from '../mp-root-layout/mp-root-layout';
 import type { LayoutBase } from '../types';
-import { chevronLeftSvg, githubSvg } from '../../atoms/icons';
-import styles from './mp-project-layout.css';
+import { githubSvg } from '../../atoms/icons';
 import commonStyles from '../../../styles/common.css';
+import centeredPageStyles from '../../../styles/centered-page.css';
+import styles from './mp-project-layout.css';
+import { Header, returnToProjects } from '../../atoms/header';
 
 /** @public */
 export interface ProjectMetadata extends RootLayoutMetadata {
   /** @public */
   readonly gitHub?: string;
+  /** @public */
+  readonly isFeatured?: boolean;
 }
 
 declare global {
@@ -22,7 +26,7 @@ declare global {
 export class MpProjectLayout extends LitElement implements LayoutBase {
   //#region Static Members
 
-  static override styles = [commonStyles, styles];
+  static override styles = [commonStyles, centeredPageStyles, styles];
 
   //#endregion
 
@@ -54,16 +58,15 @@ export class MpProjectLayout extends LitElement implements LayoutBase {
 
     return (
       <main>
-        <header>
-          <nav>
-            <a href="/">{chevronLeftSvg} Return to homepage</a>
-            {githubLink}
-          </nav>
-          <hgroup>
-            <h1>{title}</h1>
-            {description !== undefined ? <p>{description}</p> : ''}
-          </hgroup>
-        </header>
+        <Header
+          title={title}
+          description={
+            description === undefined ? undefined : <p>{description}</p>
+          }
+        >
+          {returnToProjects}
+          {githubLink}
+        </Header>
         {this.slotted}
       </main>
     );

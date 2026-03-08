@@ -357,6 +357,7 @@ function resolveUrlToPage(
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
   debugResolve?.(`Resolving ${normalized}`);
 
+  debugger;
   for (const [collectionName, collection] of Object.entries(collections)) {
     const prefix = collectionName === '' ? '' : `${collectionName}/`;
     if (!normalized.startsWith(prefix)) {
@@ -365,7 +366,9 @@ function resolveUrlToPage(
 
     const withoutPrefix = normalized.slice(prefix.length);
     const slug =
-      withoutPrefix === '/' ? 'index' : withoutPrefix.slice(0, -'/'.length);
+      withoutPrefix === '/' || withoutPrefix === ''
+        ? 'index'
+        : withoutPrefix.slice(0, -'/'.length);
     if (Object.hasOwn(collection.pages, slug)) {
       debugResolve?.(
         `Resolved to collection "${collectionName}", slug "${slug}"`,

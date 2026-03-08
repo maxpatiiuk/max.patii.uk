@@ -1,19 +1,19 @@
 import type { TemplateResult } from 'lit';
 import { h, Fragment, LitElement, property } from '@arcgis/lumina';
-import type { RootLayoutMetadata } from '../../layouts/mp-root-layout/mp-root-layout';
 import type { LayoutBase } from '../../layouts/types';
-import type { ProjectMetadata } from '../../layouts/mp-project-layout/mp-project-layout';
-import styles from './mp-home.css';
 import commonStyles from '../../../styles/common.css';
+import pageListStyles from '../../../styles/page-list.css';
+import styles from './mp-home.css';
+import type { ProjectsPageMetadata } from '../mp-projects/mp-projects';
+import { ProjectList } from '../mp-projects/functional';
+import { chevronRightSvg } from '../../atoms/icons';
 
 /** @public */
-interface HomeLayoutMetadata extends RootLayoutMetadata {
+interface HomePageMetadata extends ProjectsPageMetadata {
   /** @public */
   readonly authorTitle: string;
   /** @public */
   readonly links: readonly { readonly label: string; readonly url: string }[];
-  /** @public */
-  readonly projects: Record<string, ProjectMetadata>;
 }
 
 declare global {
@@ -25,14 +25,14 @@ declare global {
 /** @public */
 export class MpHome extends LitElement implements LayoutBase {
   //#region Static Members
-  static override styles = [commonStyles, styles];
+  static override styles = [commonStyles, pageListStyles, styles];
 
   //#endregion
 
   //#region Public Properties
 
   /** @public */
-  @property() layoutData?: HomeLayoutMetadata;
+  @property() layoutData?: HomePageMetadata;
 
   //#endregion
 
@@ -43,6 +43,7 @@ export class MpHome extends LitElement implements LayoutBase {
       throw Error('layoutData is required for mp-home');
     }
     const { projects, links, authorTitle, siteConfig } = this.layoutData;
+    const projectEntries = Object.entries(projects);
     return (
       <>
         <header>
@@ -61,19 +62,17 @@ export class MpHome extends LitElement implements LayoutBase {
           </nav>
         </header>
         <main>
-          <h2>My projects</h2>
-          {Object.entries(projects).map(([id, metadata]) =>
-            metadata.description === undefined ? (
-              ''
-            ) : (
-              <article>
-                <a href={`/projects/${id}/`}>
-                  <h3>{metadata.title}</h3>
-                </a>
-                <p>{metadata.description}</p>
-              </article>
-            ),
-          )}
+          <h2>Projects</h2>
+          <ProjectList
+            projects={Object.fromEntries(
+              projectEntries.filter(
+                ([_, project]) => project.isFeatured === true,
+              ),
+            )}
+          />
+          <a href="/projects/">
+            {chevronRightSvg} View all {projectEntries.length} projects
+          </a>
         </main>
       </>
     );
