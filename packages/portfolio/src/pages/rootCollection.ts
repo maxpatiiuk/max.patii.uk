@@ -5,6 +5,7 @@ import type {
 import { siteConfig } from '../config.ts';
 import type { RootLayoutMetadata } from '@maxpatiiuk/web-components/components/mp-root-layout';
 import { projectsCollection } from './projects/projectsCollection.ts';
+import { articlesCollection } from './articles/articlesCollection.ts';
 import type { HomePageMetadata } from '@maxpatiiuk/web-components/components/mp-home';
 
 const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
@@ -19,14 +20,14 @@ const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
     { label: 'instagram', url: 'https://instagram.patii.uk' },
     { label: 'youtube', url: 'https://youtube.com/@maxpatiiuk' },
     { label: 'books', url: 'https://books.patii.uk' },
-    { label: 'blog', url: 'https://blog.patii.uk' },
-    { label: 'about', url: 'https://doc.patii.uk' },
+    { label: 'readme', url: 'https://doc.patii.uk' },
     { label: 'cv', url: 'https://cv.patii.uk' },
   ],
   layout: async () =>
     await import('@maxpatiiuk/web-components/components/mp-home'),
   siteConfig,
   projects: projectsCollection.pages,
+  articles: articlesCollection.pages,
   hasMarkdownContent: false,
 };
 

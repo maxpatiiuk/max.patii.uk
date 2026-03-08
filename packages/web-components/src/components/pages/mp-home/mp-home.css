@@ -69,7 +69,7 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 5rem;
   padding: 2.5rem;
   padding-top: 0;
 
@@ -87,16 +87,22 @@ main {
     margin: 0;
   }
 
-  > a {
-    padding: 1.5rem;
-    background: #333333;
-    border-radius: 0.5rem;
+  section {
     display: flex;
-    align-items: center;
-    gap: 0 0.5rem;
+    flex-direction: column;
+    gap: 2.5rem;
 
-    &:hover {
-      background: #404040;
+    > a {
+      padding: 1.5rem;
+      background: #333333;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0 0.5rem;
+
+      &:hover {
+        background: #404040;
+      }
     }
   }
 }

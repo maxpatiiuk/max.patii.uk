@@ -3,6 +3,7 @@ import { throwParseError } from './throwParseError.ts';
 export type MarkdownToLitHtmlOptions = {
   readonly resolveImageUrl: (url: string, alt: string) => string;
   readonly onWebComponentTag: (tagName: string) => void;
+  readonly isInline: boolean;
 };
 
 /**
@@ -15,13 +16,13 @@ export function markdownToLitHtml(
   markdown: string,
   options: MarkdownToLitHtmlOptions,
 ): string {
-  const { onWebComponentTag, resolveImageUrl } = options;
+  const { onWebComponentTag, resolveImageUrl, isInline } = options;
   const ropes: string[] = [];
   const length = markdown.length;
 
   let flushIndex = 0;
   let isBlockLevel = true;
-  let isInParagraph = false;
+  let isInParagraph = isInline;
   let hadBackslash = false;
   let isInBold = false;
   let isInItalic = false;
@@ -177,11 +178,16 @@ export function markdownToLitHtml(
         flushText(index);
         maybeStartParagraph(index);
         const linkTextStart = index + 1;
-        const linkTextEnd = markdown.indexOf(']', linkTextStart);
+        const isImageLink =
+          markdown.charCodeAt(linkTextStart) === codeExclamation;
+        const bracketEnd = markdown.indexOf(']', linkTextStart);
+        const linkTextEnd =
+          isImageLink && bracketEnd !== -1
+            ? markdown.indexOf(']', bracketEnd + 1)
+            : bracketEnd;
         if (linkTextEnd === -1) {
           throwParseError(markdown, index, 'Unclosed link text');
         }
-        // Not supporting images inside links yet
         const linkText = markdown.slice(linkTextStart, linkTextEnd);
         if (markdown.charCodeAt(linkTextEnd + 1) !== codeOpenParen) {
           throwParseError(markdown, linkTextEnd + 1, 'Missing URL in link');
@@ -193,7 +199,11 @@ export function markdownToLitHtml(
         }
         const rawUrl = markdown.slice(urlStart, urlEnd);
         const url = escapeAttribute(rawUrl);
-        ropes.push(`<a href="${url}">${linkText}</a>`);
+        const renderedLinkText = markdownToLitHtml(linkText, {
+          ...options,
+          isInline: true,
+        });
+        ropes.push(`<a href="${url}">${renderedLinkText}</a>`);
         index = urlEnd;
         flushIndex = index + 1;
         continue;
@@ -272,7 +282,9 @@ export function markdownToLitHtml(
   function flushParagraph(): void {
     if (isInParagraph) {
       isInParagraph = false;
-      ropes.push('</p>');
+      if (!isInline) {
+        ropes.push('</p>');
+      }
     }
   }
 

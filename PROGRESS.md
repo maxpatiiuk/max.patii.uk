@@ -10,3 +10,11 @@ Use `import { globalIgnores } from "eslint/config";` in eslint. hardcode ignores
 list based on gitignore and prettierignore
 
 resolve all TODO comments in the codebase
+
+add canonical url to dev.to posts
+
+remove dev.to links in projects
+
+a cli to get dev.to md from raw md
+
+scan articles for typos

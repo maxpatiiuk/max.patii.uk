@@ -11,6 +11,7 @@ function never(): never {
 const options: MarkdownToLitHtmlOptions = {
   resolveImageUrl: never,
   onWebComponentTag: never,
+  isInline: false,
 };
 
 function resolveImageUrl(url: string): string {
@@ -319,6 +320,21 @@ describe(markdownToLitHtml, () => {
         '<figure><div><img src="img?a=1&amp;b=2" alt=""><figcaption>A &amp; B</figcaption></div></figure>',
       );
     });
+    it('formatted text inside link', () => {
+      expect(markdownToLitHtml('[**bold** and _italic_](url)', options)).toBe(
+        '<p><a href="url"><b>bold</b> and <i>italic</i></a></p>',
+      );
+    });
+    it('image inside link', () => {
+      expect(
+        markdownToLitHtml('[![alt](src)](url)', {
+          ...options,
+          resolveImageUrl,
+        }),
+      ).toBe(
+        '<p><a href="url"><figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure></a></p>',
+      );
+    });
   });
 
   describe('html', () => {
@@ -391,7 +407,7 @@ describe(markdownToLitHtml, () => {
         markdownToLitHtml('T <a href="url" class="link">text</a> m', options),
       ).toBe('<p>T <a href="url" class="link">text</a> m</p>');
     });
-    it.only('with youtube embed', () => {
+    it('with youtube embed', () => {
       const customElements: string[] = [];
       expect(
         markdownToLitHtml(
