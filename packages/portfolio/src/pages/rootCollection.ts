@@ -7,6 +7,7 @@ import type { RootLayoutMetadata } from '@maxpatiiuk/web-components/components/m
 import { projectsCollection } from './projects/projectsCollection.ts';
 import { articlesCollection } from './articles/articlesCollection.ts';
 import type { HomePageMetadata } from '@maxpatiiuk/web-components/components/mp-home';
+import { talksCollection } from './talks/talksCollection.ts';
 
 const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   title: 'Max Patiiuk',
@@ -28,6 +29,7 @@ const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   siteConfig,
   projects: projectsCollection.pages,
   articles: articlesCollection.pages,
+  talks: talksCollection.pages,
   hasMarkdownContent: false,
 };
 

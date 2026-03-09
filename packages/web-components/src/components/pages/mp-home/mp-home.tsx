@@ -4,22 +4,23 @@ import type { LayoutBase } from '../../layouts/types';
 import commonStyles from '../../../styles/common.css';
 import pageListStyles from '../../../styles/page-list.css';
 import styles from './mp-home.css';
-import type { ProjectsPageMetadata } from '../mp-projects/mp-projects';
 import { PageList } from '../../molecules/PageList';
 import { chevronRightSvg } from '../../atoms/icons';
-import type { ArticlesPageMetadata } from '../mp-articles/mp-articles';
 import type { RootLayoutMetadata } from '../../layouts/mp-root-layout/mp-root-layout';
+import type { PageListPageMetadata } from '../mp-page-list/mp-page-list';
 
 /** @public */
-interface HomePageMetadata
-  extends
-    RootLayoutMetadata,
-    Pick<ProjectsPageMetadata, 'projects'>,
-    Pick<ArticlesPageMetadata, 'articles'> {
+interface HomePageMetadata extends RootLayoutMetadata {
   /** @public */
   readonly authorTitle: string;
   /** @public */
   readonly links: readonly { readonly label: string; readonly url: string }[];
+  /** @public */
+  readonly projects: PageListPageMetadata['pages'];
+  /** @public */
+  readonly articles: PageListPageMetadata['pages'];
+  /** @public */
+  readonly talks: PageListPageMetadata['pages'];
 }
 
 declare global {
@@ -45,10 +46,11 @@ export class MpHome extends LitElement implements LayoutBase {
   //#region Rendering
 
   override render(): TemplateResult {
-    const { projects, links, authorTitle, siteConfig, articles } =
+    const { projects, links, authorTitle, siteConfig, articles, talks } =
       this.layoutData!;
     const projectEntries = Object.entries(projects);
     const articlesEntries = Object.entries(articles);
+    const talksEntries = Object.entries(talks);
     return (
       <>
         <header>
@@ -79,6 +81,18 @@ export class MpHome extends LitElement implements LayoutBase {
             />
             <a href="/projects/">
               {chevronRightSvg} See all {projectEntries.length - 1} projects
+            </a>
+          </section>
+          <section>
+            <h2>Talks</h2>
+            <PageList
+              pages={Object.fromEntries(
+                talksEntries.filter(([_, talk]) => talk.isFeatured === true),
+              )}
+              prefix="talks"
+            />
+            <a href="/talks/">
+              {chevronRightSvg} See all {talksEntries.length - 1} talks
             </a>
           </section>
           <section>

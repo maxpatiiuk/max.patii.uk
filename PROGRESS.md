@@ -1,5 +1,7 @@
 ## Immediate TODO
 
+deploy to cloudflare pages
+
 add canonical url to dev.to posts
 
 add public-speaking section

@@ -178,6 +178,9 @@ export function useStaticSiteForge(
         const prefix = collectionName === '' ? '' : `${collectionName}/`;
 
         for (const [slug, metadata] of Object.entries(collection.pages)) {
+          if (metadata.externalUrl !== undefined) {
+            continue;
+          }
           const path = prefix + slug;
           const requestId = `${prefix}${slug}.md?mp`;
           // TODO: is it auto-watching these or need to remove ?mp
@@ -370,13 +373,17 @@ function resolveUrlToPage(
         ? 'index'
         : withoutPrefix.slice(0, -'/'.length);
     if (Object.hasOwn(collection.pages, slug)) {
+      const page = collection.pages[slug];
+      if (page.externalUrl !== undefined) {
+        continue;
+      }
       debugResolve?.(
         `Resolved to collection "${collectionName}", slug "${slug}"`,
       );
       return {
         collectionName,
         slug,
-        metadata: collection.pages[slug],
+        metadata: page,
         collection,
       };
     }

@@ -33,3 +33,7 @@ export const returnToProjects = (
 export const returnToArticles = (
   <a href="/articles">{chevronLeftSvg} Return to all articles</a>
 );
+
+export const returnToTalks = (
+  <a href="/talks">{chevronLeftSvg} Return to all talks</a>
+);

@@ -10,19 +10,23 @@ import { Header, returnToHomepage } from '../../molecules/header';
 import { PageList } from '../../molecules/PageList';
 
 /** @public */
-export interface ProjectsPageMetadata extends RootLayoutMetadata {
+export interface PageListPageMetadata extends RootLayoutMetadata {
   /** @public */
-  readonly projects: Record<string, PostPageMetadata>;
+  readonly pages: Record<string, PostPageMetadata>;
+  /** @public */
+  readonly title: string;
+  /** @public */
+  readonly prefix: string;
 }
 
 declare global {
   interface DeclareElements {
-    'mp-projects': MpProjects;
+    'mp-page-list': MpPageList;
   }
 }
 
 /** @public */
-export class MpProjects extends LitElement implements LayoutBase {
+export class MpPageList extends LitElement implements LayoutBase {
   //#region Static Members
   static override styles = [commonStyles, centeredPageStyles, pageListStyles];
 
@@ -31,18 +35,18 @@ export class MpProjects extends LitElement implements LayoutBase {
   //#region Public Properties
 
   /** @public */
-  @property() layoutData?: ProjectsPageMetadata;
+  @property() layoutData?: PageListPageMetadata;
 
   //#endregion
 
   //#region Rendering
 
   override render(): TemplateResult {
-    const { projects } = this.layoutData!;
+    const { pages, title, prefix } = this.layoutData!;
     return (
       <main>
-        <Header title="My Projects">{returnToHomepage}</Header>
-        <PageList pages={projects} prefix="projects" />
+        <Header title={title}>{returnToHomepage}</Header>
+        <PageList pages={pages} prefix={prefix} />
       </main>
     );
   }
