@@ -40,7 +40,6 @@ export function markdownToLitHtml(
           flushText(index - 1);
           flushParagraph();
           flushIndex = index + 1;
-          ropes.push('<br>');
         } else {
           if (activeHeadingLevel > 0) {
             flushText(index);
@@ -166,7 +165,7 @@ export function markdownToLitHtml(
           const rawUrl = markdown.slice(urlStart, urlEnd);
           const url = escapeAttribute(resolveImageUrl(rawUrl, altText));
           ropes.push(
-            `<figure><div><img src="${url}" alt=""><figcaption>${escapeAttribute(altText)}</figcaption></div></figure>`,
+            `<figure><div><img src="${url}" alt="" loading="lazy">${altText === '' ? '' : `<figcaption>${escapeAttribute(altText)}</figcaption>`}</div></figure>`,
           );
           index = urlEnd + 1;
           flushIndex = index;
@@ -192,12 +191,37 @@ export function markdownToLitHtml(
         if (markdown.charCodeAt(linkTextEnd + 1) !== codeOpenParen) {
           throwParseError(markdown, linkTextEnd + 1, 'Missing URL in link');
         }
+
         const urlStart = linkTextEnd + 2;
-        const urlEnd = markdown.indexOf(')', urlStart);
-        if (urlEnd === -1) {
-          throwParseError(markdown, urlStart, 'Unclosed URL in link');
+
+        const isEscapedUrl = markdown.charCodeAt(urlStart) === codeLessThan;
+        let urlEnd: number;
+        let urlStringEnd: number;
+        let urlStringStart = urlStart;
+        if (isEscapedUrl) {
+          const escapeEnd = markdown.indexOf('>', urlStart + 1);
+          if (escapeEnd === -1) {
+            throwParseError(markdown, urlStart, 'Unclosed escaped URL in link');
+          }
+          if (markdown.charCodeAt(escapeEnd + 1) !== codeCloseParen) {
+            throwParseError(
+              markdown,
+              escapeEnd + 1,
+              'Expected ) after escaped URL in link',
+            );
+          }
+          ++urlStringStart;
+          urlStringEnd = escapeEnd;
+          urlEnd = escapeEnd + 1;
+        } else {
+          urlEnd = markdown.indexOf(')', urlStart);
+          urlStringEnd = urlEnd;
+          if (urlEnd === -1) {
+            throwParseError(markdown, urlStart, 'Unclosed URL in link');
+          }
         }
-        const rawUrl = markdown.slice(urlStart, urlEnd);
+        const rawUrl = markdown.slice(urlStringStart, urlStringEnd);
+
         const url = escapeAttribute(rawUrl);
         const renderedLinkText = markdownToLitHtml(linkText, {
           ...options,
@@ -482,6 +506,29 @@ export function markdownToLitHtml(
           ropes.push('<blockquote>');
         }
       } else if (code === codeDash) {
+        let hrIndex = index;
+        let dashCount = 0;
+        while (hrIndex < length) {
+          const code = markdown.charCodeAt(hrIndex);
+          if (code === codeDash) {
+            ++dashCount;
+            ++hrIndex;
+          } else if (code === codeSpace) {
+            ++hrIndex;
+          } else {
+            break;
+          }
+        }
+        if (
+          dashCount >= 3 &&
+          (hrIndex >= length || markdown.charCodeAt(hrIndex) === codeNewLine)
+        ) {
+          flushText(index);
+          closeLists(stackIndex);
+          ropes.push('<hr>');
+          flushIndex = hrIndex;
+          return hrIndex;
+        }
         flushText(index);
         flushIndex = index + 2;
         index = flushIndex;
@@ -598,6 +645,7 @@ const codeExclamation = 33;
 const codeHash = 35;
 const codeAmpersand = 38;
 const codeOpenParen = 40;
+const codeCloseParen = 41;
 const codeAsterisk = 42;
 const codeDash = 45;
 const codeDot = 46;
