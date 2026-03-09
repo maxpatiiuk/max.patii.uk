@@ -21,6 +21,8 @@ export interface BasePageMetadata {
   readonly layout?: GetLayout<BasePageMetadata> | false;
   /** @public */
   readonly hasMarkdownContent?: false;
+  /** @public */
+  readonly externalUrl?: string;
 }
 
 /** @public */

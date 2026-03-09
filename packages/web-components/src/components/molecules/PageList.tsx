@@ -13,7 +13,7 @@ export function PageList({
   return Object.entries(pages).map(([id, metadata]) =>
     metadata.kind === 'index' ? undefined : (
       <article>
-        <a href={`/${prefix}/${id}/`}>
+        <a href={metadata.externalUrl ?? `/${prefix}/${id}/`}>
           <h3>{metadata.title}</h3>
         </a>
         {metadata.description !== undefined || metadata.date !== undefined ? (
