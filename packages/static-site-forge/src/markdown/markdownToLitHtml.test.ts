@@ -31,12 +31,12 @@ describe(markdownToLitHtml, () => {
     });
     it('new lines', () => {
       expect(markdownToLitHtml('Line 1\n\nLine 2', options)).toBe(
-        '<p>Line 1</p><br><p>Line 2</p>',
+        '<p>Line 1</p><p>Line 2</p>',
       );
     });
     it('three paragraphs', () => {
       expect(markdownToLitHtml('A\n\nB\n\nC', options)).toBe(
-        '<p>A</p><br><p>B</p><br><p>C</p>',
+        '<p>A</p><p>B</p><p>C</p>',
       );
     });
     it('trailing newline', () => {
@@ -222,12 +222,12 @@ describe(markdownToLitHtml, () => {
     });
     it('code block after paragraph', () => {
       expect(markdownToLitHtml('Text\n\n```\ncode\n```', options)).toBe(
-        '<p>Text</p><br><pre><code>\ncode\n</code></pre>',
+        '<p>Text</p><pre><code>\ncode\n</code></pre>',
       );
     });
     it('paragraph after code block', () => {
       expect(markdownToLitHtml('```\ncode\n```\nText', options)).toBe(
-        '<pre><code>\ncode\n</code></pre><br><p>Text</p>',
+        '<pre><code>\ncode\n</code></pre><p>Text</p>',
       );
     });
     it('code block with all html special chars', () => {
@@ -263,11 +263,16 @@ describe(markdownToLitHtml, () => {
         '<p><a href="https://example.com/path?q=1&amp;r=2#hash">text</a></p>',
       );
     });
+    it('link with escaped url', () => {
+      expect(
+        markdownToLitHtml('[text](<https://example.com/path#hash()>)', options),
+      ).toBe('<p><a href="https://example.com/path#hash()">text</a></p>');
+    });
     it('images', () => {
       expect(
         markdownToLitHtml('![alt](src)', { ...options, resolveImageUrl }),
       ).toBe(
-        '<figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure>',
+        '<figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure>',
       );
     });
     it('image between paragraphs', () => {
@@ -277,7 +282,7 @@ describe(markdownToLitHtml, () => {
           resolveImageUrl,
         }),
       ).toBe(
-        '<p>Before</p><br><figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure><br><p>After</p>',
+        '<p>Before</p><figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure><p>After</p>',
       );
     });
     it('image with complex alt text', () => {
@@ -287,7 +292,7 @@ describe(markdownToLitHtml, () => {
           resolveImageUrl,
         }),
       ).toBe(
-        '<figure><div><img src="img.png" alt=""><figcaption>a screenshot of app</figcaption></div></figure>',
+        '<figure><div><img src="img.png" alt="" loading="lazy"><figcaption>a screenshot of app</figcaption></div></figure>',
       );
     });
     it('link with quotes in URL', () => {
@@ -307,7 +312,7 @@ describe(markdownToLitHtml, () => {
           resolveImageUrl,
         }),
       ).toBe(
-        '<figure><div><img src="img.png" alt=""><figcaption>a &quot;quoted&quot; alt</figcaption></div></figure>',
+        '<figure><div><img src="img.png" alt="" loading="lazy"><figcaption>a &quot;quoted&quot; alt</figcaption></div></figure>',
       );
     });
     it('image with ampersand in alt and URL', () => {
@@ -317,7 +322,7 @@ describe(markdownToLitHtml, () => {
           resolveImageUrl,
         }),
       ).toBe(
-        '<figure><div><img src="img?a=1&amp;b=2" alt=""><figcaption>A &amp; B</figcaption></div></figure>',
+        '<figure><div><img src="img?a=1&amp;b=2" alt="" loading="lazy"><figcaption>A &amp; B</figcaption></div></figure>',
       );
     });
     it('formatted text inside link', () => {
@@ -332,7 +337,7 @@ describe(markdownToLitHtml, () => {
           resolveImageUrl,
         }),
       ).toBe(
-        '<p><a href="url"><figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure></a></p>',
+        '<p><a href="url"><figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure></a></p>',
       );
     });
   });
@@ -341,11 +346,11 @@ describe(markdownToLitHtml, () => {
     it('comment', () => {
       expect(
         markdownToLitHtml('Text\n<!-- Comment -->\nMore text', options),
-      ).toBe('<p>Text\n</p><br><p>More text</p>');
+      ).toBe('<p>Text\n</p><p>More text</p>');
     });
     it('html comment between headings', () => {
       expect(markdownToLitHtml('# H1\n<!-- comment -->\n## H2', options)).toBe(
-        '<h1>H1</h1>\n<br><h2>H2</h2>',
+        '<h1>H1</h1>\n<h2>H2</h2>',
       );
     });
     it('simple tag', () => {
@@ -420,7 +425,7 @@ describe(markdownToLitHtml, () => {
           },
         ),
       ).toBe(
-        `<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7"><br><span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
+        `<mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7"><span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>
 </mp-youtube>`,
       );
     });
@@ -487,12 +492,12 @@ describe(markdownToLitHtml, () => {
           options,
         ),
       ).toBe(
-        '<ol start=99><li><p>1\nC</p><br><p>1</p><br><ul><li><p>N1\n</p></li><li><p>N2\n</p></li></ul></li><li><p>2</p></li></ol>',
+        '<ol start=99><li><p>1\nC</p><p>1</p><ul><li><p>N1\n</p></li><li><p>N2\n</p></li></ul></li><li><p>2</p></li></ol>',
       );
     });
     it('with nested elements', () => {
       expect(markdownToLitHtml('- 1\n- 2\n\n  Test\n\n- 3\n1', options)).toBe(
-        '<ul><li><p>1\n</p></li><li><p>2</p><br><p>Test</p><br></li><li><p>3\n</p></li></ul><p>1</p>',
+        '<ul><li><p>1\n</p></li><li><p>2</p><p>Test</p></li><li><p>3\n</p></li></ul><p>1</p>',
       );
     });
     it('inside blockquote', () => {
@@ -502,7 +507,7 @@ describe(markdownToLitHtml, () => {
           options,
         ),
       ).toBe(
-        '<blockquote><ul><li><p>1\n</p></li><li><p>2\n</p><br><blockquote><p>Test\n</p></blockquote><br></li><li><p>3\n</p></li></ul><p>1</p></blockquote>',
+        '<blockquote><ul><li><p>1\n</p></li><li><p>2\n</p><blockquote><p>Test\n</p></blockquote></li><li><p>3\n</p></li></ul><p>1</p></blockquote>',
       );
     });
     it('with nested list', () => {
@@ -576,6 +581,39 @@ describe(markdownToLitHtml, () => {
     });
   });
 
+  describe('horizontal rule', () => {
+    it('---', () => {
+      expect(markdownToLitHtml('---', options)).toBe('<hr>');
+    });
+    it('---- (four dashes)', () => {
+      expect(markdownToLitHtml('----', options)).toBe('<hr>');
+    });
+    it('- - - (spaces between dashes)', () => {
+      expect(markdownToLitHtml('- - -', options)).toBe('<hr>');
+    });
+    it('after paragraph without blank line', () => {
+      expect(markdownToLitHtml('Text\n---', options)).toBe('<p>Text\n</p><hr>');
+    });
+    it('before paragraph', () => {
+      expect(markdownToLitHtml('---\nText', options)).toBe('<hr><p>Text</p>');
+    });
+    it('between paragraphs', () => {
+      expect(markdownToLitHtml('Before\n\n---\n\nAfter', options)).toBe(
+        '<p>Before</p><hr><p>After</p>',
+      );
+    });
+    it('after heading', () => {
+      expect(markdownToLitHtml('# Heading\n---\nText', options)).toBe(
+        '<h1>Heading</h1>\n<hr><p>Text</p>',
+      );
+    });
+    it('inside blockquote', () => {
+      expect(markdownToLitHtml('> ---', options)).toBe(
+        '<blockquote><hr></blockquote>',
+      );
+    });
+  });
+
   describe('combined features', () => {
     it('heading then list then paragraph', () => {
       expect(markdownToLitHtml('# Title\n- A\n- B\nEnd', options)).toBe(
@@ -594,14 +632,14 @@ describe(markdownToLitHtml, () => {
     });
     it('code block then heading', () => {
       expect(markdownToLitHtml('```\ncode\n```\n# Heading', options)).toBe(
-        '<pre><code>\ncode\n</code></pre><br><h1>Heading</h1>',
+        '<pre><code>\ncode\n</code></pre><h1>Heading</h1>',
       );
     });
     it('image then paragraph', () => {
       expect(
         markdownToLitHtml('![alt](src)\nText', { ...options, resolveImageUrl }),
       ).toBe(
-        '<figure><div><img src="src" alt=""><figcaption>alt</figcaption></div></figure>\n<p>Text</p>',
+        '<figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure>\n<p>Text</p>',
       );
     });
     it('formatting in list inside blockquote', () => {

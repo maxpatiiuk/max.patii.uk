@@ -18,4 +18,10 @@ export default [
       'lumina/tag-name-rules': ['error', { namespaces: ['mp-'] }],
     },
   },
+  {
+    files: ['**/*.md'],
+    rules: {
+      'markdown/require-alt-text': 'off',
+    },
+  },
 ];

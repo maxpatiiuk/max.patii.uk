@@ -12,6 +12,7 @@ import {
   returnToProjects,
 } from '../../molecules/header';
 import { Time } from '../../atoms/time';
+import { resolveSeries, Series } from './series';
 
 /** @public */
 export interface PostPageMetadata extends RootLayoutMetadata {
@@ -20,11 +21,21 @@ export interface PostPageMetadata extends RootLayoutMetadata {
   /** @public */
   readonly isFeatured?: boolean;
   /** @public */
-  readonly seriesName?: string;
+  readonly seriesName?: keyof SeriesNames;
   /** @public */
-  readonly devToCommentsLinks?: string;
+  readonly seriesSource?: {
+    collectionName: string;
+    pages: Record<string, PostPageMetadata>;
+  };
+  /** @public */
+  readonly devToLink?: string;
   /** @public */
   readonly kind: 'article' | 'index' | 'project';
+}
+
+/** @public */
+export interface SeriesNames {
+  placeholder: '';
 }
 
 declare global {
@@ -59,10 +70,20 @@ export class MpPostLayout extends LitElement implements LayoutBase {
       description,
       gitHub,
       seriesName,
+      seriesSource,
       date,
-      devToCommentsLinks,
+      devToLink,
       kind,
     } = this.layoutData!;
+
+    const seriesData =
+      seriesName === undefined
+        ? undefined
+        : resolveSeries(seriesName, seriesSource, this.layoutData!);
+    const seriesJsx =
+      seriesData === undefined ? undefined : (
+        <Series seriesName={seriesName!} series={seriesData} />
+      );
 
     const githubLink =
       gitHub !== undefined ? (
@@ -93,7 +114,23 @@ export class MpPostLayout extends LitElement implements LayoutBase {
           {kind === 'article' ? returnToArticles : returnToProjects}
           {githubLink}
         </Header>
+        {seriesJsx}
         {this.slotted}
+        {seriesJsx}
+        {kind === 'article' && (
+          <>
+            <p>
+              {devToLink !== undefined && (
+                <>
+                  Have thoughts?{' '}
+                  <a href={`${devToLink}#comments`}>Leave a comment</a>.
+                  <br />
+                </>
+              )}
+              Opinions = my own.
+            </p>
+          </>
+        )}
       </main>
     );
   }
