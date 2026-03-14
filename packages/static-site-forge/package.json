@@ -17,9 +17,7 @@
     "build": "vite build",
     "build-dev": "vite build --mode development",
     "watch": "node --run build-dev -- --watch",
-    "test": "vitest run",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@arcgis/api-extractor": "5.1.0-next.29",

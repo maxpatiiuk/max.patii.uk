@@ -25,7 +25,6 @@
     "build": "vite build",
     "build-dev": "vite build --mode development",
     "watch": "node --run build-dev -- --watch",
-    "lint": "lint-staged --config lint-staged.config.js",
     "test-pre": "playwright install --with-deps chromium",
     "test": "node --run test-pre && vitest run --browser.headless",
     "test-debug": "vitest run --no-file-parallelism --no-isolate --inspect",

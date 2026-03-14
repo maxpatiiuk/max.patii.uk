@@ -72,6 +72,7 @@ main {
   gap: 5rem;
   padding: 2.5rem;
   padding-top: 0;
+  max-width: 70ch;
 
   @media (min-width: 640px) {
     padding: 5rem;
