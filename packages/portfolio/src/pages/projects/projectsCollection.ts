@@ -28,6 +28,14 @@ export const projectsCollection: Collection<PostPageMetadata> = {
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),
   pages: {
     index: indexPage,
+    'portfolio-2026': {
+      ...base,
+      title: 'Portfolio',
+      description: 'Elegant and performant static site',
+      gitHub: 'https://github.com/maxpatiiuk/max.patii.uk/',
+      date: '2026',
+      isFeatured: true,
+    },
     spacetime: {
       ...base,
       title: 'Spacetime',
@@ -189,9 +197,10 @@ export const projectsCollection: Collection<PostPageMetadata> = {
     },
     portfolio: {
       ...base,
-      title: 'Portfolio',
+      title: 'Portfolio (2021)',
       description: 'A minimalistic Next.js application',
-      gitHub: 'https://github.com/maxpatiiuk/max.patii.uk/',
+      gitHub:
+        'https://github.com/maxpatiiuk/max.patii.uk/tree/max/next-js-checkpoint/',
       date: '2021',
     },
     'tts-king': {

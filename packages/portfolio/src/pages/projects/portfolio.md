@@ -1,3 +1,6 @@
+> This portfolio from 2021 has been superseded by a
+> [new version in 2026](./portfolio-2026).
+
 When it came to designing my portfolio, I wanted to make it represent my
 aspirations for simplicity and purpose. That is why there are no cluttered
 submenus, no useless footers, and no unnecessary information.
@@ -8,6 +11,7 @@ projects ([check out my Tetris Game](https://bit.ly/-tetris-react)).
 ## Screenshots
 
 ![Main page](../../../public/projects/images/portfolio/1.webp)
+
 ![A post about "Specify 7 WorkBench"](../../../public/projects/images/portfolio/2.webp)
 
 ## Technologies used
