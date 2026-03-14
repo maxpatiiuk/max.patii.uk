@@ -19,7 +19,7 @@ sites.
 **Professional advice**: use a VPN when required by your organization, or when
 needed to avoid a geo-block.
 
-## Avoid public charging stations and public Wi-Fi and when possible
+## Avoid public charging stations and public Wi-Fi when possible
 
 **TLDR Instead:** don't worry about it.
 
@@ -138,7 +138,7 @@ Utilizing anti-virus software on a phone is a joke. It is not needed as
 operating systems are secure by default, and apps are sandboxed. If someone is
 offering an anti-virus for a phone, they are trying to sell you something.
 
-"do not Jailbreak your device" is a curious advice. It is curious because most
+"do not Jailbreak your device" is curious advice. It is curious because most
 advice in this email so far is geared toward a general audience (this email was
 sent out org-wide after all). I can't imagine an average user Jailbreaking their
 iPhone (at a time when Jailbreaking iPhones is less common than ever). Android
@@ -150,7 +150,7 @@ of them are relevant to an average user so not worth worrying about.
 **TLDR Instead:** watch the permissions you grant. Double-check "find my phone"
 is enabled.
 
-I don't even know what is meant by "use apps safely". A more practical advice is
+I don't even know what is meant by "use apps safely". More practical advice is
 to watch the permissions you grant to apps and websites - don't blindly tap
 "accept". If you have a habit of blindly "accepting", then also make a habit out
 of regularly checking what permissions you granted.

@@ -12,8 +12,8 @@ Also, see [my intern project](https://max.patii.uk/projects/spacetime)
 - My team of ~13 people was mostly based in California and fully remote. I was
   the only one in Austin, Texas, in-person - a bit weird, but the office was
   modern and quiet.
-- We worked on a software for rapid insights, coordination and response during
-  an outage/widespread issue.
+- We worked on software for rapid insights, coordination and response during an
+  outage/widespread issue.
 - We used Vue.js, which I didn't like at all. See
   [6 issues I have with Vue.js](https://dev.to/maxpatiiuk/6-big-issues-with-vuejs-3he5)
 
@@ -54,21 +54,21 @@ upcoming Amazon internship.
 > - Unity is a service we relied on. No relation to the game engine
 
 It was the first time my team had interns, and they did awesome! The onboarding
-process was immensely helpful, effective and engaging. Thank you!. Still, there
+process was immensely helpful, effective and engaging. Thank you! Still, there
 are a few things that could be improved:
 
 - Some onboarding tasks (in Embark system) would have been more useful if they
   were delivered sooner. Others should have been set to be due later.
 - Big one: No one sent me a link to the IGOR documentation page in wiki until
   just a week ago. It had lots of content that would have been helpful for me in
-  my second week. I remember looking though README.md files of the IGOR packages
-  in code.amazon.com. The README.md files didn’t contain documentation, nor a
-  link to documentation
+  my second week. I remember looking through README.md files of the IGOR
+  packages in code.amazon.com. The README.md files didn’t contain documentation,
+  nor a link to documentation
 - Also, I don’t think anyone explained to me in the first week what is the
   difference between IGOR, IGOR Observer, what are the use cases and how many
   users we have. I don’t think I even received the link to Observer, until I saw
   it when someone was screen sharing.
-- And I didn’t even know what Unity was until 2 days ago A list of common
+- And I didn’t even know what Unity was until 2 days ago. A list of common
   resources and helpful links would have been great too.
 - When I saw how many internal websites there are, I asked my onboarding buddy,
   if there is some sort of internal search engine to search all those pages, he
@@ -142,7 +142,7 @@ are a few things that could be improved:
   employees. Also, there are a lot of internal-only courses. Access to all of
   this content was way easier than expected. Super cool!
 - Scheduling a 1:1 was very easy. Everyone is available and willing to meet and
-  help/discuss/teact.
+  help/discuss/teach.
 
 ---
 

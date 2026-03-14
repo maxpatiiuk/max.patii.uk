@@ -40,7 +40,7 @@ standards,
 
 Additionally, while it's easy to critique a system, it's harder to propose a
 solution, and much much harder to propose a solution that actually works once
-all the complexities and practical constraints are account for.
+all the complexities and practical constraints are accounted for.
 
 ## Optimistic Determinism
 
@@ -53,7 +53,7 @@ to set up proper gun control laws).
 
 For example, while humans have been slow to react to climate change, the
 momentum is finally increasing, and while it may not increase as fast as we
-might want, in my opinion, the momentul is unlikely to stop (aided with
+might want, in my opinion, the momentum is unlikely to stop (aided with
 increasing climate crises) until the climate change issue is resolved, at which
 point our society would have transformed a lot for the matter - towards more
 sustainable use of resources, and away from fueling oil monopolies and
@@ -87,7 +87,7 @@ even lower value of individuals in the distant future when there are many
 billions more intelligent beings in the galaxy. Not to mention that more and
 more important tasks are being done by computers/AI systems/robots.
 
-It makes me think that while I ought to try my best in my, all to short,
+It makes me think that while I ought to try my best in my, all too short,
 lifetime to improve the human condition as much as possible, my individual
 actions or failures won't likely count for too much, so I might as well relax a
 bit and enjoy the process a bit more.

@@ -40,8 +40,7 @@ general principles and leadership and can adapt to different situations.
 
 ### Promotion
 
-When leadership considers you for promotion, they would ask an important
-questions:
+When leadership considers you for promotion, they would ask important questions:
 
 - Is this the person we want people to model after? "There is an L5 and an L6
   way of delivering this project"
@@ -150,7 +149,7 @@ Along the way, make sure you are not losing sight of the business purpose
 ## Planning
 
 - Before starting a project, think about what's the success criteria. I know you
-  can build this, but does it satisfy the criteria, it is scalable. What are
+  can build this, but does it satisfy the criteria? Is it scalable? What are
   your requirements?
 - Instead of just doing a task, ask why it's the right one
 - Use FlowCharts, Sequence Diagrams, Plant UML diagrams

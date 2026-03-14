@@ -185,7 +185,7 @@ I improve the process each year. Here is my current process:
 ### Life timeline
 
 Keep a timeline of significant personal events during the year - I keep it in a
-spreadsheet. This makes it easy to reflect at the past 10 years down the line.
+spreadsheet. This makes it easy to reflect on the past 10 years down the line.
 Think about it like this: if you were to write an autobiography in 40 years,
 what information would be interesting and important?
 
@@ -252,8 +252,8 @@ For each section, set a number:
   grounding - you cannot be 10/10 in all sections. During different parts of
   your life, you may focus on career, social, or health differently - that is
   alright, and this number should reflect that.
-- Based on the above two numbers, make the spreadsheet compute how much is the
-  difference between where you are now and where you want to be.
+- Based on the above two numbers, make the spreadsheet compute how much the
+  difference is between where you are now and where you want to be.
 - 1-10 - how much effort did you put in? This is the eye-opening part - if a
   delta between where you want to be and where you are is huge, and yet you did
   not put much effort, you now have a clear TODO for the next year.

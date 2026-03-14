@@ -50,7 +50,7 @@ features:
 But to cut a long story short, things are pretty simple:
 
 - If you are a security enthusiast, and don't feel satisfied with Google, and
-  are happy to trade of usability for security and privacy, then Proton is a
+  are happy to trade off usability for security and privacy, then Proton is a
   no-brainer.
 - If you feel satisfied with security in Google (2FA, passkeys, security logs,
   standard encryption, smart spam filters) and love all the integrations and
@@ -119,7 +119,7 @@ there is a lack of feature parity between platforms.
 
 #### Contacts
 
-- **No sync with ios/android contracts**.
+- **No sync with iOS/Android contacts**.
 - No standalone web page - just a sidebar in the mail app
 - No custom fields
 - Setting a contact's picture is not intuitive, and the picture is not even
@@ -206,7 +206,7 @@ If you want extra features and privacy, unlimited email addresses, advanced
 analytics, and fancy email rules, purchase a domain name (as low as $8/year) and
 add it to Cloudflare (free) - Cloudflare allows you to set up a catch-all
 (meaning any email sent to your domain will be redirected properly, regardless
-of which address it was sent too - this is essentially like having infinitely
+of which address it was sent to - this is essentially like having infinitely
 many mail aliases).
 
 Cloudflare also has advanced identity protection and security features (DMARC,

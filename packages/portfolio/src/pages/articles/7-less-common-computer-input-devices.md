@@ -75,7 +75,7 @@ fingers all day can get tiring, even more than a touchpad.
 
 ## Trackball
 
-Trackball is an ever more niche category of ergonomic pointers than mice. Based
+Trackball is an even more niche category of ergonomic pointers than mice. Based
 on multiple sources,
 [Kensington SlimBlade Pro Wireless Trackball](https://www.amazon.com/dp/B0DK8XVVSTp)
 is the best available option.
@@ -178,7 +178,7 @@ Main impressions:
   after a week.
 - Typing with an on-screen keyboard with a gamepad is slow and hard. I tried to
   compliment this with on-screen iPad keyboard (via Sidecar), but that was slow
-  too and lead to finger pain too.
+  too and led to finger pain too.
 - The joysticks are not precise enough - trying to make many small
   micro-movements did not help with finger pain.
 
@@ -259,21 +259,21 @@ here are my impressions of using it:
     the time for me, but sometimes only for a few minutes, so I ended up
     creating a keyboard shortcut for it.
 
-### Tylon
+### Talon
 
-![Tylon does not have much of a user interface, with most interactions happening from menu bar or Python scripts](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oy8gwxp9gfgjdsbtuze7.jpg)
+![Talon does not have much of a user interface, with most interactions happening from menu bar or Python scripts](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oy8gwxp9gfgjdsbtuze7.jpg)
 
-Since macOS Dictation does not work for coding, I tried out Tylon - a tool I
+Since macOS Dictation does not work for coding, I tried out Talon - a tool I
 heard again and again in discussions of RSI. My impressions:
 
 - It is not just for typing but also allows voice control over the entire
   computer.
 - Steep learning curve.
 - Very customizable with Python, though I wasn't excited to spend hours
-  painfully typing scripts to make it work for me. Tylon is commonly used with
+  painfully typing scripts to make it work for me. Talon is commonly used with
   additional software, which also requires configuration and learning.
 - The worst at recognizing my accent (Ukrainian English) among all the tools I
-  tried. Tylon suggests accent coaching, which is something I will explore, but
+  tried. Talon suggests accent coaching, which is something I will explore, but
   I needed a short-term solution so that I could continue working. Their docs
   also suggested $300-$1000 microphones for best results (my Sony XM5 has great
   microphones, but not good enough?). Worse, while the tool has a large
@@ -291,10 +291,10 @@ builds on top with powerful text editing, as well as commands for controlling
 the computer. Moving the mouse, clicking, pressing keys, switching between apps,
 finding text - all can be accomplished with simple voice commands. Impressions:
 
-- Quite easy to learn (easier than Tylon, and easier than VoiceOver, which is
+- Quite easy to learn (easier than Talon, and easier than VoiceOver, which is
   sort of the opposite of Voice Control).
 - It has many built-in commands, and you can create custom, but it does not come
-  close to the customizability of Tylon - not great for long-term power users.
+  close to the customizability of Talon - not great for long-term power users.
 - Subject to the same bug as regular dictation - does not work well when the
   controller is connected and does not work well in VS Code.
 - macOS dislikes fullscreen mode for apps (several keyboard shortcuts and
@@ -337,7 +337,7 @@ those.
 
 I remember being in positive delight when I discovered this tool. I was having a
 hard time falling asleep from excitement - a tool with capabilities and
-customization of Tylon, the user experience of macOS dictation, and AI features
+customization of Talon, the user experience of macOS dictation, and AI features
 of VS Code Speech. Best of all - free?
 
 Well, the catch is that this tool is from a defunct startup, and is no longer
@@ -353,7 +353,7 @@ Summary:
   the surrounding text, and auto-inserts the syntax noise for you (you can say
   "insert import test from vitest" and it will write
   `\nimport { test } from 'vitest';` for you - really impressive).
-- Automatically decides between camelCase, kebab-case, ffetc - works great most
+- Automatically decides between camelCase, kebab-case, etc. - works great most
   of the time, with an easy way to explicitly specify the case if needed.
 - Uses regular keyboard presses, arrow keys, and backspace rather than magic
   internal APIs (shame on you Apple), which means it works everywhere. And if
@@ -394,7 +394,7 @@ Summary:
 > the UI, and avoid auto-submitting forms as they make correcting mistakes
 > harder.
 >
-> Moreover, tools like Voice Control and Tylon provide a better experience when:
+> Moreover, tools like Voice Control and Talon provide a better experience when:
 >
 > - each clickable control on the page has a distinct name (that at the same
 >   time is short and easy to pronounce for the sake of the user)
@@ -535,10 +535,10 @@ week and the pain is less and less every day.
 - Voice control will only get better. With help from AI, you will be able to
   give very high level commands to perform complex code edits.
 - Virtual reality and augmented reality: with use of Quest 3 controllers and
-  ~~on-screen~~~ in the air controlls, one can draw complex 3d computer
-  controls. Moving hands over the virtual control can register as a click or
-  drag - that will be lower stress for fingers since there is no constant
-  pressure of pressing the keyboard key down.
+  ~~on-screen~~ in the air controls, one can draw complex 3d computer controls.
+  Moving hands over the virtual control can register as a click or drag - that
+  will be lower stress for fingers since there is no constant pressure of
+  pressing the keyboard key down.
 - Neuralink will be society-changing. I do not understand people hating on
   brain-computer interfaces - they can enable disabled people to enjoy life to
   the fullest once again and control computer at the speed of thought. I worked
