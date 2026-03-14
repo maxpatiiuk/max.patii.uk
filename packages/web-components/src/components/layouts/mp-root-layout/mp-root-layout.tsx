@@ -98,14 +98,17 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <link rel="icon" href="/icon3.png" type="image/png" sizes="512x512"/>
   <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180"/>
   <link rel="manifest" href="/manifest.webmanifest">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>
-  ${unsafeHTML(`<script>
+  ${
+    process.env.NODE_ENV === 'production'
+      ? unsafeHTML(`<script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '${siteConfig.googleAnalyticsId}');
-  </script>`)}
-  `;
+  </script>`)
+      : ''
+  }`;
 
     return ssrHtml`<!DOCTYPE html><html lang="en-US"><head>
 ${head}

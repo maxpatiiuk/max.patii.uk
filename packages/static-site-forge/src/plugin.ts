@@ -184,9 +184,11 @@ export function useStaticSiteForge(
           const path = prefix + slug;
           const requestId = `${prefix}${slug}.md?mp`;
           // TODO: is it auto-watching these or need to remove ?mp
-          const htmlPath = `${path}.html`;
+          const indexSuffix = slug === 'index' ? '' : '/index';
+          const indexPath = path + indexSuffix;
+          const htmlPath = `${indexPath}.html`;
           // TODO: is it auto-watching these or need to remove ?mp
-          ssrEntries[path] = requestId;
+          ssrEntries[indexPath] = requestId;
           // Vite's .html files output destination is based on the file name,
           // not the key in the input object. That is why we need to point to
           // non-existent .html path here. Can't path relative path either

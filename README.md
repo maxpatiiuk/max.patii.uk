@@ -1,45 +1,27 @@
-# max.patii.uk
+# max.patii.uk Monorepo
 
-Source code for [https://max.patii.uk](https://max.patii.uk) (portfolio of my
-projects).
+The source code and content for [max.patii.uk](https://max.patii.uk)
 
-I am a huge fan of tacking minimalism to its extreme, so here is how my home
-page looks like:
+## Packages
 
-![Main Page](./public/projects/images/portfolio/1.webp)
-
-That's right, there are no cluttered submenus, no useless footers and no
-unnecessary information.
-
-Design inspirations:
-
-- https://clementgrellier.fr/
-- https://aakashns.com/
-- https://www.apple.com/newsroom
+- [@maxpatiiuk/portfolio](./packages/portfolio/README.md): Main website and
+  markdown content.
+- [@maxpatiiuk/static-site-forge](./packages/static-site-forge/README.md):
+  Custom Vite-based static site generator.
+- [@maxpatiiuk/web-components](./packages/web-components/README.md): Shared UI
+  web components.
 
 ## Development
 
-```zsh
-npm i       # install dependencies
-npm run dev # start development server
+This project requires pnpm.
+
+```bash
+# Install dependencies
+pnpm install
+
+# Build all packages in dependency order
+pnpm build
+
+# Run the portfolio in dev mode
+pnpm --filter portfolio start
 ```
-
-This would start the development server at
-[http://locahlost:3000](http://locahlost:3000).
-
-## Production
-
-```zsh
-npm i         # install dependencies
-npm run build # begin the build process
-npm run start # start production server
-```
-
-This would start the production server at
-[http://locahlost:3000](http://locahlost:3000).
-
-Afterward, you can deploy this site at [https://vercel.com](https://vercel.com).
-
-Alternatively, you can configure a reverse proxy (e.x Nginx) that would handle
-the SSL certificate and forward the requests to port 80, which should be made
-externally available.

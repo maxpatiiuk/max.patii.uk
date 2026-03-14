@@ -7,9 +7,6 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
-    "dev": "pnpm --filter @maxpatiiuk/portfolio dev",
-    "lint": "pnpm -r lint",
-    "typecheck": "pnpm -r typecheck",
     "prepare": "husky"
   },
   "devDependencies": {
