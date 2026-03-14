@@ -17,8 +17,8 @@ TLDR:
 It's interesting how the best practices for Vue.js and React.js are the
 opposites of each other in so many cases.
 
-As far as watchers, it's a React best practice to have several smaller, rather
-than one big.
+As far as watchers go, it's a React best practice to have several smaller,
+rather than one big.
 ([official doc](https://legacy.reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns),
 [LogRocket post](https://blog.logrocket.com/useeffect-hook-complete-guide/#using-multiple-effects-separate-concerns)).
 
@@ -32,8 +32,7 @@ Additionally, it's an anti-pattern to have useMemo everywhere (computed in Vue)
 
 It's also
 [inadvisable to blindly pass all props](https://reactjs.org/docs/jsx-in-depth.html#:~:text=Spread%20attributes%20can%20be%20useful%20but%20they%20also%20make%20it%20easy%20to%20pass%20unnecessary%20props%20to%20components%20that%20don%E2%80%99t%20care%20about%20them%20or%20to%20pass%20invalid%20HTML%20attributes%20to%20the%20DOM.%20We%20recommend%20using%20this%20syntax%20sparingly)
-from parent to child, where as Vue has first class support for fallthrough
-props.
+from parent to child, whereas Vue has first class support for fallthrough props.
 
 And the whole SFC (single-file component) concept is an anti-pattern. There is
 an ESLint rule for react that restricts files to a single component, but that is
@@ -47,7 +46,7 @@ The fact that SFC requires default imports rather than named imports is bad too.
 ## The custom syntax
 
 10 years ago, when Vue.js was getting started, JavaScript was way more limited
-that in it today. There was no lambda functions, no map/filter and no const. I
+than it is today. There was no lambda functions, no map/filter and no const. I
 know, those were the dark times.
 
 Given that, Vue.js team did what seemed at the time like a good idea and created
@@ -84,7 +83,7 @@ to find out more.
 Now, what if I mention that React.js avoids mutation like a plague, where that's
 what you do all the time in Vue.js?
 
-The compositions API (copied from React.js) is a small step in a right
+The Composition API (copied from React.js) is a small step in the right
 direction, but too little too late.
 
 ## An ocean full of implicit behavior and function overloading

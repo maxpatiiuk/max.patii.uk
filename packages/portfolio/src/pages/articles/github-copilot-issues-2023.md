@@ -1,5 +1,5 @@
 **TLDR ✨: I didn’t have much luck with GitHub copilot on larger code snippets -
-I don’t like the code quality. It was trained on whole bunch of average code,
+I don’t like the code quality. It was trained on a whole bunch of average code,
 and that's what it produces. It's like having a smart intern, rather than a
 senior mentor. It’s awesome for 1-3 line auto completion though.**
 

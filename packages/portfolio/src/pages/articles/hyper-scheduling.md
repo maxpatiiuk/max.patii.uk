@@ -79,7 +79,7 @@ Here are the calendars I use:
 
 - Critical: time-sensitive and important tasks (reflection, sleep, appointments,
   non-work meetings, doing manual backups). They are in bright red color and
-  have 1day, 10min, and 2min reminders to ensure I don't miss them.
+  have 1-day, 10min, and 2min reminders to ensure I don't miss them.
 - Progress: my favorite calendar - non-time-sensitive but important work that
   you should strive to do more of (exercise, study, journal, listen to
   audiobook, read, write, personal projects).
@@ -243,8 +243,8 @@ even an entire year. This is immensely helpful when doing
 to see where your time is going and whether that aligns with your goals.
 
 Unfortunately, Google Calendar, Apple Calendar or Microsoft Outlook does not
-provide much of anything built-in for for this. As a solution, I added
-visualization for analyzing your time usage in a
+provide much of anything built-in for this. As a solution, I added visualization
+for analyzing your time usage in a
 [Calendar Plus](https://chrome.google.com/webstore/detail/calendar-plus/kgbbebdcmdgkbopcffmpgkgcmcoomhmh)
 Google Chrome extension.
 
@@ -312,7 +312,7 @@ hyper-scheduling:
   the day - and classify it as "Progress" rather than "waste" if it is important
   for you to not burn out.
 - Hyper-scheduling and travel vacations don't mix. Just don't. Vacation is for
-  temporary getting away from the normal schedule so that you can recharge and
+  temporarily getting away from the normal schedule so that you can recharge and
   re-remember how much you like your work and crave the predictable schedule. I
   keep track of things until departure from the airport and then am back to
   tracking only once I arrive back at the home airport. In between those, I only

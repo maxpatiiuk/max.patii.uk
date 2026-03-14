@@ -44,7 +44,7 @@ My immediate mitigation steps based on what I read:
 - took breaks. jumping jacks in the office are a great break (brings blood to
   the entire body, including fingers).
 - started doing finger stretches and strengthening exercises
-- considered switching to dvorak, and delved into the rabit hole of alt layouts
+- considered switching to Dvorak, and delved into the rabbit hole of alt layouts
   (but did not at the end)
 - optimized daily workflows to reduce typing:
   - shortened calendar event names
@@ -292,7 +292,7 @@ very easy:
 - Day 4: typing for 1 hour
 - Day 5+: brought the keyboard to the office and used it in combination with
   voice typing
-- Day 10+: phased out voice typing and other copping mechanisms.
+- Day 10+: phased out voice typing and other coping mechanisms.
 
 And that was it - that was the last journal entry mentioning finger pain. I
 still had occasional flare-ups, and did re-read The Way Out to remind myself

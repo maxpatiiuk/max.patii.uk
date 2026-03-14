@@ -10,7 +10,7 @@
 > - Consider tradeoffs before adding a new dependency. Consider dev vs runtime
 >   deps, security, licensing, and bundle size.
 >
-> In addition, it lacks elegancy. The LLM-generated code might work (or might be
+> In addition, it lacks elegance. The LLM-generated code might work (or might be
 > subtly wrong), but it will rarely be the most optimal, performant,
 > maintainable, or pretty code. It will write more code than needed, while
 > failing to handle edge cases.
@@ -100,7 +100,7 @@ Additional constraints:
 
 - In law and medicine, the output can be "plausible" - hallucinations are hard
   to spot. A bad health advice may become visible two decades later. In coding,
-  if the syntax is wrong or a non-existent API is used, compiler errors
+  if the syntax is wrong or a non-existent API is used, compiler errors appear
   immediately.
 - Law and medicine involve a lot of "Find the precedent," "Summarize the
   symptoms". LLMs are very good at text summarization.
@@ -117,7 +117,7 @@ Use **GitHub Copilot** for single-line autocomplete and next edit predictions.
 For small edits, it does very well at looking at surrounding code to infer your
 intent and desired code style.
 
-Use **GitHub Copilot Chat** for quick explanation of errors, arkane shell
+Use **GitHub Copilot Chat** for quick explanation of errors, arcane shell
 syntax, and vibe coding throwaway scripts.
 
 Use **Gemini 3 Pro** or **GPT-5.2** for researching available options, getting
@@ -139,7 +139,7 @@ Use
 [Text Hoarder](https://github.com/maxpatiiuk/text-hoarder?tab=readme-ov-file#text-hoarder)
 (an extension I built) to save purified articles as .md files. Once a year, I
 run [Kokoro TTS](https://huggingface.co/spaces/hexgrad/Kokoro-TTS) on those .md
-files to convert them to speech. This way I canlisten to these articles at high
+files to convert them to speech. This way I can listen to these articles at high
 speed while walking. I save 3k articles per year this way, which take 4 days to
 filter through and 2 months to listen to.
 
