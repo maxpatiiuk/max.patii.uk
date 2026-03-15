@@ -21,7 +21,7 @@ const indexPage: PostPageMetadata & TypedLayoutMetadata<PageListPageMetadata> =
     kind: 'index',
     title: 'Articles',
     pages: undefined!,
-    hasMarkdownContent: false,
+    children: false,
     prefix: 'articles',
   };
 
