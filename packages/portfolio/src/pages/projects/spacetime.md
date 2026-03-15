@@ -47,7 +47,7 @@ update immediately to only show data from that region. Similarly, you could
 click on one or multiple pie chart slices to only include data from those
 categories.
 
-![The main page, with a line chart that has a selected range, and a pie chart with on selected slice](../../../public/projects/images/spacetime/1.webp)
+![The main page, with a line chart that has a selected range, and a pie chart with on selected slice](../../../public/projects/spacetime/main-page-line.webp)
 
 All of the filters are cumulative, allowing you to quickly filter out large
 amounts of noise and get down to the real issue. Additionally, the URL of the
@@ -58,19 +58,19 @@ confident that the other person would see the same data.
 You also have an option of collapsing the table to focus on charts or collapsing
 the charts to see more tickets at once.
 
-![The table can be collapsed to focus on charts](../../../public/projects/images/spacetime/4.webp)
+![The table can be collapsed to focus on charts](../../../public/projects/spacetime/table-can-be.webp)
 
 The chart layout can be customized easily. You can add new charts change their
 size, the column data is plotted on, the column data is grouped by or even
 change the styling of the chart.
 
-![The chart layout is completely customizable](../../../public/projects/images/spacetime/3.webp)
+![The chart layout is completely customizable](../../../public/projects/spacetime/chart-layout-is.webp)
 
 The table is very versatile too. Each row can be expanded to see additional
 information, as well as ticket descriptions. Table columns can be reordered or
 hidden. Each column can be sorted.
 
-![Each table row can be expanded to include additional information](../../../public/projects/images/spacetime/2.webp)
+![Each table row can be expanded to include additional information](../../../public/projects/spacetime/each-table-row.webp)
 
 After applying the filters, you can press a button to download the table data as
 a TSV file.
@@ -90,7 +90,7 @@ Spacetime respects users preference for light and dark mode and switches
 accordingly. It also listens for preference for reduced animation by disabling
 chart transition effects.
 
-![A preferences menu includes advanced table and chart customization options](../../../public/projects/images/spacetime/5.webp)
+![A preferences menu includes advanced table and chart customization options](../../../public/projects/spacetime/preferences-menu-includes.webp)
 
 To summarize, Spacetime aims to analyze metadata of all the incoming high
 severity tickets to help the response team localize the issue quicker. It has
@@ -220,7 +220,7 @@ Finally, AWS CloudWatch has alarms configured to proactively detect when the AWS
 S3 bucket is getting full, or an unusual number of AWS Lambda Functions is
 failing.
 
-![Cloud diagram](../../../public/projects/images/spacetime/6.webp)
+![Cloud diagram](../../../public/projects/spacetime/cloud-diagram.webp)
 
 ## Appendix 2: Configuration
 

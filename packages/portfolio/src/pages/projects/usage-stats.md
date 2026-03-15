@@ -24,9 +24,9 @@ Main features
 
 ## Screenshots
 
-![List view](../../../public/projects/images/usage-stats/1.webp)
-![Table view](../../../public/projects/images/usage-stats/1.webp)
-![Integration with GitHub to connect usage stats with repository stats](../../../public/projects/images/usage-stats/1.webp)
+![List view](../../../public/projects/usage-stats/list-view.webp)
+![Table view](../../../public/projects/usage-stats/list-view.webp)
+![Integration with GitHub to connect usage stats with repository stats](../../../public/projects/usage-stats/list-view.webp)
 
 ## Online demo
 

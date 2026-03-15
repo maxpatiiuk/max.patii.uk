@@ -15,11 +15,11 @@ decisions.
 
 ## Screenshots
 
-![Entering data for the week](../../../public/projects/images/small-retail-management/1.webp)
-![Inspecting monthly results (on a mobile phone)](../../../public/projects/images/small-retail-management/2.webp)
-![Tracking yearly stats](../../../public/projects/images/small-retail-management/3.webp)
-![Entering data for the week (on a mobile phone)](../../../public/projects/images/small-retail-management/4.webp)
-![Editing employees](../../../public/projects/images/small-retail-management/5.webp)
+![Entering data for the week](../../../public/projects/small-retail-management/entering-data-week.webp)
+![Inspecting monthly results (on a mobile phone)](../../../public/projects/small-retail-management/inspecting-monthly-results.webp)
+![Tracking yearly stats](../../../public/projects/small-retail-management/tracking-yearly-stats.webp)
+![Entering data for the week (on a mobile phone)](../../../public/projects/small-retail-management/entering-data-week-1.webp)
+![Editing employees](../../../public/projects/small-retail-management/editing-employees.webp)
 
 ## Technologies used
 

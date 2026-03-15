@@ -35,12 +35,12 @@ Main features
 
 ## Screenshots
 
-![Very simple main menu](../../../public/projects/images/modernizing-usage-stats/1.webp)
-![Stats main page](../../../public/projects/images/modernizing-usage-stats/2.webp)
-![Charting size of the "Collection Object" database table for single institution](../../../public/projects/images/modernizing-usage-stats/3.webp)
-![Charting number of times institution edited a database query](../../../public/projects/images/modernizing-usage-stats/4.webp)
-![Displaying feedback submitted by users in the app (blurred out)](../../../public/projects/images/modernizing-usage-stats/5.webp)
-![Aggregating most common java exception messages](../../../public/projects/images/modernizing-usage-stats/6.webp)
+![Very simple main menu](../../../public/projects/modernizing-usage-stats/very-simple-main.webp)
+![Stats main page](../../../public/projects/modernizing-usage-stats/stats-main-page.webp)
+![Charting size of the "Collection Object" database table for single institution](../../../public/projects/modernizing-usage-stats/charting-size-collection.webp)
+![Charting number of times institution edited a database query](../../../public/projects/modernizing-usage-stats/charting-number-times.webp)
+![Displaying feedback submitted by users in the app (blurred out)](../../../public/projects/modernizing-usage-stats/displaying-feedback-submitted.webp)
+![Aggregating most common java exception messages](../../../public/projects/modernizing-usage-stats/aggregating-most-common.webp)
 
 ## Online demo
 

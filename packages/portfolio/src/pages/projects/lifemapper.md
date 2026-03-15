@@ -12,12 +12,12 @@ compares to that of GBIF.
 
 ## Screenshots
 
-![Projection map along with local occurrence points](../../../public/projects/images/lifemapper/1.webp)
-![Projection map for "Labidesthes sicculus"](../../../public/projects/images/lifemapper/2.webp)
-![Pop-up bubble with information about a specimen](../../../public/projects/images/lifemapper/3.webp)
-![Pop-up bubble with information about a specimen](../../../public/projects/images/lifemapper/4.webp)
-![Occurrences of "Mycteroperca microlepis" as reported by several data aggregators](../../../public/projects/images/lifemapper/5.webp)
-![A heat-map of all the specimens obtained by a collection between 1901 and 2021](../../../public/projects/images/lifemapper/6.webp)
+![Projection map along with local occurrence points](../../../public/projects/lifemapper/projection-map-local.webp)
+![Projection map for "Labidesthes sicculus"](../../../public/projects/lifemapper/projection-map-labidesthes.webp)
+![Pop-up bubble with information about a specimen](../../../public/projects/lifemapper/popup-bubble-information.webp)
+![Pop-up bubble with information about a specimen](../../../public/projects/lifemapper/popup-bubble-information-1.webp)
+![Occurrences of "Mycteroperca microlepis" as reported by several data aggregators](../../../public/projects/lifemapper/occurrences-mycteroperca-microlepis.webp)
+![A heat-map of all the specimens obtained by a collection between 1901 and 2021](../../../public/projects/lifemapper/heatmap-all-specimens.webp)
 
 ## Technologies used
 

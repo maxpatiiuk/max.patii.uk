@@ -15,8 +15,6 @@ export type SiteConfig = {
   /** @public */
   readonly author: string;
   /** @public */
-  readonly baseUrl: string;
-  /** @public */
   readonly themeColor: string;
   /** @public */
   readonly googleAnalyticsId?: string;
@@ -88,7 +86,7 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta property="og:type" content="${layoutData.date === undefined ? 'website' : 'article'}">
 ${layoutData.date !== undefined ? ssrHtml`  <meta property="article:published_time" content="${layoutData.date}">\n` : ''}\
   <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" />
-  ${layoutData.ogImage !== undefined ? ssrHtml`<meta property="og:image" content="${siteConfig.baseUrl}${layoutData.ogImage}">` : ''}
+  ${layoutData.ogImage !== undefined ? ssrHtml`<meta property="og:image" content="${layoutData.ogImage}">` : ''}
   ${layoutData.ogImageAlt !== undefined ? ssrHtml`<meta property="og:image:alt" content="${layoutData.ogImageAlt}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">

@@ -19,9 +19,9 @@ You can try out the live version at
 
 ## Screenshots
 
-![Kingdom selection screen](../../../public/projects/images/taxa/1.webp)
-![Configuring GBIF export](../../../public/projects/images/taxa/2.webp)
-![Configuring ITIS export](../../../public/projects/images/taxa/3.webp)
+![Kingdom selection screen](../../../public/projects/taxa/kingdom-selection-screen.webp)
+![Configuring GBIF export](../../../public/projects/taxa/configuring-gbif-export.webp)
+![Configuring ITIS export](../../../public/projects/taxa/configuring-itis-export.webp)
 
 ## Technologies used
 

@@ -9,7 +9,7 @@ For documentation of implementation and language specification, see
 
 ## Screenshot
 
-![Example Alia interpreter session](../../../public/projects/images/alia/1.webp)
+![Example Alia interpreter session](../../../public/projects/alia/example-alia-interpreter.webp)
 
 ## Technologies used
 

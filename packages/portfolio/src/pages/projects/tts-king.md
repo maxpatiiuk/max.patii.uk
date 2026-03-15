@@ -22,9 +22,9 @@ MySQL no longer are a hot topic of discussion).
 
 ## Screenshots
 
-![Landing page](../../../public/projects/images/tts-king/1.webp)
-![User's news streams configuration](../../../public/projects/images/tts-king/2.webp)
-![User's profile](../../../public/projects/images/tts-king/3.webp)
+![Landing page](../../../public/projects/tts-king/landing-page.webp)
+![User's news streams configuration](../../../public/projects/tts-king/users-news-streams.webp)
+![User's profile](../../../public/projects/tts-king/users-profile.webp)
 
 ## Things learned
 

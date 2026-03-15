@@ -8,7 +8,7 @@ to fix this bug. The second half is the solution I found and the lessons
 learned.
 
 > TLDR: If you want to jump straight to the climax and resolution, skip to
-> [The worst week - and the turning point (week 13)](<https://dev.to/maxpatiiuk/my-journey-with-rsi-4f9m#:~:text=still%20too%20early.-,The%20worst%20week%20%2D%20and%20the%20turning%20point,-(week%2013)>)
+> [The worst week - and the turning point (week 13)](<./my-journey-with-rsi#:~:text=still%20too%20early.-,The%20worst%20week%20%2D%20and%20the%20turning%20point,-(week%2013)>)
 
 ## The trigger
 
@@ -102,7 +102,7 @@ work again with renewed energy (while everyone else is off work, so I get fewer
 distractions).
 
 Here, I began trying out voice typing. See my article on
-[7 less common computer input devices](https://dev.to/maxpatiiuk/7-less-common-computer-input-devices-1bel)
+[7 less common computer input devices](./7-less-common-computer-input-devices.md)
 for more details. My accent makes this trickier, so I also began accent training
 for a few minutes daily.
 
@@ -133,10 +133,10 @@ Some changes:
     price of any surgery.
   - also, I was excited to geek out around its features
 
-![Logitech Lift looks like a droplet of water with a buttons rotates to the side of the droplet. It is a bit too small for my hands](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xx4ji60pkn7hhz672y31.jpg)
+![Logitech Lift looks like a droplet of water with a buttons rotates to the side of the droplet. It is a bit too small for my hands](../../../public/articles/7-less-common-computer-input-devices/logitech-lift.avif)
 
 All of the above is covered in more detail in
-[7 less common computer input devices](https://dev.to/maxpatiiuk/7-less-common-computer-input-devices-1bel).
+[7 less common computer input devices](./7-less-common-computer-input-devices.md).
 
 ## My orders arrived (week 11)
 
@@ -156,7 +156,7 @@ lot - I got occasional spasms once or twice a day, but otherwise good.
 
 Finally, the ergonomic keyboard has arrived.
 
-![Unlike regular keyboards, many ergonomic keyboards are split or have curved key-wells](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zoibzo14c1qnynbjkttd.jpg)
+![Unlike regular keyboards, many ergonomic keyboards are split or have curved key-wells](../../../public/articles/7-less-common-computer-input-devices/split-keyboard.avif)
 
 After an evening of setup and learning, I was able to type on it faster than
 using an on-screen keyboard with mouse/gamepad, so I tried switching to it full
@@ -341,7 +341,7 @@ Best of luck with your journey.
     some devices mentioned, as they can let you get back to using the computer
     with less pain.
 
-![A standing desk and a laptop raiser are useful ergonomic compliments](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u8vqb26orsuao3drp1dh.jpg)
+![A standing desk and a laptop raiser are useful ergonomic compliments](../../../public/articles/7-less-common-computer-input-devices/standing-desk.avif)
 
 While I would not want to repeat the experience, I am extremely glad about the
 things I learned along the way. I came out stronger and more confident about my

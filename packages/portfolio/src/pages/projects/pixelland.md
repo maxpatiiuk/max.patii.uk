@@ -23,9 +23,9 @@ project harder.
 
 ## Screenshots
 
-![Minecraft Map](../../../public/projects/images/pixelland/1.webp)
-![Rainbowland Map](../../../public/projects/images/pixelland/2.webp)
-![Minecraft Map](../../../public/projects/images/pixelland/3.webp)
+![Minecraft Map](../../../public/projects/pixelland/minecraft-map.webp)
+![Rainbowland Map](../../../public/projects/pixelland/rainbowland-map.webp)
+![Minecraft Map](../../../public/projects/pixelland/minecraft-map-1.webp)
 
 ## Online demo
 

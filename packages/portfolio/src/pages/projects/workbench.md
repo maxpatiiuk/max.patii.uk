@@ -14,10 +14,10 @@ I worked on the front end, including the following features:
 
 ## Screenshots
 
-![Workbench](../../../public/projects/images/workbench/1.webp)
-![Coordinate Converter](../../../public/projects/images/workbench/2.webp)
-![Column mapper](../../../public/projects/images/workbench/3.webp)
-![Plotting data with Leaflet](../../../public/projects/images/workbench/4.webp)
+![Workbench](../../../public/projects/workbench/workbench.webp)
+![Coordinate Converter](../../../public/projects/workbench/coordinate-converter.webp)
+![Column mapper](../../../public/projects/workbench/column-mapper.webp)
+![Plotting data with Leaflet](../../../public/projects/workbench/plotting-data-leaflet.webp)
 
 <mp-youtube caption="Video review" video="lg9ybKMPQXI">
 <span slot="description">An overview of a beta version of the WorkBench by one of our team members:</span>

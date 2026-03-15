@@ -15,12 +15,12 @@ I worked on the front end, including the following features:
 
 ## Screenshots
 
-![Basic query](../../../public/projects/images/query-builder/1.webp)
-![Results of a basic query](../../../public/projects/images/query-builder/2.webp)
-![Viewing query results in a form (form layout is user-defined)](../../../public/projects/images/query-builder/5.webp)
-![Advanced query with an "OR" filter](../../../public/projects/images/query-builder/4.webp)
-![Column mapper](../../../public/projects/images/query-builder/3.webp)
-![Large query (with dark mode)](../../../public/projects/images/query-builder/6.webp)
+![Basic query](../../../public/projects/query-builder/basic-query.webp)
+![Results of a basic query](../../../public/projects/query-builder/results-basic-query.webp)
+![Viewing query results in a form (form layout is user-defined)](../../../public/projects/query-builder/viewing-query-results.webp)
+![Advanced query with an "OR" filter](../../../public/projects/query-builder/updated-query-builder.webp)
+![Column mapper](../../../public/projects/query-builder/column-mapper.webp)
+![Large query (with dark mode)](../../../public/projects/query-builder/large-query-dark.webp)
 
 <mp-youtube caption="Presentation from iDigBio Digital Data Conference 2022" video="YIbeZ_f_eQc">
 <span slot="description">Video overview of the query builder, accessibility, and other related features</span>
@@ -32,8 +32,8 @@ The query builder also supports spatial search. You have an ability to constrain
 search to a region you drawn on the map or plot query results on an interactive
 map.
 
-![Constraining query results to a selected region](../../../public/projects/images/query-builder/7.webp)
-![Plotting query results on a map](../../../public/projects/images/query-builder/8.webp)
+![Constraining query results to a selected region](../../../public/projects/query-builder/constraining-query-results.webp)
+![Plotting query results on a map](../../../public/projects/query-builder/plotting-query-results.webp)
 
 ## Online demo
 

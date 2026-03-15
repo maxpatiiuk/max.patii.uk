@@ -33,9 +33,9 @@ and
 
 ## Screenshots
 
-![Translation languages](../../../public/projects/images/weblate/1.webp)
-![String localization interface](../../../public/projects/images/weblate/2.webp)
-![Components of Specify 7](../../../public/projects/images/weblate/3.webp)
+![Translation languages](../../../public/projects/weblate/translation-languages.webp)
+![String localization interface](../../../public/projects/weblate/string-localization-interface.webp)
+![Components of Specify 7](../../../public/projects/weblate/components-specify-7.webp)
 
 <mp-vimeo caption="Webinar on the localization of Specify&nbsp;7" video="795108035">
 <span slot="description">
