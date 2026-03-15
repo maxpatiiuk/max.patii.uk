@@ -5,7 +5,7 @@ import type { LayoutBase } from '../types';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 /** @public */
-export type SiteConfig = {
+export interface SiteConfig {
   /** @public */
   readonly title: string;
   /** @public */
@@ -20,10 +20,10 @@ export type SiteConfig = {
   readonly googleAnalyticsId?: string;
   /** @public */
   readonly twitter?: string;
-};
+}
 
 /** @public */
-export type RootLayoutMetadata = {
+export interface RootLayoutMetadata {
   /** @public */
   readonly title: string;
   /** @public */
@@ -36,7 +36,9 @@ export type RootLayoutMetadata = {
   readonly siteConfig: SiteConfig;
   /** @public */
   readonly date?: string;
-};
+  /** @public */
+  readonly canonicalUrl?: string;
+}
 
 declare global {
   interface DeclareElements {
@@ -86,8 +88,8 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta property="og:type" content="${layoutData.date === undefined ? 'website' : 'article'}">
 ${layoutData.date !== undefined ? ssrHtml`  <meta property="article:published_time" content="${layoutData.date}">\n` : ''}\
   <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" />
-  ${layoutData.ogImage !== undefined ? ssrHtml`<meta property="og:image" content="${layoutData.ogImage}">` : ''}
-  ${layoutData.ogImageAlt !== undefined ? ssrHtml`<meta property="og:image:alt" content="${layoutData.ogImageAlt}">` : ''}
+${layoutData.ogImage !== undefined ? ssrHtml`  <meta property="og:image" content="${layoutData.ogImage}">\n` : ''}\
+${layoutData.ogImageAlt !== undefined ? ssrHtml`  <meta property="og:image:alt" content="${layoutData.ogImageAlt}">\n` : ''}\
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
@@ -96,6 +98,7 @@ ${layoutData.date !== undefined ? ssrHtml`  <meta property="article:published_ti
   <link rel="icon" href="/icon3.png" type="image/png" sizes="512x512"/>
   <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180"/>
   <link rel="manifest" href="/manifest.webmanifest">
+${layoutData.canonicalUrl !== undefined ? ssrHtml`  <link rel="canonical" href="${layoutData.canonicalUrl}">\n` : ''}\
   ${
     process.env.NODE_ENV === 'production'
       ? unsafeHTML(`<script async src="https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}"></script>

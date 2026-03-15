@@ -85,4 +85,6 @@ export interface CollectionsContent {
   defaultOgImage: string;
   /** @public */
   defaultOgImageAlt: string;
+  /** @public */
+  canonicalBaseUrl: string;
 }

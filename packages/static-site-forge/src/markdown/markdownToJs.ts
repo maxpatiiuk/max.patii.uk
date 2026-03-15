@@ -1,8 +1,7 @@
-import { join } from 'node:path';
 import {
   fullCollectionsPath,
   fullPagesDirectory,
-  fullPublicDir,
+  relativePublicDir,
 } from '../const.ts';
 import type { ForgeConfig, ResolvedPage } from '../types.ts';
 import { markdownToLitHtml } from './markdownToLitHtml.ts';
@@ -22,6 +21,17 @@ export function markdownToJs(
   const relativeDirectory =
     lastSlash === -1 ? '' : relativeFilePath.slice(0, lastSlash);
 
+  const collectionUrl =
+    resolvedPage.collectionName === '' ? '' : `${resolvedPage.collectionName}/`;
+  const slugUrl = resolvedPage.slug === 'index' ? '' : `${resolvedPage.slug}/`;
+  const rootRelativeUrl = `${collectionUrl}${slugUrl}`;
+  const inferredFilePath = `${collectionUrl}${resolvedPage.slug}.md`;
+  if (inferredFilePath !== relativeFilePath) {
+    throw Error(
+      `Resolved page URL does not match file path. Ensure collection name matches the collection file path. Resolved URL: ${rootRelativeUrl}, file path: ${relativeFilePath}`,
+    );
+  }
+
   const hasJsHeader = content.startsWith('```');
   const jsHeaderEnd = hasJsHeader ? content.indexOf('\n```\n', 3) : -1;
   let webComponentImports = '';
@@ -35,7 +45,16 @@ export function markdownToJs(
   let ogImageAlt: string | undefined;
   const litHtml = markdownToLitHtml(bodyContent, {
     resolveImageUrl(url, alt) {
-      const resolvedPath = resolveAssetUrl(url, filePath);
+      if (url.charCodeAt(0) !== charCodeDot) {
+        return url;
+      }
+      const pathStart = url.indexOf(relativePublicDir);
+      if (pathStart === -1) {
+        throw Error(
+          `Image URL "${url}" does not contain expected public directory segment "${relativePublicDir}".`,
+        );
+      }
+      const resolvedPath = url.slice(pathStart + relativePublicDir.length - 1);
       if (ogImage === undefined) {
         ogImage = resolvedPath;
         ogImageAlt = alt;
@@ -43,7 +62,6 @@ export function markdownToJs(
       return resolvedPath;
     },
     resolveAnchorUrl(url) {
-      const charCodeDot = 46;
       if (url.charCodeAt(0) !== charCodeDot) {
         return url;
       }
@@ -89,6 +107,7 @@ const collection = content.collections["${resolvedPage.collectionName}"];
 const page = collection.pages["${resolvedPage.slug}"];
 page.ogImage ??= ${ogImage === undefined ? 'content.defaultOgImage' : JSON.stringify(ogImage)};
 page.ogImageAlt ??= ${ogImageAlt === undefined ? 'content.defaultOgImageAlt' : JSON.stringify(ogImageAlt)};
+page.canonicalUrl ??= content.canonicalBaseUrl + ${JSON.stringify(rootRelativeUrl)};
 ${jsHeader}\
 
 export async function render() {
@@ -98,16 +117,4 @@ export async function render() {
   return module;
 }
 
-function resolveAssetUrl(url: string, filePath: string): string {
-  if (url.startsWith('.')) {
-    const absolute = join(filePath, '..', url);
-    if (!absolute.startsWith(fullPublicDir)) {
-      throw Error(
-        `Resolved image URL ${absolute} is outside of public directory`,
-      );
-    }
-    return `/${absolute.slice(fullPublicDir.length)}`;
-  } else {
-    return url;
-  }
-}
+const charCodeDot = 46;
