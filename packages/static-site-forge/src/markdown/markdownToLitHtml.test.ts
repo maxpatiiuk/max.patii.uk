@@ -439,6 +439,22 @@ describe(markdownToLitHtml, () => {
         markdownToLitHtml('T <a href="url" class="link">text</a> m', options),
       ).toBe('<p>T <a href="url" class="link">text</a> m</p>');
     });
+    it('script tag content is not processed', () => {
+      expect(
+        markdownToLitHtml(
+          '<script>\nif (a < b) **not bold**\n</script>',
+          options,
+        ),
+      ).toBe('<script>\nif (a < b) **not bold**\n</script>');
+    });
+    it('pre tag content is not processed', () => {
+      expect(
+        markdownToLitHtml(
+          '<pre>\n# Not a heading\n**Not bold**\n</pre>',
+          options,
+        ),
+      ).toBe('<pre>\n# Not a heading\n**Not bold**\n</pre>');
+    });
     it('with youtube embed', () => {
       const customElements: string[] = [];
       expect(

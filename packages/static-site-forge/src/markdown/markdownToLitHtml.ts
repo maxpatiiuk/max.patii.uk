@@ -389,72 +389,58 @@ export function markdownToLitHtml(
   }
 
   function processHtmlTag(index: number): number {
+    const tagStartIndex = index;
     const tagNameStart = index + 1;
-    let tagName: string;
-    while (index < length) {
-      const charCode = markdown.charCodeAt(index);
-      switch (charCode) {
-        case codeSpace:
-          tagName = markdown.slice(tagNameStart, index);
-          const bracketIndex = markdown.indexOf('>', index);
-          if (bracketIndex === -1) {
-            throwParseError(markdown, index, 'Unclosed HTML tag');
-          }
-          if (
-            markdown.charCodeAt(bracketIndex - 1) !== codeSlash &&
-            !voidElements.has(tagName)
-          ) {
-            htmlStack.push(tagName);
-          }
-          if (
-            tagName.includes('-') &&
-            !blockListedCustomElementNames.has(tagName)
-          ) {
-            onWebComponentTag(tagName);
-          }
-          index = bracketIndex;
-          flushText(index + 1);
-          flushIndex = index + 1;
-          return index;
-        case codeSlash:
-          if (markdown.charCodeAt(index + 1) !== codeGreaterThan) {
-            throwParseError(
-              markdown,
-              index,
-              'Expected closing angle bracket after slash in HTML tag',
-            );
-          }
+    let tagNameEnd = tagNameStart;
 
-          tagName = markdown.slice(tagNameStart, index);
-          if (
-            tagName.includes('-') &&
-            !blockListedCustomElementNames.has(tagName)
-          ) {
-            onWebComponentTag(tagName);
-          }
-          flushText(index + 1);
-          flushIndex = index + 1;
-          return index;
-        case codeGreaterThan:
-          tagName = markdown.slice(tagNameStart, index);
-          if (!voidElements.has(tagName)) {
-            htmlStack.push(tagName);
-          }
-          if (
-            tagName.includes('-') &&
-            !blockListedCustomElementNames.has(tagName)
-          ) {
-            onWebComponentTag(tagName);
-          }
-          flushText(index + 1);
-          flushIndex = index + 1;
-          return index;
-        default:
-          ++index;
-          continue;
+    while (tagNameEnd < length) {
+      const charCode = markdown.charCodeAt(tagNameEnd);
+      if (
+        charCode === codeSpace ||
+        charCode === codeSlash ||
+        charCode === codeGreaterThan
+      ) {
+        break;
       }
+      tagNameEnd++;
     }
-    throwParseError(markdown, index - 1, 'Unclosed HTML tag');
+    const tagName = markdown.slice(tagNameStart, tagNameEnd);
+
+    const bracketIndex = markdown.indexOf('>', tagNameEnd);
+    if (bracketIndex === -1) {
+      throwParseError(markdown, tagStartIndex, 'Unclosed HTML tag');
+    }
+
+    const isSelfClosing =
+      markdown.charCodeAt(bracketIndex - 1) === codeSlash ||
+      voidElements.has(tagName);
+
+    if (!isSelfClosing) {
+      htmlStack.push(tagName);
+    }
+
+    if (tagName.includes('-') && !blockListedCustomElementNames.has(tagName)) {
+      onWebComponentTag(tagName);
+    }
+
+    index = bracketIndex;
+    flushText(index + 1);
+    flushIndex = index + 1;
+
+    if (!isSelfClosing && rawTags.has(tagName)) {
+      const closingTag = `</${tagName}>`;
+      const closingIndex = markdown.indexOf(closingTag, flushIndex);
+      if (closingIndex === -1) {
+        throwParseError(markdown, tagStartIndex, `Unclosed <${tagName}> tag`);
+      }
+      index = closingIndex + closingTag.length;
+      flushText(index);
+      flushIndex = index;
+      htmlStack.pop();
+      return index - 1;
+    }
+
+    return index;
   }
 
   /**
@@ -665,6 +651,8 @@ const codeZero = 48;
 const codeNine = 57;
 const unorderedListMarker = 0;
 const blockquoteMarker = -1;
+
+const rawTags = new Set(['script', 'pre', 'style']);
 
 const voidElements = new Set([
   'area',
