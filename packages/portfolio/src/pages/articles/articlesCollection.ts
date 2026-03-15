@@ -14,6 +14,7 @@ const base = {
 
 const indexPage: PostPageMetadata & TypedLayoutMetadata<PageListPageMetadata> =
   {
+    ...base,
     layout: async () =>
       await import('@maxpatiiuk/web-components/components/mp-page-list'),
     siteConfig,
@@ -24,6 +25,9 @@ const indexPage: PostPageMetadata & TypedLayoutMetadata<PageListPageMetadata> =
     prefix: 'articles',
   };
 
+// TODO: a cli to convert .md to dev.to-compatible md - and eventually
+// auto-post and auto-update on dev.to. see also
+// https://github.com/sinedied/publish-devto/blob/main/index.js
 export const articlesCollection: Collection<PostPageMetadata> = {
   defaultLayout: async () =>
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),

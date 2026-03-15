@@ -9,14 +9,14 @@ export interface BasePageMetadata {
    *
    * @public
    */
-  ogImage?: string;
+  readonly ogImage?: string;
   /**
    * Will be set based on first image alt text if not provided.
    * Only set alt for non-decorative images.
    *
    * @public
    */
-  ogImageAlt?: string;
+  readonly ogImageAlt?: string;
   /** @public */
   readonly layout?: GetLayout<BasePageMetadata> | false;
   /** @public */
@@ -73,4 +73,16 @@ export interface ResolvedPage {
   slug: string;
   metadata: BasePageMetadata;
   collection: Collection;
+}
+
+/** @public */
+export interface CollectionsContent {
+  /** @public */
+  collections: Record<string, Collection>;
+  /** @public */
+  rootLayout: GetLayout<BasePageMetadata>;
+  /** @public */
+  defaultOgImage: string;
+  /** @public */
+  defaultOgImageAlt: string;
 }

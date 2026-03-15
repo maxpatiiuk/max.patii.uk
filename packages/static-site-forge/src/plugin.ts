@@ -1,7 +1,12 @@
 import { readFile } from 'node:fs/promises';
 import { pipeline } from 'node:stream/promises';
 import { isRunnableDevEnvironment, type Plugin, type UserConfig } from 'vite';
-import type { Collection, ForgeConfig, ResolvedPage } from './types.ts';
+import type {
+  Collection,
+  CollectionsContent,
+  ForgeConfig,
+  ResolvedPage,
+} from './types.ts';
 import { createDebug } from './debug.ts';
 import { pathToFileURL } from 'node:url';
 import { markdownToJs } from './markdown/markdownToJs.ts';
@@ -11,6 +16,7 @@ import { register } from 'node:module';
 const debugTransform = createDebug('transform');
 const ssrOutPath = `node_modules/.cache/static-site-forge/dist-ssr/`;
 
+// TODO: complete build --watch support once updated to rolldown. resolve TODOs in this file
 /**
  * @public
  * @param config
@@ -154,9 +160,9 @@ export function useStaticSiteForge(
     sharedDuringBuild: true,
     applyToEnvironment: (environment) => environment.name === 'ssr',
 
-    async options(options) {
+    async options(options): Promise<null> {
       if (isServe) {
-        return;
+        return null;
       }
 
       // Extract into a variable to avoid Vite rewriting the module
@@ -205,6 +211,7 @@ export function useStaticSiteForge(
         }
       }
       options.input = ssrEntries;
+      return null;
     },
 
     buildStart(): void {
@@ -320,12 +327,12 @@ function parseCollectionsModule(
   if (
     typeof collectionsModule !== 'object' ||
     collectionsModule === null ||
-    !('collections' in collectionsModule) ||
-    typeof collectionsModule.collections !== 'object'
+    !('content' in collectionsModule) ||
+    typeof collectionsModule.content !== 'object'
   ) {
-    throw Error('collections module must export an object named collections');
+    throw Error('collections module must export an object named content');
   }
-  return collectionsModule.collections as Record<string, Collection>;
+  return (collectionsModule.content as CollectionsContent).collections;
 }
 
 async function renderModule(module: unknown): Promise<string> {
@@ -362,7 +369,6 @@ function resolveUrlToPage(
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
   debugResolve?.(`Resolving ${normalized}`);
 
-  debugger;
   for (const [collectionName, collection] of Object.entries(collections)) {
     const prefix = collectionName === '' ? '' : `${collectionName}/`;
     if (!normalized.startsWith(prefix)) {

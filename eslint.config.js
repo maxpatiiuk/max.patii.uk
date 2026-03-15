@@ -1,7 +1,9 @@
+import { globalIgnores } from 'eslint/config';
 import eslintConfig from '@arcgis/eslint-config';
 import eslintConfigLumina from '@arcgis/eslint-config/lumina';
 
 export default [
+  globalIgnores(['node_modules/', 'dist/']),
   ...eslintConfig,
   ...eslintConfigLumina,
   {
