@@ -15,4 +15,5 @@ export const content: CollectionsContent = {
     await import('@maxpatiiuk/web-components/components/mp-root-layout'),
   defaultOgImage: '/icon3.png',
   defaultOgImageAlt: 'Max Patiiuk',
+  canonicalBaseUrl: 'https://max.patii.uk/',
 };
