@@ -5,9 +5,9 @@ lessons learned based on talking to them and other experiences I had at Amazon.
 This is Part 1 of my series on Amazon internship.
 
 See Part 2:
-[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9)
+[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9).
 
-Also, see [my intern project](https://max.patii.uk/projects/spacetime)
+Also, see [my intern project](../projects/spacetime.md).
 
 ## Career
 
@@ -131,7 +131,7 @@ perfect code, and even if you did that, the environment changes all the time so
 the code would get out of date, and best practices have to be generic and may
 not apply to your project.
 
-Be mindful of prior art, BUT:
+Be mindful of prior art, but:
 
 - The idea of best practice is transient
 - Can be a bit of a trap. best practices change
@@ -183,6 +183,6 @@ Along the way, make sure you are not losing sight of the business purpose
 This was Part 1 of my series on Amazon internship.
 
 See Part 2:
-[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9)
+[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9).
 
-Also, see [my intern project](https://max.patii.uk/projects/spacetime)
+Also, see [my intern project](../projects/spacetime.md).

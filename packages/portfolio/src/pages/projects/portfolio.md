@@ -1,5 +1,5 @@
 > This portfolio from 2021 has been superseded by a
-> [new version in 2026](./portfolio-2026).
+> [new version in 2026](./portfolio-2026.md).
 
 When it came to designing my portfolio, I wanted to make it represent my
 aspirations for simplicity and purpose. That is why there are no cluttered

@@ -10,11 +10,16 @@ function never(): never {
 
 const options: MarkdownToLitHtmlOptions = {
   resolveImageUrl: never,
+  resolveAnchorUrl: never,
   onWebComponentTag: never,
   isInline: false,
 };
 
 function resolveImageUrl(url: string): string {
+  return url;
+}
+
+function resolveAnchorUrl(url: string): string {
   return url;
 }
 
@@ -72,9 +77,12 @@ describe(markdownToLitHtml, () => {
       );
     });
     it('heading with link', () => {
-      expect(markdownToLitHtml('## [link](url) heading', options)).toBe(
-        '<h2><a href="url">link</a> heading</h2>',
-      );
+      expect(
+        markdownToLitHtml('## [link](url) heading', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe('<h2><a href="url">link</a> heading</h2>');
     });
     it('consecutive headings', () => {
       expect(markdownToLitHtml('# H1\n## H2\n### H3', options)).toBe(
@@ -239,33 +247,42 @@ describe(markdownToLitHtml, () => {
 
   describe('links and images', () => {
     it('multiple links in one line', () => {
-      expect(markdownToLitHtml('[a](u1) and [b](u2)', options)).toBe(
-        '<p><a href="u1">a</a> and <a href="u2">b</a></p>',
-      );
+      expect(
+        markdownToLitHtml('[a](u1) and [b](u2)', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe('<p><a href="u1">a</a> and <a href="u2">b</a></p>');
     });
     it('link at end of paragraph', () => {
-      expect(markdownToLitHtml('See [link](url)', options)).toBe(
-        '<p>See <a href="url">link</a></p>',
-      );
+      expect(
+        markdownToLitHtml('See [link](url)', { ...options, resolveAnchorUrl }),
+      ).toBe('<p>See <a href="url">link</a></p>');
     });
     it('link at start of paragraph', () => {
-      expect(markdownToLitHtml('[link](url) text', options)).toBe(
-        '<p><a href="url">link</a> text</p>',
-      );
+      expect(
+        markdownToLitHtml('[link](url) text', {
+          ...options,
+          resolveAnchorUrl: (url) => url.toUpperCase(),
+        }),
+      ).toBe('<p><a href="URL">link</a> text</p>');
     });
     it('link with complex URL', () => {
       expect(
-        markdownToLitHtml(
-          '[text](https://example.com/path?q=1&r=2#hash)',
-          options,
-        ),
+        markdownToLitHtml('[text](https://example.com/path?q=1&r=2#hash)', {
+          ...options,
+          resolveAnchorUrl,
+        }),
       ).toBe(
         '<p><a href="https://example.com/path?q=1&amp;r=2#hash">text</a></p>',
       );
     });
     it('link with escaped url', () => {
       expect(
-        markdownToLitHtml('[text](<https://example.com/path#hash()>)', options),
+        markdownToLitHtml('[text](<https://example.com/path#hash()>)', {
+          ...options,
+          resolveAnchorUrl,
+        }),
       ).toBe('<p><a href="https://example.com/path#hash()">text</a></p>');
     });
     it('images', () => {
@@ -296,14 +313,20 @@ describe(markdownToLitHtml, () => {
       );
     });
     it('link with quotes in URL', () => {
-      expect(markdownToLitHtml('[text](url?a="b")', options)).toBe(
-        '<p><a href="url?a=&quot;b&quot;">text</a></p>',
-      );
+      expect(
+        markdownToLitHtml('[text](url?a="b")', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe('<p><a href="url?a=&quot;b&quot;">text</a></p>');
     });
     it('link with ampersand in URL', () => {
-      expect(markdownToLitHtml('[text](url?a=1&b=2)', options)).toBe(
-        '<p><a href="url?a=1&amp;b=2">text</a></p>',
-      );
+      expect(
+        markdownToLitHtml('[text](url?a=1&b=2)', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe('<p><a href="url?a=1&amp;b=2">text</a></p>');
     });
     it('image with quotes in alt text', () => {
       expect(
@@ -326,15 +349,19 @@ describe(markdownToLitHtml, () => {
       );
     });
     it('formatted text inside link', () => {
-      expect(markdownToLitHtml('[**bold** and _italic_](url)', options)).toBe(
-        '<p><a href="url"><b>bold</b> and <i>italic</i></a></p>',
-      );
+      expect(
+        markdownToLitHtml('[**bold** and _italic_](url)', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe('<p><a href="url"><b>bold</b> and <i>italic</i></a></p>');
     });
     it('image inside link', () => {
       expect(
         markdownToLitHtml('[![alt](src)](url)', {
           ...options,
           resolveImageUrl,
+          resolveAnchorUrl,
         }),
       ).toBe(
         '<p><a href="url"><figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure></a></p>',
@@ -458,9 +485,9 @@ describe(markdownToLitHtml, () => {
       );
     });
     it('blockquote with link', () => {
-      expect(markdownToLitHtml('> [text](url)', options)).toBe(
-        '<blockquote><p><a href="url">text</a></p></blockquote>',
-      );
+      expect(
+        markdownToLitHtml('> [text](url)', { ...options, resolveAnchorUrl }),
+      ).toBe('<blockquote><p><a href="url">text</a></p></blockquote>');
     });
     it('blockquote followed by paragraph', () => {
       expect(markdownToLitHtml('> Quote\nAfter', options)).toBe(
@@ -555,7 +582,12 @@ describe(markdownToLitHtml, () => {
       );
     });
     it('list with link', () => {
-      expect(markdownToLitHtml('- [text](url)\n- item', options)).toBe(
+      expect(
+        markdownToLitHtml('- [text](url)\n- item', {
+          ...options,
+          resolveAnchorUrl,
+        }),
+      ).toBe(
         '<ul><li><p><a href="url">text</a>\n</p></li><li><p>item</p></li></ul>',
       );
     });

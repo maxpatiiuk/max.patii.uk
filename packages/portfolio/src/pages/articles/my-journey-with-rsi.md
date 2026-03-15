@@ -335,7 +335,7 @@ Best of luck with your journey.
   injuries.
 - I explored a lot of unique computer input devices I would have never tried
   before. Read my article on
-  [7 less common computer input devices](https://dev.to/maxpatiiuk/7-less-common-computer-input-devices-1bel)
+  [7 less common computer input devices](./7-less-common-computer-input-devices.md)
   for more details.
   - If you are still dealing with finger pain, I highly recommend trying out
     some devices mentioned, as they can let you get back to using the computer
