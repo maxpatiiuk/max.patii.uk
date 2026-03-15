@@ -1,8 +1,8 @@
+/shop.html /projects/shop/ 301
+/projects/tetris https://bit.ly/-tetris-react 301
 /en/* / 301
 /news/* / 301
 /contacts/* / 301
 /services/* / 301
 /project/* /projects/:splat 301
-/shop.html /projects/shop/ 301
 /shop/* /projects/shop/ 301
-/projects/tetris https://bit.ly/-tetris-react 301

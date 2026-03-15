@@ -80,7 +80,7 @@ on.
 And then add to it the fact that a lot of code quality things are subjective and
 differ between languages. Heck, I was shocked that some of React best practices
 are considered code smell in Vue and vice versa
-([see my article on this](https://dev.to/maxpatiiuk/6-big-issues-with-vuejs-3he5)).
+([see my article on this](./vue-js-issues.md)).
 
 When
 [I did an internship at Amazon](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b),

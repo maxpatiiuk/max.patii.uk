@@ -13,7 +13,7 @@ easy to see insights about the data and quickly filter out the irrelevant noise
 and have the charts update instantaneously.
 
 > See also, a blog post on
-> [50 Lessons learned from an Amazon Internship](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b).
+> [50 Lessons learned from an Amazon Internship](../articles/amazon-internship-lessons-learned.md).
 
 There already exists a tool at Amazon, which shows all high severity tickets in
 real-time as a long table, allowing you to stay in touch with the latest

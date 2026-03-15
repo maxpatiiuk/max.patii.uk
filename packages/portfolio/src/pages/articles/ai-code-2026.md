@@ -128,8 +128,8 @@ asking for "feedback, suggestions, pros/cons analysis". It may come up with a
 new solution, or give more reasons to go with one of my proposed solutions.
 
 > The context window of Gemini is impressive. I downloaded
-> [my journal for the entire year](https://dev.to/maxpatiiuk/how-i-use-self-reflection-to-stay-on-track-daily-weekly-monthly-and-yearly-1n1f),
-> and Gemini created a summary of yearly accomplishments.
+> [my journal for the entire year](./self-reflection.md), and Gemini created a
+> summary of yearly accomplishments.
 
 Use [**Gemini** in Chrome](https://gemini.google/overview/gemini-in-chrome/) for
 a quick summary of a webpage to decide if I want to invest time into reading it.

@@ -1,9 +1,9 @@
 This is part 2 of my series on Amazon internship.
 
 See part 1:
-[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b)
+[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b).
 
-Also, see [my intern project](https://max.patii.uk/projects/spacetime)
+Also, see [my intern project](../projects/spacetime.md).
 
 ## General impressions about the internship
 
@@ -15,7 +15,7 @@ Also, see [my intern project](https://max.patii.uk/projects/spacetime)
 - We worked on software for rapid insights, coordination and response during an
   outage/widespread issue.
 - We used Vue.js, which I didn't like at all. See
-  [6 issues I have with Vue.js](https://dev.to/maxpatiiuk/6-big-issues-with-vuejs-3he5)
+  [6 issues I have with Vue.js](./vue-js-issues.md)
 
 ### The company
 
@@ -40,8 +40,7 @@ Also, see [my intern project](https://max.patii.uk/projects/spacetime)
 - We got early access to
   [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/) (a GitHub
   Copilot alternative) a year before it was released to the public. See my post
-  on
-  [shortcomings of GitHub copilot](https://dev.to/maxpatiiuk/shortcomings-of-github-copilot-1ge)
+  on [shortcomings of GitHub copilot](./github-copilot-issues-2023.md)
 
 ### Onboarding
 
@@ -149,6 +148,6 @@ are a few things that could be improved:
 This was part 2 of my series on Amazon internship.
 
 See Part 1:
-[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b)
+[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b).
 
-Also, see [my intern project](https://max.patii.uk/projects/spacetime)
+Also, see [my intern project](../projects/spacetime.md).

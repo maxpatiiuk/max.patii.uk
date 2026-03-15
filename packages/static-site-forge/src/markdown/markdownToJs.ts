@@ -40,7 +40,33 @@ export function markdownToJs(
         ogImage = resolvedPath;
         ogImageAlt = alt;
       }
-      return resolveAssetUrl(url, filePath);
+      return resolvedPath;
+    },
+    resolveAnchorUrl(url) {
+      const charCodeDot = 46;
+      if (url.charCodeAt(0) !== charCodeDot) {
+        return url;
+      }
+      let draftPath = relativeDirectory;
+      let startIndex = 0;
+      if (url.startsWith('./')) {
+        startIndex = './'.length;
+      } else {
+        while (url.startsWith('../', startIndex)) {
+          startIndex += '../'.length;
+          const lastSlash = draftPath.lastIndexOf('/');
+          if (lastSlash === -1) {
+            draftPath = '';
+          } else {
+            draftPath = draftPath.slice(0, lastSlash);
+          }
+        }
+      }
+      const trimmedUrl = url.endsWith('.md')
+        ? url.slice(startIndex, -'.md'.length)
+        : url.slice(startIndex);
+
+      return `/${draftPath === '' ? '' : `${draftPath}/`}${trimmedUrl}`;
     },
     onWebComponentTag(tagName) {
       const importPath = config.getWebComponentImportPath(tagName);

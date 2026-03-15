@@ -103,7 +103,7 @@ Here are the calendars I use:
   prepare for, you can manually change the reminder to go off 0min before the
   meeting.
 - Mood: a calendar for journaling and daily mood tracking. Read my article on
-  [daily, weekly, monthly, and yearly self-reflection](https://dev.to/maxpatiiuk/how-i-use-self-reflection-to-stay-on-track-daily-weekly-monthly-and-yearly-1n1f)
+  [daily, weekly, monthly, and yearly self-reflection](./self-reflection.md)
   that goes into this in more detail.
 - Birthdays: synced from Google Contacts. Each event has a reminder 1 day before
   and on the day of the birthday.

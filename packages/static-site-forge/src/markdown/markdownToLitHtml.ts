@@ -2,6 +2,7 @@ import { throwParseError } from './throwParseError.ts';
 
 export type MarkdownToLitHtmlOptions = {
   readonly resolveImageUrl: (url: string, alt: string) => string;
+  readonly resolveAnchorUrl: (url: string) => string;
   readonly onWebComponentTag: (tagName: string) => void;
   readonly isInline: boolean;
 };
@@ -18,7 +19,8 @@ export function markdownToLitHtml(
   markdown: string,
   options: MarkdownToLitHtmlOptions,
 ): string {
-  const { onWebComponentTag, resolveImageUrl, isInline } = options;
+  const { onWebComponentTag, resolveImageUrl, resolveAnchorUrl, isInline } =
+    options;
   const ropes: string[] = [];
   const length = markdown.length;
 
@@ -224,7 +226,7 @@ export function markdownToLitHtml(
         }
         const rawUrl = markdown.slice(urlStringStart, urlStringEnd);
 
-        const url = escapeAttribute(rawUrl);
+        const url = escapeAttribute(resolveAnchorUrl(rawUrl));
         const renderedLinkText = markdownToLitHtml(linkText, {
           ...options,
           isInline: true,

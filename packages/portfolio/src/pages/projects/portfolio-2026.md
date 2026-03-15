@@ -15,6 +15,8 @@ My static site generator is called Static Site Forge. Features:
 
 - Zero client-side JS by default (like Astro).
 
+  ![100/100 lighthouse score](../../../public/projects/images/portfolio-2026/lighthouse.avif)
+
 - Single-pass performant
   [markdown-to-lit-html transformer](https://github.com/maxpatiiuk/max.patii.uk/blob/main/packages/static-site-forge/src/markdown/markdownToLitHtml.ts).
 
@@ -48,6 +50,8 @@ See also [AI-generated code lacks common sense](../articles/ai-code-2026.md).
 
 ## Lessons learned
 
+### Astro technical decisions
+
 Astro's collection concept is useful - a home page can get metadata for all
 posts in a lazy way.
 
@@ -55,12 +59,16 @@ It also makes sense that they decided to keep page metadata in the frontmatter
 rather than separate files - colocation of such coupled data makes sense, even
 if it means losing TypeScript checking.
 
+### Shadow root
+
 Shadow Root is awesome for libraries and web components - styles encapsulation
 and slots are useful. But for apps, it is sometimes counter-productive - I need
 to globally apply the styles, especially the CSS reset, and since the styles are
 inlined in the shadow root by Lit SSR rather than being separate network
 requests, they aren't cached by the browser, so need to stay small and specific
 to each page.
+
+### Monorepo
 
 Separating the code into three separate packages adds a bit of boilerplate code
 and architectural constraints. But I liked the idea of having three clean
@@ -78,6 +86,16 @@ architecture clean.
 - Vitest
 - Lit
 - Lit SSR
+
+There are very few third-party dependencies. No React, Tailwind CSS, Next.js.
+Even markdown transformer was implemented in house.
+
+While off-the-shelf libraries work quite well for a simple static site,
+off-the-shelf libraries don't work as well at enterprise-scale, where efficiency
+and niche use case customization becomes more important.
+
+I wanted to learn how to build most of the tech stack, while keeping it fast and
+standards-compliant.
 
 ---
 

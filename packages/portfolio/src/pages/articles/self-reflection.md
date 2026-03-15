@@ -166,7 +166,7 @@ I improve the process each year. Here is my current process:
 ### Review the calendar for the past year
 
 - Identify what I spent the most time on. My
-  [hyper-scheduling habit and tools for analyzing where the time went](https://dev.to/maxpatiiuk/how-i-tracked-every-hour-of-my-life-for-4-years-and-what-you-can-learn-from-it-4pic)
+  [hyper-scheduling habit and tools for analyzing where the time went](./hyper-scheduling.md)
   help a lot with this.
 
   ![Analyzing yearly time usage](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d0tkkciiz0lulga4kqqb.png)
