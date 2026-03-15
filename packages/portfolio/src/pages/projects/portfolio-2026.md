@@ -17,6 +17,10 @@ My static site generator is called Static Site Forge. Features:
 
   ![100/100 lighthouse score](../../../public/projects/portfolio-2026/lighthouse.avif)
 
+  Though, in-practice some JavaScript is still required:
+  - Google Analytics
+  - Deciphering an email address that was hidden from bots
+
 - Single-pass performant
   [markdown-to-lit-html transformer](https://github.com/maxpatiiuk/max.patii.uk/blob/main/packages/static-site-forge/src/markdown/markdownToLitHtml.ts).
 

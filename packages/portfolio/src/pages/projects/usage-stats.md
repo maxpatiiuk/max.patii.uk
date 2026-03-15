@@ -49,7 +49,7 @@ accessible internally only, however, you are free to look at the
 
 In parallel with this project, I was tasked with modernizing an existing usage
 stats visualizer for a separate application.
-[See the results of that project.](/projects/modernizing-usage-stats)
+[See the results of that project.](./modernizing-usage-stats.md)
 
 ## Reflecting on the project
 

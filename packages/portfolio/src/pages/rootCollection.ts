@@ -14,7 +14,10 @@ const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   description: 'Senior SDE at Esri',
   authorTitle: 'Senior SDE at Esri',
   links: [
-    { label: 'max@patii.uk', url: 'mailto:max@patii.uk' },
+    {
+      label: 'email hidden',
+      url: '#109,97,120,64,112,97,116,105,105,46,117,107',
+    },
     { label: 'linkedin', url: 'https://linkedin.patii.uk' },
     { label: 'github', url: 'https://github.patii.uk' },
     { label: 'twitter', url: 'https://twitter.patii.uk' },

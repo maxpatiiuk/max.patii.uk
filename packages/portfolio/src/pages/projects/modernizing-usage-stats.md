@@ -64,7 +64,7 @@ accessible internally only, however, you are free to look at the
 
 In parallel with this project, I was tasked with writing a usage stats
 visualizer for a separate application.
-[See the results of that project.](/projects/usage-stats)
+[See the results of that project.](./usage-stats.md)
 
 ## Things learned
 
