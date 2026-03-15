@@ -19,8 +19,15 @@ export interface BasePageMetadata {
   readonly ogImageAlt?: string;
   /** @public */
   readonly layout?: GetLayout<BasePageMetadata> | false;
-  /** @public */
-  readonly hasMarkdownContent?: false;
+  /**
+   * By default a markdown page is expected to exist and its content is rendered
+   * into shadow dom. Set to false to disable markdown page lookup. Set to
+   * "slot" to put content into a slot instead of shadow dom (impacts styling
+   * isolation).
+   *
+   * @public
+   */
+  readonly children?: 'slot' | false;
   /** @public */
   readonly externalUrl?: string;
 }

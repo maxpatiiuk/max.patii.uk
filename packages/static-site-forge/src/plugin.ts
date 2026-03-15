@@ -234,7 +234,7 @@ export function useStaticSiteForge(
           indexedPages[fullId.slice(fullPagesDirectory.length)];
         const id = fullId.slice(0, -'?mp'.length);
         const content =
-          pageMetadata.metadata.hasMarkdownContent === false
+          pageMetadata.metadata.children === false
             ? ''
             : await readFile(id, 'utf8');
         const transformed = markdownToJs(

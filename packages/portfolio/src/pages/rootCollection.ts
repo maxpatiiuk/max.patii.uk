@@ -30,7 +30,7 @@ const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   projects: projectsCollection.pages,
   articles: articlesCollection.pages,
   talks: talksCollection.pages,
-  hasMarkdownContent: false,
+  children: 'slot',
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

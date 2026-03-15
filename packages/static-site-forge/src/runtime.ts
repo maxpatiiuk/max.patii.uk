@@ -2,7 +2,7 @@ import { render as ssrRender } from '@lit-labs/ssr';
 import { collectResultSync } from '@lit-labs/ssr/lib/render-result.js';
 import type { BasePageMetadata, Collection, GetLayout } from './types.ts';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import type { TemplateResult } from 'lit';
+import { nothing, type TemplateResult } from 'lit';
 
 export async function renderPage(
   rootLayout: GetLayout<BasePageMetadata>,
@@ -20,6 +20,7 @@ export async function renderPage(
     page.layout ?? collection.defaultLayout,
     page,
     litHtml,
+    page.children === 'slot',
   );
   const rootPage = await composeLayout(rootLayout, page, composedPage);
   const result = ssrRender(rootPage);
@@ -51,6 +52,7 @@ async function composeLayout(
   layoutModule: GetLayout<BasePageMetadata> | false,
   page: BasePageMetadata,
   litHtml: TemplateResult | '',
+  isSlot = false,
 ): Promise<TemplateResult | ''> {
   if (layoutModule === false) {
     return litHtml;
@@ -69,5 +71,5 @@ async function composeLayout(
     );
   }
   const staticTagName = unsafeStatic(tagName);
-  return html`<${staticTagName} .layoutData=${page} .slotted=${litHtml}></${staticTagName}>`;
+  return html`<${staticTagName} .layoutData=${page} .slotted=${isSlot ? nothing : litHtml}>${isSlot ? litHtml : nothing}</${staticTagName}>`;
 }
