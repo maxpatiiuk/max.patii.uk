@@ -11,6 +11,8 @@ export type MarkdownToLitHtmlOptions = {
  *
  * This transformer supports headings, paragraphs, infinitely nested lists and blockquotes,
  * links, images, bold/italic/code spans, and HTML passthrough blocks.
+ *
+ * TODO: add markdown tables support and use them in proton-unlimited.md
  */
 export function markdownToLitHtml(
   markdown: string,

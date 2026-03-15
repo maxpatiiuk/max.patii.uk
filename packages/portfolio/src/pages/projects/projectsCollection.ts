@@ -13,6 +13,7 @@ const base = {
 
 const indexPage: PostPageMetadata & TypedLayoutMetadata<PageListPageMetadata> =
   {
+    ...base,
     layout: async () =>
       await import('@maxpatiiuk/web-components/components/mp-page-list'),
     siteConfig,

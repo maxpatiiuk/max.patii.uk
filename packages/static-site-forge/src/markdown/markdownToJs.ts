@@ -1,5 +1,9 @@
 import { join } from 'node:path';
-import { fullCollectionsPath, fullPublicDir } from '../const.ts';
+import {
+  fullCollectionsPath,
+  fullPagesDirectory,
+  fullPublicDir,
+} from '../const.ts';
 import type { ForgeConfig, ResolvedPage } from '../types.ts';
 import { markdownToLitHtml } from './markdownToLitHtml.ts';
 
@@ -13,6 +17,11 @@ export function markdownToJs(
   isServe: boolean,
   config: ForgeConfig,
 ): string {
+  const relativeFilePath = filePath.slice(fullPagesDirectory.length);
+  const lastSlash = relativeFilePath.lastIndexOf('/');
+  const relativeDirectory =
+    lastSlash === -1 ? '' : relativeFilePath.slice(0, lastSlash);
+
   const hasJsHeader = content.startsWith('```');
   const jsHeaderEnd = hasJsHeader ? content.indexOf('\n```\n', 3) : -1;
   let webComponentImports = '';
@@ -22,11 +31,14 @@ export function markdownToJs(
   const bodyContent = hasJsHeader
     ? content.slice(jsHeaderEnd + '\n```\n'.length)
     : content;
+  let ogImage: string | undefined;
+  let ogImageAlt: string | undefined;
   const litHtml = markdownToLitHtml(bodyContent, {
-    resolveImageUrl: (url, alt) => {
-      if (resolvedPage.metadata.ogImage === undefined) {
-        resolvedPage.metadata.ogImage = url;
-        resolvedPage.metadata.ogImageAlt = alt;
+    resolveImageUrl(url, alt) {
+      const resolvedPath = resolveAssetUrl(url, filePath);
+      if (ogImage === undefined) {
+        ogImage = resolvedPath;
+        ogImageAlt = alt;
       }
       return resolveAssetUrl(url, filePath);
     },
@@ -46,13 +58,15 @@ ${webComponentImports}\
 import { renderPage } from "@maxpatiiuk/static-site-forge/runtime.js";
 import { html } from "lit";
 
-import { collections, rootLayout } from "${fullCollectionsPath}";
-const collection = collections["${resolvedPage.collectionName}"];
+import { content } from "${fullCollectionsPath}";
+const collection = content.collections["${resolvedPage.collectionName}"];
 const page = collection.pages["${resolvedPage.slug}"];
-${jsHeader}
+page.ogImage ??= ${ogImage === undefined ? 'content.defaultOgImage' : JSON.stringify(ogImage)};
+page.ogImageAlt ??= ${ogImageAlt === undefined ? 'content.defaultOgImageAlt' : JSON.stringify(ogImageAlt)};
+${jsHeader}\
 
 export async function render() {
-  return await renderPage(rootLayout, collection, page, ${templateString});
+  return await renderPage(content.rootLayout, collection, page, ${templateString});
 }`;
 
   return module;
