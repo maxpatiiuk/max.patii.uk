@@ -10,9 +10,9 @@ projects ([check out my Tetris Game](https://bit.ly/-tetris-react)).
 
 ## Screenshots
 
-![Main page](../../../public/projects/images/portfolio/1.webp)
+![Main page](../../../public/projects/portfolio/main-page.webp)
 
-![A post about "Specify 7 WorkBench"](../../../public/projects/images/portfolio/2.webp)
+![A post about "Specify 7 WorkBench"](../../../public/projects/portfolio/post-specify-7.webp)
 
 ## Technologies used
 

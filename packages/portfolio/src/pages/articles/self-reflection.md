@@ -31,7 +31,7 @@ The all-day event is helpful as it stays at the top of the calendar screen,
 making it easy to look back in time and see how I felt on a particular day. That
 also brings us to the next point - weekly reflection.
 
-![The all-day reflection event for each day of the week](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jai9t0j6cgecr4j5vhq9.jpg)
+![The all-day reflection event for each day of the week](../../../public/articles/self-reflection/all-day-reflection.avif)
 
 ## Weekly reflection
 
@@ -169,7 +169,7 @@ I improve the process each year. Here is my current process:
   [hyper-scheduling habit and tools for analyzing where the time went](./hyper-scheduling.md)
   help a lot with this.
 
-  ![Analyzing yearly time usage](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d0tkkciiz0lulga4kqqb.png)
+  ![Analyzing yearly time usage](../../../public/articles/self-reflection/yearly-time-usage.avif)
 
 - Read daily, weekly, and monthly reflections.
   - Based on these reflections, as well as weekly updates sent to my manager,
@@ -243,7 +243,7 @@ Identify sections of your life:
   - scheduling, methods, tools
   - values, purpose, impact
 
-![An empty wheel of life spreadsheet](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jufe6ik09kxisihxhwnf.jpg)
+![An empty wheel of life spreadsheet](../../../public/articles/self-reflection/wheel-of-life.avif)
 
 For each section, set a number:
 

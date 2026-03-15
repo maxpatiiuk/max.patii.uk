@@ -15,7 +15,7 @@ My static site generator is called Static Site Forge. Features:
 
 - Zero client-side JS by default (like Astro).
 
-  ![100/100 lighthouse score](../../../public/projects/images/portfolio-2026/lighthouse.avif)
+  ![100/100 lighthouse score](../../../public/projects/portfolio-2026/lighthouse.avif)
 
 - Single-pass performant
   [markdown-to-lit-html transformer](https://github.com/maxpatiiuk/max.patii.uk/blob/main/packages/static-site-forge/src/markdown/markdownToLitHtml.ts).

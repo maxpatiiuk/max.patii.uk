@@ -1,7 +1,7 @@
 This is part 2 of my series on Amazon internship.
 
 See part 1:
-[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b).
+[50 Lessons learned from an Amazon Internship ](./amazon-internship-lessons-learned.md).
 
 Also, see [my intern project](../projects/spacetime.md).
 
@@ -148,6 +148,6 @@ are a few things that could be improved:
 This was part 2 of my series on Amazon internship.
 
 See Part 1:
-[50 Lessons learned from an Amazon Internship ](https://dev.to/maxpatiiuk/lessons-learned-from-an-amazon-internship-5e5b).
+[50 Lessons learned from an Amazon Internship ](./amazon-internship-lessons-learned.md).
 
 Also, see [my intern project](../projects/spacetime.md).

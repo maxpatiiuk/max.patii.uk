@@ -27,8 +27,8 @@ meaningful.
 
 ## Screenshots
 
-![Ship Placement](../../../public/projects/images/battleship/1.webp)
-![Game Boards](../../../public/projects/images/battleship/2.webp)
+![Ship Placement](../../../public/projects/battleship/ship-placement.webp)
+![Game Boards](../../../public/projects/battleship/game-boards.webp)
 
 ## Online demo
 

@@ -5,7 +5,7 @@ lessons learned based on talking to them and other experiences I had at Amazon.
 This is Part 1 of my series on Amazon internship.
 
 See Part 2:
-[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9).
+[Reflection on the Amazon Internship](./amazon-internship-reflection.md).
 
 Also, see [my intern project](../projects/spacetime.md).
 
@@ -183,6 +183,6 @@ Along the way, make sure you are not losing sight of the business purpose
 This was Part 1 of my series on Amazon internship.
 
 See Part 2:
-[Reflection on the Amazon Internship](https://dev.to/maxpatiiuk/reflection-on-the-amazon-internship-14k9).
+[Reflection on the Amazon Internship](./amazon-internship-reflection.md).
 
 Also, see [my intern project](../projects/spacetime.md).

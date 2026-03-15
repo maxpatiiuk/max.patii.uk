@@ -12,13 +12,13 @@ You can try out the live version at
 
 ## Screenshots
 
-![Main page](../../../public/projects/images/project-ephemeris/1.webp)
-![Editing an event](../../../public/projects/images/project-ephemeris/2.webp)
-![Searching for events](../../../public/projects/images/project-ephemeris/3.webp)
-![Month view](../../../public/projects/images/project-ephemeris/4.webp)
-![Year view](../../../public/projects/images/project-ephemeris/5.webp)
-![Light mode](../../../public/projects/images/project-ephemeris/6.webp)
-![Editing calendar](../../../public/projects/images/project-ephemeris/7.webp)
+![Main page](../../../public/projects/project-ephemeris/main-page.webp)
+![Editing an event](../../../public/projects/project-ephemeris/editing-event.webp)
+![Searching for events](../../../public/projects/project-ephemeris/searching-events.webp)
+![Month view](../../../public/projects/project-ephemeris/month-view.webp)
+![Year view](../../../public/projects/project-ephemeris/year-view.webp)
+![Light mode](../../../public/projects/project-ephemeris/light-mode.webp)
+![Editing calendar](../../../public/projects/project-ephemeris/editing-calendar.webp)
 
 ## Technologies used
 

@@ -56,7 +56,7 @@ The time you did not schedule (25%) will fill up with random things throughout
 the day. These are unavoidable, but you reduced the chaos to just a quarter of
 the day, ensuring the most important things get prioritized.
 
-![Example of my hyper-scheduled week](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b43k3mjg70hkqg6xo2dz.jpg)
+![Example of my hyper-scheduled week](../../../public/articles/hyper-scheduling/hyper-scheduled-week.avif)
 
 You can put relaxation and leisure time on the calendar too, but I prefer to
 keep that part flexible, so that if I have the energy in the evening to work or
@@ -114,7 +114,7 @@ Here are the calendars I use:
   calendar for non-work non-critical meetings (like meetings with friends or
   live virtual conferences).
 
-![A listing of my calendars](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/89jt17ymgyzv1mgsynnm.jpg)
+![A listing of my calendars](../../../public/articles/hyper-scheduling/calendars-list.avif)
 
 ## Come up with an event naming scheme
 
@@ -158,7 +158,7 @@ The benefits of this:
   calendar. This is saving a lot of time - my events are automatically put into
   the correct calendar, get color-coded, and with notifications set up.
 
-![An example of events following my naming convention](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sw3raqvbqsk1yfo09upt.jpg)
+![An example of events following my naming convention](../../../public/articles/hyper-scheduling/naming-convention.avif)
 
 ### Use the dot, Luke
 
@@ -191,7 +191,7 @@ event as that is too much noise. Examples of where notifications make sense:
 It helps a lot to set a default notification for some calendars so that all
 events in the "Work Meet" calendar automatically get a 10min reminder.
 
-![The notifications for the "Critical" calendar](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r7kei9uhql2fkpyqip6j.jpg)
+![The notifications for the "Critical" calendar](../../../public/articles/hyper-scheduling/critical-notifications.avif)
 
 ## Schedule the wind-down routine
 
@@ -208,7 +208,7 @@ vary on your preferences, but I picked what works for me:
   depending on how tired I am) - this is the most helpful for switching my brain
   away from work.
 
-![My wind-down routine](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5e2esv7uzunwvjip3lik.jpg)
+![My wind-down routine](../../../public/articles/hyper-scheduling/wind-down-routine.avif)
 
 You might also have a dental routine be part of this, but in my case, I do it
 right after the last meal.
@@ -232,15 +232,15 @@ You can also define manual autocomplete rules. For example, you can say that all
 events starting with `run` should go into the Progress calendar, and all events
 starting with `prep` should go into the Critical calendar.
 
-![Example of autocomplete in action](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nkwnj88rx5fbkzhnypei.jpg)
+![Example of autocomplete in action](../../../public/articles/hyper-scheduling/autocomplete.avif)
 
 ## Analyze your time usage
 
 Hyper-scheduling your day means you get a lot of data about how you spend each
 day. You can aggregate this data to look at the time usage for a week, month, or
 even an entire year. This is immensely helpful when doing
-[monthly or end-of-year reflection](https://dev.to/maxpatiiuk/how-i-use-self-reflection-to-stay-on-track-daily-weekly-monthly-and-yearly-1n1f)
-to see where your time is going and whether that aligns with your goals.
+[monthly or end-of-year reflection](./self-reflection.md) to see where your time
+is going and whether that aligns with your goals.
 
 Unfortunately, Google Calendar, Apple Calendar or Microsoft Outlook does not
 provide much of anything built-in for this. As a solution, I added visualization
@@ -248,7 +248,7 @@ for analyzing your time usage in a
 [Calendar Plus](https://chrome.google.com/webstore/detail/calendar-plus/kgbbebdcmdgkbopcffmpgkgcmcoomhmh)
 Google Chrome extension.
 
-![I did 3 hours of exercise this week](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yjsma2pnrdaok3lzc4x.jpg)
+![I did 3 hours of exercise this week](../../../public/articles/hyper-scheduling/exercise-stats.avif)
 
 Some of the helpful tools in the extension:
 
@@ -263,7 +263,7 @@ Some of the helpful tools in the extension:
   - Then, a doughnut chart will further subdivide your time usage into these
     sub-calendars.
 
-![I spent 46hrs in meetings in July](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a6q39nt3lbfjr46tie12.jpg)
+![I spent 46hrs in meetings in July](../../../public/articles/hyper-scheduling/meeting-stats.avif)
 
 ## (optional personal story) How I got started with hyper-scheduling
 
@@ -292,7 +292,7 @@ productively.
 An example of a day that would not have been possible without a calendar: an
 exam, a class, and then 5 work meetings almost back to back:
 
-![Looking back at my calendar for 2021 (the year when people worked from home). I had two zoom classes and then 5 work meetings almost back to back. zoom fatigue is real](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/455byr7bgtqfjo70tens.png)
+![Looking back at my calendar for 2021 (the year when people worked from home). I had two zoom classes and then 5 work meetings almost back to back. zoom fatigue is real](../../../public/articles/hyper-scheduling/zoom-fatigue-2021.avif)
 
 From the moment I started hyper-scheduling, I never looked back. The pandemic
 year was one of the most productive years of my life.

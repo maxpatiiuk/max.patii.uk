@@ -25,12 +25,12 @@ List of most important changes
 
 ## Screenshots
 
-![User Preferences menu](../../../public/projects/images/accessibility-refactor/1.webp)
-![A beautiful modal dialog](../../../public/projects/images/interface-redesign/1.webp)
-![Accessible form in a non-modal dialog](../../../public/projects/images/accessibility-refactor/4.webp)
-![Updated Query Builder](../../../public/projects/images/query-builder/4.webp)
-![App Resources editor](../../../public/projects/images/interface-redesign/2.webp)
-![Improved attachments viewer](../../../public/projects/images/interface-redesign/3.webp)
+![User Preferences menu](../../../public/projects/accessibility-refactor/user-preferences-menu.webp)
+![A beautiful modal dialog](../../../public/projects/interface-redesign/beautiful-modal-dialog.webp)
+![Accessible form in a non-modal dialog](../../../public/projects/accessibility-refactor/accessible-form-nonmodal.webp)
+![Updated Query Builder](../../../public/projects/query-builder/updated-query-builder.webp)
+![App Resources editor](../../../public/projects/interface-redesign/app-resources-editor.webp)
+![Improved attachments viewer](../../../public/projects/interface-redesign/improved-attachments-viewer.webp)
 
 <mp-youtube video="hw_rM4e12UY" caption="Recording of a webinar on user preferences in Specify&nbsp;7">
 <span slot="description">Showcase of User Preferences in Specify&nbsp;7</span>

@@ -18,12 +18,12 @@ Main features:
 
 ## Screenshots
 
-![Column chart](../../../public/projects/images/calendar-plus/1.webp)
-![Time chart](../../../public/projects/images/calendar-plus/2.webp)
-![Pie chart](../../../public/projects/images/calendar-plus/3.webp)
-![Settings](../../../public/projects/images/calendar-plus/4.webp)
-![Expanded time chart](../../../public/projects/images/calendar-plus/5.webp)
-![Editing the layout](../../../public/projects/images/calendar-plus/6.webp)
+![Column chart](../../../public/projects/calendar-plus/column-chart.webp)
+![Time chart](../../../public/projects/calendar-plus/time-chart.webp)
+![Pie chart](../../../public/projects/calendar-plus/pie-chart.webp)
+![Settings](../../../public/projects/calendar-plus/settings.webp)
+![Expanded time chart](../../../public/projects/calendar-plus/expanded-time-chart.webp)
+![Editing the layout](../../../public/projects/calendar-plus/editing-layout.webp)
 
 ## Motivation
 

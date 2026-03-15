@@ -14,14 +14,14 @@ learning ArcGIS Maps SDK for JavaScript more fun by making a game using it.
 
 ## Screenshots
 
-![Panorama World](../../../public/projects/images/tetris/1.webp)
-![Scenery World](../../../public/projects/images/tetris/2.webp)
-![Panorama World](../../../public/projects/images/tetris/3.webp)
-![Scenery World](../../../public/projects/images/tetris/4.webp)
+![Panorama World](../../../public/projects/tetris/panorama-world.webp)
+![Scenery World](../../../public/projects/tetris/scenery-world.webp)
+![Panorama World](../../../public/projects/tetris/panorama-world-1.webp)
+![Scenery World](../../../public/projects/tetris/scenery-world-1.webp)
 
 By the way, can you beat my high score?
 
-![Grid World](../../../public/projects/images/tetris/5.webp)
+![Grid World](../../../public/projects/tetris/grid-world.webp)
 
 ## Technologies used
 

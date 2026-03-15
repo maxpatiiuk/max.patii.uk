@@ -14,11 +14,11 @@ Main features:
 
 ## Screenshots
 
-![Year over year reading rates](../../../public/projects/images/goodreads-stats/1.webp)
-![Reading durations](../../../public/projects/images/goodreads-stats/2.webp)
-![In-depth analytics](../../../public/projects/images/goodreads-stats/3.webp)
-![Search and sort the entire library](../../../public/projects/images/goodreads-stats/4.webp)
-![Export a shelf from Goodreads](../../../public/projects/images/goodreads-stats/5.webp)
+![Year over year reading rates](../../../public/projects/goodreads-stats/year-over-year.webp)
+![Reading durations](../../../public/projects/goodreads-stats/reading-durations.webp)
+![In-depth analytics](../../../public/projects/goodreads-stats/indepth-analytics.webp)
+![Search and sort the entire library](../../../public/projects/goodreads-stats/search-sort-entire.webp)
+![Export a shelf from Goodreads](../../../public/projects/goodreads-stats/export-shelf-goodreads.webp)
 
 ## Things learned
 

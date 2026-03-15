@@ -54,7 +54,7 @@ mouse could help, I was more than up for it. I went for
 [Logitech Lift](https://www.logitech.com/en-us/shop/p/lift-vertical-ergonomic-mouse.910-006469) -
 a small and quiet vertical mouse with easy-to-press buttons.
 
-![Logitech Lift looks like a droplet of water with a buttons rotates to the side of the droplet. It is a bit too small for my hands](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xx4ji60pkn7hhz672y31.jpg)
+![Logitech Lift looks like a droplet of water with a buttons rotates to the side of the droplet. It is a bit too small for my hands](../../../public/articles/7-less-common-computer-input-devices/logitech-lift.avif)
 
 It took a week to get used to it - I have been using a touchpad for a long time.
 
@@ -83,7 +83,7 @@ is the best available option.
 And to be honest, I could not resist how cool it looks. Reminds me of HAL 9000
 from 2001, except I am in control.
 
-![The trackball is good conversation starter](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dnulhxuzoaj1mfai04j8.jpg)
+![The trackball is good conversation starter](../../../public/articles/7-less-common-computer-input-devices/trackball.avif)
 
 It has ergonomic benefits over a vertical mouse:
 
@@ -135,7 +135,7 @@ pain was not disappearing, so I kept exploring other options.
 Gamepads are not just for gaming - with the help of software, you can use them
 to control the computer quite well.
 
-![While DualSense supports wireless, my controller battery has gone bad from disuse so I was plugged in most of the time](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s0mka96wf46zvbfp701x.jpg)
+![While DualSense supports wireless, my controller battery has gone bad from disuse so I was plugged in most of the time](../../../public/articles/7-less-common-computer-input-devices/dualsense.avif)
 
 I took my rarely used DualSense controller out of the closet and configured it
 to control my Mac with the help of a few programs:
@@ -168,7 +168,7 @@ well. Summary:
 
 My endgame configuration:
 
-![A picture of Controlly settings panel with all gamepad buttons assigned to most common computer actions and mouse clicks](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v55gb7t878ha2p5uzwzs.jpg)
+![A picture of Controlly settings panel with all gamepad buttons assigned to most common computer actions and mouse clicks](../../../public/articles/7-less-common-computer-input-devices/controlly-settings.avif)
 
 ---
 
@@ -196,7 +196,7 @@ limited in how many actions they could do, and more expensive than a gamepad.
 Then I realized that I could use my gamepad as a foot pedal! I just needed to
 put it on the floor and use it with my feet.
 
-![Gamepad on the floor works best when used with a foot rest so that you can adjust feet position better.](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/poq4qwz978f9rp2mb85f.jpg)
+![Gamepad on the floor works best when used with a foot rest so that you can adjust feet position better.](../../../public/articles/7-less-common-computer-input-devices/gamepad-floor.avif)
 
 Typing with feet is not easy. I quickly realized that the maximum movement range
 of even the largest toes is smaller than that of a pinky. This required my feet
@@ -234,7 +234,7 @@ anything.
 
 ### macOS Dictation
 
-![When activated, dictation shows a little microphone next to the input field](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t094atfftxh6fo61lxuu.jpg)
+![When activated, dictation shows a little microphone next to the input field](../../../public/articles/7-less-common-computer-input-devices/macos-dictation.avif)
 
 I saw this feature in settings before and decided to try it out. I would spare
 you the details of how it works as you can read that anywhere else online, but
@@ -261,7 +261,7 @@ here are my impressions of using it:
 
 ### Talon
 
-![Talon does not have much of a user interface, with most interactions happening from menu bar or Python scripts](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oy8gwxp9gfgjdsbtuze7.jpg)
+![Talon does not have much of a user interface, with most interactions happening from menu bar or Python scripts](../../../public/articles/7-less-common-computer-input-devices/talon.avif)
 
 Since macOS Dictation does not work for coding, I tried out Talon - a tool I
 heard again and again in discussions of RSI. My impressions:
@@ -284,7 +284,7 @@ heard again and again in discussions of RSI. My impressions:
 
 ### macOS Voice Control
 
-![Voice Control can be enabled from accessibility settings](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fb7bt9rrquqa1yii8pjm.jpg)
+![Voice Control can be enabled from accessibility settings](../../../public/articles/7-less-common-computer-input-devices/macos-voice-control.avif)
 
 Regular dictation lacks any kind of editing or mistake correction. Voice Control
 builds on top with powerful text editing, as well as commands for controlling
@@ -307,7 +307,7 @@ finding text - all can be accomplished with simple voice commands. Impressions:
 
 ### [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech)
 
-![VS Code Speech adds a voice input option for GitHub Copilot Chat](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8nupkcu5ec2xzjnfikbb.jpg)
+![VS Code Speech adds a voice input option for GitHub Copilot Chat](../../../public/articles/7-less-common-computer-input-devices/vs-code-speech.avif)
 
 This one has been hyped a lot. There are many amazing demos on YouTube of people
 saying very high-level commands like "write a Fibonacci function" or "invert
@@ -333,7 +333,7 @@ those.
 
 ### Serenade
 
-![Serenade displays an overlay with recognized text and possible alternatives](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k94qujipgop7qf6vbbgm.jpg)
+![Serenade displays an overlay with recognized text and possible alternatives](../../../public/articles/7-less-common-computer-input-devices/serenade.avif)
 
 I remember being in positive delight when I discovered this tool. I was having a
 hard time falling asleep from excitement - a tool with capabilities and
@@ -413,7 +413,7 @@ also had an iPad that I almost never used since I graduated from university.
 After being frustrated with how imprecise the gamepad was for mouse control, I
 tried out using the iPad as a touchpad for the laptop.
 
-![iPad is a weird thing to see under the table, but a surprisingly useful one.](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pxvhdh55nq60hkjhqd6h.jpg)
+![iPad is a weird thing to see under the table, but a surprisingly useful one.](../../../public/articles/7-less-common-computer-input-devices/ipad-floor.avif)
 
 There are many software options for this - I stuck with the first one I found:
 [Remote Mouse](https://www.remotemouse.net/). Summary:
@@ -469,7 +469,7 @@ or worse, costly surgery that might even produce results. In those terms, the
 decision was a no-brainer, and the keyboard cost was less than the cost of the
 time spent deciding to buy it.
 
-![At one point I was using the Glove80 keyboard and gamepad at the same time](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6gihjzxb7chm7foy4y5a.jpg)
+![At one point I was using the Glove80 keyboard and gamepad at the same time](../../../public/articles/7-less-common-computer-input-devices/glove80-gamepad.avif)
 
 My choice was
 [Glove80 with Cherry Blossom 30gf silent switches](https://www.moergo.com/collections/glove80-keyboards/products/glove80-ergonomic-keyboard-revision-2-with-silent-switches?variant=50146620965137)
@@ -477,7 +477,7 @@ for $425. Glove80's website looks ugly - somewhere between an old Google Blogger
 and a scam e-shop, but the reviews all said the same thing: this is not the most
 user-friendly keyboard, but it is the most ergonomic keyboard money can buy.
 
-![Unlike regular keyboards, many ergonomic keyboards are split or have curved key-wells](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zoibzo14c1qnynbjkttd.jpg)
+![Unlike regular keyboards, many ergonomic keyboards are split or have curved key-wells](../../../public/articles/7-less-common-computer-input-devices/split-keyboard.avif)
 
 Glove80 has amazing ergonomic features:
 
@@ -522,13 +522,13 @@ That was a month ago.
 
 Since then I realized that while the initial finger pain was physical, the most
 recent manifestation was psychological. Read
-[my journey with RSI](https://dev.to/maxpatiiuk/my-journey-with-rsi-4f9m) for an
-account of my experience and the solution.
+[my journey with RSI](./my-journey-with-rsi.md) for an account of my experience
+and the solution.
 
 Today I am able to type on the Glove80 keyboard for 12 hours a day, 7 days a
 week and the pain is less and less every day.
 
-![A standing desk and a laptop raiser are useful ergonomic compliments](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u8vqb26orsuao3drp1dh.jpg)
+![A standing desk and a laptop raiser are useful ergonomic compliments](../../../public/articles/7-less-common-computer-input-devices/standing-desk.avif)
 
 ## Footnote: the input methods of the future
 
