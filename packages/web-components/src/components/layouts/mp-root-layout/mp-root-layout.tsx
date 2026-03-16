@@ -87,16 +87,17 @@ export class MpRootLayout extends LitElement implements LayoutBase {
   <meta property="og:description" content="${description}">
   <meta property="og:type" content="${layoutData.date === undefined ? 'website' : 'article'}">
 ${layoutData.date !== undefined ? ssrHtml`  <meta property="article:published_time" content="${layoutData.date}">\n` : ''}\
-  <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" />
+  <meta name="generator" content="https://github.com/maxpatiiuk/max.patii.uk/tree/main/packages/static-site-forge" >
 ${layoutData.ogImage !== undefined ? ssrHtml`  <meta property="og:image" content="${layoutData.ogImage}">\n` : ''}\
 ${layoutData.ogImageAlt !== undefined ? ssrHtml`  <meta property="og:image:alt" content="${layoutData.ogImageAlt}">\n` : ''}\
+${layoutData.canonicalUrl !== undefined ? ssrHtml`  <meta property="og:url" content="${layoutData.canonicalUrl}">\n` : ''}\
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="${siteConfig.twitter}">
   <meta name="twitter:creator" content="${siteConfig.twitter}">
-  <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32"/>
-  <link rel="icon" href="/icon2.png" type="image/png" sizes="192x192"/>
-  <link rel="icon" href="/icon3.png" type="image/png" sizes="512x512"/>
-  <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180"/>
+  <link rel="icon" href="/icon1.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/icon2.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="/icon3.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/apple-icon.png" type="image/png" sizes="180x180">
   <link rel="manifest" href="/manifest.webmanifest">
 ${layoutData.canonicalUrl !== undefined ? ssrHtml`  <link rel="canonical" href="${layoutData.canonicalUrl}">\n` : ''}\
   ${
