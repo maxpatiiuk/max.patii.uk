@@ -3,7 +3,7 @@
 A library of layout and user interference components for
 [max.patii.uk](../portfolio/). Powered by Lit, and Vite.
 
-See [Portfolio project](https://max.patii.uk/projects/portfolio-forge) for more
+See [Portfolio project](https://max.patii.uk/projects/portfolio-2026) for more
 details.
 
 ## Component Categories
