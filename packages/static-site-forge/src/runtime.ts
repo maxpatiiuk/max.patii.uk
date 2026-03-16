@@ -25,7 +25,10 @@ export async function renderPage(
   const rootPage = await composeLayout(rootLayout, page, composedPage);
   const result = ssrRender(rootPage);
   const renderedHtml = collectResultSync(result);
-  const cleanedHtml = renderedHtml.replaceAll(reLitHtmlComment, '');
+  const cleanedHtml = renderedHtml
+    .replaceAll(reLitHtmlComment, '')
+    // Avoid w3 validation error
+    .replaceAll(deprecatedTemplate, supportedTemplate);
 
   // The root layout includes DOCTYPE, html, head, and body. Those cannot appear
   // inside a web component or template, so pull them out.
@@ -46,7 +49,9 @@ export async function renderPage(
   return joined;
 }
 
-const reLitHtmlComment = /<!--\/?lit-[^-]+-->/gu;
+const reLitHtmlComment = /<(?:\?|!--\/?lit-[^-]+--)>/gu;
+const deprecatedTemplate = `<template shadowroot="open" shadowrootmode="open">`;
+const supportedTemplate = `<template shadowrootmode="open">`;
 
 async function composeLayout(
   layoutModule: GetLayout<BasePageMetadata> | false,
