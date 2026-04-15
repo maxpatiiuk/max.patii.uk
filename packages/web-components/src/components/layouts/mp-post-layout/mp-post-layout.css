@@ -87,3 +87,8 @@ code {
   padding: 0.25rem;
   border-radius: 0.25rem;
 }
+
+/** Hide video speed controller. It loads late and causes layout shift. */
+vsc-controller {
+  display: none;
+}
