@@ -33,6 +33,14 @@ export const articlesCollection: Collection<PostPageMetadata> = {
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),
   pages: {
     index: indexPage,
+    'discrete-window-manager': {
+      ...base,
+      title: 'How to write a macOS window manager',
+      isFeatured: true,
+      date: '2026-04-15',
+      devToLink:
+        'https://dev.to/maxpatiiuk/how-to-write-a-macos-window-manager-1e47',
+    },
     'ai-code-2026': {
       ...base,
       title: 'AI-generated code lacks common sense',
