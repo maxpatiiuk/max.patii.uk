@@ -4,6 +4,7 @@
  */
 declare module '@maxpatiiuk/web-components/components/mp-post-layout' {
   export interface SeriesNames {
+    'The Chronicles of an Audiobook Addict': '';
     'The Workaholic Chronicles': '';
     'My Journey with RSI': '';
     'Amazon Internship': '';

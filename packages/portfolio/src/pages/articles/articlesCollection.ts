@@ -33,6 +33,37 @@ export const articlesCollection: Collection<PostPageMetadata> = {
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),
   pages: {
     index: indexPage,
+    /*'text-hoarder-workflow': {
+      ...base,
+      // TODO: cross link with text hoarder project
+      title: 'The Text Hoarder workflow: conquer your infobesity',
+      isFeatured: true,
+      date: '2026-10-18',
+      seriesName: 'The Chronicles of an Audiobook Addict',
+    },
+    // TODO: review past projects/articles for cross linking opportunities
+    'book-per-day': {
+      ...base,
+      title: 'How I read a book a day',
+      isFeatured: true,
+      date: '2026-09-18',
+      seriesName: 'The Chronicles of an Audiobook Addict',
+    },
+    '1000-books': {
+      ...base,
+      title: '1,000 books later: Here are my favorites',
+      isFeatured: true,
+      date: '2026-08-18',
+      seriesName: 'The Chronicles of an Audiobook Addict',
+    },*/
+    'chronicles-of-audiobook-addict': {
+      ...base,
+      title: 'Chronicles of an Audiobook Addict',
+      isFeatured: true,
+      date: '2026-07-18',
+      // TODO: uncomment
+      //seriesName: 'The Chronicles of an Audiobook Addict',
+    },
     'discrete-window-manager': {
       ...base,
       title: 'How to write a macOS window manager',
@@ -44,7 +75,7 @@ export const articlesCollection: Collection<PostPageMetadata> = {
     'ai-code-2026': {
       ...base,
       title: 'AI-generated code lacks common sense',
-      isFeatured: true,
+      isFeatured: false,
       date: '2026-01-25',
       devToLink:
         'https://dev.to/maxpatiiuk/ai-generated-code-lacks-common-sense-29bo',
