@@ -1,10 +1,10 @@
-import {
-  fullCollectionsPath,
-  fullPagesDirectory,
-  relativePublicDir,
-} from '../const.ts';
+import { fullCollectionsPath, fullPagesDirectory } from '../const.ts';
 import type { ForgeConfig, ResolvedPage } from '../types.ts';
 import { markdownToLitHtml } from './markdownToLitHtml.ts';
+import {
+  resolveMarkdownAnchorUrl,
+  resolveMarkdownImageUrl,
+} from './resolveMarkdownUrl.ts';
 
 /**
  * Transforms a Markdown file into a Lit-JS module.
@@ -17,9 +17,6 @@ export function markdownToJs(
   config: ForgeConfig,
 ): string {
   const relativeFilePath = filePath.slice(fullPagesDirectory.length);
-  const lastSlash = relativeFilePath.lastIndexOf('/');
-  const relativeDirectory =
-    lastSlash === -1 ? '' : relativeFilePath.slice(0, lastSlash);
 
   const collectionUrl =
     resolvedPage.collectionName === '' ? '' : `${resolvedPage.collectionName}/`;
@@ -45,46 +42,15 @@ export function markdownToJs(
   let ogImageAlt: string | undefined;
   const litHtml = markdownToLitHtml(bodyContent, {
     resolveImageUrl(url, alt) {
-      if (url.charCodeAt(0) !== charCodeDot) {
-        return url;
-      }
-      const pathStart = url.indexOf(relativePublicDir);
-      if (pathStart === -1) {
-        throw Error(
-          `Image URL "${url}" does not contain expected public directory segment "${relativePublicDir}".`,
-        );
-      }
-      const resolvedPath = url.slice(pathStart + relativePublicDir.length - 1);
-      if (ogImage === undefined) {
+      const resolvedPath = resolveMarkdownImageUrl(url);
+      if (url.startsWith('.') && ogImage === undefined) {
         ogImage = resolvedPath;
         ogImageAlt = alt;
       }
       return resolvedPath;
     },
     resolveAnchorUrl(url) {
-      if (url.charCodeAt(0) !== charCodeDot) {
-        return url;
-      }
-      let draftPath = relativeDirectory;
-      let startIndex = 0;
-      if (url.startsWith('./')) {
-        startIndex = './'.length;
-      } else {
-        while (url.startsWith('../', startIndex)) {
-          startIndex += '../'.length;
-          const lastSlash = draftPath.lastIndexOf('/');
-          if (lastSlash === -1) {
-            draftPath = '';
-          } else {
-            draftPath = draftPath.slice(0, lastSlash);
-          }
-        }
-      }
-      const trimmedUrl = url.endsWith('.md')
-        ? url.slice(startIndex, -'.md'.length)
-        : url.slice(startIndex);
-
-      return `/${draftPath === '' ? '' : `${draftPath}/`}${trimmedUrl}`;
+      return resolveMarkdownAnchorUrl(url, filePath);
     },
     onWebComponentTag(tagName) {
       const importPath = config.getWebComponentImportPath(tagName);
@@ -116,5 +82,3 @@ export async function render() {
 
   return module;
 }
-
-const charCodeDot = 46;

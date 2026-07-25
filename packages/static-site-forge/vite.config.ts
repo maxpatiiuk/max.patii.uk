@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => ({
     lib: {
       entry: {
         plugin: './src/plugin.ts',
+        devTo: './src/devTo.ts',
         litHmrPatch: './src/litHmrPatch.ts',
         cssLoader: './src/cssLoader.ts',
         runtime: './src/runtime.ts',
@@ -18,6 +19,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       external: [
         ...builtinModules.map((module) => `node:${module}`),
+        'prettier',
         'vite',
         /^lit([-/]|$)/u,
         /^@lit([-/]|$)/u,

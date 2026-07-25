@@ -37,7 +37,7 @@ It operates on a strict "don't break things you don't understand" principle -
 the window manager doesn't touch any apps it wasn't trained to handle (thinks
 like macOS tabs, dialogs, Music mini player).
 
-<video src="https://github.com/user-attachments/assets/d6aa0e2c-0e89-4e1e-b1e2-fb3b03337074" controls muted></video>
+<video src="https://github.com/user-attachments/assets/d6aa0e2c-0e89-4e1e-b1e2-fb3b03337074" controls muted type="video/mp4"></video>
 
 [See full details and source code](https://github.com/maxpatiiuk/discrete-window-manager/#readme) -
 feel free to fork and customize to your needs!

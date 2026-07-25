@@ -3,5 +3,5 @@
     "@maxpatiiuk/typescript-config/tsconfig.json",
     "@maxpatiiuk/typescript-config/with-strict-imports.json"
   ],
-  "include": ["src", "*.ts"]
+  "include": ["src", "scripts", "*.ts"]
 }

@@ -73,3 +73,16 @@ pnpm build
 # Preview the production build
 pnpm preview
 ```
+
+## Publishing
+
+The site automatically deploys to Cloudflare Pages on push to `main`.
+
+You can manually cross-post to dev.to. There are minor dev.to markdown syntax
+differences - the following CLI smoothes over them:
+
+```sh
+node --run dev-to -- src/pages/pathToCollection.ts article-slug
+# Example:
+node --run dev-to -- src/pages/articles/articlesCollection.ts chronicles-of-audiobook-addict | pbcopy
+```

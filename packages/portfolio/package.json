@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
+    "dev-to": "node scripts/devTo.ts",
     "start": "vite",
     "preview": "vite preview"
   },
