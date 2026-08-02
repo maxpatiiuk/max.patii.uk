@@ -48,21 +48,24 @@ export const articlesCollection: Collection<PostPageMetadata> = {
       isFeatured: true,
       date: '2026-09-18',
       seriesName: 'The Chronicles of an Audiobook Addict',
-    },
+    },*/
     '1000-books': {
       ...base,
       title: '1,000 books later: Here are my favorites',
       isFeatured: true,
-      date: '2026-08-18',
+      date: '2026-08-02',
       seriesName: 'The Chronicles of an Audiobook Addict',
-    },*/
+      devToLink:
+        'https://dev.to/maxpatiiuk/1000-books-later-here-are-my-favorites-36ab',
+    },
     'chronicles-of-audiobook-addict': {
       ...base,
       title: 'Chronicles of an Audiobook Addict',
       isFeatured: true,
       date: '2026-07-18',
-      // TODO: uncomment
-      //seriesName: 'The Chronicles of an Audiobook Addict',
+      seriesName: 'The Chronicles of an Audiobook Addict',
+      devToLink:
+        'https://dev.to/maxpatiiuk/chronicles-of-an-audiobook-addict-18jl',
     },
     'discrete-window-manager': {
       ...base,
