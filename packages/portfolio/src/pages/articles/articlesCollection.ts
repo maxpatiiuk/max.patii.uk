@@ -33,6 +33,7 @@ export const articlesCollection: Collection<PostPageMetadata> = {
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),
   pages: {
     index: indexPage,
+    // TODO: review past projects/articles for cross linking opportunities
     /*'text-hoarder-workflow': {
       ...base,
       // TODO: cross link with text hoarder project
@@ -40,15 +41,15 @@ export const articlesCollection: Collection<PostPageMetadata> = {
       isFeatured: true,
       date: '2026-10-18',
       seriesName: 'The Chronicles of an Audiobook Addict',
-    },
-    // TODO: review past projects/articles for cross linking opportunities
+    },*/
     'book-per-day': {
       ...base,
       title: 'How I read a book a day',
       isFeatured: true,
-      date: '2026-09-18',
+      date: '2026-09-30',
       seriesName: 'The Chronicles of an Audiobook Addict',
-    },*/
+      devToLink: 'https://dev.to/maxpatiiuk/how-i-read-a-book-a-day-2bfl',
+    },
     '1000-books': {
       ...base,
       title: '1,000 books later: Here are my favorites',
