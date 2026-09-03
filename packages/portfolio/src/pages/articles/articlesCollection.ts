@@ -46,7 +46,7 @@ export const articlesCollection: Collection<PostPageMetadata> = {
       ...base,
       title: 'How I read a book a day',
       isFeatured: true,
-      date: '2026-09-30',
+      date: '2026-08-30',
       seriesName: 'The Chronicles of an Audiobook Addict',
       devToLink: 'https://dev.to/maxpatiiuk/how-i-read-a-book-a-day-2bfl',
     },
