@@ -29,6 +29,14 @@ export const talksCollection: Collection<PostPageMetadata> = {
     await import('@maxpatiiuk/web-components/components/mp-post-layout'),
   pages: {
     index: indexPage,
+    '2026-the-bonding-box-podcast': {
+      ...base,
+      title: 'Scaling JavaScript, Monorepos & integrating AI',
+      date: '2026-09-22',
+      description: 'The Bonding Box Podcast',
+      externalUrl: 'https://www.youtube.com/watch?v=W7P5YUQxnJE',
+      isFeatured: true,
+    },
     '2026-dev-summit-a-look-under-the-hood': {
       ...base,
       title: 'ArcGIS Maps SDK for JavaScript: A Look Under the Hood',
@@ -131,21 +139,21 @@ export const talksCollection: Collection<PostPageMetadata> = {
     },
     '2021-speciforum-specify-7-workbench': {
       ...base,
-      title: 'Specify WorkBench demo',
+      title: 'Specify WorkBench show & tell',
       date: '2021-03-11',
       description: 'SpeciForum 2021',
       externalUrl: '/projects/workbench',
     },
     '2021-speciforum-specify-network': {
       ...base,
-      title: 'Specify Network demo',
+      title: 'Specify Network show & tell',
       date: '2021-03-11',
       description: 'SpeciForum 2021',
       externalUrl: '/projects/lifemapper',
     },
     '2021-speciforum-taxa-importer': {
       ...base,
-      title: 'Taxa Importer demo',
+      title: 'Taxa Importer show & tell',
       date: '2021-03-11',
       description: 'SpeciForum 2021',
       externalUrl: '/projects/taxa',

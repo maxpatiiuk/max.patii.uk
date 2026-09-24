@@ -1,7 +1,7 @@
 > This project was presented during SpeedGeeking session at Esri DevSummit 2024.
 >
 > - [Slides](https://maxpatiiuk.github.io/tetris-react)
-> - [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/202r/tetris-react)
+> - [Session Details](https://github.com/maxpatiiuk/esri-dev-summit-presentations/tree/main/2024/tetris-react)
 
 Tetris was one game I could always easily lose myself in. I decided to make
 learning ArcGIS Maps SDK for JavaScript more fun by making a game using it.
