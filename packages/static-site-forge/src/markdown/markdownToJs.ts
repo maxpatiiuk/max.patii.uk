@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { dirname, relative, resolve } from 'node:path';
 import { fullCollectionsPath, fullPagesDirectory } from '../const.ts';
 import type { ForgeConfig, ResolvedPage } from '../types.ts';
+import { resolveGitHubUrl, getRepositoryRoot } from '../utils/repository.ts';
 import { markdownToLitHtml } from './markdownToLitHtml.ts';
 import {
   resolveMarkdownAnchorUrl,
@@ -17,6 +20,7 @@ export function markdownToJs(
   config: ForgeConfig,
 ): string {
   const relativeFilePath = filePath.slice(fullPagesDirectory.length);
+  const repositoryRoot = getRepositoryRoot();
 
   const collectionUrl =
     resolvedPage.collectionName === '' ? '' : `${resolvedPage.collectionName}/`;
@@ -51,6 +55,46 @@ export function markdownToJs(
     },
     resolveAnchorUrl(url) {
       return resolveMarkdownAnchorUrl(url, filePath);
+    },
+    resolveEmbeddedFile(url) {
+      const [fileUrl, region] = url.split('#');
+      const absolutePath = resolve(dirname(filePath), fileUrl);
+      const repositoryPath = relative(repositoryRoot, absolutePath);
+      if (repositoryPath.startsWith('..') || repositoryPath === '') {
+        throw Error(`Embedded file is outside the repository: ${url}`);
+      }
+      let fileContent = readFileSync(absolutePath, 'utf8');
+      let githubFragment = '';
+      if (region !== undefined) {
+        const lines = fileContent.split('\n');
+        const lineRange = /^L([1-9]\d*)-([1-9]\d*)$/.exec(region);
+        if (lineRange !== null) {
+          const start = Number(lineRange[1]);
+          const end = Number(lineRange[2]);
+          if (start > end || end > lines.length) {
+            throw Error(`Line range "${region}" is outside ${url}`);
+          }
+          fileContent = lines.slice(start - 1, end).join('\n');
+          githubFragment = `#L${start}-L${end}`;
+        } else {
+          const start = lines.findIndex((line) =>
+            line.trimEnd().endsWith(`#region ${region}`),
+          );
+          const end = lines.findIndex(
+            (line, index) =>
+              index > start && line.trimEnd().endsWith('#endregion'),
+          );
+          if (start === -1 || end === -1) {
+            throw Error(`Region "${region}" not found in ${url}`);
+          }
+          fileContent = lines.slice(start + 1, end).join('\n');
+          githubFragment = `#L${start + 2}-L${end}`;
+        }
+      }
+      return {
+        content: fileContent,
+        href: `${resolveGitHubUrl()}/blob/main/${repositoryPath.split('\\').join('/')}${githubFragment}`,
+      };
     },
     onWebComponentTag(tagName) {
       const importPath = config.getWebComponentImportPath(tagName);

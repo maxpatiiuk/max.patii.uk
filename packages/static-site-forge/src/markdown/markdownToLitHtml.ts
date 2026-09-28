@@ -3,6 +3,10 @@ import { throwParseError } from './throwParseError.ts';
 export type MarkdownToLitHtmlOptions = {
   readonly resolveImageUrl: (url: string, alt: string) => string;
   readonly resolveAnchorUrl: (url: string) => string;
+  readonly resolveEmbeddedFile: (url: string) => {
+    content: string;
+    href: string;
+  };
   readonly onWebComponentTag: (tagName: string) => void;
   readonly isInline: boolean;
 };
@@ -179,7 +183,6 @@ export function markdownToLitHtml(
         continue;
       case codeOpenBracket:
         flushText(index);
-        maybeStartParagraph(index);
         const linkTextStart = index + 1;
         const isImageLink =
           markdown.charCodeAt(linkTextStart) === codeExclamation;
@@ -226,12 +229,18 @@ export function markdownToLitHtml(
         }
         const rawUrl = markdown.slice(urlStringStart, urlStringEnd);
 
-        const url = escapeAttribute(resolveAnchorUrl(rawUrl));
-        const renderedLinkText = markdownToLitHtml(linkText, {
-          ...options,
-          isInline: true,
-        });
-        ropes.push(`<a href="${url}">${renderedLinkText}</a>`);
+        if (linkText.startsWith('>')) {
+          flushParagraph();
+          ropes.push(renderEmbeddedFile(rawUrl, linkText.slice(1).trimStart()));
+        } else {
+          maybeStartParagraph(index);
+          const url = escapeAttribute(resolveAnchorUrl(rawUrl));
+          const renderedLinkText = markdownToLitHtml(linkText, {
+            ...options,
+            isInline: true,
+          });
+          ropes.push(`<a href="${url}">${renderedLinkText}</a>`);
+        }
         index = urlEnd;
         flushIndex = index + 1;
         continue;
@@ -299,6 +308,31 @@ export function markdownToLitHtml(
   closeLists(0);
 
   return ropes.join('');
+
+  function renderEmbeddedFile(url: string, label: string): string {
+    const file = options.resolveEmbeddedFile(url);
+    const content = file.content.replace(/[&<>\\`]|\$\{/g, (match) => {
+      switch (match) {
+        case '&':
+          return '&amp;';
+        case '<':
+          return '&lt;';
+        case '>':
+          return '&gt;';
+        case '\\':
+          return '\\\\';
+        case '`':
+          return '\\`';
+        default:
+          return '\\${';
+      }
+    });
+    const renderedLabel = markdownToLitHtml(label, {
+      ...options,
+      isInline: true,
+    });
+    return `<figure><pre><code>${content}</code></pre><figcaption><a href="${escapeAttribute(file.href)}">${renderedLabel}</a></figcaption></figure>`;
+  }
 
   function flushText(upToIndex: number): void {
     if (flushIndex < upToIndex) {
@@ -449,7 +483,7 @@ export function markdownToLitHtml(
    */
   function progressLists(index: number): number {
     let stackIndex = 0;
-    for (; index < length; ) {
+    for (; index < length;) {
       const code = markdown.charCodeAt(index);
       if (code === codeNewLine) {
         const blockquoteIndex = listsStack.indexOf(

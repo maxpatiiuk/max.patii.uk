@@ -1,4 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { fullPagesDirectory } from '../const.ts';
+import * as repository from '../utils/repository.ts';
+import { markdownToJs } from './markdownToJs.ts';
 import {
   markdownToLitHtml,
   type MarkdownToLitHtmlOptions,
@@ -11,6 +14,7 @@ function never(): never {
 const options: MarkdownToLitHtmlOptions = {
   resolveImageUrl: never,
   resolveAnchorUrl: never,
+  resolveEmbeddedFile: never,
   onWebComponentTag: never,
   isInline: false,
 };
@@ -246,6 +250,43 @@ describe(markdownToLitHtml, () => {
   });
 
   describe('links and images', () => {
+    it('embeds files from a link label', () => {
+      const embedOptions = {
+        ...options,
+        resolveEmbeddedFile: (url: string) => {
+          expect(url).toBe('sample.ts#test');
+          return {
+            content: '<div>& `${value} \\ path</div>',
+            href: 'https://github.com/example/blob/main/sample.ts',
+          };
+        },
+      };
+      const figure =
+        '<figure><pre><code>&lt;div&gt;&amp; \\`\\${value} \\\\ path&lt;/div&gt;</code></pre><figcaption><a href="https://github.com/example/blob/main/sample.ts">Example</a></figcaption></figure>';
+      expect(
+        markdownToLitHtml('[> Example](sample.ts#test)', embedOptions),
+      ).toBe(figure);
+    });
+    it('keeps image labels starting with > as images', () => {
+      expect(
+        markdownToLitHtml('![> Example](src)', {
+          ...options,
+          resolveImageUrl,
+        }),
+      ).toBe(
+        '<figure><div><img src="src" alt="" loading="lazy"><figcaption>> Example</figcaption></div></figure>',
+      );
+    });
+    it('keeps surrounding paragraphs outside embedded figures', () => {
+      expect(
+        markdownToLitHtml('Before\n\n[> Code](file)\n\nAfter', {
+          ...options,
+          resolveEmbeddedFile: () => ({ content: 'code', href: 'url' }),
+        }),
+      ).toBe(
+        '<p>Before</p><figure><pre><code>code</code></pre><figcaption><a href="url">Code</a></figcaption></figure><p>After</p>',
+      );
+    });
     it('multiple links in one line', () => {
       expect(
         markdownToLitHtml('[a](u1) and [b](u2)', {
@@ -366,6 +407,102 @@ describe(markdownToLitHtml, () => {
       ).toBe(
         '<p><a href="url"><figure><div><img src="src" alt="" loading="lazy"><figcaption>alt</figcaption></div></figure></a></p>',
       );
+    });
+  });
+
+  describe('embedded file resolution', () => {
+    const filePath = `${fullPagesDirectory}articles/embed.md`;
+    const page = {
+      collectionName: 'articles',
+      slug: 'embed',
+      metadata: { title: 'Embed' },
+    };
+    const config = { getWebComponentImportPath: never };
+    const remoteUrl = 'https://github.com/another-owner/another-repo';
+
+    beforeEach(() => {
+      vi.spyOn(repository, 'resolveGitHubUrl').mockReturnValue(remoteUrl);
+    });
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('reads the whole file and links to its GitHub view', () => {
+      const module = markdownToJs(
+        '[> Example](../../../../samples/README.md)',
+        filePath,
+        page,
+        false,
+        config,
+      );
+      expect(module).toContain(
+        '<pre><code>Samples for the [technical articles]',
+      );
+      expect(module).toContain(
+        `<figcaption><a href="${remoteUrl}/blob/main/packages/samples/README.md">Example</a></figcaption>`,
+      );
+    });
+
+    it('reads only a named region', () => {
+      const module = markdownToJs(
+        '[> Example 2](../../../../samples/test/test.ts#test)',
+        filePath,
+        page,
+        false,
+        config,
+      );
+      expect(module).toContain("<pre><code>console.log('Test');</code></pre>");
+      expect(module).not.toContain('#region');
+      expect(module).toContain(
+        `${remoteUrl}/blob/main/packages/samples/test/test.ts#L2-L2`,
+      );
+    });
+
+    it('reads an inclusive line range and links to those lines', () => {
+      const module = markdownToJs(
+        '[> Example](../../../../samples/README.md#L1-3)',
+        filePath,
+        page,
+        false,
+        config,
+      );
+      expect(module).toContain(
+        '<pre><code>Samples for the [technical articles]',
+      );
+      expect(module).toContain(
+        'Each sample is an independent NPM package. Design decisions:</code></pre>',
+      );
+      expect(module).not.toContain('Not PNPM');
+      expect(module).toContain(
+        `${remoteUrl}/blob/main/packages/samples/README.md#L1-L3`,
+      );
+    });
+
+    it('rejects reversed or out-of-bounds line ranges', () => {
+      for (const range of ['L2-1', 'L1-999']) {
+        expect(() =>
+          markdownToJs(
+            `[> Example](../../../../samples/README.md#${range})`,
+            filePath,
+            page,
+            false,
+            config,
+          ),
+        ).toThrow(`Line range "${range}" is outside`);
+      }
+    });
+
+    it('rejects missing regions', () => {
+      expect(() =>
+        markdownToJs(
+          '[> Example](../../../../samples/test/test.ts#missing)',
+          filePath,
+          page,
+          false,
+          config,
+        ),
+      ).toThrow('Region "missing" not found');
     });
   });
 
