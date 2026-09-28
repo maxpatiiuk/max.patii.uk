@@ -1,7 +1,7 @@
 {
   "extends": [
-    "@maxpatiiuk/typescript-config/tsconfig.json",
-    "@maxpatiiuk/typescript-config/with-strict-imports.json"
+    "@maxpatiiuk/monorepo-config/typescript/tsconfig.json",
+    "@maxpatiiuk/monorepo-config/typescript/with-strict-imports.json"
   ],
   "include": ["src", "scripts", "*.ts"]
 }

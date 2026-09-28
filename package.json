@@ -1,5 +1,5 @@
 {
-  "name": "max.patii.uk",
+  "name": "@maxpatiiuk/workspace",
   "version": "1.0.0",
   "description": "Source code for max.patii.uk",
   "private": true,
@@ -7,17 +7,10 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
-    "prepare": "husky"
+    "prepare": "node packages/monorepo-config/gitHooks/install.ts",
+    "lint": "pnpm --silent -C packages/monorepo-config run lint"
   },
-  "devDependencies": {
-    "@arcgis/eslint-config": "5.1.0-next.29",
-    "eslint": "^9.39.2",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.3.1",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
-  },
-  "packageManager": "pnpm@10.29.3",
+  "packageManager": "pnpm@12.6.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxpatiiuk/max.patii.uk"

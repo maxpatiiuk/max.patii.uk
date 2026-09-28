@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "./typescript/tsconfig.node.json",
+    "./typescript/with-strict-imports.json"
+  ],
+  "include": ["."]
+}

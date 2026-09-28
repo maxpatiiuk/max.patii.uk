@@ -1,5 +1,5 @@
 {
-  "extends": "@maxpatiiuk/typescript-config/tsconfig.json",
+  "extends": "@maxpatiiuk/monorepo-config/typescript/tsconfig.json",
   "include": ["src", "*.ts", "*.tsx"],
   "compilerOptions": {
     "jsx": "preserve"

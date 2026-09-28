@@ -3,6 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "lib": ["ESNext"],
+    "types": ["node"],
     "sourceMap": true
   }
 }

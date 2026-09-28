@@ -21,26 +21,26 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "prettier": "^3.8.1"
+    "prettier": "catalog:"
   },
   "devDependencies": {
-    "@arcgis/api-extractor": "5.1.0-next.29",
-    "@lit-labs/ssr": "^4.0.0",
-    "@maxpatiiuk/typescript-config": "workspace:*",
-    "@types/node": "^24.1.0",
-    "lit": "3.3.2",
-    "tslib": "2.8.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vitest": "4.0.18"
+    "@arcgis/api-extractor": "catalog:",
+    "@lit-labs/ssr": "catalog:",
+    "@maxpatiiuk/monorepo-config": "workspace:",
+    "@types/node": "catalog:",
+    "lit": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   },
   "peerDependencies": {
-    "@lit-labs/ssr": "^4.0.0",
-    "lit": "3.3.2",
-    "tslib": "2.8.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vitest": "4.0.18"
+    "@lit-labs/ssr": "catalog:",
+    "lit": "catalog:",
+    "tslib": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   },
   "peerDependenciesMeta": {
     "vitest": {
