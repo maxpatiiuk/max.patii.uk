@@ -258,14 +258,32 @@ describe(markdownToLitHtml, () => {
           return {
             content: '<div>& `${value} \\ path</div>',
             href: 'https://github.com/example/blob/main/sample.ts',
+            language: 'text',
           };
         },
       };
       const figure =
-        '<figure><pre><code>&lt;div&gt;&amp; \\`\\${value} \\\\ path&lt;/div&gt;</code></pre><figcaption><a href="https://github.com/example/blob/main/sample.ts">Example</a></figcaption></figure>';
+        '<figure><pre><code class="language-text">&lt;div&gt;&amp; \\`\\${value} \\\\ path&lt;/div&gt;</code></pre><figcaption><a href="https://github.com/example/blob/main/sample.ts">Example</a></figcaption></figure>';
       expect(
         markdownToLitHtml('[> Example](sample.ts#test)', embedOptions),
       ).toBe(figure);
+    });
+    it('highlights TypeScript with compact tags and preserves line breaks', () => {
+      const output = markdownToLitHtml('[> Code](sample.ts)', {
+        ...options,
+        resolveEmbeddedFile: () => ({
+          content:
+            'const answer = 42;\n// note\ngreet("hi");\nconst template = `<b>${user}</b>`;',
+          href: 'url',
+          language: 'ts',
+        }),
+      });
+      expect(output).toContain(
+        '<code class="language-ts"><k->const</k-> answer = <n->42</n->;\n<c->// note</c->\n<f->greet</f->(',
+      );
+      expect(output).toContain('<s->"hi"</s->');
+      expect(output).toContain('\\${user}');
+      expect(output).toContain('&lt;b&gt;');
     });
     it('keeps image labels starting with > as images', () => {
       expect(
@@ -281,10 +299,14 @@ describe(markdownToLitHtml, () => {
       expect(
         markdownToLitHtml('Before\n\n[> Code](file)\n\nAfter', {
           ...options,
-          resolveEmbeddedFile: () => ({ content: 'code', href: 'url' }),
+          resolveEmbeddedFile: () => ({
+            content: 'code',
+            href: 'url',
+            language: 'text',
+          }),
         }),
       ).toBe(
-        '<p>Before</p><figure><pre><code>code</code></pre><figcaption><a href="url">Code</a></figcaption></figure><p>After</p>',
+        '<p>Before</p><figure><pre><code class="language-text">code</code></pre><figcaption><a href="url">Code</a></figcaption></figure><p>After</p>',
       );
     });
     it('multiple links in one line', () => {
@@ -437,7 +459,7 @@ describe(markdownToLitHtml, () => {
         config,
       );
       expect(module).toContain(
-        '<pre><code>Samples for the [technical articles]',
+        '<pre><code class="language-md">Samples for the [technical articles]',
       );
       expect(module).toContain(
         `<figcaption><a href="${remoteUrl}/blob/main/packages/samples/README.md">Example</a></figcaption>`,
@@ -452,7 +474,8 @@ describe(markdownToLitHtml, () => {
         false,
         config,
       );
-      expect(module).toContain("<pre><code>console.log('Test');</code></pre>");
+      expect(module).toContain('<pre><code class="language-ts">');
+      expect(module).toContain("<s->'Test'</s->");
       expect(module).not.toContain('#region');
       expect(module).toContain(
         `${remoteUrl}/blob/main/packages/samples/test/test.ts#L2-L2`,
@@ -468,7 +491,7 @@ describe(markdownToLitHtml, () => {
         config,
       );
       expect(module).toContain(
-        '<pre><code>Samples for the [technical articles]',
+        '<pre><code class="language-md">Samples for the [technical articles]',
       );
       expect(module).toContain(
         'Each sample is an independent NPM package. Design decisions:</code></pre>',

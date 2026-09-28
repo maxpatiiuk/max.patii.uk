@@ -1,3 +1,4 @@
+import { escapeAttribute, renderCode } from './renderCode.ts';
 import { throwParseError } from './throwParseError.ts';
 
 export type MarkdownToLitHtmlOptions = {
@@ -6,6 +7,7 @@ export type MarkdownToLitHtmlOptions = {
   readonly resolveEmbeddedFile: (url: string) => {
     content: string;
     href: string;
+    language: string;
   };
   readonly onWebComponentTag: (tagName: string) => void;
   readonly isInline: boolean;
@@ -311,27 +313,11 @@ export function markdownToLitHtml(
 
   function renderEmbeddedFile(url: string, label: string): string {
     const file = options.resolveEmbeddedFile(url);
-    const content = file.content.replace(/[&<>\\`]|\$\{/g, (match) => {
-      switch (match) {
-        case '&':
-          return '&amp;';
-        case '<':
-          return '&lt;';
-        case '>':
-          return '&gt;';
-        case '\\':
-          return '\\\\';
-        case '`':
-          return '\\`';
-        default:
-          return '\\${';
-      }
-    });
     const renderedLabel = markdownToLitHtml(label, {
       ...options,
       isInline: true,
     });
-    return `<figure><pre><code>${content}</code></pre><figcaption><a href="${escapeAttribute(file.href)}">${renderedLabel}</a></figcaption></figure>`;
+    return `<figure>${renderCode(file.content, file.language)}<figcaption><a href="${escapeAttribute(file.href)}">${renderedLabel}</a></figcaption></figure>`;
   }
 
   function flushText(upToIndex: number): void {
@@ -716,7 +702,3 @@ const blockListedCustomElementNames = new Set([
   'font-face-name',
   'missing-glyph',
 ]);
-
-function escapeAttribute(value: string): string {
-  return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
-}

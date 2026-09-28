@@ -21,7 +21,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "sugar-high": "catalog:"
   },
   "devDependencies": {
     "@arcgis/api-extractor": "catalog:",

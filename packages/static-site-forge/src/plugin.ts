@@ -34,11 +34,12 @@ export function useStaticSiteForge(
   const orchestratorPlugin: Plugin = {
     name: '@maxpatiiuk/static-site-forge:orchestrator',
     sharedDuringBuild: true,
-    config(_config, env): UserConfig {
+    config(config, env): UserConfig {
       if (env.command === 'serve') {
         isServe = true;
       }
       return {
+        server: { open: config.server?.open ?? true },
         /**
          * What SSR hydrate frameworks do:
          *

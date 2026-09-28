@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { dirname, relative, resolve } from 'node:path';
+import { dirname, extname, relative, resolve } from 'node:path';
 import { fullCollectionsPath, fullPagesDirectory } from '../const.ts';
 import type { ForgeConfig, ResolvedPage } from '../types.ts';
 import { resolveGitHubUrl, getRepositoryRoot } from '../utils/repository.ts';
@@ -94,6 +94,7 @@ export function markdownToJs(
       return {
         content: fileContent,
         href: `${resolveGitHubUrl()}/blob/main/${repositoryPath.split('\\').join('/')}${githubFragment}`,
+        language: extname(fileUrl).slice(1).toLowerCase() || 'text',
       };
     },
     onWebComponentTag(tagName) {
