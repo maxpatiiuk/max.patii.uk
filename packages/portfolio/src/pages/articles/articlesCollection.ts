@@ -42,6 +42,13 @@ export const articlesCollection: Collection<PostPageMetadata> = {
       date: '2026-10-18',
       seriesName: 'The Chronicles of an Audiobook Addict',
     },*/
+    'a-week-in-alaska': {
+      ...base,
+      title: 'A Week in Alaska (external post)',
+      isFeatured: false,
+      date: '2026-09-26',
+      externalUrl: 'https://www.grantfitzsimmons.com/blog/anchorage-2026/',
+    },
     'book-per-day': {
       ...base,
       title: 'How I read a book a day',
