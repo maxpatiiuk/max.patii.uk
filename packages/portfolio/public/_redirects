@@ -1,5 +1,7 @@
 /shop.html /projects/shop/ 301
 /projects/tetris https://bit.ly/-tetris-react 301
+# Short link for linkedin sharing with Project Fugu team
+/articles/18 /articles/google-chrome-is-my-window-manager/ 301
 /en/* / 301
 /news/* / 301
 /contacts/* / 301
