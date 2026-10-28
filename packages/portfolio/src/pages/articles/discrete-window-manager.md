@@ -163,3 +163,15 @@ Some of the tools I already wrote:
 - [Bulk browser tab opener and analyzer](https://github.com/maxpatiiuk/code-share/tree/main/javascript/projects/tab-opener).
   For catching up on a
   [2 thousand tab backlog](https://x.com/maxpatiiuk/status/2027786118436135355).
+
+## Update: 6 months later
+
+This was a good attempt, but macOS is not made for custom window management.
+Hooking into accessibility APIs is fragile and slow.
+
+The experience is not stable - I never realized that the Chrome URL bar
+autocomplete is actually a separate window overlaid on top. There are many such
+edge cases in common apps.
+
+Instead of turning macOS into what it doesn't want to me, I
+[turned Google Chrome into my window manager](./google-chrome-is-my-window-manager.md).

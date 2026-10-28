@@ -42,6 +42,14 @@ export const articlesCollection: Collection<PostPageMetadata> = {
       date: '2026-10-18',
       seriesName: 'The Chronicles of an Audiobook Addict',
     },*/
+    'google-chrome-is-my-window-manager': {
+      ...base,
+      title: 'Google Chrome is my window manager',
+      isFeatured: true,
+      date: '2026-10-27',
+      devToLink:
+        'https://dev.to/maxpatiiuk/google-chrome-is-my-window-manager-5920',
+    },
     'a-week-in-alaska': {
       ...base,
       title: 'A Week in Alaska (external post)',
