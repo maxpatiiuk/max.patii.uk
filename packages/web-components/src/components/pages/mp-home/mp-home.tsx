@@ -21,6 +21,8 @@ interface HomePageMetadata extends RootLayoutMetadata {
   readonly articles: PageListPageMetadata['pages'];
   /** @public */
   readonly talks: PageListPageMetadata['pages'];
+  /** @public */
+  readonly professionalDevelopment: PageListPageMetadata['pages'];
 }
 
 declare global {
@@ -46,8 +48,15 @@ export class MpHome extends LitElement implements LayoutBase {
   //#region Rendering
 
   override render(): TemplateResult {
-    const { projects, links, authorTitle, siteConfig, articles, talks } =
-      this.layoutData!;
+    const {
+      projects,
+      links,
+      authorTitle,
+      siteConfig,
+      articles,
+      talks,
+      professionalDevelopment,
+    } = this.layoutData!;
     const projectEntries = Object.entries(projects);
     const articlesEntries = Object.entries(articles);
     const talksEntries = Object.entries(talks);
@@ -79,9 +88,14 @@ export class MpHome extends LitElement implements LayoutBase {
               )}
               prefix="projects"
             />
-            <a href="/projects/">
-              {chevronRightSvg} See all {projectEntries.length - 1} projects
-            </a>
+            {projectEntries.some(
+              ([_, project]) =>
+                project.kind !== 'index' && project.isFeatured !== true,
+            ) && (
+              <a href="/projects/">
+                {chevronRightSvg} See all {projectEntries.length - 1} projects
+              </a>
+            )}
           </section>
           <section>
             <h2>Talks</h2>
@@ -91,9 +105,13 @@ export class MpHome extends LitElement implements LayoutBase {
               )}
               prefix="talks"
             />
-            <a href="/talks/">
-              {chevronRightSvg} See all {talksEntries.length - 1} talks
-            </a>
+            {talksEntries.some(
+              ([_, talk]) => talk.kind !== 'index' && talk.isFeatured !== true,
+            ) && (
+              <a href="/talks/">
+                {chevronRightSvg} See all {talksEntries.length - 1} talks
+              </a>
+            )}
           </section>
           <section>
             <h2>Articles</h2>
@@ -105,9 +123,21 @@ export class MpHome extends LitElement implements LayoutBase {
               )}
               prefix="articles"
             />
-            <a href="/articles/">
-              {chevronRightSvg} See all {articlesEntries.length - 1} articles
-            </a>
+            {articlesEntries.some(
+              ([_, article]) =>
+                article.kind !== 'index' && article.isFeatured !== true,
+            ) && (
+              <a href="/articles/">
+                {chevronRightSvg} See all {articlesEntries.length - 1} articles
+              </a>
+            )}
+          </section>
+          <section>
+            <h2>Professional Development</h2>
+            <PageList
+              pages={professionalDevelopment}
+              prefix="professional-development"
+            />
           </section>
         </main>
       </>

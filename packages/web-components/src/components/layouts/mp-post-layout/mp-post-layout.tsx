@@ -11,6 +11,7 @@ import {
   returnToArticles,
   returnToProjects,
   returnToTalks,
+  returnToProfessionalDevelopment,
 } from '../../molecules/header';
 import { Time } from '../../atoms/time';
 import { resolveSeries, Series } from './series';
@@ -31,7 +32,14 @@ export interface PostPageMetadata extends RootLayoutMetadata {
   /** @public */
   readonly devToLink?: string;
   /** @public */
-  readonly kind: 'article' | 'index' | 'project' | 'talk';
+  readonly kind:
+    | 'article'
+    | 'index'
+    | 'project'
+    | 'talk'
+    | 'professional-development';
+  /** @public */
+  readonly endDate?: string;
   /** @public */
   readonly externalUrl?: string;
 }
@@ -75,6 +83,7 @@ export class MpPostLayout extends LitElement implements LayoutBase {
       seriesName,
       seriesSource,
       date,
+      endDate,
       devToLink,
       kind,
     } = this.layoutData!;
@@ -110,8 +119,10 @@ export class MpPostLayout extends LitElement implements LayoutBase {
                       ? `Published on`
                       : kind === 'talk'
                         ? `Presented on`
-                        : `Developed in`}{' '}
-                    <Time date={date} />
+                        : kind === 'professional-development'
+                          ? `Attended on`
+                          : `Developed in`}{' '}
+                    <Time date={date} endDate={endDate} />
                   </>
                 ) : undefined}
               </p>
@@ -122,7 +133,9 @@ export class MpPostLayout extends LitElement implements LayoutBase {
             ? returnToArticles
             : kind === 'talk'
               ? returnToTalks
-              : returnToProjects}
+              : kind === 'professional-development'
+                ? returnToProfessionalDevelopment
+                : returnToProjects}
           {githubLink}
         </Header>
         {seriesJsx}

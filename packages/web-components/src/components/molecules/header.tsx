@@ -37,3 +37,9 @@ export const returnToArticles = (
 export const returnToTalks = (
   <a href="/talks">{chevronLeftSvg} Return to all talks</a>
 );
+
+export const returnToProfessionalDevelopment = (
+  <a href="/professional-development">
+    {chevronLeftSvg} Return to professional development
+  </a>
+);

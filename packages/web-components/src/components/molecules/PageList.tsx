@@ -18,7 +18,9 @@ export function PageList({
         </a>
         {metadata.description !== undefined || metadata.date !== undefined ? (
           <p>
-            {metadata.date !== undefined && <Time date={metadata.date} />}
+            {metadata.date !== undefined && (
+              <Time date={metadata.date} endDate={metadata.endDate} />
+            )}
             {metadata.date !== undefined && metadata.description !== undefined
               ? ' · '
               : ''}

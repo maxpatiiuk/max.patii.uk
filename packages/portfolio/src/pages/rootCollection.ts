@@ -8,6 +8,7 @@ import { projectsCollection } from './projects/projectsCollection.ts';
 import { articlesCollection } from './articles/articlesCollection.ts';
 import type { HomePageMetadata } from '@maxpatiiuk/web-components/components/mp-home';
 import { talksCollection } from './talks/talksCollection.ts';
+import { professionalDevelopmentCollection } from './professional-development/professionalDevelopmentCollection.ts';
 
 const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   title: 'Max Patiiuk',
@@ -33,6 +34,7 @@ const indexPage: TypedLayoutMetadata<HomePageMetadata> = {
   projects: projectsCollection.pages,
   articles: articlesCollection.pages,
   talks: talksCollection.pages,
+  professionalDevelopment: professionalDevelopmentCollection.pages,
   children: 'slot',
 };
 
